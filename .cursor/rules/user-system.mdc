@@ -1,0 +1,332 @@
+# User System & Credits Management Rules
+
+## User Authentication Components
+
+### UserDropdown Component
+[components/UserDropdown.tsx](mdc:components/UserDropdown.tsx) is the main user interface component that handles:
+- User authentication state display
+- Credits balance showing 
+- User avatar and profile info
+- Sign in/out functionality
+- Credits low-balance warnings
+- Subscription status display with Crown icon for members
+
+**Key Features:**
+- Displays user avatar from Google OAuth
+- Shows available credits in real-time
+- Dropdown menu with user info and logout
+- Automatic sign-in via Google OAuth
+- Different pricing links based on subscription status:
+  - **Members**: "Purchase Credits" (only see credit packages)
+  - **Non-members**: "Get Subscription" (only see subscription plans)
+- Crown icon for subscription members
+
+### Global User State Management
+[lib/hooks/useUser.ts](mdc:lib/hooks/useUser.ts) provides:
+- Global user authentication state
+- 5-minute caching to prevent repeated API calls
+- User state callbacks for component updates
+- Optimized loading states
+- **useSubscription hook** for subscription management
+- **useCredits hook** for credits management
+
+**Implementation Pattern:**
+```typescript
+const { user, loading } = useUser()
+const { subscription, isMember, hasActiveSubscription, loading: subLoading } = useSubscription()
+const credits = useCredits()
+```
+
+## Subscription System Architecture
+
+### useSubscription Hook
+Provides subscription state management with:
+- **5-minute caching** to prevent repeated API calls
+- **Global state management** with user-based cache keys
+- **Optimistic loading states** 
+- **Automatic cache invalidation** on payment success
+
+**Key Properties:**
+```typescript
+interface UserSubscription {
+  subscription: SubscriptionData | null
+  isMember: boolean              // Has active subscription
+  hasActiveSubscription: boolean // Status === 'active'
+  loading: boolean
+  error: string | null
+}
+```
+
+**Cache Strategy:**
+```typescript
+// Cache key includes user ID to prevent cross-user pollution
+const cacheKey = `subscription_${user?.id}`
+const cachedData = localStorage.getItem(cacheKey)
+
+// Only use cache if it exists, is not expired, and is not empty
+if (cachedData && !isExpired && cachedData !== 'null') {
+  return JSON.parse(cachedData)
+}
+```
+
+### Subscription-Based UI Logic
+**Pricing Page Logic:**
+- **Non-members**: Only show subscription plans, hide credit packages
+- **Members**: Only show credit packages, hide subscription plans
+
+**UserDropdown Logic:**
+```typescript
+// Different pricing links based on membership status
+{isMember ? (
+  <a href="/pricing">Purchase Credits</a>
+) : (
+  credits && credits.available_credits <= 10 && (
+    <a href="/pricing">Get Subscription</a>
+  )
+)}
+```
+
+## Credits System Architecture
+
+### API Endpoints
+- **GET /api/credits/balance**: Get current user credits
+- **POST /api/credits/consume**: Consume credits for operations
+- **GET /api/subscriptions/current**: Get user subscription status
+- **POST /api/subscriptions/create**: Create subscription
+- **GET /api/subscriptions/plans**: Get available plans
+- **POST /api/payments/create**: Create payment intent
+- **POST /api/payments/verify**: Verify payment completion
+
+### Database Schema
+**user_credits table fields:**
+- `user_id`: Reference to user
+- `total_credits`: Total earned credits
+- `used_credits`: Credits already consumed
+- `subscription_credits`: Credits from subscription
+- `purchased_credits`: Credits from one-time purchases
+- `last_reset_at`: When credits were last reset
+
+**subscriptions table fields:**
+- `id`: Subscription ID
+- `user_id`: Reference to user
+- `stripe_subscription_id`: Stripe subscription ID
+- `status`: active/inactive/cancelled
+- `plan_id`: Reference to subscription plan
+- `current_period_start`: Period start date
+- `current_period_end`: Period end date
+
+**Key Pattern:**
+```sql
+available_credits = total_credits - used_credits
+```
+
+### Auto-provisioning
+When users sign in, the system automatically:
+1. Creates user profile in `user_profiles`
+2. Creates credits record in `user_credits` 
+3. Initializes with 0 credits
+4. Handles PGRST116 error for missing records
+
+## UI/UX Patterns & Fixes
+
+### Dropdown Menu Structure
+Using Radix UI primitives for consistent behavior:
+- **DropdownMenuTrigger**: User avatar + chevron
+- **DropdownMenuContent**: User info + credits + actions
+- **DropdownMenuItem**: Individual menu items
+- **DropdownMenuSeparator**: Visual separation
+
+**Black Box Fix:**
+Fixed the dropdown menu black box issue by updating [components/ui/dropdown-menu.tsx](mdc:components/ui/dropdown-menu.tsx):
+```typescript
+// Changed from CSS variables to fixed colors
+className={cn(
+  "z-50 min-w-[8rem] overflow-hidden rounded-md border bg-white p-1 text-gray-900 shadow-md ...",
+  className
+)}
+```
+
+### Loading States & Performance
+- **Unified Loading Strategy**: Don't show content until all necessary data is loaded
+- **Cached State Display**: Show cached user data immediately while loading fresh data
+- **Optimistic Updates**: Use cached data for immediate UI updates
+- **Loading Hierarchy**: 
+  1. Show cached user data immediately
+  2. Show loading spinner only when no cached data exists
+  3. Update UI when fresh data arrives
+
+```typescript
+// Optimized loading pattern
+const cachedUser = getCachedUser()
+const displayUser = user || cachedUser
+const shouldShowLoading = loading && !displayUser
+```
+
+### Error Handling
+- Graceful fallbacks for missing data
+- User-friendly error messages
+- Automatic retry for failed operations
+- Cache invalidation on errors
+
+## Performance Optimization
+
+### API Performance
+- **Removed all debug code** from production APIs
+- **Added caching strategies** for subscription data
+- **Timeout controls** (10 seconds) for API calls
+- **Parallel processing** with Promise.all
+- **Stripe preloading** for faster payment processing
+
+### Frontend Performance
+- **5-minute caching** for user and subscription data
+- **Lazy loading** for heavy components
+- **Optimistic updates** for better UX
+- **Minimal re-renders** with proper dependency arrays
+
+### Database Performance
+- **Proper indexing** on user_id and subscription_id
+- **RLS policies** optimized for performance
+- **Batch operations** where possible
+
+## Component Integration
+
+### Navbar Integration
+The UserDropdown replaces the old GoogleAuth component:
+- Consistent placement in navigation
+- Responsive design for mobile/desktop
+- Proper z-index for dropdown layering
+- Crown icon for subscription members
+
+### Success Page Integration
+[app/success/page.tsx](mdc:app/success/page.tsx) handles:
+- Payment success confirmation
+- **Automatic cache clearing** to reflect new subscription status
+- Redirect to appropriate page based on user status
+
+### Pricing Page Integration
+[app/pricing/page.tsx](mdc:app/pricing/page.tsx) implements:
+- **Conditional rendering** based on subscription status
+- **Loading states** for better UX
+- **Stripe integration** for payments
+- **Error handling** for failed payments
+
+## Development Guidelines
+
+### State Management
+- Use global useUser hook for authentication
+- Use useSubscription hook for subscription management
+- Cache user state to prevent loading flicker
+- Handle loading states gracefully
+- **Always clear cache** after successful payments
+
+### Performance Best Practices
+- **Minimize API calls** with intelligent caching
+- **Use parallel requests** where possible
+- **Implement proper timeout controls**
+- **Remove debug code** from production
+- **Optimize database queries**
+
+### Cache Management
+```typescript
+// Cache invalidation pattern
+const clearAllCaches = () => {
+  clearUserCache()
+  clearSubscriptionCache()
+  clearCreditsCache()
+}
+
+// Call after successful payments
+useEffect(() => {
+  if (paymentSuccess) {
+    clearAllCaches()
+  }
+}, [paymentSuccess])
+```
+
+### Security
+- Never expose sensitive user data
+- Validate all user inputs
+- Use server-side validation for credits operations
+- Implement proper RLS policies
+
+## Common Issues & Solutions
+
+1. **Subscription status not updating after payment**
+   - Clear all caches after successful payment
+   - Ensure webhook endpoints are properly configured
+   - Check RLS policies allow user access
+
+2. **Loading flicker on page navigation**
+   - Use cached data for immediate display
+   - Implement proper loading states
+   - 5-minute TTL prevents stale data
+
+3. **Black box on dropdown close**
+   - Fixed by using explicit bg-white instead of CSS variables
+   - Ensure proper Portal rendering
+
+4. **API performance issues**
+   - Remove all debug console.logs
+   - Add proper caching strategies
+   - Implement timeout controls
+
+5. **Cross-user cache pollution**
+   - Use user-specific cache keys
+   - Clear cache on user change
+   - Validate cache data before use
+
+## Testing Considerations
+
+### Unit Tests
+- Mock useUser and useSubscription hooks
+- Test loading and error states
+- Verify subscription logic
+- Test cache invalidation
+
+### Integration Tests
+- Test full authentication flow
+- Verify subscription creation
+- Test payment webhook handling
+- Validate cache behavior
+
+### E2E Tests
+- Sign in/out flow
+- Subscription purchase flow
+- Credit package purchase
+- UI state changes based on subscription
+
+## Monitoring & Debugging
+
+### Performance Monitoring
+- Monitor API response times
+- Track cache hit rates
+- Monitor subscription webhook success rates
+- Track payment success rates
+
+### Common Debug Patterns
+```typescript
+// Debug subscription state
+console.log('Subscription Debug:', {
+  isMember,
+  hasActiveSubscription,
+  subscription,
+  loading
+})
+
+// Debug cache state
+console.log('Cache Debug:', {
+  cacheKey,
+  cachedData: localStorage.getItem(cacheKey),
+  isExpired: Date.now() - timestamp > 5 * 60 * 1000
+})
+```
+
+### Production Cleanup
+- **Remove all debug code** before deployment
+- **Disable debug panels** in production
+- **Remove test buttons** and development tools
+- **Clean up console.log statements**
+
+- Sign in/out flow
+- Credits purchase flow
+- Image generation with credits

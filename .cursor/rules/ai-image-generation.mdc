@@ -1,0 +1,200 @@
+---
+description: # AI Image Generation Rules
+alwaysApply: false
+---
+# AI Image Generation Rules
+
+## Azure OpenAI GPT-image-1 Integration
+- **Model**: Always use "gpt-image-1" for both generation and editing
+- **Endpoint Pattern**: `${endpoint}/openai/deployments/${model}/images/generations`
+- **Authentication**: Use `api-key` header with Azure OpenAI API key
+- **Content Type**: `application/json` for generation, `multipart/form-data` for editing
+
+## Supported Parameters
+```typescript
+// ✅ Generation parameters
+{
+  model: "gpt-image-1",
+  prompt: string, // 1-4000 characters
+  size: "1024x1024" | "1024x1536" | "1536x1024", 
+  quality: "low" | "medium" | "high",
+  n: number, // 1-10 images
+  output_format: "png" | "jpeg", // NO WebP support
+  user?: string // Optional user identifier
+}
+
+// ✅ Edit parameters  
+{
+  model: "gpt-image-1",
+  image: File, // Original image to edit
+  prompt: string, // Edit instructions
+  size: "1024x1024" | "1024x1536" | "1536x1024",
+  quality: "low" | "medium" | "high", 
+  n: number, // 1-10 images
+  output_format: "png" | "jpeg" // NO WebP support for editing
+}
+```
+
+## API Routes Structure
+- **Generation**: [app/api/generate-image/route.ts](mdc:app/api/generate-image/route.ts)
+- **Editing**: [app/api/edit-image/route.ts](mdc:app/api/edit-image/route.ts)
+
+## Response Handling
+```typescript
+// ✅ Response structure
+{
+  success: true,
+  images: string[], // Array of Base64 data URLs
+  count: number,
+  // Backward compatibility
+  image: string,
+  imageUrl: string
+}
+
+// ✅ Error handling
+if (!response.ok) {
+  const errorData = await response.json()
+  throw new Error(errorData.error || 'API request failed')
+}
+```
+
+## Components Architecture
+- **Generator**: [components/ImageGenerator.tsx](mdc:components/ImageGenerator.tsx)
+- **Editor**: [components/ImageEditor.tsx](mdc:components/ImageEditor.tsx)
+- **Results**: [components/ImageResults.tsx](mdc:components/ImageResults.tsx)
+
+## UI/UX Patterns
+- **Tab Navigation**: Separate "Generate" and "Edit" modes
+- **Settings Layout**: Two-row grid for parameter controls
+- **Loading States**: Disable buttons, show spinners during processing
+- **Database Integration**: Async save to Supabase, don't block UI
+
+## Database Integration
+- **Storage**: Use Supabase Storage for image files, not Base64 in database
+- **Async Saving**: Save images in background after generation
+- **Error Handling**: Continue showing images even if save fails
+
+## File Format Restrictions
+- **Generation**: Supports PNG and JPEG output only
+- **Edit**: **NO WebP support** - Only PNG and JPEG
+- **Upload**: Accept PNG, JPEG, WebP files for editing input
+- **Storage**: Convert Base64 to files before uploading to Supabase Storage
+
+## Performance Optimization
+- **Async Operations**: Don't block UI for database operations
+- **Image Storage**: Use Supabase Storage URLs instead of Base64
+- **Error Recovery**: Graceful degradation when storage fails
+- **Batch Processing**: Handle multiple image requests efficiently
+
+## Content Safety
+- Follow Azure OpenAI content policy
+- Implement prompt filtering for inappropriate content
+- Handle policy violation errors gracefully
+- Provide clear guidelines to users about acceptable content
+
+## Testing Patterns
+- Test with various image sizes and formats
+- Validate parameter combinations
+- Test error handling with invalid inputs
+- Verify mobile responsiveness with image grids
+
+- Test error handling with invalid inputs
+- Verify mobile responsiveness with image grids
+# AI Image Generation Rules
+
+## Azure OpenAI GPT-image-1 Integration
+- **Model**: Always use "gpt-image-1" for both generation and editing
+- **Endpoint Pattern**: `${endpoint}/openai/deployments/${model}/images/generations`
+- **Authentication**: Use `api-key` header with Azure OpenAI API key
+- **Content Type**: `application/json` for generation, `multipart/form-data` for editing
+
+## Supported Parameters
+```typescript
+// ✅ Generation parameters
+{
+  model: "gpt-image-1",
+  prompt: string, // 1-4000 characters
+  size: "1024x1024" | "1024x1536" | "1536x1024", 
+  quality: "low" | "medium" | "high",
+  n: number, // 1-10 images
+  output_format: "png" | "jpeg", // NO WebP support
+  user?: string // Optional user identifier
+}
+
+// ✅ Edit parameters  
+{
+  model: "gpt-image-1",
+  image: File, // Original image to edit
+  prompt: string, // Edit instructions
+  size: "1024x1024" | "1024x1536" | "1536x1024",
+  quality: "low" | "medium" | "high", 
+  n: number, // 1-10 images
+  output_format: "png" | "jpeg" // NO WebP support for editing
+}
+```
+
+## API Routes Structure
+- **Generation**: [app/api/generate-image/route.ts](mdc:app/api/generate-image/route.ts)
+- **Editing**: [app/api/edit-image/route.ts](mdc:app/api/edit-image/route.ts)
+
+## Response Handling
+```typescript
+// ✅ Response structure
+{
+  success: true,
+  images: string[], // Array of Base64 data URLs
+  count: number,
+  // Backward compatibility
+  image: string,
+  imageUrl: string
+}
+
+// ✅ Error handling
+if (!response.ok) {
+  const errorData = await response.json()
+  throw new Error(errorData.error || 'API request failed')
+}
+```
+
+## Components Architecture
+- **Generator**: [components/ImageGenerator.tsx](mdc:components/ImageGenerator.tsx)
+- **Editor**: [components/ImageEditor.tsx](mdc:components/ImageEditor.tsx)
+- **Results**: [components/ImageResults.tsx](mdc:components/ImageResults.tsx)
+
+## UI/UX Patterns
+- **Tab Navigation**: Separate "Generate" and "Edit" modes
+- **Settings Layout**: Two-row grid for parameter controls
+- **Loading States**: Disable buttons, show spinners during processing
+- **Database Integration**: Async save to Supabase, don't block UI
+
+## Database Integration
+- **Storage**: Use Supabase Storage for image files, not Base64 in database
+- **Async Saving**: Save images in background after generation
+- **Error Handling**: Continue showing images even if save fails
+
+## File Format Restrictions
+- **Generation**: Supports PNG and JPEG output only
+- **Edit**: **NO WebP support** - Only PNG and JPEG
+- **Upload**: Accept PNG, JPEG, WebP files for editing input
+- **Storage**: Convert Base64 to files before uploading to Supabase Storage
+
+## Performance Optimization
+- **Async Operations**: Don't block UI for database operations
+- **Image Storage**: Use Supabase Storage URLs instead of Base64
+- **Error Recovery**: Graceful degradation when storage fails
+- **Batch Processing**: Handle multiple image requests efficiently
+
+## Content Safety
+- Follow Azure OpenAI content policy
+- Implement prompt filtering for inappropriate content
+- Handle policy violation errors gracefully
+- Provide clear guidelines to users about acceptable content
+
+## Testing Patterns
+- Test with various image sizes and formats
+- Validate parameter combinations
+- Test error handling with invalid inputs
+- Verify mobile responsiveness with image grids
+
+- Test error handling with invalid inputs
+- Verify mobile responsiveness with image grids

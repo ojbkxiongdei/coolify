@@ -1,0 +1,324 @@
+---
+description: SEO Optimization Rules
+alwaysApply: false
+---
+# SEO Optimization Rules
+
+## 2025 SEO Best Practices Applied
+Based on latest SEO trends focusing on user intent, page experience, and function-first design.
+
+## Page Structure Priority
+1. **Function First**: Main AI tools on first screen (immediate value)
+2. **SEO Content Second**: Features, About, FAQ moved to bottom
+3. **No Hero Bloat**: Eliminate lengthy marketing copy from top fold
+4. **Direct Action**: Users can immediately start generating/editing images
+
+## User Intent Optimization
+- **Match Search Intent**: "AI image generator" should lead to actual generator tool
+- **Minimize Bounce Rate**: Provide immediate functionality, not just information
+- **Increase Dwell Time**: Engaging tools that users actually use
+- **User Signals**: Focus on metrics that indicate user satisfaction
+
+## Content Strategy
+```tsx
+// ✅ SEO content placement (bottom of page)
+<main>
+  {/* Main Function - First Screen */}
+  <section className="function-first">
+    <ImageGenerator />
+    <ImageEditor />
+  </section>
+  
+  {/* SEO Content - Bottom sections */}
+  <SEOContent />
+</main>
+```
+
+## Meta Information Implementation
+```tsx
+// ✅ Structured data for WebApplication
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "DreamfinityX",
+  "description": "AI-powered image generation and editing platform",
+  "url": "https://dreamfinityx.com",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0"
+  }
+}
+</script>
+```
+
+## Page Performance (Core Web Vitals)
+- **Fast Loading**: Simplified design improves LCP
+- **Reduced Layout Shift**: Consistent, compact components
+- **Mobile Optimization**: Responsive design with touch-friendly elements
+- **Clean Code**: Minimal dependencies, optimized images
+
+## Content Guidelines
+- **Keyword Natural Integration**: "AI image generation", "image editing"
+- **Technical Terms**: "GPT-image-1", "Azure OpenAI", "text-to-image"
+- **User-Focused Language**: How-to guides, practical benefits
+- **Original Content**: Unique insights, not AI-generated fluff
+
+## SEO Content Sections
+1. **Features Section**: List key capabilities
+2. **About Section**: Technology and value proposition
+3. **FAQ Section**: Common questions and answers
+4. **Technical Section**: AI model and capabilities
+
+## E-E-A-T (Experience, Expertise, Authority, Trust)
+- **Experience**: Show actual product functionality first
+- **Expertise**: Reference Azure OpenAI and GPT-image-1 technology
+- **Authority**: Professional design and reliable functionality
+- **Trust**: Clear error handling, consistent user experience
+
+## Mobile-First Indexing
+- All components must be mobile-responsive
+- Touch-friendly button sizes (minimum 44px)
+- Readable text without zooming
+- Fast mobile performance
+
+## Content Freshness
+- Keep FAQ and features up to date
+- Maintain current technology references
+- Regular content audits for accuracy
+
+## Internal Linking Strategy
+- Link between related features
+- Clear navigation structure
+- Breadcrumbs for complex pages
+- Contextual links in content
+
+## HTML Structure Best Practices
+```tsx
+// ✅ Semantic HTML structure
+<main>
+  <section>
+    <h1>Main Page Title</h1>
+    <div>Function-first content</div>
+  </section>
+  
+  <section>
+    <h2>Features</h2>
+    <div>Feature descriptions</div>
+  </section>
+  
+  <section>
+    <h2>About</h2>
+    <div>About content</div>
+  </section>
+  
+  <section>
+    <h2>FAQ</h2>
+    <div>Question and answers</div>
+  </section>
+</main>
+```
+
+## Title and Description Optimization
+- **Page Title**: "DreamfinityX - AI Image Generator & Editor"
+- **Meta Description**: Focus on functionality and immediate value
+- **H1 Tag**: Clear, descriptive main heading
+- **H2 Tags**: Descriptive section headings
+
+## Image SEO
+- **Alt Text**: Descriptive alt attributes for all images
+- **File Names**: Descriptive names for uploaded images
+- **Next.js Image**: Use optimized Image component
+- **Responsive Images**: Proper sizing and formats
+
+## Performance Optimizations
+- **Lazy Loading**: Load SEO content after main function
+- **Code Splitting**: Separate SEO components
+- **Optimized Images**: WebP format where supported
+- **Minimal JavaScript**: Only necessary client-side code
+
+## Avoid SEO Anti-Patterns
+❌ Keyword stuffing in content
+❌ Hidden text or links
+❌ Slow loading hero sections
+❌ Non-functional design elements
+❌ Duplicate content
+❌ Poor mobile experience
+
+## Best Practices Checklist
+✅ Function-first, value-immediate design
+✅ Mobile-responsive layout
+✅ Fast loading times
+✅ Semantic HTML structure
+✅ Proper heading hierarchy
+✅ Descriptive meta tags
+✅ Structured data markup
+✅ Optimized images
+✅ Clear navigation
+✅ Accessible design
+
+❌ Non-functional design elements
+❌ Duplicate content
+✅ Function-first, value-immediate design
+# SEO Optimization Rules
+
+## 2024 SEO Best Practices Applied
+Based on latest SEO trends focusing on user intent, page experience, and function-first design.
+
+## Page Structure Priority
+1. **Function First**: Main AI tools on first screen (immediate value)
+2. **SEO Content Second**: Features, About, FAQ moved to bottom
+3. **No Hero Bloat**: Eliminate lengthy marketing copy from top fold
+4. **Direct Action**: Users can immediately start generating/editing images
+
+## User Intent Optimization
+- **Match Search Intent**: "AI image generator" should lead to actual generator tool
+- **Minimize Bounce Rate**: Provide immediate functionality, not just information
+- **Increase Dwell Time**: Engaging tools that users actually use
+- **User Signals**: Focus on metrics that indicate user satisfaction
+
+## Content Strategy
+```tsx
+// ✅ SEO content placement (bottom of page)
+<main>
+  {/* Main Function - First Screen */}
+  <section className="function-first">
+    <ImageGenerator />
+    <ImageEditor />
+  </section>
+  
+  {/* SEO Content - Bottom sections */}
+  <SEOContent />
+</main>
+```
+
+## Meta Information Implementation
+```tsx
+// ✅ Structured data for WebApplication
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "DreamfinityX",
+  "description": "AI-powered image generation and editing platform",
+  "url": "https://dreamfinityx.com",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0"
+  }
+}
+</script>
+```
+
+## Page Performance (Core Web Vitals)
+- **Fast Loading**: Simplified design improves LCP
+- **Reduced Layout Shift**: Consistent, compact components
+- **Mobile Optimization**: Responsive design with touch-friendly elements
+- **Clean Code**: Minimal dependencies, optimized images
+
+## Content Guidelines
+- **Keyword Natural Integration**: "AI image generation", "image editing"
+- **Technical Terms**: "GPT-image-1", "Azure OpenAI", "text-to-image"
+- **User-Focused Language**: How-to guides, practical benefits
+- **Original Content**: Unique insights, not AI-generated fluff
+
+## SEO Content Sections
+1. **Features Section**: List key capabilities
+2. **About Section**: Technology and value proposition
+3. **FAQ Section**: Common questions and answers
+4. **Technical Section**: AI model and capabilities
+
+## E-E-A-T (Experience, Expertise, Authority, Trust)
+- **Experience**: Show actual product functionality first
+- **Expertise**: Reference Azure OpenAI and GPT-image-1 technology
+- **Authority**: Professional design and reliable functionality
+- **Trust**: Clear error handling, consistent user experience
+
+## Mobile-First Indexing
+- All components must be mobile-responsive
+- Touch-friendly button sizes (minimum 44px)
+- Readable text without zooming
+- Fast mobile performance
+
+## Content Freshness
+- Keep FAQ and features up to date
+- Maintain current technology references
+- Regular content audits for accuracy
+
+## Internal Linking Strategy
+- Link between related features
+- Clear navigation structure
+- Breadcrumbs for complex pages
+- Contextual links in content
+
+## HTML Structure Best Practices
+```tsx
+// ✅ Semantic HTML structure
+<main>
+  <section>
+    <h1>Main Page Title</h1>
+    <div>Function-first content</div>
+  </section>
+  
+  <section>
+    <h2>Features</h2>
+    <div>Feature descriptions</div>
+  </section>
+  
+  <section>
+    <h2>About</h2>
+    <div>About content</div>
+  </section>
+  
+  <section>
+    <h2>FAQ</h2>
+    <div>Question and answers</div>
+  </section>
+</main>
+```
+
+## Title and Description Optimization
+- **Page Title**: "DreamfinityX - AI Image Generator & Editor"
+- **Meta Description**: Focus on functionality and immediate value
+- **H1 Tag**: Clear, descriptive main heading
+- **H2 Tags**: Descriptive section headings
+
+## Image SEO
+- **Alt Text**: Descriptive alt attributes for all images
+- **File Names**: Descriptive names for uploaded images
+- **Next.js Image**: Use optimized Image component
+- **Responsive Images**: Proper sizing and formats
+
+## Performance Optimizations
+- **Lazy Loading**: Load SEO content after main function
+- **Code Splitting**: Separate SEO components
+- **Optimized Images**: WebP format where supported
+- **Minimal JavaScript**: Only necessary client-side code
+
+## Avoid SEO Anti-Patterns
+❌ Keyword stuffing in content
+❌ Hidden text or links
+❌ Slow loading hero sections
+❌ Non-functional design elements
+❌ Duplicate content
+❌ Poor mobile experience
+
+## Best Practices Checklist
+✅ Function-first, value-immediate design
+✅ Mobile-responsive layout
+✅ Fast loading times
+✅ Semantic HTML structure
+✅ Proper heading hierarchy
+✅ Descriptive meta tags
+✅ Structured data markup
+✅ Optimized images
+✅ Clear navigation
+✅ Accessible design
+
+❌ Non-functional design elements
+❌ Duplicate content
+✅ Function-first, value-immediate design

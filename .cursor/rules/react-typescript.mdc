@@ -1,0 +1,384 @@
+---
+description: # React & TypeScript Development Rules
+alwaysApply: false
+---
+# React & TypeScript Development Rules
+
+## Component Structure
+- Use functional components with hooks (no class components)
+- Start with `'use client'` directive for client-side components
+- Import React with `import React, { useState } from 'react'`
+- Use TypeScript interfaces for props and state types
+
+## State Management Patterns
+```tsx
+// ✅ Correct pattern used in main component
+const [isGenerating, setIsGenerating] = useState(false)
+const [generatedImages, setGeneratedImages] = useState<string[]>([])
+const [editImage, setEditImage] = useState<File | null>(null)
+```
+
+## Event Handlers
+- Use descriptive async function names: `handleGenerateImage`, `handleEditImage`
+- Always include error handling with try-catch blocks
+- Show loading states during async operations
+- Use `React.ChangeEvent<HTMLInputElement>` for input handlers
+
+## Form Handling
+```tsx
+// ✅ Form validation pattern
+if (!prompt.trim()) {
+  alert('Please enter an image description')
+  return
+}
+```
+
+## File Upload Handling
+```tsx
+// ✅ File handling pattern
+const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const file = e.target.files?.[0]
+  if (file) {
+    setEditImage(file)
+  }
+}
+```
+
+## API Integration
+- Use fetch with proper error handling
+- Include loading states with disabled buttons
+- Handle both success and error responses
+- Use FormData for file uploads
+
+## TypeScript Rules
+- Always type state variables explicitly when not primitive
+- Use optional chaining (`?.`) for potentially undefined values
+- Type event handlers with React event types
+- Use `string[]` for arrays of image URLs
+
+## Component Props Interfaces
+```tsx
+// ✅ Proper interface definition
+interface ImageGeneratorProps {
+  onImagesGenerated: (images: string[]) => void
+}
+
+interface ImageEditorProps {
+  onImagesEdited: (images: string[]) => void
+}
+```
+
+## Async Operations Best Practices
+```tsx
+// ✅ Non-blocking async operations
+const saveToDatabase = async () => {
+  if (user && images.length > 0) {
+    // Async save, don't block UI
+    Promise.all(
+      images.map(async (imageUrl: string) => {
+        try {
+          await database.saveImageGeneration({
+            prompt,
+            imageUrl,
+            settings,
+            generationType: 'text-to-image'
+          })
+        } catch (error) {
+          console.error('Failed to save image:', error)
+          // Don't block user experience
+        }
+      })
+    ).then(() => {
+      console.log('Images saved successfully')
+    }).catch((error) => {
+      console.error('Some images failed to save:', error)
+    })
+  }
+}
+```
+
+## Error Handling Patterns
+```tsx
+// ✅ User-friendly error handling
+try {
+  const response = await fetch('/api/generate-image', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ prompt, size, quality })
+  })
+
+  const data = await response.json()
+  
+  if (data.success) {
+    onImagesGenerated(data.images)
+  } else {
+    alert(data.error || 'Image generation failed')
+  }
+} catch (error) {
+  console.error('Network error:', error)
+  alert('Network error, please try again')
+} finally {
+  setIsGenerating(false)
+}
+```
+
+## Component Optimization
+- Use `useCallback` for event handlers passed to child components
+- Use `useMemo` for expensive calculations
+- Avoid creating objects/arrays in render
+- Use keys properly in lists
+
+## Supabase Integration
+```tsx
+// ✅ User hook pattern
+const { user, loading } = useUser()
+
+// ✅ Database operations
+const database = {
+  async saveImageGeneration(data: GenerationData) {
+    const supabase = createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+    
+    if (!user) throw new Error('User not authenticated')
+    
+    return await supabase
+      .from('image_generations')
+      .insert({ ...data, user_id: user.id })
+  }
+}
+```
+
+## Image Component Usage
+```tsx
+// ✅ Always use Next.js Image component
+import Image from 'next/image'
+
+// For fixed size images
+<Image
+  src={imageUrl}
+  alt="Generated image"
+  width={512}
+  height={512}
+  className="rounded-lg"
+/>
+
+// For responsive containers
+<div className="aspect-square relative">
+  <Image
+    src={imageUrl}
+    alt="Generated image"
+    fill
+    className="object-cover rounded-lg"
+  />
+</div>
+```
+
+## Common Anti-Patterns to Avoid
+❌ Using `<img>` instead of `<Image>`
+❌ Blocking UI for database operations
+❌ Not typing event handlers properly
+❌ Missing error boundaries
+❌ Inline object/array creation in JSX
+❌ Missing keys in mapped components
+❌ Not handling loading states
+
+## Best Practices
+✅ Type all props and state
+✅ Use proper error handling
+✅ Non-blocking async operations
+✅ Responsive design patterns
+✅ Accessible components
+✅ Performance optimizations
+
+- Type event handlers with React event types
+- Use `string[]` for arrays of images URLs
+# React & TypeScript Development Rules
+
+## Component Structure
+- Use functional components with hooks (no class components)
+- Start with `'use client'` directive for client-side components
+- Import React with `import React, { useState } from 'react'`
+- Use TypeScript interfaces for props and state types
+
+## State Management Patterns
+```tsx
+// ✅ Correct pattern used in main component
+const [isGenerating, setIsGenerating] = useState(false)
+const [generatedImages, setGeneratedImages] = useState<string[]>([])
+const [editImage, setEditImage] = useState<File | null>(null)
+```
+
+## Event Handlers
+- Use descriptive async function names: `handleGenerateImage`, `handleEditImage`
+- Always include error handling with try-catch blocks
+- Show loading states during async operations
+- Use `React.ChangeEvent<HTMLInputElement>` for input handlers
+
+## Form Handling
+```tsx
+// ✅ Form validation pattern
+if (!prompt.trim()) {
+  alert('Please enter an image description')
+  return
+}
+```
+
+## File Upload Handling
+```tsx
+// ✅ File handling pattern
+const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const file = e.target.files?.[0]
+  if (file) {
+    setEditImage(file)
+  }
+}
+```
+
+## API Integration
+- Use fetch with proper error handling
+- Include loading states with disabled buttons
+- Handle both success and error responses
+- Use FormData for file uploads
+
+## TypeScript Rules
+- Always type state variables explicitly when not primitive
+- Use optional chaining (`?.`) for potentially undefined values
+- Type event handlers with React event types
+- Use `string[]` for arrays of image URLs
+
+## Component Props Interfaces
+```tsx
+// ✅ Proper interface definition
+interface ImageGeneratorProps {
+  onImagesGenerated: (images: string[]) => void
+}
+
+interface ImageEditorProps {
+  onImagesEdited: (images: string[]) => void
+}
+```
+
+## Async Operations Best Practices
+```tsx
+// ✅ Non-blocking async operations
+const saveToDatabase = async () => {
+  if (user && images.length > 0) {
+    // Async save, don't block UI
+    Promise.all(
+      images.map(async (imageUrl: string) => {
+        try {
+          await database.saveImageGeneration({
+            prompt,
+            imageUrl,
+            settings,
+            generationType: 'text-to-image'
+          })
+        } catch (error) {
+          console.error('Failed to save image:', error)
+          // Don't block user experience
+        }
+      })
+    ).then(() => {
+      console.log('Images saved successfully')
+    }).catch((error) => {
+      console.error('Some images failed to save:', error)
+    })
+  }
+}
+```
+
+## Error Handling Patterns
+```tsx
+// ✅ User-friendly error handling
+try {
+  const response = await fetch('/api/generate-image', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ prompt, size, quality })
+  })
+
+  const data = await response.json()
+  
+  if (data.success) {
+    onImagesGenerated(data.images)
+  } else {
+    alert(data.error || 'Image generation failed')
+  }
+} catch (error) {
+  console.error('Network error:', error)
+  alert('Network error, please try again')
+} finally {
+  setIsGenerating(false)
+}
+```
+
+## Component Optimization
+- Use `useCallback` for event handlers passed to child components
+- Use `useMemo` for expensive calculations
+- Avoid creating objects/arrays in render
+- Use keys properly in lists
+
+## Supabase Integration
+```tsx
+// ✅ User hook pattern
+const { user, loading } = useUser()
+
+// ✅ Database operations
+const database = {
+  async saveImageGeneration(data: GenerationData) {
+    const supabase = createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+    
+    if (!user) throw new Error('User not authenticated')
+    
+    return await supabase
+      .from('image_generations')
+      .insert({ ...data, user_id: user.id })
+  }
+}
+```
+
+## Image Component Usage
+```tsx
+// ✅ Always use Next.js Image component
+import Image from 'next/image'
+
+// For fixed size images
+<Image
+  src={imageUrl}
+  alt="Generated image"
+  width={512}
+  height={512}
+  className="rounded-lg"
+/>
+
+// For responsive containers
+<div className="aspect-square relative">
+  <Image
+    src={imageUrl}
+    alt="Generated image"
+    fill
+    className="object-cover rounded-lg"
+  />
+</div>
+```
+
+## Common Anti-Patterns to Avoid
+❌ Using `<img>` instead of `<Image>`
+❌ Blocking UI for database operations
+❌ Not typing event handlers properly
+❌ Missing error boundaries
+❌ Inline object/array creation in JSX
+❌ Missing keys in mapped components
+❌ Not handling loading states
+
+## Best Practices
+✅ Type all props and state
+✅ Use proper error handling
+✅ Non-blocking async operations
+✅ Responsive design patterns
+✅ Accessible components
+✅ Performance optimizations
+
+- Type event handlers with React event types
+- Use `string[]` for arrays of images URLs
