@@ -9,24 +9,6 @@ import { useSubscription } from '@/lib/hooks/useUser'
 import { useUser } from '@/lib/hooks/useUser'
 import { loadStripe } from '@stripe/stripe-js'
 import { requireLogin } from '@/lib/utils/requireLogin'
-import { Metadata } from 'next'
-
-// SEO metadata
-export const metadata: Metadata = {
-  title: 'Pricing Plans - AI Image Generation Credits | DreamfinityX',
-  description: 'Choose from flexible pricing plans for AI image generation and editing. Monthly subscriptions and credit packages available. Professional AI tools at affordable prices.',
-  keywords: 'AI image generation pricing, AI art pricing, image editing credits, subscription plans, AI tools cost',
-  robots: 'index, follow',
-  openGraph: {
-    title: 'Pricing Plans - AI Image Generation Credits | DreamfinityX',
-    description: 'Choose from flexible pricing plans for AI image generation and editing. Monthly subscriptions and credit packages available.',
-    url: 'https://dreamfinityx.com/pricing',
-    type: 'website',
-  },
-  alternates: {
-    canonical: 'https://dreamfinityx.com/pricing',
-  },
-}
 
 // 预加载Stripe
 const stripePromise = loadStripe(process.env.***REMOVED***!)
