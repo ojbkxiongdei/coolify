@@ -1,16 +1,60 @@
----
-description: # AI Image Generation Rules
-alwaysApply: false
----
 # AI Image Generation Rules
 
-## Azure OpenAI GPT-image-1 Integration
-- **Model**: Always use "gpt-image-1" for both generation and editing
+## OpenAI Integration (Multi-Provider Support)
+### Azure OpenAI GPT-image-1 (Primary for Core Features)
+- **Model**: "gpt-image-1" for generation and editing
 - **Endpoint Pattern**: `${endpoint}/openai/deployments/${model}/images/generations`
 - **Authentication**: Use `api-key` header with Azure OpenAI API key
-- **Content Type**: `application/json` for generation, `multipart/form-data` for editing
 
-## Supported Parameters
+### OpenAI via Proxy (For Character Headcanon Generator)
+- **Model**: "gpt-4o-mini" for text generation
+- **Endpoint**: `https://proxy.tainanle.online/v1/chat/completions`
+- **Authentication**: Bearer token with OpenAI API key
+- **Usage**: Character headcanon text generation in FREE beta mode
+
+## Core Features
+### 1. AI Image Generation & Editing
+- **Components**: [components/ImageGenerator.tsx](mdc:components/ImageGenerator.tsx), [components/ImageEditor.tsx](mdc:components/ImageEditor.tsx)
+- **API Routes**: [app/api/generate-image/route.ts](mdc:app/api/generate-image/route.ts), [app/api/edit-image/route.ts](mdc:app/api/edit-image/route.ts)
+- **Credits Required**: Yes (paid functionality)
+
+### 2. Character Headcanon Generator
+- **Page**: [app/character-headcanon-generator/page.tsx](mdc:app/character-headcanon-generator/page.tsx)
+- **Component**: [app/character-headcanon-generator/CharacterHeadcanonGenerator.tsx](mdc:app/character-headcanon-generator/CharacterHeadcanonGenerator.tsx)
+- **API Route**: [app/api/character-headcanon/route.ts](mdc:app/api/character-headcanon/route.ts)
+- **Credits Required**: No (FREE beta mode)
+- **SEO Component**: [app/character-headcanon-generator/CharacterHeadcanonSEO.tsx](mdc:app/character-headcanon-generator/CharacterHeadcanonSEO.tsx)
+
+## Character Headcanon Generator Configuration
+### Form Configuration Options
+```typescript
+// Character details (optional)
+characterName?: string // Optional character name
+
+// Comprehensive configuration system
+gender: string // 15 options including various identities
+storyStyle: string // 20 options: Romance, Adventure, Mystery, etc.
+writingStyle: string // 20 options: Descriptive, Poetic, Humorous, etc.
+characterType: string // 20 options: Protagonist, Villain, Anti-hero, etc.
+ageRange: string // 10 options: Child to Elderly/Immortal
+personalityArchetype: string // 20 options: The Innocent, The Hero, etc.
+backgroundOrigin: string // 20 options: Noble, Working-class, Orphan, etc.
+relationshipStatus: string // 20 options: Single, Married, Complicated, etc.
+occupationRole: string // 25 options: Student, Warrior, Artist, etc.
+
+// Generation settings
+additionalRequirements?: string // Custom requirements
+length: "short" | "medium" | "long"
+```
+
+### UI/UX Patterns for Character Generator
+- **Collapsible Sections**: Character Details and Style Settings collapsed by default
+- **Dropdown Alignment**: All inputs and dropdowns use unified p-3 padding
+- **Clean Interface**: No option descriptions or "FREE" labels for minimal design
+- **Custom Dropdowns**: Custom arrow styling with proper spacing
+- **Responsive Layout**: Mobile-first responsive design
+
+## Azure OpenAI Image Parameters
 ```typescript
 // ✅ Generation parameters
 {
@@ -35,13 +79,29 @@ alwaysApply: false
 }
 ```
 
-## API Routes Structure
-- **Generation**: [app/api/generate-image/route.ts](mdc:app/api/generate-image/route.ts)
-- **Editing**: [app/api/edit-image/route.ts](mdc:app/api/edit-image/route.ts)
+## OpenAI Text Parameters (Character Headcanon)
+```typescript
+{
+  model: "gpt-4o-mini",
+  messages: [
+    {
+      role: "system",
+      content: "Character headcanon system prompt"
+    },
+    {
+      role: "user", 
+      content: "Generated prompt based on user configuration"
+    }
+  ],
+  max_tokens: number, // Based on length selection
+  temperature: 0.8, // Creative output
+  top_p: 0.9
+}
+```
 
 ## Response Handling
 ```typescript
-// ✅ Response structure
+// ✅ Image generation response
 {
   success: true,
   images: string[], // Array of Base64 data URLs
@@ -51,102 +111,11 @@ alwaysApply: false
   imageUrl: string
 }
 
-// ✅ Error handling
-if (!response.ok) {
-  const errorData = await response.json()
-  throw new Error(errorData.error || 'API request failed')
-}
-```
-
-## Components Architecture
-- **Generator**: [components/ImageGenerator.tsx](mdc:components/ImageGenerator.tsx)
-- **Editor**: [components/ImageEditor.tsx](mdc:components/ImageEditor.tsx)
-- **Results**: [components/ImageResults.tsx](mdc:components/ImageResults.tsx)
-
-## UI/UX Patterns
-- **Tab Navigation**: Separate "Generate" and "Edit" modes
-- **Settings Layout**: Two-row grid for parameter controls
-- **Loading States**: Disable buttons, show spinners during processing
-- **Database Integration**: Async save to Supabase, don't block UI
-
-## Database Integration
-- **Storage**: Use Supabase Storage for image files, not Base64 in database
-- **Async Saving**: Save images in background after generation
-- **Error Handling**: Continue showing images even if save fails
-
-## File Format Restrictions
-- **Generation**: Supports PNG and JPEG output only
-- **Edit**: **NO WebP support** - Only PNG and JPEG
-- **Upload**: Accept PNG, JPEG, WebP files for editing input
-- **Storage**: Convert Base64 to files before uploading to Supabase Storage
-
-## Performance Optimization
-- **Async Operations**: Don't block UI for database operations
-- **Image Storage**: Use Supabase Storage URLs instead of Base64
-- **Error Recovery**: Graceful degradation when storage fails
-- **Batch Processing**: Handle multiple image requests efficiently
-
-## Content Safety
-- Follow Azure OpenAI content policy
-- Implement prompt filtering for inappropriate content
-- Handle policy violation errors gracefully
-- Provide clear guidelines to users about acceptable content
-
-## Testing Patterns
-- Test with various image sizes and formats
-- Validate parameter combinations
-- Test error handling with invalid inputs
-- Verify mobile responsiveness with image grids
-
-- Test error handling with invalid inputs
-- Verify mobile responsiveness with image grids
-# AI Image Generation Rules
-
-## Azure OpenAI GPT-image-1 Integration
-- **Model**: Always use "gpt-image-1" for both generation and editing
-- **Endpoint Pattern**: `${endpoint}/openai/deployments/${model}/images/generations`
-- **Authentication**: Use `api-key` header with Azure OpenAI API key
-- **Content Type**: `application/json` for generation, `multipart/form-data` for editing
-
-## Supported Parameters
-```typescript
-// ✅ Generation parameters
-{
-  model: "gpt-image-1",
-  prompt: string, // 1-4000 characters
-  size: "1024x1024" | "1024x1536" | "1536x1024", 
-  quality: "low" | "medium" | "high",
-  n: number, // 1-10 images
-  output_format: "png" | "jpeg", // NO WebP support
-  user?: string // Optional user identifier
-}
-
-// ✅ Edit parameters  
-{
-  model: "gpt-image-1",
-  image: File, // Original image to edit
-  prompt: string, // Edit instructions
-  size: "1024x1024" | "1024x1536" | "1536x1024",
-  quality: "low" | "medium" | "high", 
-  n: number, // 1-10 images
-  output_format: "png" | "jpeg" // NO WebP support for editing
-}
-```
-
-## API Routes Structure
-- **Generation**: [app/api/generate-image/route.ts](mdc:app/api/generate-image/route.ts)
-- **Editing**: [app/api/edit-image/route.ts](mdc:app/api/edit-image/route.ts)
-
-## Response Handling
-```typescript
-// ✅ Response structure
+// ✅ Character headcanon response
 {
   success: true,
-  images: string[], // Array of Base64 data URLs
-  count: number,
-  // Backward compatibility
-  image: string,
-  imageUrl: string
+  headcanon: string, // Generated character description
+  characterName?: string // Auto-generated if not provided
 }
 
 // ✅ Error handling
@@ -156,45 +125,55 @@ if (!response.ok) {
 }
 ```
 
-## Components Architecture
-- **Generator**: [components/ImageGenerator.tsx](mdc:components/ImageGenerator.tsx)
-- **Editor**: [components/ImageEditor.tsx](mdc:components/ImageEditor.tsx)
-- **Results**: [components/ImageResults.tsx](mdc:components/ImageResults.tsx)
+## Environment Variables
+```env
+# Azure OpenAI (Image Generation)
+AZURE_OPENAI_ENDPOINT=your_azure_endpoint
+AZURE_OPENAI_API_KEY=your_azure_key
 
-## UI/UX Patterns
-- **Tab Navigation**: Separate "Generate" and "Edit" modes
-- **Settings Layout**: Two-row grid for parameter controls
-- **Loading States**: Disable buttons, show spinners during processing
-- **Database Integration**: Async save to Supabase, don't block UI
+# OpenAI (Character Headcanon)
+OPENAI_API_KEY=your_openai_key
+OPENAI_PROXY_URL=https://proxy.tainanle.online/v1
+```
+
+## Security & Best Practices
+- **Environment Variables**: Never hardcode API keys in client-side code
+- **FREE Beta Mode**: Character headcanon generator bypasses credit system
+- **Error Handling**: Graceful degradation for proxy connection issues
+- **Timeout Handling**: Implement timeouts for external API calls
+- **Content Safety**: Both Azure OpenAI and OpenAI content filtering
 
 ## Database Integration
-- **Storage**: Use Supabase Storage for image files, not Base64 in database
+- **Image Storage**: Use Supabase Storage for image files, not Base64 in database
 - **Async Saving**: Save images in background after generation
-- **Error Handling**: Continue showing images even if save fails
+- **Character Headcanons**: Currently no database storage (FREE beta)
+- **Error Recovery**: Continue showing results even if save fails
 
 ## File Format Restrictions
-- **Generation**: Supports PNG and JPEG output only
-- **Edit**: **NO WebP support** - Only PNG and JPEG
+- **Image Generation**: Supports PNG and JPEG output only
+- **Image Edit**: **NO WebP support** - Only PNG and JPEG
 - **Upload**: Accept PNG, JPEG, WebP files for editing input
 - **Storage**: Convert Base64 to files before uploading to Supabase Storage
 
 ## Performance Optimization
 - **Async Operations**: Don't block UI for database operations
 - **Image Storage**: Use Supabase Storage URLs instead of Base64
-- **Error Recovery**: Graceful degradation when storage fails
-- **Batch Processing**: Handle multiple image requests efficiently
+- **Lazy Loading**: Character headcanon page uses dynamic imports
+- **SEO Components**: Separate SEO component for better page structure
+- **Error Recovery**: Graceful degradation when external services fail
 
-## Content Safety
-- Follow Azure OpenAI content policy
-- Implement prompt filtering for inappropriate content
-- Handle policy violation errors gracefully
-- Provide clear guidelines to users about acceptable content
+## Navigation Integration
+- **Main Navigation**: Character headcanon generator added to navbar
+- **SEO-First Layout**: Features moved to bottom, headcanon form at top
+- **Mobile Responsive**: Touch-friendly interface design
 
 ## Testing Patterns
-- Test with various image sizes and formats
-- Validate parameter combinations
-- Test error handling with invalid inputs
-- Verify mobile responsiveness with image grids
+- **Image Generation**: Test various sizes, formats, and parameters
+- **Character Generator**: Test all configuration combinations
+- **Error Handling**: Test API failures, timeout scenarios
+- **Mobile Responsiveness**: Verify collapsible sections and form layout
+- **SEO**: Validate meta tags and structured data
+
 
 - Test error handling with invalid inputs
 - Verify mobile responsiveness with image grids

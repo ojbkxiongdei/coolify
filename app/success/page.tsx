@@ -185,10 +185,8 @@ export default function SuccessPage() {
             <p className="text-gray-600 mb-6">
               If you have any questions about your subscription or Credits, feel free to contact our support team.
             </p>
-            <div className="space-y-2 text-sm text-gray-500">
-              <p>📧 Support Email: support@dreamfinityx.com</p>
-              <p>💬 Live Chat: 9:00 - 21:00 (UTC+8)</p>
-              <p>📱 Support Hotline: +1-800-DREAM-AI</p>
+            <div className="text-sm text-gray-500">
+              <p>📧 Support Email: zeta@myowncoach.online</p>
             </div>
           </div>
         </div>

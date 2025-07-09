@@ -1,5 +1,38 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // 优化chunk加载
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    // 生产环境优化
+    if (!dev && !isServer) {
+      // 设置chunk加载超时时间
+      config.output.chunkLoadTimeout = 60000; // 60秒
+      
+      // 优化chunk分割
+      config.optimization.splitChunks = {
+        ...config.optimization.splitChunks,
+        cacheGroups: {
+          ...config.optimization.splitChunks.cacheGroups,
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+            maxSize: 250000, // 250KB
+          },
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            priority: -10,
+            chunks: 'all',
+            maxSize: 250000, // 250KB
+          },
+        },
+      };
+    }
+    
+    return config;
+  },
+  
+  // 优化图片配置
   images: {
     remotePatterns: [
       {
@@ -35,6 +68,16 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60,
+  },
+  
+  // 实验性功能
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+  },
+  
+  // 添加构建ID来避免缓存问题
+  generateBuildId: async () => {
+    return `build-${Date.now()}`;
   },
 }
 

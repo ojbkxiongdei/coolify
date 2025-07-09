@@ -1,13 +1,14 @@
 # DreamfinityX Project Structure Guide
 
 ## Overview
-DreamfinityX is an AI-powered image generation and editing platform built with Next.js 14, TypeScript, and Azure OpenAI integration. Features a subscription-based credits system with Stripe payment integration.
+DreamfinityX is an AI-powered image generation and editing platform built with Next.js 14, TypeScript, and multi-provider AI integration (Azure OpenAI + OpenAI). Features a subscription-based credits system with Stripe payment integration, plus a FREE character headcanon generator for SEO and user engagement.
 
 ## Key Architecture
 - **Main Entry**: [app/page.tsx](mdc:app/page.tsx) - Main application with image generation and editing functionality
 - **API Routes**: 
   - [app/api/generate-image/route.ts](mdc:app/api/generate-image/route.ts) - Text-to-image generation
   - [app/api/edit-image/route.ts](mdc:app/api/edit-image/route.ts) - Image editing functionality
+  - [app/api/character-headcanon/route.ts](mdc:app/api/character-headcanon/route.ts) - Character headcanon text generation (FREE)
   - [app/api/credits/](mdc:app/api/credits/) - Credits system API (balance, consume)
   - [app/api/payments/](mdc:app/api/payments/) - Payment processing API
   - [app/api/webhooks/stripe/](mdc:app/api/webhooks/stripe/) - Stripe webhooks
@@ -15,6 +16,10 @@ DreamfinityX is an AI-powered image generation and editing platform built with N
   - [app/history/page.tsx](mdc:app/history/page.tsx) - User generation history
   - [app/pricing/page.tsx](mdc:app/pricing/page.tsx) - Subscription plans and credit packages
   - [app/success/page.tsx](mdc:app/success/page.tsx) - Payment success page
+  - [app/character-headcanon-generator/page.tsx](mdc:app/character-headcanon-generator/page.tsx) - Character headcanon generator page
+  - [app/character-headcanon-generator/CharacterHeadcanonPage.tsx](mdc:app/character-headcanon-generator/CharacterHeadcanonPage.tsx) - Client component for headcanon page
+  - [app/character-headcanon-generator/CharacterHeadcanonGenerator.tsx](mdc:app/character-headcanon-generator/CharacterHeadcanonGenerator.tsx) - Headcanon form component
+  - [app/character-headcanon-generator/CharacterHeadcanonSEO.tsx](mdc:app/character-headcanon-generator/CharacterHeadcanonSEO.tsx) - SEO content component
 - **Components**: 
   - [components/ui/navbar.tsx](mdc:components/ui/navbar.tsx) - Main navigation component
   - [components/UserDropdown.tsx](mdc:components/UserDropdown.tsx) - User authentication dropdown with credits display
@@ -50,10 +55,16 @@ dreamfinityX/
 │   ├── history/page.tsx          # User generation history
 │   ├── pricing/page.tsx          # Subscription plans & credit packages
 │   ├── success/page.tsx          # Payment success page
+│   ├── character-headcanon-generator/  # Character headcanon generator
+│   │   ├── page.tsx              # Main page (server component)
+│   │   ├── CharacterHeadcanonPage.tsx  # Client page component
+│   │   ├── CharacterHeadcanonGenerator.tsx  # Form component
+│   │   └── CharacterHeadcanonSEO.tsx   # SEO content component
 │   ├── auth/auth-code-error/     # Auth error page
 │   └── api/                      # API routes
 │       ├── generate-image/route.ts
 │       ├── edit-image/route.ts
+│       ├── character-headcanon/route.ts  # Character headcanon API
 │       ├── credits/
 │       │   ├── balance/route.ts  # Get user credits
 │       │   └── consume/route.ts  # Consume credits
@@ -101,12 +112,14 @@ dreamfinityX/
 ## Core Features
 1. **AI Image Generation**: Text-to-image using Azure OpenAI
 2. **AI Image Editing**: Image-to-image transformation
-3. **User Authentication**: Google OAuth via Supabase
-4. **Credits System**: Subscription-based and one-time credit packages
-5. **Payment Integration**: Stripe for subscriptions and credit purchases
-6. **Image Storage**: Supabase Storage with proper optimization
-7. **Generation History**: User history with saved images
-8. **Responsive UI**: User dropdown with credits display and logout
+3. **Character Headcanon Generator**: FREE text-based character description generator with extensive configuration options
+4. **User Authentication**: Google OAuth via Supabase
+5. **Credits System**: Subscription-based and one-time credit packages (not applied to headcanon generator)
+6. **Payment Integration**: Stripe for subscriptions and credit purchases
+7. **Image Storage**: Supabase Storage with proper optimization
+8. **Generation History**: User history with saved images
+9. **SEO Optimization**: Dedicated SEO pages with keyword-rich content
+10. **Responsive UI**: User dropdown with credits display and logout
 
 ## Database Schema
 ### Core Tables
@@ -126,6 +139,8 @@ dreamfinityX/
 
 ## Environment Configuration
 - **Azure OpenAI**: Endpoint and API key for image generation
+- **OpenAI**: API key for character headcanon generation via proxy
+- **Proxy Service**: https://proxy.tainanle.online/v1 for OpenAI API access
 - **Supabase**: Database URL, anon key, service role key
 - **Google OAuth**: Client ID and secret for authentication
 - **Stripe**: Publishable key, secret key, webhook secret
@@ -163,7 +178,7 @@ dreamfinityX/
 
 ## Common Issues & Solutions
 1. **Credits Schema**: Ensure `last_reset_at` field exists in `user_credits` table
-2. **Stripe Test Mode**: Use test API keys with `sk_test_` and `pk_test_` prefixes
+2. **Stripe Mode**: Supports both test mode (`sk_test_`, `pk_test_`) and production mode (`sk_live_`, `pk_live_`)
 3. **User State Loading**: Global caching prevents repeated API calls
 4. **Database Permissions**: RLS policies ensure data isolation
 5. **Error Handling**: ErrorBoundary components catch and display errors gracefully

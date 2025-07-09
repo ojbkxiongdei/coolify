@@ -1,0 +1,288 @@
+# Character Headcanon Generator Rules
+
+## Overview
+The Character Headcanon Generator is a FREE text-based AI tool that creates detailed character descriptions and backstories. Built with OpenAI GPT-4o-mini via proxy service, featuring comprehensive configuration options and SEO-optimized content.
+
+## Page Structure
+- **Main Page**: [app/character-headcanon-generator/page.tsx](mdc:app/character-headcanon-generator/page.tsx) - Server component with metadata
+- **Client Page**: [app/character-headcanon-generator/CharacterHeadcanonPage.tsx](mdc:app/character-headcanon-generator/CharacterHeadcanonPage.tsx) - Client wrapper component
+- **Form Component**: [app/character-headcanon-generator/CharacterHeadcanonGenerator.tsx](mdc:app/character-headcanon-generator/CharacterHeadcanonGenerator.tsx) - Main form interface
+- **SEO Component**: [app/character-headcanon-generator/CharacterHeadcanonSEO.tsx](mdc:app/character-headcanon-generator/CharacterHeadcanonSEO.tsx) - SEO content and keywords
+- **API Route**: [app/api/character-headcanon/route.ts](mdc:app/api/character-headcanon/route.ts) - OpenAI integration
+
+## Form Configuration System
+
+### Character Details (Optional Section - Collapsed by Default)
+```typescript
+interface CharacterDetails {
+  characterName?: string; // Optional - auto-generated if not provided
+}
+```
+
+### Style Settings (Collapsed by Default)
+```typescript
+interface StyleSettings {
+  // Gender options (15 total)
+  gender: "Male" | "Female" | "Non-binary" | "Genderfluid" | "Agender" | 
+          "Demigirl" | "Demiboy" | "Bigender" | "Pangender" | "Two-Spirit" | 
+          "Gender questioning" | "Genderqueer" | "Masculine-presenting" | 
+          "Feminine-presenting" | "Androgynous";
+
+  // Story Style options (20 total)
+  storyStyle: "Romance" | "Adventure" | "Mystery" | "Horror" | "Comedy" | 
+              "Drama" | "Fantasy" | "Sci-Fi" | "Historical" | "Contemporary" | 
+              "Dystopian" | "Urban Fantasy" | "Paranormal" | "Thriller" | 
+              "Slice of Life" | "Coming of Age" | "Epic Fantasy" | "Space Opera" | 
+              "Steampunk" | "Cyberpunk";
+
+  // Writing Style options (20 total)
+  writingStyle: "Descriptive" | "Poetic" | "Humorous" | "Dark" | "Light-hearted" | 
+                "Philosophical" | "Action-packed" | "Emotional" | "Mysterious" | 
+                "Whimsical" | "Gritty" | "Elegant" | "Casual" | "Academic" | 
+                "Journalistic" | "Stream of consciousness" | "Minimalist" | 
+                "Verbose" | "Lyrical" | "Conversational";
+
+  // Character Type options (20 total)
+  characterType: "Protagonist" | "Villain" | "Anti-hero" | "Side character" | 
+                 "Mentor" | "Love interest" | "Comic relief" | "Foil" | 
+                 "Deuteragonist" | "Tritagonist" | "False protagonist" | 
+                 "Tragic hero" | "Byronic hero" | "Everyman" | "Catalyst" | 
+                 "Guardian" | "Shapeshifter" | "Threshold guardian" | 
+                 "Herald" | "Trickster";
+
+  // Age Range options (10 total)
+  ageRange: "Child (5-12)" | "Teenager (13-17)" | "Young Adult (18-25)" | 
+            "Adult (26-35)" | "Middle-aged (36-50)" | "Mature (51-65)" | 
+            "Elderly (66+)" | "Immortal/Ageless" | "Ancient" | "Variable age";
+
+  // Personality Archetype options (20 total)
+  personalityArchetype: "The Innocent" | "The Hero" | "The Outlaw" | "The Explorer" | 
+                        "The Creator" | "The Ruler" | "The Magician" | "The Lover" | 
+                        "The Caregiver" | "The Jester" | "The Sage" | "The Everyman" | 
+                        "The Rebel" | "The Perfectionist" | "The Investigator" | 
+                        "The Individualist" | "The Loyalist" | "The Enthusiast" | 
+                        "The Challenger" | "The Peacemaker";
+
+  // Background/Origin options (20 total)
+  backgroundOrigin: "Noble/Royal" | "Working-class" | "Middle-class" | "Wealthy" | 
+                    "Poor/Impoverished" | "Orphan" | "Raised by relatives" | 
+                    "Military family" | "Academic family" | "Criminal background" | 
+                    "Religious upbringing" | "Rural/Farm life" | "Urban upbringing" | 
+                    "Nomadic/Traveler" | "Immigrant family" | "Mixed heritage" | 
+                    "Adopted" | "Foster care" | "Isolated upbringing" | "Unknown origin";
+
+  // Relationship Status options (20 total)
+  relationshipStatus: "Single" | "In a relationship" | "Married" | "Divorced" | 
+                      "Widowed" | "Engaged" | "Complicated" | "Polyamorous" | 
+                      "Open relationship" | "Long-distance relationship" | 
+                      "Secret relationship" | "Unrequited love" | "Recently broken up" | 
+                      "Casual dating" | "Arranged marriage" | "Forbidden love" | 
+                      "Friends with benefits" | "Sworn to celibacy" | 
+                      "Looking for love" | "Aromantic/Asexual";
+
+  // Occupation/Role options (25 total)
+  occupationRole: "Student" | "Teacher/Professor" | "Warrior/Fighter" | "Artist" | 
+                  "Merchant/Trader" | "Noble/Aristocrat" | "Servant" | "Scholar" | 
+                  "Healer/Medic" | "Thief/Rogue" | "Mage/Wizard" | "Priest/Cleric" | 
+                  "Assassin" | "Guard/Knight" | "Farmer" | "Craftsperson" | 
+                  "Explorer/Adventurer" | "Entertainer/Performer" | "Politician" | 
+                  "Scientist/Researcher" | "Engineer/Inventor" | "Detective/Investigator" | 
+                  "Spy/Agent" | "Unemployed" | "Retired";
+}
+```
+
+### Generation Settings (Always Expanded)
+```typescript
+interface GenerationSettings {
+  additionalRequirements?: string; // Custom user requirements
+  length: "short" | "medium" | "long"; // 150/300/500 words approximately
+}
+```
+
+## UI/UX Design Patterns
+
+### Layout Structure
+- **SEO-First Design**: Character generator form at top, SEO content at bottom
+- **Collapsible Sections**: Character Details and Style Settings collapsed by default
+- **Fixed Sections**: Generation Settings always expanded for quick access
+- **Responsive Design**: Mobile-first approach with touch-friendly controls
+
+### Form Controls
+```typescript
+// Unified styling patterns
+const inputClasses = "w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500";
+const dropdownClasses = "w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 appearance-none";
+```
+
+### Custom Dropdown Styling
+- **Custom Arrow**: ChevronDown icon with proper spacing
+- **Consistent Height**: All inputs and dropdowns use p-3 padding
+- **Clean Interface**: No option descriptions or "FREE" labels
+- **Unified Appearance**: Remove browser default dropdown arrow styling
+
+### Collapsible Section Headers
+```typescript
+const sectionHeaderClasses = "flex items-center justify-between w-full text-left p-3 text-lg font-semibold border border-gray-300 rounded-md mb-4 hover:bg-gray-50";
+```
+
+## API Integration
+
+### OpenAI Configuration
+```typescript
+const API_CONFIG = {
+  endpoint: process.env.OPENAI_PROXY_URL, // https://proxy.tainanle.online/v1
+  model: "gpt-4o-mini",
+  headers: {
+    "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+    "Content-Type": "application/json"
+  }
+};
+```
+
+### Prompt Generation Logic
+```typescript
+function generatePrompt(config: FormConfig): string {
+  const characterName = config.characterName || "[Auto-generate a unique name]";
+  
+  return `Create a detailed character headcanon for ${characterName} with the following specifications:
+
+Gender: ${config.gender}
+Character Type: ${config.characterType}
+Age Range: ${config.ageRange}
+Personality Archetype: ${config.personalityArchetype}
+Background/Origin: ${config.backgroundOrigin}
+Relationship Status: ${config.relationshipStatus}
+Occupation/Role: ${config.occupationRole}
+
+Story Style: ${config.storyStyle}
+Writing Style: ${config.writingStyle}
+
+${config.additionalRequirements ? `Additional Requirements: ${config.additionalRequirements}` : ""}
+
+Please create a ${config.length} character description that includes personality traits, backstory, motivations, and unique characteristics.`;
+}
+```
+
+### Token Limits by Length
+```typescript
+const TOKEN_LIMITS = {
+  short: 200,   // ~150 words
+  medium: 400,  // ~300 words
+  long: 650     // ~500 words
+};
+```
+
+## Security & Performance
+
+### Environment Variables
+```env
+OPENAI_API_KEY=sk-proj-...
+OPENAI_PROXY_URL=https://proxy.tainanle.online/v1
+```
+
+### Error Handling
+- **Proxy Timeout**: 30-second timeout for external requests
+- **API Errors**: Graceful error messages for different failure types
+- **Network Issues**: Retry logic for temporary connection problems
+- **Content Filtering**: Handle OpenAI content policy violations
+
+### FREE Beta Mode
+- **No Credits Required**: Bypass credit system entirely
+- **No Database Storage**: Results not saved to user history
+- **Rate Limiting**: Consider implementing user-based rate limiting
+- **Authentication**: Optional - works for both logged-in and guest users
+
+## SEO Optimization
+
+### Meta Tags
+```typescript
+export const metadata: Metadata = {
+  title: "Character Headcanon Generator - Create Unique Character Backstories | DreamfinityX",
+  description: "Generate detailed character headcanons and backstories with our AI-powered tool. Perfect for writers, roleplayers, and creative storytellers.",
+  keywords: [
+    "character generator", "headcanon generator", "character backstory",
+    "AI writing tool", "creative writing", "character development"
+  ]
+};
+```
+
+### Content Strategy
+- **Keyword Density**: Target 2-3% for primary keywords
+- **Long-tail Keywords**: Include specific phrases like "AI character headcanon generator"
+- **Related Terms**: Cover fan fiction, creative writing, character development
+- **FAQ Section**: Address common user questions about character creation
+- **Examples**: Provide sample character configurations and outputs
+
+## Navigation Integration
+
+### Navbar Update
+```typescript
+// Add to main navigation in components/ui/navbar.tsx
+{
+  title: "Character Generator",
+  href: "/character-headcanon-generator",
+  description: "Create unique character backstories"
+}
+```
+
+### Internal Linking
+- Link from main page to character generator
+- Include in footer navigation
+- Cross-link with other creative tools
+- Add breadcrumb navigation for better UX
+
+## Testing Guidelines
+
+### Form Validation
+- Test all dropdown combinations
+- Verify optional character name handling
+- Test empty and filled additional requirements
+- Validate length parameter effects
+
+### API Testing
+- Test with various configuration combinations
+- Verify timeout handling
+- Test error scenarios (invalid API key, network issues)
+- Validate response formatting
+
+### UI/UX Testing
+- Mobile responsiveness across devices
+- Collapsible section functionality
+- Form submission states
+- Result display formatting
+
+### SEO Testing
+- Meta tag validation
+- Structured data markup
+- Page load speed optimization
+- Mobile-friendly testing
+
+## Content Guidelines
+
+### Generated Content Quality
+- Ensure diverse character representations
+- Avoid stereotypical or harmful characterizations
+- Maintain consistency with selected parameters
+- Provide creative and unique outputs
+
+### User Guidelines
+- Clear instructions for each configuration option
+- Examples of effective additional requirements
+- Tips for getting better results
+- Guidelines for appropriate content requests
+
+## Future Enhancements
+
+### Potential Features
+- Save favorite configurations
+- Share generated characters
+- Export to different formats
+- Integration with image generation
+- Character relationship generators
+- Advanced personality tests integration
+
+### Analytics Tracking
+- Track popular configuration combinations
+- Monitor generation success rates
+- Analyze user engagement patterns
+- SEO performance metrics

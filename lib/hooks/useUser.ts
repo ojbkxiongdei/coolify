@@ -10,16 +10,24 @@ interface UserCredits {
   available_credits: number
 }
 
+// 缓存版本控制，避免部署后缓存不匹配
+const CACHE_VERSION = '1.0.0'
+
 // 全局用户缓存和状态，避免重复请求和loading闪烁
-let userCache: { user: User | null; timestamp: number } | null = null
+let userCache: { user: User | null; timestamp: number; version: string } | null = null
 let globalLoading = false
 let globalUser: User | null = null
 const CACHE_DURATION = 5 * 60 * 1000 // 5分钟缓存
 
 // 全局credits缓存
-let creditsCache: { credits: UserCredits | null; timestamp: number } | null = null
+let creditsCache: { credits: UserCredits | null; timestamp: number; version: string } | null = null
 let globalCredits: UserCredits | null = null
 const CREDITS_CACHE_DURATION = 30 * 1000 // 30秒缓存，credits变化比较频繁
+
+// 头像验证缓存 - 避免重复验证同一个URL
+let avatarValidationCache: { [url: string]: { isValid: boolean; timestamp: number } } = {}
+const AVATAR_VALIDATION_CACHE_DURATION = 10 * 60 * 1000 // 10分钟缓存
+let avatarValidationInProgress = new Set<string>()
 
 // 全局状态更新回调
 const stateCallbacks = new Set<(user: User | null, loading: boolean) => void>()
@@ -28,7 +36,9 @@ const creditsCallbacks = new Set<(credits: UserCredits | null) => void>()
 // 获取当前最新的用户状态（考虑缓存）
 const getCurrentUserState = () => {
   const now = Date.now()
-  const hasValidCache = userCache && (now - userCache.timestamp) < CACHE_DURATION
+  const hasValidCache = userCache && 
+    (now - userCache.timestamp) < CACHE_DURATION && 
+    userCache.version === CACHE_VERSION
   
   if (hasValidCache) {
     return { 
@@ -51,6 +61,92 @@ const getCurrentUserState = () => {
   }
 }
 
+// 验证头像URL是否有效（带缓存）
+const validateAvatarUrl = async (url: string): Promise<boolean> => {
+  // 检查缓存
+  const cached = avatarValidationCache[url]
+  if (cached && (Date.now() - cached.timestamp) < AVATAR_VALIDATION_CACHE_DURATION) {
+    return cached.isValid
+  }
+  
+  // 检查是否已经在验证中
+  if (avatarValidationInProgress.has(url)) {
+    return true // 假定有效，避免重复请求
+  }
+  
+  try {
+    avatarValidationInProgress.add(url)
+    const response = await fetch(url, { method: 'HEAD' })
+    const isValid = response.ok
+    
+    // 缓存结果
+    avatarValidationCache[url] = {
+      isValid,
+      timestamp: Date.now()
+    }
+    
+    return isValid
+  } catch {
+    // 缓存失败结果
+    avatarValidationCache[url] = {
+      isValid: false,
+      timestamp: Date.now()
+    }
+    return false
+  } finally {
+    avatarValidationInProgress.delete(url)
+  }
+}
+
+// 刷新用户头像URL
+const refreshUserAvatar = async (user: User): Promise<User> => {
+  try {
+    const supabase = createClient()
+    
+    // 重新获取Google用户信息
+    const { data: { session } } = await supabase.auth.getSession()
+    
+    if (session?.user) {
+      return session.user
+    }
+    
+    return user
+  } catch (error) {
+    console.error('Failed to refresh user avatar:', error)
+    return user
+  }
+}
+
+// 防抖验证头像URL
+let avatarValidationTimeout: NodeJS.Timeout | null = null
+const debouncedValidateAvatar = (user: User) => {
+  if (avatarValidationTimeout) {
+    clearTimeout(avatarValidationTimeout)
+  }
+  
+  avatarValidationTimeout = setTimeout(async () => {
+    const avatarUrl = user.user_metadata?.avatar_url
+    if (!avatarUrl) return
+    
+    const isValid = await validateAvatarUrl(avatarUrl)
+    if (!isValid) {
+      console.warn('Avatar URL is invalid, attempting to refresh:', avatarUrl)
+      // 尝试刷新用户信息
+      const refreshedUser = await refreshUserAvatar(user)
+      if (refreshedUser.user_metadata?.avatar_url !== avatarUrl) {
+        console.log('Avatar URL refreshed successfully')
+        // 更新缓存
+        userCache = {
+          user: refreshedUser,
+          timestamp: Date.now(),
+          version: CACHE_VERSION
+        }
+        stateCallbacks.forEach(callback => callback(refreshedUser, false))
+      }
+    }
+  }, 1000) // 1秒防抖
+}
+
 export function useUser() {
   // 始终基于最新状态初始化，避免loading闪烁
   const currentState = getCurrentUserState()
@@ -61,10 +157,20 @@ export function useUser() {
     globalUser = newUser
     globalLoading = false
     
+    // 只在用户首次登录或头像URL发生变化时验证
+    if (newUser?.user_metadata?.avatar_url) {
+      const currentAvatarUrl = userCache?.user?.user_metadata?.avatar_url
+      if (currentAvatarUrl !== newUser.user_metadata.avatar_url) {
+        // 头像URL发生变化，需要验证
+        debouncedValidateAvatar(newUser)
+      }
+    }
+    
     // 更新缓存
     userCache = {
       user: newUser,
-      timestamp: Date.now()
+      timestamp: Date.now(),
+      version: CACHE_VERSION
     }
     
     // 如果用户变化，清除credits缓存
@@ -111,15 +217,23 @@ export function useUser() {
 
     // 只有在没有有效缓存时才获取用户数据
     // 注意：不设置loading状态，因为我们可能已经有globalUser
-    const fetchUserIfNeeded = async () => {
+    const fetchUserIfNeeded = async (retries = 3) => {
       try {
+        // 添加短暂延迟，确保DOM已准备好
+        await new Promise(resolve => setTimeout(resolve, 100))
+        
         const { data: { session } } = await supabase.auth.getSession()
         if (mounted) {
           updateUser(session?.user ?? null)
         }
       } catch (error) {
         console.error('Error fetching user:', error)
-        if (mounted) {
+        
+        // 如果是网络错误且还有重试次数，则重试
+        if (retries > 0 && mounted) {
+          console.log(`Retrying user fetch, ${retries} attempts remaining`)
+          setTimeout(() => fetchUserIfNeeded(retries - 1), 1000)
+        } else if (mounted) {
           setLoading(false)
         }
       }
@@ -164,7 +278,8 @@ export function useCredits() {
     if (newCredits) {
       creditsCache = {
         credits: newCredits,
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        version: CACHE_VERSION
       }
     }
     
@@ -192,7 +307,9 @@ export function useCredits() {
     }
 
     // 如果有有效缓存，直接使用
-    if (creditsCache && (Date.now() - creditsCache.timestamp) < CREDITS_CACHE_DURATION) {
+    if (creditsCache && 
+        (Date.now() - creditsCache.timestamp) < CREDITS_CACHE_DURATION &&
+        creditsCache.version === CACHE_VERSION) {
       if (credits !== creditsCache.credits) {
         setCredits(creditsCache.credits)
       }
@@ -242,10 +359,42 @@ export function clearUserCache() {
   globalUser = null
   globalLoading = false
   
-  // 同时清除credits缓存
+  // 清理credits缓存
   creditsCache = null
   globalCredits = null
+  
+  // 清理头像验证缓存
+  avatarValidationCache = {}
+  if (avatarValidationTimeout) {
+    clearTimeout(avatarValidationTimeout)
+    avatarValidationTimeout = null
+  }
+  
+  // 通知所有组件更新
+  stateCallbacks.forEach(callback => callback(null, false))
   creditsCallbacks.forEach(callback => callback(null))
+}
+
+// 清理过期或版本不匹配的缓存
+export function cleanExpiredCache() {
+  const now = Date.now()
+  
+  // 清理过期的用户缓存
+  if (userCache && (now - userCache.timestamp) > CACHE_DURATION) {
+    userCache = null
+  }
+  
+  // 清理过期的credits缓存
+  if (creditsCache && (now - creditsCache.timestamp) > CREDITS_CACHE_DURATION) {
+    creditsCache = null
+  }
+  
+  // 清理过期的头像验证缓存
+  Object.keys(avatarValidationCache).forEach(url => {
+    if ((now - avatarValidationCache[url].timestamp) > AVATAR_VALIDATION_CACHE_DURATION) {
+      delete avatarValidationCache[url]
+    }
+  })
 }
 
 // 刷新credits缓存的方法（用于消费credits后）
