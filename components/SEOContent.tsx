@@ -207,8 +207,9 @@ export default function SEOContent() {
           
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
             <p className="text-sm text-gray-400">
-              © 2024 DreamfinityX. All rights reserved. Powered by Azure OpenAI.
+              © 2025 DreamfinityX. All rights reserved. Powered by Azure OpenAI.
             </p>
+            <a href="/terms" className="text-sm text-gray-300 underline hover:text-white transition-colors block mt-2">Terms of Service</a>
           </div>
         </div>
       </footer>
