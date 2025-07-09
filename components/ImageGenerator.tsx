@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { database } from '@/lib/database/actions'
 import { getCachedUser, refreshCredits } from '@/lib/hooks/useUser'
+import { requireLogin } from '@/lib/utils/requireLogin'
 
 interface ImageGeneratorProps {
   onImagesGenerated: (images: string[]) => void
@@ -17,6 +18,7 @@ export default function ImageGenerator({ onImagesGenerated }: ImageGeneratorProp
   const [outputFormat, setOutputFormat] = useState('PNG')
 
   const handleGenerateImage = async () => {
+    if (!(await requireLogin())) return
     if (!prompt.trim()) {
       alert('Please enter an image description')
       return

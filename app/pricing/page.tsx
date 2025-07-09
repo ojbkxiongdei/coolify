@@ -8,6 +8,7 @@ import { Check, Zap, CreditCard, Star, Crown } from 'lucide-react'
 import { useSubscription } from '@/lib/hooks/useUser'
 import { useUser } from '@/lib/hooks/useUser'
 import { loadStripe } from '@stripe/stripe-js'
+import { requireLogin } from '@/lib/utils/requireLogin'
 
 // 预加载Stripe
 const stripePromise = loadStripe(process.env.***REMOVED***!)
@@ -136,6 +137,7 @@ export default function PricingPage() {
   }, [])
 
   const handleSubscribe = async (planId: string) => {
+    if (!(await requireLogin())) return
     setSubscribing(planId)
     try {
       const response = await fetch('/api/subscriptions/create', {
@@ -166,6 +168,7 @@ export default function PricingPage() {
   }
 
   const handlePurchase = async (packageId: string) => {
+    if (!(await requireLogin())) return
     setPurchasing(packageId)
     try {
       const response = await fetch('/api/credits/purchase', {
