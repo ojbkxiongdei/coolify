@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import { Navbar1 } from '@/components/ui/navbar'
 import ErrorBoundary from '@/components/ErrorBoundary'
 import StructuredData from '@/components/StructuredData'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -45,6 +46,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-091QZWWQXS"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-091QZWWQXS');
+          `}
+        </Script>
+        
+        {/* Structured Data */}
         <StructuredData type="website" />
         <StructuredData type="software" />
         <StructuredData type="service" />
