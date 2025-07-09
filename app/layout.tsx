@@ -3,6 +3,7 @@ import React from 'react'
 import { Inter } from 'next/font/google'
 import { Navbar1 } from '@/components/ui/navbar'
 import ErrorBoundary from '@/components/ErrorBoundary'
+import StructuredData from '@/components/StructuredData'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -43,6 +44,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <StructuredData type="website" />
+        <StructuredData type="software" />
+        <StructuredData type="service" />
+        <StructuredData type="faq" />
+      </head>
       <body className={inter.className}>
         <ErrorBoundary>
           <Navbar1 />

@@ -1,4 +1,21 @@
 import React from 'react';
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Terms of Service - DreamfinityX AI Platform',
+  description: 'Read our terms of service and user agreement for DreamfinityX AI image generation platform. Understand your rights and responsibilities.',
+  keywords: 'terms of service, user agreement, AI platform terms, privacy policy, user rights',
+  robots: 'index, follow',
+  openGraph: {
+    title: 'Terms of Service - DreamfinityX AI Platform',
+    description: 'Read our terms of service and user agreement for DreamfinityX AI image generation platform.',
+    url: 'https://dreamfinityx.com/terms',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://dreamfinityx.com/terms',
+  },
+}
 
 export default function TermsPage() {
   return (
