@@ -224,7 +224,7 @@ export default function PricingPage() {
                 </h1>
               </div>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                You're a premium member! Purchase additional credits to boost your generation capacity.
+                You&apos;re a premium member! Purchase additional credits to boost your generation capacity.
               </p>
               {subscription && (
                 <div className="mt-4 p-4 bg-white rounded-lg shadow-sm border border-gray-200">

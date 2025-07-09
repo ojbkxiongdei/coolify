@@ -57,10 +57,10 @@ export class ErrorBoundary extends Component<Props, State> {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-gray-600 mb-4">
-                  We're having trouble loading some components. This usually happens after an update.
+                  We&apos;re having trouble loading some components. This usually happens after an update.
                 </p>
                 <p className="text-sm text-gray-500 mb-4">
-                  Please try refreshing the page. If the problem persists, we'll clear the cache automatically.
+                  Please try refreshing the page. If the problem persists, we&apos;ll clear the cache automatically.
                 </p>
                 <div className="space-y-2">
                   <Button 
@@ -102,7 +102,7 @@ export class ErrorBoundary extends Component<Props, State> {
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-gray-600 mb-4">
-                We're sorry, but something unexpected happened. Please try refreshing the page.
+                We&apos;re sorry, but something unexpected happened. Please try refreshing the page.
               </p>
               {process.env.NODE_ENV === 'development' && this.state.error && (
                 <details className="text-left text-sm text-gray-500 mb-4 p-3 bg-gray-100 rounded">

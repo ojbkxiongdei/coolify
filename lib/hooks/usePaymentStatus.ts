@@ -1,6 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
-import { VerifyResponse } from '../api/verify-payment';
+
+// 支付验证响应类型
+interface VerifyResponse {
+  success: boolean;
+  amount?: number;
+  currency?: string;
+  customerEmail?: string;
+  error?: string;
+}
 
 // 支付状态Hook的状态类型
 interface PaymentStatusState {

@@ -9,7 +9,7 @@ import ImageResults from '@/components/ImageResults'
 const ImageEditor = lazy(() => import('@/components/ImageEditor'))
 const SEOContent = lazy(() => import('@/components/SEOContent'))
 
-export default function Home() {
+function HomeContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   // 服务器端始终使用默认状态避免hydration错误
@@ -190,5 +190,17 @@ export default function Home() {
         </Suspense>
       )}
     </div>
+  )
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-2 border-gray-900 border-t-transparent"></div>
+      </div>
+    }>
+      <HomeContent />
+    </Suspense>
   )
 } 

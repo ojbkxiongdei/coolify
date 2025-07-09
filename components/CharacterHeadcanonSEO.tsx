@@ -85,8 +85,8 @@ export default function CharacterHeadcanonSEO() {
                 <p>
                   The character headcanon generator analyzes character traits, relationships, 
                   and canonical information to produce headcanons that feel natural and 
-                  consistent with the source material. Whether you're writing fan fiction, 
-                  developing character backstories, or exploring "what if" scenarios, our 
+                  consistent with the source material. Whether you&apos;re writing fan fiction, 
+                  developing character backstories, or exploring &quot;what if&quot; scenarios, our 
                   generator provides the creative spark you need.
                 </p>
                 <p>
@@ -244,7 +244,7 @@ export default function CharacterHeadcanonSEO() {
               </h3>
               <p className="text-gray-600">
                 Yes! Our character headcanon generator works with characters from any fandom, 
-                including anime, manga, movies, TV shows, books, games, and more. Whether you're 
+                including anime, manga, movies, TV shows, books, games, and more. Whether you&apos;re 
                 interested in Harry Potter, Marvel, DC, anime characters, or literary figures, 
                 the generator can create appropriate headcanons for any fictional universe.
               </p>
@@ -252,7 +252,7 @@ export default function CharacterHeadcanonSEO() {
             
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                What's the difference between the headcanon generator styles?
+                What&apos;s the difference between the headcanon generator styles?
               </h3>
               <p className="text-gray-600">
                 Our character headcanon generator offers three styles: Detailed focuses on specific, 

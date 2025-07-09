@@ -1,13 +1,13 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { CheckCircle, CreditCard, Zap, ArrowRight } from 'lucide-react'
 import { refreshSubscription, refreshCredits } from '@/lib/hooks/useUser'
 
-export default function SuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams()
   const sessionId = searchParams.get('session_id')
   const [loading, setLoading] = useState(true)
@@ -138,7 +138,7 @@ export default function SuccessPage() {
             <CardHeader>
               <CardTitle className="flex items-center text-lg">
                 <Zap className="h-5 w-5 mr-2 text-gray-700" />
-                What's Next
+                What&apos;s Next
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -192,5 +192,17 @@ export default function SuccessPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-2 border-gray-900 border-t-transparent"></div>
+      </div>
+    }>
+      <SuccessContent />
+    </Suspense>
   )
 } 

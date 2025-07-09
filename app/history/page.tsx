@@ -63,7 +63,7 @@ export default function HistoryPage() {
     } else if (lastUserIdRef.current === user.id) {
       setIsLoading(false)
     }
-  }, [loading, user?.id])
+  }, [loading, user])
 
   // 加载本地图片
   const loadLocalImages = async () => {

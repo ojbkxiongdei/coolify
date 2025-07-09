@@ -11,7 +11,7 @@ interface UserCredits {
 }
 
 // 缓存版本控制，避免部署后缓存不匹配
-const CACHE_VERSION = '1.0.0'
+const CACHE_VERSION = '1752070335735.ylxuo9'
 
 // 全局用户缓存和状态，避免重复请求和loading闪烁
 let userCache: { user: User | null; timestamp: number; version: string } | null = null
@@ -191,7 +191,7 @@ export function useUser() {
       setUser(latestState.user)
       setLoading(latestState.loading)
     }
-  }, [])
+  }, [loading, user])
 
   useEffect(() => {
     // 注册状态更新回调
@@ -255,7 +255,7 @@ export function useUser() {
       stateCallbacks.delete(callback)
       subscription.unsubscribe()
     }
-  }, [])
+  }, [updateUser])
 
   return { user, loading }
 }
@@ -340,7 +340,7 @@ export function useCredits() {
     }
 
     fetchCredits()
-  }, [user]) // 只依赖user，移除credits避免循环
+  }, [user, credits, updateCredits]) // 只依赖user，移除credits避免循环
 
   return credits
 }
@@ -519,7 +519,7 @@ export function useSubscription() {
     }
 
     fetchSubscription()
-  }, [user]) // 只依赖user，移除subscription避免循环
+  }, [user, subscription, updateSubscription]) // 只依赖user，移除subscription避免循环
 
   // 检查用户是否有活跃的订阅
   const hasActiveSubscription = subscription?.status === 'active'

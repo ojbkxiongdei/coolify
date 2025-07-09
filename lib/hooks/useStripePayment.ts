@@ -1,5 +1,17 @@
 import { useState, useCallback } from 'react';
-import { PaymentConfig } from '../api/create-payment';
+
+// 支付配置接口
+interface PaymentConfig {
+  amount: number;
+  currency?: string;
+  productName: string;
+  productDescription?: string;
+  successUrl?: string;
+  cancelUrl?: string;
+  metadata?: Record<string, string>;
+  mode: 'payment' | 'subscription';
+  priceId?: string;
+}
 
 // 支付Hook的状态类型
 interface PaymentState {
