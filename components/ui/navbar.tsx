@@ -1,6 +1,6 @@
 'use client'
 
-import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import { Book, Menu, Sunset, Trees, Zap, TreePine } from "lucide-react";
 import UserDropdown from "@/components/UserDropdown";
 import Image from "next/image";
 
@@ -86,6 +86,12 @@ const Navbar1 = ({
           icon: <Book className="size-5 shrink-0" />,
           url: "/character-headcanon-generator",
         },
+        {
+          title: "Elf Name Generator",
+          description: "Generate authentic fantasy elf names for D&D and RPGs",
+          icon: <TreePine className="size-5 shrink-0" />,
+          url: "/elf-name-generator",
+        },
       ],
     },
     { title: "History", url: "/history" },
@@ -94,8 +100,8 @@ const Navbar1 = ({
   mobileExtraLinks = [
     { name: "FAQ", url: "#" },
     { name: "Contact", url: "#" },
-    { name: "Privacy", url: "#" },
-    { name: "Terms", url: "#" },
+    { name: "Privacy", url: "/privacy" },
+    { name: "Terms", url: "/terms" },
   ],
 }: Navbar1Props) => {
   return (

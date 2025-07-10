@@ -5,6 +5,7 @@ import { Navbar1 } from '@/components/ui/navbar'
 import ErrorBoundary from '@/components/ErrorBoundary'
 import StructuredData from '@/components/StructuredData'
 import Script from 'next/script'
+import { Toaster } from 'sonner'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -70,6 +71,7 @@ export default function RootLayout({
         <ErrorBoundary>
           <Navbar1 />
           {children}
+          <Toaster />
         </ErrorBoundary>
       </body>
     </html>
