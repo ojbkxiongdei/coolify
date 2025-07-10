@@ -175,32 +175,32 @@ export default function SEOContent() {
             </div>
             
             <div>
-              <h4 className="font-medium mb-4">Features</h4>
+              <h4 className="font-medium mb-4">AI Tools</h4>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li>Text to Image Generation</li>
-                <li>AI Image Editing</li>
-                <li>Batch Processing</li>
-                <li>Multiple Formats</li>
+                <li><a href="/?tab=generate" className="hover:underline hover:text-white">Text to Image</a></li>
+                <li><a href="/?tab=edit" className="hover:underline hover:text-white">Image Editor</a></li>
+                <li><a href="/character-headcanon-generator" className="hover:underline hover:text-white">Character Headcanon Generator</a></li>
+                <li><a href="/elf-name-generator" className="hover:underline hover:text-white">Elf Name Generator</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-medium mb-4">Use Cases</h4>
+              <h4 className="font-medium mb-4">Pages</h4>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li>Digital Marketing</li>
-                <li>Content Creation</li>
-                <li>Product Design</li>
-                <li>Art & Illustration</li>
+                <li><a href="/history" className="hover:underline hover:text-white">History</a></li>
+                <li><a href="/pricing" className="hover:underline hover:text-white">Pricing</a></li>
+                <li><a href="/privacy" className="hover:underline hover:text-white">Privacy Policy</a></li>
+                <li><a href="/terms" className="hover:underline hover:text-white">Terms of Service</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-medium mb-4">Support</h4>
+              <h4 className="font-medium mb-4">Friend Links</h4>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li>Documentation</li>
-                <li>API Reference</li>
-                <li>Tutorials</li>
-                <li>Contact Us</li>
+                <li><a href="https://chinesenamegenerate.com" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">Chinesenamegenerate.com</a></li>
+                <li><a href="https://dressmeai.com" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">dressmeai.com</a></li>
+                <li><a href="https://checkios.com" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">checkios.com</a></li>
+                <li><a href="mailto:zeta@myowncoach.online" className="hover:underline hover:text-white">Contact Us</a></li>
               </ul>
             </div>
           </div>
@@ -209,10 +209,6 @@ export default function SEOContent() {
             <p className="text-sm text-gray-400">
               © 2025 DreamfinityX. All rights reserved. Powered by Azure OpenAI.
             </p>
-            <div className="mt-2 flex justify-center gap-4">
-              <a href="/privacy" className="text-sm text-gray-300 underline hover:text-white transition-colors">Privacy Policy</a>
-              <a href="/terms" className="text-sm text-gray-300 underline hover:text-white transition-colors">Terms of Service</a>
-            </div>
           </div>
         </div>
       </footer>
