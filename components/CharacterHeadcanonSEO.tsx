@@ -419,6 +419,29 @@ export default function CharacterHeadcanonSEO() {
         </div>
       </footer>
 
+      {/* Call to Action */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Start Creating Character Headcanons Today</h2>
+          <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+            Generate detailed, believable character headcanons for any fandom with our AI-powered tool. Perfect for fan fiction writers, roleplayers, and creative enthusiasts.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+              Try Character Generator Now
+            </button>
+            <a href="/elf-name-generator" className="bg-gray-200 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+              Generate Fantasy Names
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Structured Data for SEO */}
       <script
         type="application/ld+json"

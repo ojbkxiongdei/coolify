@@ -2,6 +2,7 @@
 
 import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
+import Head from 'next/head'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { CheckCircle, CreditCard, Zap, ArrowRight } from 'lucide-react'
@@ -91,6 +92,18 @@ function SuccessContent() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-16">
+      <Head>
+        <title>Payment Successful - DreamfinityX AI Image Generator | Thank You</title>
+        <meta name="description" content="Payment successful! Your DreamfinityX subscription or credits have been activated. Start creating stunning AI images and artwork today." />
+        <meta name="keywords" content="payment successful, AI image generator subscription, AI art credits, payment confirmation, DreamfinityX success" />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://dreamfinityx.com/success" />
+        <meta property="og:title" content="Payment Successful - DreamfinityX AI Image Generator" />
+        <meta property="og:description" content="Payment successful! Your DreamfinityX subscription or credits have been activated. Start creating stunning AI images today." />
+        <meta property="og:url" content="https://dreamfinityx.com/success" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+      </Head>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Success Banner */}
         <div className="text-center mb-8">

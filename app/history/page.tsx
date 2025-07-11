@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
+import Head from 'next/head'
 import { database } from '@/lib/database/actions'
 import { useUser } from '@/lib/hooks/useUser'
 import Image from 'next/image'
@@ -162,6 +163,18 @@ export default function HistoryPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Head>
+        <title>Generation History - DreamfinityX AI Image Generator | Your AI Art Gallery</title>
+        <meta name="description" content="View your AI image generation history on DreamfinityX. Browse through all your AI-generated and edited images, manage your AI art collection." />
+        <meta name="keywords" content="AI image history, AI art gallery, image generation history, AI artwork collection, DreamfinityX history, AI creative dashboard" />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://dreamfinityx.com/history" />
+        <meta property="og:title" content="Generation History - DreamfinityX AI Image Generator" />
+        <meta property="og:description" content="View your AI image generation history on DreamfinityX. Browse through all your AI-generated and edited images." />
+        <meta property="og:url" content="https://dreamfinityx.com/history" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+      </Head>
       <div className="py-8 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">

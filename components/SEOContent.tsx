@@ -161,9 +161,9 @@ export default function SEOContent() {
             </div>
           </div>
         </div>
-      </section>
+              </section>
 
-      {/* Footer */}
+        {/* Footer */}
       <footer className="py-12 px-4 bg-gray-900 text-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
@@ -177,8 +177,8 @@ export default function SEOContent() {
             <div>
               <h4 className="font-medium mb-4">AI Tools</h4>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li><a href="/?tab=generate" className="hover:underline hover:text-white">Text to Image</a></li>
-                <li><a href="/?tab=edit" className="hover:underline hover:text-white">Image Editor</a></li>
+                <li><a href="/text-to-image" className="hover:underline hover:text-white">Text to Image</a></li>
+                <li><a href="/image-editor" className="hover:underline hover:text-white">Image Editor</a></li>
                 <li><a href="/character-headcanon-generator" className="hover:underline hover:text-white">Character Headcanon Generator</a></li>
                 <li><a href="/elf-name-generator" className="hover:underline hover:text-white">Elf Name Generator</a></li>
               </ul>

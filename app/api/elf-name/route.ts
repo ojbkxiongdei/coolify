@@ -3,7 +3,6 @@ import OpenAI from "openai";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-  baseURL: process.env.OPENAI_PROXY_URL || "https://api.openai.com/v1",
 });
 
 export async function POST(request: NextRequest) {
@@ -60,7 +59,7 @@ Example format:
 ]`;
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "gpt-4.1-mini",
       messages: [
         {
           role: "system",

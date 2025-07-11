@@ -6,7 +6,9 @@ Sitemap: https://dreamfinityx.com/sitemap.xml
 
 # Optimize crawling for important pages
 Allow: /character-headcanon-generator
+Allow: /elf-name-generator
 Allow: /pricing
+Allow: /privacy
 Allow: /terms
 
 # Block sensitive areas

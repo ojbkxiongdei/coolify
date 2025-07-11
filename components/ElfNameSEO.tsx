@@ -237,6 +237,444 @@ export default function ElfNameSEO() {
             </div>
           </section>
 
+          {/* Elf Name Categories */}
+          <section>
+            <h2 className="text-3xl font-bold text-center mb-8">Elf Name Categories and Meanings</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Nature-Inspired Names</CardTitle>
+                  <CardDescription>Names reflecting natural elements and forest life</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span className="text-sm">Silverleaf</span>
+                      <span className="text-xs text-gray-500">Tree guardian</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-sm">Moonwhisper</span>
+                      <span className="text-xs text-gray-500">Night wanderer</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-sm">Starweaver</span>
+                      <span className="text-xs text-gray-500">Cosmic mage</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-sm">Windrunner</span>
+                      <span className="text-xs text-gray-500">Swift traveler</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Noble Titles</CardTitle>
+                  <CardDescription>Names of elvish nobility and aristocracy</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span className="text-sm">Goldenbrow</span>
+                      <span className="text-xs text-gray-500">Royal lineage</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-sm">Crystalborn</span>
+                      <span className="text-xs text-gray-500">Pure bloodline</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-sm">Thornheart</span>
+                      <span className="text-xs text-gray-500">Warrior lord</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-sm">Stormcrown</span>
+                      <span className="text-xs text-gray-500">Weather master</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Magical Names</CardTitle>
+                  <CardDescription>Names with magical significance and power</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span className="text-sm">Spellsong</span>
+                      <span className="text-xs text-gray-500">Enchantress</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-sm">Runekeeper</span>
+                      <span className="text-xs text-gray-500">Magic scholar</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-sm">Dreamweaver</span>
+                      <span className="text-xs text-gray-500">Mind mage</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-sm">Lightbringer</span>
+                      <span className="text-xs text-gray-500">Divine caster</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* Role-Playing Applications */}
+          <section>
+            <h2 className="text-3xl font-bold text-center mb-8">Role-Playing Game Applications</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">Dungeons & Dragons</CardTitle>
+                  <CardDescription>Perfect for D&D campaigns and character creation</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-sm text-gray-600">
+                    Generate authentic elf names for your D&D characters across all official elf subraces. Our generator understands the lore and naming conventions of each subrace, creating names that fit perfectly into your campaign world and character backstories.
+                  </p>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="bg-gray-50 rounded p-2">
+                      <div className="text-sm font-medium">Wood Elf Ranger</div>
+                      <div className="text-xs text-gray-600">Forest guardian names</div>
+                    </div>
+                    <div className="bg-gray-50 rounded p-2">
+                      <div className="text-sm font-medium">High Elf Wizard</div>
+                      <div className="text-xs text-gray-600">Scholarly magical names</div>
+                    </div>
+                    <div className="bg-gray-50 rounded p-2">
+                      <div className="text-sm font-medium">Drow Rogue</div>
+                      <div className="text-xs text-gray-600">Dark underground names</div>
+                    </div>
+                    <div className="bg-gray-50 rounded p-2">
+                      <div className="text-sm font-medium">Half-Elf Bard</div>
+                      <div className="text-xs text-gray-600">Artistic hybrid names</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">Fantasy Literature</CardTitle>
+                  <CardDescription>For authors and storytellers</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-sm text-gray-600">
+                    Create memorable elf characters for your fantasy novels, short stories, and world-building projects. Our generator provides names with rich backstories and cultural context to enhance your storytelling and character development.
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline">Fantasy Novels</Badge>
+                      <span className="text-sm">Epic fantasy character names</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline">Short Stories</Badge>
+                      <span className="text-sm">Memorable protagonist names</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline">World Building</Badge>
+                      <span className="text-sm">Cultural naming conventions</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline">Character Development</Badge>
+                      <span className="text-sm">Names with personality</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* Linguistic Features */}
+          <section>
+            <h2 className="text-3xl font-bold text-center mb-8">Linguistic Features and Pronunciation</h2>
+            <div className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">Elvish Language Patterns</CardTitle>
+                  <CardDescription>Understanding the structure of elvish names</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div>
+                      <h4 className="font-semibold mb-3">Sindarin Influences</h4>
+                      <p className="text-sm text-gray-600 mb-2">
+                        Names inspired by Tolkien's Sindarin language, featuring flowing vowel sounds and nature-based meanings. Common prefixes include "Gal-" (light), "Cel-" (stream), and "Mith-" (grey).
+                      </p>
+                      <div className="space-y-1 text-xs">
+                        <div>• Soft consonant clusters</div>
+                        <div>• Melodic vowel combinations</div>
+                        <div>• Nature-inspired elements</div>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-3">Quenya Patterns</h4>
+                      <p className="text-sm text-gray-600 mb-2">
+                        High elvish naming conventions with formal, noble sounds. Often feature "Eru-" (one), "Tar-" (high), and "Gil-" (star) as meaningful components.
+                      </p>
+                      <div className="space-y-1 text-xs">
+                        <div>• Formal linguistic structure</div>
+                        <div>• Noble-sounding combinations</div>
+                        <div>• Cosmic and divine themes</div>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-3">D&D Elvish</h4>
+                      <p className="text-sm text-gray-600 mb-2">
+                        Names following D&D lore and conventions, adapted for various elf subraces. Features unique patterns for wood elves, high elves, and drow cultures.
+                      </p>
+                      <div className="space-y-1 text-xs">
+                        <div>• Subrace-specific patterns</div>
+                        <div>• Cultural naming traditions</div>
+                        <div>• Alignment-based influences</div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">Pronunciation Guide</CardTitle>
+                  <CardDescription>How to pronounce elvish names correctly</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold mb-3">Vowel Sounds</h4>
+                      <div className="space-y-2">
+                        <div className="flex justify-between">
+                          <span className="text-sm">a</span>
+                          <span className="text-sm text-gray-600">as in "father"</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-sm">e</span>
+                          <span className="text-sm text-gray-600">as in "bed"</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-sm">i</span>
+                          <span className="text-sm text-gray-600">as in "machine"</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-sm">o</span>
+                          <span className="text-sm text-gray-600">as in "more"</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-sm">u</span>
+                          <span className="text-sm text-gray-600">as in "moon"</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-3">Consonant Combinations</h4>
+                      <div className="space-y-2">
+                        <div className="flex justify-between">
+                          <span className="text-sm">th</span>
+                          <span className="text-sm text-gray-600">soft "th" sound</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-sm">dh</span>
+                          <span className="text-sm text-gray-600">voiced "th"</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-sm">ng</span>
+                          <span className="text-sm text-gray-600">as in "sing"</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-sm">ch</span>
+                          <span className="text-sm text-gray-600">as in "loch"</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-sm">r</span>
+                          <span className="text-sm text-gray-600">rolled "r"</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* Gaming Communities */}
+          <section>
+            <h2 className="text-3xl font-bold text-center mb-8">Gaming Community Features</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">MMO Characters</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Generate unique elf names for massively multiplayer online games. Perfect for World of Warcraft, Elder Scrolls Online, Final Fantasy XIV, and other fantasy MMORPGs.
+                  </p>
+                  <div className="space-y-1 text-xs">
+                    <div>• Server-appropriate names</div>
+                    <div>• Lore-friendly conventions</div>
+                    <div>• Unique identity creation</div>
+                    <div>• Guild and clan names</div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Tabletop RPGs</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Beyond D&D, create elf names for Pathfinder, Warhammer Fantasy, GURPS, and other tabletop role-playing systems. Adaptable to any fantasy setting.
+                  </p>
+                  <div className="space-y-1 text-xs">
+                    <div>• System-neutral names</div>
+                    <div>• Campaign-specific themes</div>
+                    <div>• NPC name generation</div>
+                    <div>• Quick reference guides</div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Creative Writing</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600 mb-3">
+                    For authors, screenwriters, and creative professionals working on fantasy projects. Generate names that enhance character development and world-building.
+                  </p>
+                  <div className="space-y-1 text-xs">
+                    <div>• Character consistency</div>
+                    <div>• Cultural authenticity</div>
+                    <div>• Memorable protagonists</div>
+                    <div>• Supporting character names</div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* Advanced Features */}
+          <section>
+            <h2 className="text-3xl font-bold text-center mb-8">Advanced Generator Features</h2>
+            <div className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">Name Customization Engine</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold mb-3">Syllable Control</h4>
+                      <p className="text-sm text-gray-600 mb-2">
+                        Control the number of syllables in generated names. Choose from 1-5 syllables to create names that fit your specific needs, from short and memorable to long and elaborate.
+                      </p>
+                      <div className="grid grid-cols-5 gap-1 text-xs">
+                        <div className="bg-gray-50 rounded p-1 text-center">1</div>
+                        <div className="bg-gray-50 rounded p-1 text-center">2</div>
+                        <div className="bg-gray-50 rounded p-1 text-center">3</div>
+                        <div className="bg-gray-50 rounded p-1 text-center">4</div>
+                        <div className="bg-gray-50 rounded p-1 text-center">5</div>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-3">Phonetic Patterns</h4>
+                      <p className="text-sm text-gray-600 mb-2">
+                        Select specific phonetic patterns for your elf names. Choose from flowing, harsh, melodic, or mystical sound patterns to match your character's personality.
+                      </p>
+                      <div className="grid grid-cols-2 gap-1 text-xs">
+                        <div className="bg-gray-50 rounded p-1 text-center">Flowing</div>
+                        <div className="bg-gray-50 rounded p-1 text-center">Harsh</div>
+                        <div className="bg-gray-50 rounded p-1 text-center">Melodic</div>
+                        <div className="bg-gray-50 rounded p-1 text-center">Mystical</div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">Cultural Variations</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-4 gap-4">
+                    <div>
+                      <h4 className="font-semibold mb-2">Forest Cultures</h4>
+                      <p className="text-xs text-gray-600">Wood elves, tree shepherds, forest guardians</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Mountain Clans</h4>
+                      <p className="text-xs text-gray-600">High elves, stone singers, peak dwellers</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Coastal Tribes</h4>
+                      <p className="text-xs text-gray-600">Sea elves, wave dancers, tide callers</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Desert Nomads</h4>
+                      <p className="text-xs text-gray-600">Sun elves, sand walkers, dune riders</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* Extended FAQ */}
+          <section>
+            <h2 className="text-3xl font-bold text-center mb-8">Extended FAQ and Help</h2>
+            <div className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">How authentic are the generated elf names?</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">
+                    Our AI elf name generator has been trained on extensive fantasy literature, linguistic patterns from Tolkien's works, D&D lore, and traditional fantasy naming conventions. Each name follows authentic elvish phonetic patterns and cultural meanings, ensuring they feel natural and believable in fantasy settings.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Can I use these names for commercial projects?</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">
+                    Yes, all generated elf names are original creations and can be used freely for personal projects, commercial games, published novels, tabletop RPG campaigns, and other creative works. The names are generated using AI algorithms that create unique combinations based on linguistic patterns.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">How do I choose the right elf type for my character?</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">
+                    Consider your character's background, personality, and role in your story or game. Wood elves are perfect for rangers and druids, while high elves suit wizards and nobles. Dark elves work well for rogues and mysterious characters. Sea elves are ideal for maritime adventures.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">What makes a good elf name?</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">
+                    A good elf name should be melodious, meaningful, and appropriate for the character's culture. Elvish names typically feature flowing vowel sounds, soft consonants, and nature-inspired meanings. They should be memorable with 2-4 syllables being ideal.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
           {/* Technical Features */}
           <section>
             <h2 className="text-3xl font-bold text-center mb-8">Technical Features</h2>
@@ -247,7 +685,7 @@ export default function ElfNameSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    Based on latest GPT-4 technology, ensuring generated names are both traditional and creative
+                    Based on latest GPT-4 technology, ensuring generated names are both traditional and creative. Advanced AI algorithms analyze linguistic patterns, cultural contexts, and fantasy literature to create authentic elvish names.
                   </p>
                 </CardContent>
               </Card>
@@ -258,7 +696,7 @@ export default function ElfNameSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    Supports various elvish language styles including Sindarin, Quenya and other Tolkien language families
+                    Supports various elvish language styles including Sindarin, Quenya and other Tolkien language families. Generate names with pronunciation guides in multiple languages for authentic fantasy experiences.
                   </p>
                 </CardContent>
               </Card>
@@ -269,14 +707,61 @@ export default function ElfNameSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    Fast response time, generating high-quality elf names and background stories within seconds
+                    Fast response time, generating high-quality elf names and background stories within seconds. Perfect for dungeon masters, authors, and gamers who need quick character creation tools.
                   </p>
                 </CardContent>
               </Card>
             </div>
           </section>
+
+          {/* Call to Action */}
+          <section className="text-center bg-gray-50 rounded-lg p-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Create Your Perfect Elf Name Today</h2>
+            <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+              Generate authentic fantasy elf names for your D&D characters, RPG campaigns, and creative writing projects. Free to use with endless possibilities.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Try Elf Name Generator Now
+              </button>
+              <a href="/character-headcanon-generator" className="bg-gray-200 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+                Create Character Stories
+              </a>
+            </div>
+          </section>
         </div>
       </div>
+
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Elf Name Generator",
+            "description": "Generate authentic fantasy elf names for D&D, RPG campaigns, and creative writing. AI-powered generator with multiple elf types and cultural variations.",
+            "url": "https://dreamfinityx.com/elf-name-generator",
+            "applicationCategory": "GamingApplication",
+            "operatingSystem": "Any",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "creator": {
+              "@type": "Organization",
+              "name": "DreamfinityX"
+            },
+            "keywords": "elf name generator, fantasy names, D&D names, RPG characters, fantasy character names, elvish names"
+          })
+        }}
+      />
     </div>
   );
 }

@@ -12,7 +12,25 @@ export async function GET() {
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/text-to-image`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/image-editor`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/character-headcanon-generator`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/elf-name-generator`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -22,6 +40,12 @@ export async function GET() {
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/terms`,
