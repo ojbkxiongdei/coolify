@@ -1,46 +1,56 @@
 # DreamfinityX Project Structure Guide
 
 ## Overview
-DreamfinityX is an AI-powered image generation and editing platform built with Next.js 14, TypeScript, and multi-provider AI integration (Azure OpenAI + OpenAI). Features a subscription-based credits system with Stripe payment integration, plus a FREE character headcanon generator for SEO and user engagement.
+DreamfinityX is an AI-powered creative tools platform built with Next.js 14, TypeScript, and multi-provider AI integration (Azure OpenAI + OpenAI). Features a comprehensive suite of AI tools with subscription-based credits system and FREE tools for SEO optimization.
 
-## Key Architecture
-- **Main Entry**: [app/page.tsx](mdc:app/page.tsx) - Main application with image generation and editing functionality
-- **API Routes**: 
-  - [app/api/generate-image/route.ts](mdc:app/api/generate-image/route.ts) - Text-to-image generation
-  - [app/api/edit-image/route.ts](mdc:app/api/edit-image/route.ts) - Image editing functionality
-  - [app/api/character-headcanon/route.ts](mdc:app/api/character-headcanon/route.ts) - Character headcanon text generation (FREE)
-  - [app/api/credits/](mdc:app/api/credits/) - Credits system API (balance, consume)
-  - [app/api/payments/](mdc:app/api/payments/) - Payment processing API
-  - [app/api/webhooks/stripe/](mdc:app/api/webhooks/stripe/) - Stripe webhooks
-- **Pages**: 
-  - [app/history/page.tsx](mdc:app/history/page.tsx) - User generation history
-  - [app/pricing/page.tsx](mdc:app/pricing/page.tsx) - Subscription plans and credit packages
-  - [app/success/page.tsx](mdc:app/success/page.tsx) - Payment success page
-  - [app/character-headcanon-generator/page.tsx](mdc:app/character-headcanon-generator/page.tsx) - Character headcanon generator page
-  - [app/character-headcanon-generator/CharacterHeadcanonPage.tsx](mdc:app/character-headcanon-generator/CharacterHeadcanonPage.tsx) - Client component for headcanon page
-  - [app/character-headcanon-generator/CharacterHeadcanonGenerator.tsx](mdc:app/character-headcanon-generator/CharacterHeadcanonGenerator.tsx) - Headcanon form component
-  - [app/character-headcanon-generator/CharacterHeadcanonSEO.tsx](mdc:app/character-headcanon-generator/CharacterHeadcanonSEO.tsx) - SEO content component
-- **Components**: 
-  - [components/ui/navbar.tsx](mdc:components/ui/navbar.tsx) - Main navigation component
-  - [components/UserDropdown.tsx](mdc:components/UserDropdown.tsx) - User authentication dropdown with credits display
-  - [components/ImageGenerator.tsx](mdc:components/ImageGenerator.tsx) - Text-to-image interface
-  - [components/ImageEditor.tsx](mdc:components/ImageEditor.tsx) - Image editing interface
-  - [components/ImageResults.tsx](mdc:components/ImageResults.tsx) - Display generated images
-  - [components/ui/dropdown-menu.tsx](mdc:components/ui/dropdown-menu.tsx) - Dropdown menu component
-- **Database**: 
-  - [lib/supabase/](mdc:lib/supabase/) - Supabase client configuration
-  - [lib/database/actions.ts](mdc:lib/database/actions.ts) - Database operations
-  - [lib/database/schema.sql](mdc:lib/database/schema.sql) - Base database schema
-  - [lib/database/pricing-schema.sql](mdc:lib/database/pricing-schema.sql) - Credits and subscription schema
-  - [lib/hooks/useUser.ts](mdc:lib/hooks/useUser.ts) - User authentication hook with global state caching
-- **Styling**: Uses Tailwind CSS with black/white/gray design system
-- **Payment**: [stripe-payment-module/](mdc:stripe-payment-module/) - Stripe integration module
+## New Architecture (2025 Update)
+**Major restructure from single-page tab interface to independent page architecture:**
+
+### Homepage as Brand Aggregation
+- **[app/page.tsx](mdc:app/page.tsx)** - Brand showcase homepage with tool overview cards
+- **Purpose**: Professional brand presentation, tool discovery, and user onboarding
+- **Design**: Hero section + 4 tool cards + features + CTA sections
+
+### Four Independent Functional Pages
+1. **[app/text-to-image/page.tsx](mdc:app/text-to-image/page.tsx)** - AI Image Generator
+2. **[app/image-editor/page.tsx](mdc:app/image-editor/page.tsx)** - AI Image Editor  
+3. **[app/elf-name-generator/page.tsx](mdc:app/elf-name-generator/page.tsx)** - Fantasy Name Generator
+4. **[app/character-headcanon-generator/page.tsx](mdc:app/character-headcanon-generator/page.tsx)** - Character Story Generator
+
+Each functional page includes:
+- Dedicated URL structure (`/text-to-image`, `/image-editor`, etc.)
+- Independent SEO metadata and canonical URLs
+- Lazy-loaded SEO content components (1000+ keywords each)
+- Bottom CTA buttons with smooth scrolling functionality
+
+## SEO Content Components
+- **[components/TextToImageSEO.tsx](mdc:components/TextToImageSEO.tsx)** - 1000+ keywords for image generation
+- **[components/ImageEditorSEO.tsx](mdc:components/ImageEditorSEO.tsx)** - 2700+ keywords for image editing
+- **[components/ElfNameSEO.tsx](mdc:components/ElfNameSEO.tsx)** - 3500+ keywords for fantasy names
+- **[components/CharacterHeadcanonSEO.tsx](mdc:components/CharacterHeadcanonSEO.tsx)** - 1000+ keywords for character stories
+
+## API Routes
+- **[app/api/generate-image/route.ts](mdc:app/api/generate-image/route.ts)** - Text-to-image generation (Azure OpenAI)
+- **[app/api/edit-image/route.ts](mdc:app/api/edit-image/route.ts)** - Image editing functionality (Azure OpenAI)
+- **[app/api/elf-name/route.ts](mdc:app/api/elf-name/route.ts)** - Fantasy name generation (OpenAI Proxy)
+- **[app/api/character-headcanon/route.ts](mdc:app/api/character-headcanon/route.ts)** - Character story generation (OpenAI Proxy)
+- **[app/api/credits/](mdc:app/api/credits/)** - Credits system API
+- **[app/api/payments/](mdc:app/api/payments/)** - Payment processing API
+
+## Core Components
+- **[components/ui/navbar.tsx](mdc:components/ui/navbar.tsx)** - Updated with new page links
+- **[components/ImageGenerator.tsx](mdc:components/ImageGenerator.tsx)** - Text-to-image interface
+- **[components/ImageEditor.tsx](mdc:components/ImageEditor.tsx)** - Image editing interface
+- **[components/ElfNameGenerator.tsx](mdc:components/ElfNameGenerator.tsx)** - Fantasy name generator
+- **[components/CharacterHeadcanonGenerator.tsx](mdc:components/CharacterHeadcanonGenerator.tsx)** - Character story generator
+- **[components/ImageResults.tsx](mdc:components/ImageResults.tsx)** - Display generated images
+- **[components/SEOContent.tsx](mdc:components/SEOContent.tsx)** - Homepage SEO content
 
 ## Technology Stack
 - **Framework**: Next.js 14 with App Router
 - **Language**: TypeScript for type safety
-- **Styling**: Tailwind CSS for styling
-- **AI**: Azure OpenAI GPT-image-1 model
+- **Styling**: Tailwind CSS with mobile-first design
+- **AI**: Azure OpenAI (paid features) + OpenAI Proxy (free features)
 - **Database**: Supabase (PostgreSQL)
 - **Storage**: Supabase Storage for images
 - **Auth**: Supabase Auth with Google OAuth
@@ -51,134 +61,102 @@ DreamfinityX is an AI-powered image generation and editing platform built with N
 ```
 dreamfinityX/
 ├── app/                          # Next.js App Router
-│   ├── page.tsx                  # Main page with generators
+│   ├── page.tsx                  # Brand aggregation homepage
+│   ├── text-to-image/
+│   │   └── page.tsx              # AI Image Generator page
+│   ├── image-editor/
+│   │   └── page.tsx              # AI Image Editor page
+│   ├── elf-name-generator/
+│   │   └── page.tsx              # Fantasy Name Generator page
+│   ├── character-headcanon-generator/
+│   │   └── page.tsx              # Character Story Generator page
 │   ├── history/page.tsx          # User generation history
-│   ├── pricing/page.tsx          # Subscription plans & credit packages
+│   ├── pricing/page.tsx          # Subscription plans
 │   ├── success/page.tsx          # Payment success page
-│   ├── character-headcanon-generator/  # Character headcanon generator
-│   │   ├── page.tsx              # Main page (server component)
-│   │   ├── CharacterHeadcanonPage.tsx  # Client page component
-│   │   ├── CharacterHeadcanonGenerator.tsx  # Form component
-│   │   └── CharacterHeadcanonSEO.tsx   # SEO content component
-│   ├── auth/auth-code-error/     # Auth error page
 │   └── api/                      # API routes
 │       ├── generate-image/route.ts
 │       ├── edit-image/route.ts
-│       ├── character-headcanon/route.ts  # Character headcanon API
+│       ├── elf-name/route.ts
+│       ├── character-headcanon/route.ts
 │       ├── credits/
-│       │   ├── balance/route.ts  # Get user credits
-│       │   └── consume/route.ts  # Consume credits
 │       ├── payments/
-│       │   ├── create/route.ts   # Create payment intent
-│       │   └── verify/route.ts   # Verify payment
-│       ├── webhooks/stripe/route.ts
-│       └── auth/callback/route.ts
+│       └── webhooks/stripe/route.ts
 ├── components/                   # React components
 │   ├── ui/                       # UI components
 │   │   ├── navbar.tsx
-│   │   ├── dropdown-menu.tsx
 │   │   ├── button.tsx
 │   │   └── card.tsx
-│   ├── UserDropdown.tsx          # User auth dropdown with credits
-│   ├── ImageGenerator.tsx        # Text-to-image
-│   ├── ImageEditor.tsx           # Image editing
+│   ├── ImageGenerator.tsx        # Text-to-image interface
+│   ├── ImageEditor.tsx           # Image editing interface
+│   ├── ElfNameGenerator.tsx      # Fantasy name generator
+│   ├── CharacterHeadcanonGenerator.tsx # Character story generator
 │   ├── ImageResults.tsx          # Results display
-│   ├── ErrorBoundary.tsx         # Error handling
-│   └── SEOContent.tsx            # SEO sections
+│   ├── SEOContent.tsx            # Homepage SEO content
+│   ├── TextToImageSEO.tsx        # Text-to-image SEO content
+│   ├── ImageEditorSEO.tsx        # Image editor SEO content
+│   ├── ElfNameSEO.tsx            # Elf name SEO content
+│   └── CharacterHeadcanonSEO.tsx # Character story SEO content
 ├── lib/                          # Utilities and configurations
 │   ├── supabase/                 # Supabase setup
-│   │   ├── client.ts
-│   │   ├── server.ts
-│   │   └── middleware.ts
 │   ├── database/                 # Database operations
-│   │   ├── actions.ts
-│   │   ├── schema.sql            # Base schema
-│   │   ├── pricing-schema.sql    # Credits system
-│   │   └── storage-setup.sql
 │   └── hooks/                    # Custom React hooks
 │       └── useUser.ts            # Global user state
 ├── stripe-payment-module/        # Payment integration
-└── favicon_io/                   # Static assets
+└── public/                       # Static assets
 ```
 
+## Four Core AI Tools
+1. **AI Image Generator** (`/text-to-image`)
+   - **Technology**: Azure OpenAI GPT-image-1
+   - **Pricing**: Credit-based (1-15 credits per generation)
+   - **Features**: Multiple styles, resolutions, quality settings
+
+2. **AI Image Editor** (`/image-editor`)
+   - **Technology**: Azure OpenAI image editing
+   - **Pricing**: Credit-based (1-15 credits per edit)
+   - **Features**: Background removal, style transfer, artistic effects
+
+3. **Fantasy Name Generator** (`/elf-name-generator`)
+   - **Technology**: OpenAI via proxy (bypasses credits)
+   - **Pricing**: FREE (SEO optimization tool)
+   - **Features**: Multiple elf types, cultural variations, pronunciation
+
+4. **Character Story Generator** (`/character-headcanon-generator`)
+   - **Technology**: OpenAI via proxy (bypasses credits)
+   - **Pricing**: FREE (SEO optimization tool)
+   - **Features**: Detailed character backgrounds, multiple styles
+
+## SEO Optimization Features
+- **Structured Data**: Schema.org markup for all functional pages
+- **Meta Tags**: Complete title, description, keywords, OG tags
+- **Internal Linking**: Cross-references between related tools
+- **Sitemap**: All pages included with proper priority (0.9 for tools)
+- **CTA Buttons**: Smooth scrolling to functional areas (no page reloads)
+- **Lazy Loading**: SEO content loaded after main functionality
+
 ## Design Principles
-- **Function-first approach**: Main features on first screen
-- **SEO content positioning**: Features, About, FAQ moved to bottom
-- **Monochrome color scheme**: Gray-900, gray-800, white palette
-- **Mobile-responsive design**: Touch-friendly interfaces
-- **Professional, clean UI**: Minimal distractions
-- **Performance-focused**: Optimized images and async operations
+- **Mobile-First**: Touch-friendly interfaces, responsive design
+- **Function-First**: Main tools immediately accessible
+- **SEO-Second**: Rich content positioned after functionality
+- **Professional UI**: Clean, minimal design with gray/white palette
+- **Performance-Focused**: Optimized loading and smooth interactions
 
-## Core Features
-1. **AI Image Generation**: Text-to-image using Azure OpenAI
-2. **AI Image Editing**: Image-to-image transformation
-3. **Character Headcanon Generator**: FREE text-based character description generator with extensive configuration options
-4. **User Authentication**: Google OAuth via Supabase
-5. **Credits System**: Subscription-based and one-time credit packages (not applied to headcanon generator)
-6. **Payment Integration**: Stripe for subscriptions and credit purchases
-7. **Image Storage**: Supabase Storage with proper optimization
-8. **Generation History**: User history with saved images
-9. **SEO Optimization**: Dedicated SEO pages with keyword-rich content
-10. **Responsive UI**: User dropdown with credits display and logout
-
-## Database Schema
-### Core Tables
-- **user_profiles**: User information and metadata
-- **image_generations**: Generated image records
-- **user_preferences**: User settings and preferences
-
-### Credits System
-- **user_credits**: User credit balances (total, used, subscription, purchased)
-- **subscription_plans**: Available subscription tiers
-- **user_subscriptions**: Active user subscriptions
-- **credit_packages**: One-time credit purchase packages
-- **credit_transactions**: Credit usage and purchase history
-
-### Storage
-- **Storage Bucket**: `generated-images` for image files
-
-## Environment Configuration
-- **Azure OpenAI**: Endpoint and API key for image generation
-- **OpenAI**: API key for character headcanon generation via proxy
-- **Proxy Service**: https://proxy.tainanle.online/v1 for OpenAI API access
-- **Supabase**: Database URL, anon key, service role key
-- **Google OAuth**: Client ID and secret for authentication
-- **Stripe**: Publishable key, secret key, webhook secret
-- **Next.js**: Site URL for redirects and callbacks
-
-## Development Workflow
-1. **Local Development**: `npm run dev` with environment variables
-2. **Linting**: `npm run lint` for code quality
-3. **Type Checking**: TypeScript for compile-time validation
-4. **Database Migration**: Execute SQL files in Supabase Dashboard
-5. **Storage Setup**: Configure buckets and RLS policies
-6. **Stripe Setup**: Configure test mode with test keys
-
-## Authentication & User Flow
-1. **Google OAuth**: Sign in via Google through Supabase Auth
-2. **Auto-provisioning**: User profiles and credits records created automatically
-3. **Global State**: User authentication state cached globally with 5-minute TTL
-4. **User Dropdown**: Displays user avatar, credits balance, and logout option
-5. **Credits Display**: Shows available credits and low-balance warnings
-
-## Payment & Credits System
-1. **Subscription Plans**: Monthly recurring billing with monthly credit allocation
-2. **One-time Purchases**: Credit packages for immediate top-up
-3. **Usage Tracking**: Credits consumed per image generation
-4. **Balance Checking**: Real-time credits validation before generation
-5. **Stripe Webhooks**: Automatic credit allocation upon payment success
-
-## Security Features
-- **Row Level Security**: Database access control
-- **API Key Protection**: Server-side Azure OpenAI integration
-- **User Isolation**: Data segregation by user ID
-- **File Upload Validation**: Type and size restrictions
-- **Content Safety**: Azure OpenAI content filtering
-- **Payment Security**: Stripe handles sensitive payment data
+## Navigation Updates
+- **Navbar**: Updated links to new independent pages
+- **Footer**: Corrected internal linking structure
+- **CTA Buttons**: Smooth scrolling within same page (no redirects)
+- **Breadcrumbs**: Clear navigation hierarchy
 
 ## Common Issues & Solutions
-1. **Credits Schema**: Ensure `last_reset_at` field exists in `user_credits` table
-2. **Stripe Mode**: Supports both test mode (`sk_test_`, `pk_test_`) and production mode (`sk_live_`, `pk_live_`)
-3. **User State Loading**: Global caching prevents repeated API calls
-4. **Database Permissions**: RLS policies ensure data isolation
-5. **Error Handling**: ErrorBoundary components catch and display errors gracefully
+1. **CTA Button Behavior**: Use `scrollIntoView()` for smooth scrolling, not href redirects
+2. **SEO Content Loading**: Implement Intersection Observer for lazy loading
+3. **Meta Tags**: Ensure each page has unique, descriptive metadata
+4. **Internal Links**: Update all references from tab-based to page-based URLs
+5. **Mobile Responsiveness**: All components must work on mobile devices
+
+## Development Best Practices
+- **Independent Pages**: Each tool has its own URL and SEO optimization
+- **Shared Components**: Reuse UI components across different pages
+- **Consistent Styling**: Maintain design system across all pages
+- **Performance**: Lazy load SEO content to prioritize functionality
+- **SEO**: Rich, keyword-optimized content for each tool category

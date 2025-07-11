@@ -1,0 +1,249 @@
+# Elf Name Generator Rules
+
+## Overview
+The Elf Name Generator is a FREE AI-powered tool designed for SEO optimization and user engagement. It generates authentic fantasy elf names for D&D campaigns, RPG characters, and creative writing projects.
+
+## Core Purpose
+- **SEO Optimization**: Capture fantasy/gaming-related search traffic
+- **User Engagement**: Provide immediate value without payment barriers
+- **Content Marketing**: Rich, keyword-optimized content for fantasy enthusiasts
+- **Brand Building**: Establish authority in fantasy and gaming communities
+
+## Technical Implementation
+
+### API Route
+**[app/api/elf-name/route.ts](mdc:app/api/elf-name/route.ts)**
+- **Technology**: OpenAI GPT-4 via proxy service
+- **Proxy URL**: `https://proxy.tainanle.online/v1`
+- **Credits**: Bypasses credit system (completely free)
+- **Rate Limiting**: Implemented to prevent abuse
+
+### Page Structure
+**[app/elf-name-generator/page.tsx](mdc:app/elf-name-generator/page.tsx)**
+- **Layout**: Server-side rendered page with metadata
+- **Component**: Renders [ElfNamePage.tsx](mdc:components/ElfNamePage.tsx)
+- **SEO**: Complete meta tags and structured data
+
+### Main Component
+**[components/ElfNamePage.tsx](mdc:components/ElfNamePage.tsx)**
+- **Functionality**: Lazy-loaded SEO content with Intersection Observer
+- **Structure**: Generator + SEO content sections
+- **Loading**: Dynamic import of SEO component for performance
+
+### Generator Component
+**[components/ElfNameGenerator.tsx](mdc:components/ElfNameGenerator.tsx)**
+- **Interface**: Clean, intuitive form with multiple options
+- **Features**: Elf type selection, gender options, quantity selection
+- **Output**: Generated names with meanings and pronunciations
+
+### SEO Component
+**[components/ElfNameSEO.tsx](mdc:components/ElfNameSEO.tsx)**
+- **Content**: 3500+ keywords focused on fantasy names
+- **Structure**: Features, use cases, FAQ, technical details
+- **Bottom CTA**: Smooth scrolling to generator (no page reload)
+
+## Elf Name Generation Features
+
+### Supported Elf Types
+- **Wood Elves**: Forest-dwelling, nature-focused names
+- **High Elves**: Noble, aristocratic names
+- **Dark Elves**: Mysterious, shadow-themed names
+- **Half-Elves**: Hybrid naming conventions
+- **Sea Elves**: Ocean and water-inspired names
+- **Moon Elves**: Lunar and celestial themes
+- **Sun Elves**: Solar and light-themed names
+- **Wild Elves**: Primitive, nature-raw names
+- **Snow Elves**: Arctic and winter themes
+- **Shadow Elves**: Stealth and darkness themes
+
+### Generation Options
+- **Gender**: Male, Female, Neutral
+- **Quantity**: 3-10 names per generation
+- **Cultural Variation**: Different elvish cultures
+- **Meanings**: Each name includes meaning explanation
+- **Pronunciation**: Phonetic guides for complex names
+
+## SEO Strategy
+
+### Target Keywords
+**Primary Keywords:**
+- "elf name generator"
+- "fantasy name generator"
+- "D&D elf names"
+- "half elf name generator"
+- "wood elf names"
+- "dark elf names"
+
+**Long-tail Keywords:**
+- "fantasy elf names for D&D characters"
+- "authentic elvish names for RPG"
+- "wood elf name generator for fantasy stories"
+- "half elf names for creative writing"
+
+### Content Sections
+1. **Features Section**: Generator capabilities and AI technology
+2. **Elf Types Guide**: Detailed explanations of different elf cultures
+3. **Use Cases**: D&D campaigns, fantasy writing, RPG characters
+4. **Linguistic Features**: Phonetic patterns and cultural meanings
+5. **FAQ Section**: Common questions about elf naming conventions
+6. **Technical Details**: AI technology and generation process
+
+### Keyword Density Achievement
+- **Target**: 1000+ keywords per page
+- **Actual**: 3500+ keywords achieved
+- **Focus Areas**: 
+  - Fantasy literature and gaming
+  - D&D and RPG terminology
+  - Elvish culture and linguistics
+  - Creative writing and storytelling
+
+## User Experience Design
+
+### Function-First Approach
+1. **Above the fold**: Immediate access to name generator
+2. **Clean Interface**: Minimal form with clear options
+3. **Instant Results**: Fast generation with AI processing
+4. **Rich Content**: Detailed SEO content below generator
+
+### Mobile Optimization
+- **Touch-friendly**: 44px minimum button sizes
+- **Responsive**: Adapts to all screen sizes
+- **Fast Loading**: Lazy-loaded SEO content
+- **Smooth Scrolling**: CTA buttons use smooth scroll
+
+### Accessibility
+- **Screen Reader**: Proper ARIA labels and descriptions
+- **Keyboard Navigation**: Full keyboard accessibility
+- **High Contrast**: Readable text and clear interfaces
+- **Loading States**: Clear feedback during generation
+
+## Technical Specifications
+
+### API Implementation
+```typescript
+// API request structure
+{
+  elfType: 'wood' | 'high' | 'dark' | 'half' | 'sea' | 'moon' | 'sun' | 'wild' | 'snow' | 'shadow',
+  gender: 'male' | 'female' | 'neutral',
+  count: number (3-10)
+}
+
+// API response structure
+{
+  names: Array<{
+    name: string,
+    meaning: string,
+    pronunciation: string,
+    culture: string
+  }>
+}
+```
+
+### OpenAI Integration
+- **Model**: GPT-4 for high-quality generation
+- **Prompt Engineering**: Specialized prompts for elvish naming
+- **Cultural Accuracy**: Trained on fantasy literature patterns
+- **Consistency**: Maintains naming conventions across cultures
+
+### Performance Optimization
+- **Lazy Loading**: SEO content loads after interaction
+- **Caching**: Generated names cached for quick recall
+- **Error Handling**: Graceful fallbacks for API failures
+- **Rate Limiting**: Prevents abuse while maintaining usability
+
+## SEO Technical Implementation
+
+### Structured Data
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Elf Name Generator",
+  "description": "Generate authentic fantasy elf names for D&D, RPG campaigns, and creative writing",
+  "applicationCategory": "GamingApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+```
+
+### Meta Tags
+- **Title**: "Elf Name Generator - Fantasy Names for All Elf Types | DreamfinityX"
+- **Description**: Rich description with target keywords
+- **Keywords**: Comprehensive keyword list
+- **Open Graph**: Complete social media optimization
+- **Canonical**: Proper URL structure
+
+### Internal Linking
+- **Cross-references**: Links to character generator
+- **Homepage**: Featured on main tool showcase
+- **Navigation**: Included in main site navigation
+- **CTA Buttons**: Smooth scrolling within page
+
+## Content Strategy
+
+### Educational Content
+- **Elf Culture Guide**: Detailed explanations of different elf types
+- **Naming Conventions**: Linguistic patterns and cultural meanings
+- **Fantasy Literature**: References to Tolkien and modern fantasy
+- **Gaming Applications**: D&D and RPG character creation guides
+
+### Practical Applications
+- **Character Creation**: Step-by-step guides for RPG characters
+- **Writing Tips**: Using elf names in fantasy fiction
+- **Campaign Ideas**: Integrating generated names into D&D campaigns
+- **Cultural Consistency**: Maintaining authenticity in fantasy worlds
+
+## Performance Metrics
+
+### SEO Targets
+- **Keywords**: 3500+ relevant keywords
+- **Page Speed**: <3 seconds loading time
+- **Mobile Score**: 90+ on Google PageSpeed
+- **Core Web Vitals**: All green scores
+
+### User Engagement
+- **Bounce Rate**: <50% target
+- **Time on Page**: >2 minutes average
+- **Generation Rate**: >80% of visitors use generator
+- **Cross-tool Navigation**: >20% visit other tools
+
+## Future Enhancements
+
+### Additional Features
+- **Name History**: Save favorite generated names
+- **Custom Cultures**: User-defined elvish cultures
+- **Name Variations**: Multiple versions of same name
+- **Audio Pronunciation**: Spoken name pronunciation
+
+### Content Expansion
+- **Blog Integration**: Elf naming guides and tutorials
+- **User Gallery**: Community-shared character names
+- **Name Stories**: Generated backstories for names
+- **Cultural Deep Dives**: Detailed elf culture articles
+
+## Best Practices
+
+### Content Creation
+- **Authenticity**: Research-based naming conventions
+- **Variety**: Diverse cultural representations
+- **Quality**: High-quality, meaningful names
+- **Consistency**: Maintains fantasy literature standards
+
+### User Experience
+- **Simplicity**: Easy-to-use interface
+- **Speed**: Fast generation and loading
+- **Accessibility**: Universal design principles
+- **Feedback**: Clear success and error states
+
+### SEO Optimization
+- **Keyword Research**: Continuous keyword analysis
+- **Content Updates**: Regular content refreshing
+- **Technical SEO**: Ongoing optimization
+- **Link Building**: Internal and external linking strategy
+description:
+globs:
+alwaysApply: false
+---
