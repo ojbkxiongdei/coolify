@@ -148,7 +148,7 @@ const TextToImageSEO = () => {
 
               <Card>
                 <CardHeader>
-                  <Image className="h-6 w-6 text-purple-500 mb-2" />
+                  <Image className="h-6 w-6 text-purple-500 mb-2" aria-label="Graphic Design Icon" />
                   <CardTitle>Graphic Design</CardTitle>
                   <CardDescription>Professional design assets and concepts</CardDescription>
                 </CardHeader>

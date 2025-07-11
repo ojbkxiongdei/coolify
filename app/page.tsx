@@ -129,7 +129,7 @@ function HomeContent() {
             <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-blue-200">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
-                  <Image className="w-8 h-8 text-blue-600" />
+                  <Image className="w-8 h-8 text-blue-600" aria-label="AI Image Generator Icon" />
                 </div>
                 <CardTitle className="text-xl">AI Image Generator</CardTitle>
                 <CardDescription>Transform text into stunning visuals</CardDescription>

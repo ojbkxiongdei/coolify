@@ -404,7 +404,7 @@ export default function ElfNameSEO() {
                     <div>
                       <h4 className="font-semibold mb-3">Sindarin Influences</h4>
                       <p className="text-sm text-gray-600 mb-2">
-                        Names inspired by Tolkien's Sindarin language, featuring flowing vowel sounds and nature-based meanings. Common prefixes include "Gal-" (light), "Cel-" (stream), and "Mith-" (grey).
+                        Names inspired by Tolkien&apos;s Sindarin language, featuring flowing vowel sounds and nature-based meanings. Common prefixes include &quot;Gal-&quot; (light), &quot;Cel-&quot; (stream), and &quot;Mith-&quot; (grey).
                       </p>
                       <div className="space-y-1 text-xs">
                         <div>• Soft consonant clusters</div>
@@ -415,7 +415,7 @@ export default function ElfNameSEO() {
                     <div>
                       <h4 className="font-semibold mb-3">Quenya Patterns</h4>
                       <p className="text-sm text-gray-600 mb-2">
-                        High elvish naming conventions with formal, noble sounds. Often feature "Eru-" (one), "Tar-" (high), and "Gil-" (star) as meaningful components.
+                        High elvish naming conventions with formal, noble sounds. Often feature &quot;Eru-&quot; (one), &quot;Tar-&quot; (high), and &quot;Gil-&quot; (star) as meaningful components.
                       </p>
                       <div className="space-y-1 text-xs">
                         <div>• Formal linguistic structure</div>
@@ -450,23 +450,23 @@ export default function ElfNameSEO() {
                       <div className="space-y-2">
                         <div className="flex justify-between">
                           <span className="text-sm">a</span>
-                          <span className="text-sm text-gray-600">as in "father"</span>
+                          <span className="text-sm text-gray-600">as in &quot;father&quot;</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-sm">e</span>
-                          <span className="text-sm text-gray-600">as in "bed"</span>
+                          <span className="text-sm text-gray-600">as in &quot;bed&quot;</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-sm">i</span>
-                          <span className="text-sm text-gray-600">as in "machine"</span>
+                          <span className="text-sm text-gray-600">as in &quot;machine&quot;</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-sm">o</span>
-                          <span className="text-sm text-gray-600">as in "more"</span>
+                          <span className="text-sm text-gray-600">as in &quot;more&quot;</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-sm">u</span>
-                          <span className="text-sm text-gray-600">as in "moon"</span>
+                          <span className="text-sm text-gray-600">as in &quot;moon&quot;</span>
                         </div>
                       </div>
                     </div>
@@ -475,23 +475,23 @@ export default function ElfNameSEO() {
                       <div className="space-y-2">
                         <div className="flex justify-between">
                           <span className="text-sm">th</span>
-                          <span className="text-sm text-gray-600">soft "th" sound</span>
+                          <span className="text-sm text-gray-600">soft &quot;th&quot; sound</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-sm">dh</span>
-                          <span className="text-sm text-gray-600">voiced "th"</span>
+                          <span className="text-sm text-gray-600">voiced &quot;th&quot;</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-sm">ng</span>
-                          <span className="text-sm text-gray-600">as in "sing"</span>
+                          <span className="text-sm text-gray-600">as in &quot;sing&quot;</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-sm">ch</span>
-                          <span className="text-sm text-gray-600">as in "loch"</span>
+                          <span className="text-sm text-gray-600">as in &quot;loch&quot;</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-sm">r</span>
-                          <span className="text-sm text-gray-600">rolled "r"</span>
+                          <span className="text-sm text-gray-600">rolled &quot;r&quot;</span>
                         </div>
                       </div>
                     </div>
@@ -584,7 +584,7 @@ export default function ElfNameSEO() {
                     <div>
                       <h4 className="font-semibold mb-3">Phonetic Patterns</h4>
                       <p className="text-sm text-gray-600 mb-2">
-                        Select specific phonetic patterns for your elf names. Choose from flowing, harsh, melodic, or mystical sound patterns to match your character's personality.
+                        Select specific phonetic patterns for your elf names. Choose from flowing, harsh, melodic, or mystical sound patterns to match your character&apos;s personality.
                       </p>
                       <div className="grid grid-cols-2 gap-1 text-xs">
                         <div className="bg-gray-50 rounded p-1 text-center">Flowing</div>
@@ -635,7 +635,7 @@ export default function ElfNameSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    Our AI elf name generator has been trained on extensive fantasy literature, linguistic patterns from Tolkien's works, D&D lore, and traditional fantasy naming conventions. Each name follows authentic elvish phonetic patterns and cultural meanings, ensuring they feel natural and believable in fantasy settings.
+                    Our AI elf name generator has been trained on extensive fantasy literature, linguistic patterns from Tolkien&apos;s works, D&D lore, and traditional fantasy naming conventions. Each name follows authentic elvish phonetic patterns and cultural meanings, ensuring they feel natural and believable in fantasy settings.
                   </p>
                 </CardContent>
               </Card>
@@ -657,7 +657,7 @@ export default function ElfNameSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    Consider your character's background, personality, and role in your story or game. Wood elves are perfect for rangers and druids, while high elves suit wizards and nobles. Dark elves work well for rogues and mysterious characters. Sea elves are ideal for maritime adventures.
+                    Consider your character&apos;s background, personality, and role in your story or game. Wood elves are perfect for rangers and druids, while high elves suit wizards and nobles. Dark elves work well for rogues and mysterious characters. Sea elves are ideal for maritime adventures.
                   </p>
                 </CardContent>
               </Card>
@@ -668,7 +668,7 @@ export default function ElfNameSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    A good elf name should be melodious, meaningful, and appropriate for the character's culture. Elvish names typically feature flowing vowel sounds, soft consonants, and nature-inspired meanings. They should be memorable with 2-4 syllables being ideal.
+                    A good elf name should be melodious, meaningful, and appropriate for the character&apos;s culture. Elvish names typically feature flowing vowel sounds, soft consonants, and nature-inspired meanings. They should be memorable with 2-4 syllables being ideal.
                   </p>
                 </CardContent>
               </Card>

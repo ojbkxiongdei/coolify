@@ -475,7 +475,7 @@ export default function ImageEditorSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    Our AI image editor supports all major image formats including JPEG, PNG, WebP, HEIC, TIFF, BMP, and RAW files from most cameras. You can upload images up to 50MB in size and export in various formats with customizable quality settings.
+                    Our AI image editor supports all major image formats including JPEG, PNG, WebP, HEIC, TIFF, BMP, and RAW image formats. You can upload images up to 50MB in size and export in various formats with customizable quality settings.
                   </p>
                 </CardContent>
               </Card>
@@ -497,7 +497,7 @@ export default function ImageEditorSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    Yes, we prioritize your privacy and security. All images are processed using encrypted connections, and we don't store your personal photos permanently. Your edited images are temporarily cached for download and then automatically deleted.
+                    Yes, we prioritize your privacy and security. All images are processed using encrypted connections, and we don&apos;t store your personal photos permanently. Your edited images are temporarily cached for download and then automatically deleted.
                   </p>
                 </CardContent>
               </Card>
