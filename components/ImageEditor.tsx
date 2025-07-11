@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { database } from '@/lib/database/actions'
 import { useUser, refreshCredits } from '@/lib/hooks/useUser'
+import { requireLogin } from '@/lib/utils/requireLogin'
 import Image from 'next/image'
 
 interface ImageEditorProps {
@@ -20,6 +21,7 @@ export default function ImageEditor({ onImagesEdited }: ImageEditorProps) {
   const { user } = useUser()
 
   const handleEditImage = async () => {
+    if (!(await requireLogin())) return
     if (!editImage || !editPrompt.trim()) {
       alert('Please upload an image and enter edit description')
       return
