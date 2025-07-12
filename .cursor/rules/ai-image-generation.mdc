@@ -7,7 +7,7 @@
 - **Authentication**: Use `api-key` header with Azure OpenAI API key
 
 ### OpenAI via Proxy (For Character Headcanon Generator)
-- **Model**: "gpt-4o-mini" for text generation
+- **Model**: "gpt-4.1-mini" for text generation
 - **Endpoint**: `https://proxy.tainanle.online/v1/chat/completions`
 - **Authentication**: Bearer token with OpenAI API key
 - **Usage**: Character headcanon text generation in FREE beta mode
@@ -82,7 +82,7 @@ length: "short" | "medium" | "long"
 ## OpenAI Text Parameters (Character Headcanon)
 ```typescript
 {
-  model: "gpt-4o-mini",
+  model: "gpt-4.1-mini",
   messages: [
     {
       role: "system",

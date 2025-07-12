@@ -1,7 +1,7 @@
 # Character Headcanon Generator Rules
 
 ## Overview
-The Character Headcanon Generator is a FREE text-based AI tool that creates detailed character descriptions and backstories. Built with OpenAI GPT-4o-mini via proxy service, featuring comprehensive configuration options and SEO-optimized content.
+The Character Headcanon Generator is a FREE text-based AI tool that creates detailed character descriptions and backstories. Built with OpenAI GPT-4.1-mini via proxy service, featuring comprehensive configuration options and SEO-optimized content.
 
 ## Page Structure
 - **Main Page**: [app/character-headcanon-generator/page.tsx](mdc:app/character-headcanon-generator/page.tsx) - Server component with metadata
@@ -131,7 +131,7 @@ const sectionHeaderClasses = "flex items-center justify-between w-full text-left
 ```typescript
 const API_CONFIG = {
   endpoint: process.env.OPENAI_PROXY_URL, // https://proxy.tainanle.online/v1
-  model: "gpt-4o-mini",
+  model: "gpt-4.1-mini",
   headers: {
     "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
     "Content-Type": "application/json"
