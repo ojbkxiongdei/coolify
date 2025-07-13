@@ -1,4 +1,5 @@
 import React from 'react'
+import SEOImageGallery from './SEOImageGallery'
 
 export default function CharacterHeadcanonSEO() {
   return (
@@ -65,6 +66,32 @@ export default function CharacterHeadcanonSEO() {
           </div>
         </div>
       </section>
+
+      {/* Character Headcanon Examples Gallery */}
+      <SEOImageGallery
+        title="Character Headcanon Examples"
+        description="Explore AI-generated character headcanon examples to inspire your creative writing"
+        images={[
+          {
+                            url: "/seo-images/Wizard Character.png",
+            alt: "AI generated wizard character for headcanon creation",
+            title: "Wizard Character",
+            description: "Mysterious wizard character with ancient magic academy background, perfect for fantasy novels and RPGs"
+          },
+          {
+                            url: "/seo-images/Urban Detective.png",
+            alt: "AI generated urban detective character for story creation",
+            title: "Urban Detective",
+            description: "Experienced private detective character, perfect for modern mystery novels and suspense stories"
+          },
+          {
+                            url: "/seo-images/School Character.png",
+            alt: "AI generated school student character for creative writing",
+            title: "School Character",
+            description: "Cheerful high school student character, perfect for school anime and youth novels"
+          }
+        ]}
+      />
 
       {/* About Section */}
       <section className="py-16 px-4">

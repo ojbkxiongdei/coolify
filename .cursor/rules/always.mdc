@@ -1,3 +1,7 @@
+---
+alwaysApply: true
+---
+
 ## DreamfinityX 项目核心规则
 
 1. **项目面向海外用户**，所有新开发内容必须使用英文编程和文案
@@ -20,4 +24,28 @@
 8. **技术栈**：Next.js 14 + TypeScript + Tailwind CSS + Supabase + Stripe + Azure OpenAI + OpenAI
 3.项目包含两个主要AI功能：付费的图像生成/编辑（Azure OpenAI）和免费的字符头像生成器（OpenAI代理）
 4.字符头像生成器使用环境变量存储API密钥，绕过积分系统，专注SEO优化
+5.所有新页面内容使用英文编写，UI界面干净简洁，移动端优先设计## DreamfinityX 项目核心规则
+
+1. **项目面向海外用户**，所有新开发内容必须使用英文编程和文案
+2. **新上手任务时必须先阅读cursor rules**，了解项目最新结构和历史变更情况
+3. **项目包含四个核心AI功能**：
+   - 付费功能：图像生成/编辑（Azure OpenAI GPT-image-1）
+   - 免费功能：精灵名字生成器 + 角色头像生成器（OpenAI代理）
+4. **免费功能设计原则**：
+   - 使用OpenAI代理API，绕过积分系统
+   - 专注SEO优化，提供大量关键词内容
+   - 独立页面架构，完整的meta标签和structured data
+5. **网站架构**：
+   - 首页作为品牌聚合页面，展示所有四个工具
+   - 四个独立功能页面：/text-to-image、/image-editor、/elf-name-generator、/character-headcanon-generator
+6. **所有新页面内容使用英文编写**，UI界面保持干净简洁，移动端优先设计
+7. **SEO优化重点**：
+   - 每个功能页面1000+关键词密度
+   - 懒加载SEO内容，功能优先
+   - CTA按钮使用平滑滚动，不重新加载页面
+8. **技术栈**：Next.js 14 + TypeScript + Tailwind CSS + Supabase + Stripe + Azure OpenAI + OpenAI
+3.项目包含两个主要AI功能：付费的图像生成/编辑（Azure OpenAI）和免费的字符头像生成器（OpenAI代理）
+4.字符头像生成器使用环境变量存储API密钥，绕过积分系统，专注SEO优化
 5.所有新页面内容使用英文编写，UI界面干净简洁，移动端优先设计
+
+#使用中文回复用户

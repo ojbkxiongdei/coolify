@@ -5,7 +5,10 @@ import Head from 'next/head'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Sparkles, Edit3, Book, TreePine, Users, Star, Zap, ArrowRight, Image, Palette, Wand2 } from 'lucide-react'
+import { Sparkles, Edit3, Book, TreePine, Users, Star, Zap, ArrowRight, Image as ImageIcon, Palette, Wand2 } from 'lucide-react'
+import SEOImageGallery from '@/components/SEOImageGallery'
+import StructuredData from '@/components/StructuredData'
+import Image from 'next/image'
 
 // 懒加载SEO组件
 const SEOContent = lazy(() => import('@/components/SEOContent'))
@@ -52,7 +55,7 @@ function HomeContent() {
       <Head>
         <title>DreamfinityX - AI Creative Tools Platform | Text-to-Image, Image Editor & More</title>
         <meta name="description" content="Professional AI creative tools platform. Generate images from text, edit photos with AI, create character stories, and generate fantasy names. All-in-one creative AI solution for designers, writers, and creators." />
-        <meta name="keywords" content="AI creative tools, AI platform, text to image generator, AI image editor, character generator, name generator, creative AI, digital art tools, AI writing tools" />
+        <meta name="keywords" content="AI creative tools, AI art generator, text to image generator, AI image editor, character creator, fantasy name generator, creative AI, digital art tools, AI writing tools, AI image generation, DALL-E alternative, GPT image model, AI character development, fantasy elf names, professional AI art, image style transfer, background removal, AI photo enhancement" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://dreamfinityx.com/" />
         <meta property="og:title" content="DreamfinityX - AI Creative Tools Platform" />
@@ -67,31 +70,60 @@ function HomeContent() {
 
       {/* Hero Section */}
       <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
-              AI Creative Tools
-              <span className="block text-blue-600">for Everyone</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Transform your creative ideas into reality with our comprehensive AI-powered platform. 
-              Generate stunning images, edit photos, create characters, and explore endless possibilities.
-            </p>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="text-center md:text-left">
+              <div className="mb-8">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                  AI Creative Tools
+                  <span className="block text-blue-600">for Everyone</span>
+                </h1>
+                <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto md:mx-0">
+                  Transform your creative ideas into reality with our comprehensive AI-powered platform. 
+                  Generate stunning images, edit photos, create characters, and explore endless possibilities.
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6 md:mb-0">
+                <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700">
+                  <a href="/text-to-image">
+                    <Sparkles className="w-5 h-5 mr-2" />
+                    Try Text-to-Image
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <a href="/pricing">View Pricing</a>
+                </Button>
+              </div>
+            </div>
+            
+            <div className="hidden md:block">
+              <div className="relative rounded-xl overflow-hidden shadow-lg border border-gray-200 transition-all duration-300 hover:shadow-blue-100 max-w-md mx-auto">
+                <div className="w-full aspect-square relative">
+                  <Image 
+                    src="/seo-images/hero-creative-workspace.png" 
+                    alt="AI creative workspace with floating designs and holographic UI elements" 
+                    fill 
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+              <div className="mt-4 flex flex-wrap justify-center gap-2">
+                <Badge variant="outline" className="bg-white shadow-sm">
+                  AI Art Generation
+                </Badge>
+                <Badge variant="outline" className="bg-white shadow-sm">
+                  Professional Tools
+                </Badge>
+                <Badge variant="outline" className="bg-white shadow-sm">
+                  Creative Suite
+                </Badge>
+              </div>
+            </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700">
-              <a href="/text-to-image">
-                <Sparkles className="w-5 h-5 mr-2" />
-                Try Text-to-Image
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="/pricing">View Pricing</a>
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mt-16 pt-6 border-t border-gray-200">
             <div className="text-center">
               <div className="text-2xl font-bold text-gray-900">10M+</div>
               <div className="text-sm text-gray-600">Images Generated</div>
@@ -107,6 +139,123 @@ function HomeContent() {
             <div className="text-center">
               <div className="text-2xl font-bold text-gray-900">24/7</div>
               <div className="text-sm text-gray-600">Support</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Showcase Section with SEO Image Gallery - 核心功能展示 */}
+      <section className="py-16 px-4 bg-gradient-to-br from-white to-gray-50 border-t border-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Core AI Creative Tools</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Four powerful AI-powered creative tools to bring your ideas to life
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 mb-12">
+            <div>
+              <h3 className="text-2xl font-bold text-blue-600 mb-4 flex items-center">
+                <ImageIcon className="w-6 h-6 mr-2" />
+                Text-to-Image Generation
+              </h3>
+              <p className="text-gray-700 mb-6">
+                Transform text descriptions into stunning visuals with our AI image generator. Create professional artwork, 
+                illustrations, and graphics for any creative need.
+              </p>
+              <div className="mb-6 rounded-xl overflow-hidden shadow-md max-w-sm mx-auto">
+                <Image 
+                  src="/seo-images/Natural Landscape.png" 
+                  alt="AI generated sunset mountain lake landscape"
+                  width={500}
+                  height={350}
+                  className="w-full object-cover"
+                />
+              </div>
+              <div className="text-center">
+                <Button asChild className="bg-blue-600 hover:bg-blue-700">
+                  <a href="/text-to-image">Try Text-to-Image <ArrowRight className="w-4 h-4 ml-2" /></a>
+                </Button>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-purple-600 mb-4 flex items-center">
+                <Edit3 className="w-6 h-6 mr-2" />
+                AI Image Editing
+              </h3>
+              <p className="text-gray-700 mb-6">
+                Edit and enhance your photos with AI. Background removal, style transfer, image enhancement, 
+                and more - all with professional-grade results.
+              </p>
+              <div className="mb-6 rounded-xl overflow-hidden shadow-md max-w-sm mx-auto">
+                <Image 
+                  src="/seo-images/Style Transfer.png" 
+                  alt="AI artistic style transfer effect demonstration"
+                  width={500}
+                  height={350}
+                  className="w-full object-cover"
+                />
+              </div>
+              <div className="text-center">
+                <Button asChild variant="outline" className="border-purple-300 text-purple-700 hover:bg-purple-50">
+                  <a href="/image-editor">Try Image Editor <ArrowRight className="w-4 h-4 ml-2" /></a>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-bold text-green-600 mb-4 flex items-center">
+                <Book className="w-6 h-6 mr-2" />
+                Character Creator
+              </h3>
+              <p className="text-gray-700 mb-6">
+                Generate detailed character headcanons and backstories for any fandom or creative project.
+                Perfect for writers, role-players, and game developers.
+              </p>
+              <div className="mb-6 rounded-xl overflow-hidden shadow-md max-w-sm mx-auto">
+                <Image 
+                  src="/seo-images/Wizard Character.png" 
+                  alt="AI generated wizard character for headcanon creation"
+                  width={500}
+                  height={350}
+                  className="w-full object-cover"
+                />
+              </div>
+              <div className="text-center">
+                <Button asChild variant="outline" className="border-green-300 text-green-700 hover:bg-green-50">
+                  <a href="/character-headcanon-generator">Create Characters <ArrowRight className="w-4 h-4 ml-2" /></a>
+                </Button>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-amber-600 mb-4 flex items-center">
+                <TreePine className="w-6 h-6 mr-2" />
+                Fantasy Name Generator
+              </h3>
+              <p className="text-gray-700 mb-6">
+                Generate authentic elf names for D&D campaigns, fantasy stories, and RPG characters
+                with cultural accuracy and creative flair. Enhance your worldbuilding and character development
+                with linguistically consistent fantasy names.
+              </p>
+              <div className="mb-6 rounded-xl overflow-hidden shadow-md max-w-sm mx-auto">
+                <Image 
+                  src="/seo-images/Wood Elf Ranger.png" 
+                  alt="Wood elf ranger character design for fantasy name generation"
+                  width={500}
+                  height={350}
+                  className="w-full object-cover"
+                />
+              </div>
+              <div className="text-center">
+                <Button asChild variant="outline" className="border-amber-300 text-amber-700 hover:bg-amber-50">
+                  <a href="/elf-name-generator">Generate Names <ArrowRight className="w-4 h-4 ml-2" /></a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -129,7 +278,7 @@ function HomeContent() {
             <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-blue-200">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
-                  <Image className="w-8 h-8 text-blue-600" aria-label="AI Image Generator Icon" />
+                  <ImageIcon className="w-8 h-8 text-blue-600" aria-label="AI Image Generator Icon" />
                 </div>
                 <CardTitle className="text-xl">AI Image Generator</CardTitle>
                 <CardDescription>Transform text into stunning visuals</CardDescription>
@@ -236,6 +385,9 @@ function HomeContent() {
         </div>
       </section>
 
+      {/* Enhanced Image Editing Showcase */}
+      {/* 移除重复的图片展示，已在核心功能部分展示 */}
+
       {/* Features Section */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
@@ -282,25 +434,50 @@ function HomeContent() {
         </div>
       </section>
 
+      {/* Fantasy Character Showcase */}
+      {/* 移除重复的角色展示，已在核心功能部分展示 */}
+
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to Unleash Your Creativity?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Join thousands of creators who trust DreamfinityX for their AI-powered creative needs
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700">
+      <section className="py-20 px-4 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Unleash Your Creativity?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              Join thousands of creators who trust DreamfinityX for their AI-powered creative needs
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <Button size="lg" asChild className="bg-white text-blue-700 hover:bg-blue-50 hover:text-blue-800">
               <a href="/text-to-image">
                 <Wand2 className="w-5 h-5 mr-2" />
                 Start Creating for Free
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild className="border-gray-300 text-gray-300 hover:bg-gray-800">
+            <Button size="lg" variant="outline" asChild className="border-white text-white hover:bg-white/10">
               <a href="/pricing">View Pricing Plans</a>
             </Button>
+          </div>
+          
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+            <div className="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+              <div className="font-bold text-2xl text-white mb-1">10M+</div>
+              <div className="text-sm text-blue-100">Images Generated</div>
+            </div>
+            <div className="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+              <div className="font-bold text-2xl text-white mb-1">50K+</div>
+              <div className="text-sm text-blue-100">Happy Users</div>
+            </div>
+            <div className="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+              <div className="font-bold text-2xl text-white mb-1">99.9%</div>
+              <div className="text-sm text-blue-100">Uptime</div>
+            </div>
+            <div className="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+              <div className="font-bold text-2xl text-white mb-1">24/7</div>
+              <div className="text-sm text-blue-100">Support</div>
+            </div>
           </div>
         </div>
       </section>
@@ -318,6 +495,47 @@ function HomeContent() {
           <SEOContent />
         </Suspense>
       )}
+
+      {/* Enhanced Structured Data for SEO */}
+      <StructuredData
+        type="software"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "DreamfinityX",
+          "description": "Professional AI-powered creative platform with image generation, editing, character creation, and name generation tools",
+          "url": "https://dreamfinityx.com",
+          "applicationCategory": "DesignApplication, ArtApplication, CreativeToolSuite",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "0",
+            "highPrice": "39.99",
+            "priceCurrency": "USD",
+            "offerCount": 4
+          },
+          "screenshot": [
+            "https://dreamfinityx.com/seo-images/Natural Landscape.png",
+            "https://dreamfinityx.com/seo-images/Portrait Photography.png",
+            "https://dreamfinityx.com/seo-images/Style Transfer.png"
+          ],
+          "featureList": [
+            "AI Text to Image Generation",
+            "AI Image Editing",
+            "Character Story Creation",
+            "Fantasy Name Generation",
+            "Multiple Output Formats",
+            "High Resolution Output",
+            "Style Transfer",
+            "Background Removal"
+          ],
+          "creator": {
+            "@type": "Organization",
+            "name": "DreamfinityX",
+            "url": "https://dreamfinityx.com"
+          }
+        }}
+      />
     </div>
   )
 }

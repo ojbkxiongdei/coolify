@@ -3,12 +3,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, Book, Users, Zap, TreePine, Moon, Sun, Waves, Snowflake, Eye } from "lucide-react";
+import SEOImageGallery from './SEOImageGallery';
 
 export default function ElfNameSEO() {
   return (
     <div className="bg-white py-16">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto space-y-12">
+        <div className="max-w-6xl mx-auto space-y-12">
           {/* Features */}
           <section>
             <h2 className="text-3xl font-bold text-center mb-8">Elf Name Generator Features</h2>
@@ -138,6 +139,32 @@ export default function ElfNameSEO() {
               </div>
             </div>
           </section>
+
+          {/* Elf Character Examples Gallery */}
+          <SEOImageGallery
+            title="Elf Character Showcase"
+            description="Explore different types of elf character designs to inspire your fantasy creations"
+            images={[
+              {
+                url: "/seo-images/Wood Elf Ranger.png",
+                alt: "Wood elf ranger character design for fantasy name generation",
+                title: "Wood Elf Ranger",
+                description: "Forest guardian with name: Silverleaf Moonwhisper, skilled in archery and nature magic"
+              },
+              {
+                url: "/seo-images/Dark Elf Mage.png",
+                alt: "Dark elf mage character design for fantasy gaming",
+                title: "Dark Elf Mage",
+                description: "Underground world mage with name: Vexara Shadowweaver, master of dark magic and illusions"
+              },
+              {
+                url: "/seo-images/High Elf Noble.png",
+                alt: "High elf noble character design for fantasy stories",
+                title: "High Elf Noble",
+                description: "Ancient royal bloodline elf with name: Goldenbrow Starcrown, possessing powerful magical talents"
+              }
+            ]}
+          />
 
           {/* Usage Guide */}
           <section>

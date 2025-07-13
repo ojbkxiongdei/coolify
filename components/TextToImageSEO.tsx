@@ -3,7 +3,9 @@
 import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Sparkles, Brush, Upload, Download, Zap, Palette, Camera, Settings, Star, Users, Clock, Shield, Award, Wand2, Image, PenTool, Layers } from 'lucide-react'
+import { Sparkles, Brush, Upload, Download, Zap, Palette, Camera, Settings, Star, Users, Clock, Shield, Award, Wand2, Image as ImageIcon, PenTool, Layers } from 'lucide-react'
+import Image from 'next/image'
+import SEOImageGallery from './SEOImageGallery'
 
 const TextToImageSEO = () => {
   return (
@@ -123,6 +125,32 @@ const TextToImageSEO = () => {
             </div>
           </section>
 
+          {/* AI Generated Art Examples Gallery */}
+          <SEOImageGallery
+            title="AI Text-to-Image Art Gallery"
+            description="Explore the infinite possibilities of AI art creation, from photorealistic images to abstract artwork"
+            images={[
+              {
+                url: "/seo-images/Natural Landscape.png",
+                alt: "AI generated sunset mountain lake landscape",
+                title: "Natural Landscape",
+                description: "Prompt example: Peaceful lake at sunset with mountain reflections, oil painting style, warm colors, high quality"
+              },
+              {
+                url: "/seo-images/Sci-Fi Concept.png",
+                alt: "AI generated futuristic cyberpunk city concept art",
+                title: "Sci-Fi Concept",
+                description: "Prompt example: Futuristic city nightscape, neon lighting, cyberpunk style, digital art, high contrast"
+              },
+              {
+                url: "/seo-images/Portrait Photography.png",
+                alt: "AI generated professional business portrait",
+                title: "Portrait Photography",
+                description: "Prompt example: Professional business portrait, confident smile, warm lighting, modern photography style"
+              }
+            ]}
+          />
+
           {/* Use Cases */}
           <section>
             <h2 className="text-3xl font-bold text-center mb-8">Perfect for Every Creative Need</h2>
@@ -148,7 +176,7 @@ const TextToImageSEO = () => {
 
               <Card>
                 <CardHeader>
-                  <Image className="h-6 w-6 text-purple-500 mb-2" aria-label="Graphic Design Icon" />
+                  <ImageIcon className="h-6 w-6 text-purple-500 mb-2" aria-label="Graphic Design Icon" />
                   <CardTitle>Graphic Design</CardTitle>
                   <CardDescription>Professional design assets and concepts</CardDescription>
                 </CardHeader>
@@ -349,7 +377,19 @@ const TextToImageSEO = () => {
                       &quot;Professional headshot of a confident businesswoman, 30s, wearing a navy blue blazer, warm smile, looking directly at camera, studio lighting, white background, high-quality portrait photography, 85mm lens, shallow depth of field&quot;
                     </p>
                   </div>
-                  <p className="text-xs text-gray-600">
+                  <div className="mt-4 rounded-lg overflow-hidden">
+                    <div className="relative w-full h-[300px]">
+                      <Image
+                        src="/seo-images/Portrait Photography.png"
+                        alt="AI generated professional portrait photo"
+                        width={500}
+                        height={500}
+                        className="object-contain w-full h-full"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-600 mt-3">
                     This prompt creates professional business portraits perfect for LinkedIn profiles, company websites, and corporate materials.
                   </p>
                 </CardContent>
@@ -365,7 +405,19 @@ const TextToImageSEO = () => {
                       &quot;Majestic dragon soaring through clouds at sunset, iridescent scales, spread wings, ancient castle on mountain peak below, golden hour lighting, fantasy art style, digital painting, highly detailed, concept art, magical atmosphere&quot;
                     </p>
                   </div>
-                  <p className="text-xs text-gray-600">
+                  <div className="mt-4 rounded-lg overflow-hidden">
+                    <div className="relative w-full h-[300px]">
+                      <Image
+                        src="/seo-images/Wizard Character.png"
+                        alt="AI generated fantasy illustration"
+                        width={500}
+                        height={500}
+                        className="object-contain w-full h-full"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-600 mt-3">
                     Fantasy art prompts work great for book covers, game assets, and imaginative artwork with mythical creatures and magical settings.
                   </p>
                 </CardContent>
@@ -373,23 +425,35 @@ const TextToImageSEO = () => {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Product Photography</CardTitle>
+                  <CardTitle className="text-lg">Sci-Fi Concept</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="bg-gray-50 rounded-lg p-4 mb-4">
                     <p className="text-sm font-mono text-gray-700">
-                      &quot;Luxury smartphone on marble surface, minimalist composition, soft rim lighting, reflections, premium product photography, white background, commercial photography style, high-end advertising, ultra-clean, professional&quot;
+                      &quot;Futuristic cyberpunk city at night, neon lights reflecting in puddles, tall skyscrapers, flying vehicles, holographic advertisements, dramatic lighting, cinematic composition, ultra-detailed, sci-fi concept art, digital art, 8K resolution&quot;
                     </p>
                   </div>
-                  <p className="text-xs text-gray-600">
-                    Product photography prompts generate clean, professional images perfect for e-commerce, catalogs, and marketing materials.
+                  <div className="mt-4 rounded-lg overflow-hidden">
+                    <div className="relative w-full h-[300px]">
+                      <Image
+                        src="/seo-images/Sci-Fi Concept.png"
+                        alt="AI generated sci-fi concept art"
+                        width={500}
+                        height={500}
+                        className="object-contain w-full h-full"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-600 mt-3">
+                    Sci-Fi concept prompts are ideal for creating futuristic environments, technology visualizations, and world-building for creative projects.
                   </p>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Landscape Art</CardTitle>
+                  <CardTitle className="text-lg">Natural Landscape</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="bg-gray-50 rounded-lg p-4 mb-4">
@@ -397,7 +461,19 @@ const TextToImageSEO = () => {
                       &quot;Serene mountain lake at dawn, mist rising from water, pine trees reflection, snow-capped peaks, golden sunrise light, nature photography, wide angle lens, peaceful atmosphere, pristine wilderness, crystal clear water&quot;
                     </p>
                   </div>
-                  <p className="text-xs text-gray-600">
+                  <div className="mt-4 rounded-lg overflow-hidden">
+                    <div className="relative w-full h-[300px]">
+                      <Image
+                        src="/seo-images/Natural Landscape.png"
+                        alt="AI generated natural landscape"
+                        width={500}
+                        height={500}
+                        className="object-contain w-full h-full"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-600 mt-3">
                     Nature and landscape prompts create stunning scenic imagery for travel blogs, environmental content, and decorative artwork.
                   </p>
                 </CardContent>

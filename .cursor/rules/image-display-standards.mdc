@@ -1,0 +1,32 @@
+---
+description: # Image Display Standards
+globs: *.tsx,*.ts
+alwaysApply: false
+---
+
+# Image Display Standards
+
+## Container Width Consistency
+- 所有页面的主容器使用统一宽度设置：`max-w-6xl`
+- SEO页面布局必须使用相同的容器宽度以确保一致的用户体验
+- ElfNameSEO、TextToImageSEO、CharacterHeadcanonSEO、ImageEditorSEO等组件必须保持一致
+
+## Image Display Components
+- 使用SEOImageGallery组件展示所有SEO相关图片
+- 图片容器必须使用固定高度和自适应宽度
+- 使用`object-contain`确保图片完整显示，不裁剪内容
+
+## Next.js Image Component Best Practices
+- 始终使用Next.js的Image组件而不是HTML的img标签
+- 对于固定容器中的图片，使用`fill`属性并配合`relative`父容器
+- 为所有图片提供`alt`和适当的`title`属性
+- 使用`sizes`属性优化不同屏幕尺寸下的图片加载
+
+## Common Problems and Solutions
+- 图片被裁剪问题：使用`object-contain`而非`object-cover`
+- 容器宽度不一致：统一使用`max-w-6xl`作为内容容器宽度
+- 图片尺寸差异：统一容器高度为300px，宽度自适应
+
+## Image Directory Structure
+- 所有SEO相关图片必须存放在`public/seo-images/`目录下
+- 图片命名使用空格分隔的首字母大写格式（例如`Wood Elf Ranger.png`）

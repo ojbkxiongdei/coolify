@@ -4,6 +4,7 @@ import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Edit3, Sparkles, Brush, Upload, Download, Zap, Palette, Layers, Filter, Camera, Settings, Star, Users, Clock, Shield, Award, Wand2 } from 'lucide-react'
+import SEOImageGallery from './SEOImageGallery'
 
 export default function ImageEditorSEO() {
   return (
@@ -122,6 +123,32 @@ export default function ImageEditorSEO() {
               </Card>
             </div>
           </section>
+
+          {/* Image Editing Examples Gallery */}
+          <SEOImageGallery
+            title="AI Image Editing Showcase"
+            description="Discover the power of AI image editing from photo enhancement to artistic style transformation"
+            images={[
+              {
+                url: "/seo-images/Photo Enhancement.png",
+                alt: "AI photo enhancement before and after comparison showcase",
+                title: "Photo Enhancement",
+                description: "AI automatically adjusts brightness, contrast, and colors to make dull photos vibrant and vivid"
+              },
+              {
+                url: "/seo-images/Style Transfer.png",
+                alt: "AI artistic style transfer effect demonstration",
+                title: "Style Transfer",
+                description: "Transform ordinary photos into oil paintings, watercolors, sketches, and various artistic styles"
+              },
+              {
+                url: "/seo-images/Background Removal.png",
+                alt: "AI smart background removal effect showcase",
+                title: "Background Removal",
+                description: "One-click smart background removal, perfectly separating subjects with transparent background export"
+              }
+            ]}
+          />
 
           {/* Use Cases */}
           <section>

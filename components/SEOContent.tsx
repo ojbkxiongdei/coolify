@@ -56,6 +56,60 @@ export default function SEOContent() {
         </div>
       </section>
 
+      {/* Use Cases Section - New */}
+      <section className="py-16 px-4 bg-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">AI Creative Tools for Every Need</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Discover how our AI-powered platform can revolutionize your creative workflow
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Digital Artists</h3>
+              <p className="text-gray-700 text-sm mb-4">
+                Generate concept art and inspiration using AI text-to-image technology. Refine your art direction with multiple style variations and enhance your workflow.
+              </p>
+              <p className="text-gray-500 text-xs">
+                Keywords: concept art, digital painting, AI art generation, artist workflow
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Content Creators</h3>
+              <p className="text-gray-700 text-sm mb-4">
+                Create eye-catching thumbnails, social media graphics, and promotional materials. Generate consistent visual content that matches your brand identity.
+              </p>
+              <p className="text-gray-500 text-xs">
+                Keywords: social media graphics, content creation, visual marketing, AI design tools
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Game Developers</h3>
+              <p className="text-gray-700 text-sm mb-4">
+                Design characters, environments, and assets for your game with AI assistance. Generate fantasy characters and worlds with detailed backstories.
+              </p>
+              <p className="text-gray-500 text-xs">
+                Keywords: game development, character design, fantasy worlds, RPG characters
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Writers & Authors</h3>
+              <p className="text-gray-700 text-sm mb-4">
+                Visualize your characters and scenes with AI image generation. Create authentic names for your fantasy characters with our elf name generator.
+              </p>
+              <p className="text-gray-500 text-xs">
+                Keywords: character visualization, fantasy writing, world-building, creative writing aids
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
@@ -72,6 +126,11 @@ export default function SEOContent() {
                 <p>
                   Whether you&apos;re a designer, content creator, marketer, or entrepreneur, DreamfinityX empowers you to 
                   create stunning visuals with intuitive, powerful AI tools.
+                </p>
+                <p>
+                  Our platform combines state-of-the-art AI image generation with powerful editing capabilities, 
+                  offering a complete solution for all your creative needs. From concept to finished artwork, 
+                  DreamfinityX helps you realize your vision without requiring technical expertise.
                 </p>
               </div>
               
@@ -107,6 +166,101 @@ export default function SEOContent() {
                   <p className="text-sm text-gray-600">Original artwork and creative compositions</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Section - New */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Powered by Advanced AI Technology</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Built on cutting-edge AI models to deliver professional results for every creative project
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Azure OpenAI Integration</h3>
+              <p className="text-gray-700 text-sm">
+                Leveraging Azure OpenAI's GPT-image-1 model for industry-leading image generation capabilities with unmatched quality and creativity. Our integration ensures reliable, high-performance results every time.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                <li className="flex items-center">
+                  <svg className="w-4 h-4 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  State-of-the-art image synthesis
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-4 h-4 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  High-resolution output
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-4 h-4 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Natural language understanding
+                </li>
+              </ul>
+            </div>
+            
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Advanced Image Processing</h3>
+              <p className="text-gray-700 text-sm">
+                Our custom image processing algorithms enhance AI-generated content with professional-grade refinements, ensuring optimal quality for all creative applications and use cases.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                <li className="flex items-center">
+                  <svg className="w-4 h-4 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Smart upscaling technology
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-4 h-4 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Artifact removal
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-4 h-4 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Precision color correction
+                </li>
+              </ul>
+            </div>
+            
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Cloud Infrastructure</h3>
+              <p className="text-gray-700 text-sm">
+                Enterprise-grade cloud infrastructure ensures fast processing speeds, reliable availability, and secure storage of your creative assets and generations.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                <li className="flex items-center">
+                  <svg className="w-4 h-4 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  99.9% uptime guarantee
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-4 h-4 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Encrypted data storage
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-4 h-4 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Global content delivery
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -159,11 +313,74 @@ export default function SEOContent() {
                 For unlimited generations and advanced features, consider upgrading to premium plans.
               </p>
             </div>
+
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                What makes DreamfinityX different from other AI art tools?
+              </h3>
+              <p className="text-gray-700 text-sm leading-relaxed">
+                DreamfinityX combines cutting-edge Azure OpenAI image generation with powerful editing tools, character creation, and name generation features in one platform. 
+                We focus on quality, ease of use, and providing a complete creative solution rather than just a single tool.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Can I use the images commercially?
+              </h3>
+              <p className="text-gray-700 text-sm leading-relaxed">
+                Yes, with our premium plans, you receive full commercial usage rights for all generated images. 
+                This makes DreamfinityX perfect for professional creators, designers, and businesses needing AI-generated content.
+              </p>
+            </div>
           </div>
         </div>
-              </section>
+      </section>
 
-        {/* Footer */}
+      {/* Keyword Rich Content Section - New */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Advanced AI Image Generation</h2>
+              <div className="space-y-4 text-gray-700 leading-relaxed text-sm">
+                <p>
+                  DreamfinityX's text-to-image AI technology represents the cutting edge of artificial intelligence in creative design. Our platform harnesses the power of Azure OpenAI's GPT-image-1 model, providing unparalleled image quality and creative capabilities.
+                </p>
+                <p>
+                  Whether you need photorealistic renderings, digital paintings, concept art, or stylized illustrations, our AI art generator delivers professional results with simple text prompts. Create stunning digital artwork without extensive technical knowledge.
+                </p>
+                <p>
+                  The AI image generator supports various artistic styles including photorealism, oil painting, watercolor, digital art, anime, cartoon, and abstract art. Generate multiple variations with a single prompt to explore different creative directions.
+                </p>
+                <p>
+                  For professionals in graphic design, marketing, and content creation, DreamfinityX offers an invaluable tool to accelerate workflows and enhance creative output with AI-powered image generation technology.
+                </p>
+              </div>
+            </div>
+            
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Comprehensive AI Creative Suite</h2>
+              <div className="space-y-4 text-gray-700 leading-relaxed text-sm">
+                <p>
+                  Beyond image generation, DreamfinityX offers powerful AI image editing tools including background removal, style transfer, image enhancement, and composition tools. Transform ordinary photos into extraordinary artwork.
+                </p>
+                <p>
+                  Our character headcanon generator helps writers, game developers, and role-players create detailed character backgrounds and stories with AI assistance. Develop rich characters with complex personalities, histories, and motivations.
+                </p>
+                <p>
+                  The fantasy name generator creates authentic elf names with cultural backgrounds and meanings. Perfect for fantasy authors, game developers, and D&D players looking for unique character names.
+                </p>
+                <p>
+                  With continuous updates and new features, DreamfinityX remains at the forefront of AI creative technology, providing professional-grade tools for every creative need. Join our community of artists, designers, and creators leveraging AI to enhance their creative workflows.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
       <footer className="py-12 px-4 bg-gray-900 text-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
