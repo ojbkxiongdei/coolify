@@ -9,12 +9,18 @@ import { Sparkles, Edit3, Book, TreePine, Users, Star, Zap, ArrowRight, Image as
 import SEOImageGallery from '@/components/SEOImageGallery'
 import StructuredData from '@/components/StructuredData'
 import Image from 'next/image'
+import { usePathname, useSearchParams } from 'next/navigation'
 
 // 懒加载SEO组件
 const SEOContent = lazy(() => import('@/components/SEOContent'))
 
 function HomeContent() {
   const [shouldLoadSEO, setShouldLoadSEO] = useState(false)
+  // 获取URL参数以处理规范URL
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const hasParams = searchParams && searchParams.toString().length > 0
+  const canonicalUrl = "https://dreamfinityx.com/"
 
   // 使用 Intersection Observer 监听用户是否滚动到页面底部
   useEffect(() => {
@@ -50,6 +56,22 @@ function HomeContent() {
     }
   }, [])
 
+  // 动态更新canonical链接，解决带有参数的URL重复内容问题
+  useEffect(() => {
+    // 查找现有的canonical标签
+    let canonicalTag = document.querySelector('link[rel="canonical"]')
+    
+    // 如果没有找到标签，创建一个新的
+    if (!canonicalTag) {
+      canonicalTag = document.createElement('link')
+      canonicalTag.setAttribute('rel', 'canonical')
+      document.head.appendChild(canonicalTag)
+    }
+    
+    // 始终指向不带参数的基本URL作为规范URL
+    canonicalTag.setAttribute('href', canonicalUrl)
+  }, [searchParams])
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Head>
@@ -57,10 +79,10 @@ function HomeContent() {
         <meta name="description" content="Professional AI creative tools platform. Generate images from text, edit photos with AI, create character stories, and generate fantasy names. All-in-one creative AI solution for designers, writers, and creators." />
         <meta name="keywords" content="AI creative tools, AI art generator, text to image generator, AI image editor, character creator, fantasy name generator, creative AI, digital art tools, AI writing tools, AI image generation, DALL-E alternative, GPT image model, AI character development, fantasy elf names, professional AI art, image style transfer, background removal, AI photo enhancement" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://dreamfinityx.com/" />
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content="DreamfinityX - AI Creative Tools Platform" />
         <meta property="og:description" content="Professional AI creative tools platform with text-to-image generation, image editing, character creation, and name generation tools." />
-        <meta property="og:url" content="https://dreamfinityx.com/" />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />

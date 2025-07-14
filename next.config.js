@@ -79,6 +79,53 @@ const nextConfig = {
   generateBuildId: async () => {
     return `build-${Date.now()}`;
   },
+
+  // 域名和协议规范化配置
+  async redirects() {
+    return [
+      // 将HTTP重定向到HTTPS
+      {
+        source: 'http://dreamfinityx.com/:path*',
+        destination: 'https://dreamfinityx.com/:path*',
+        permanent: true,
+      },
+      // 将带www的域名重定向到不带www的域名
+      {
+        source: 'https://www.dreamfinityx.com/:path*',
+        destination: 'https://dreamfinityx.com/:path*',
+        permanent: true,
+      },
+      {
+        source: 'http://www.dreamfinityx.com/:path*',
+        destination: 'https://dreamfinityx.com/:path*',
+        permanent: true,
+      },
+      // 处理参数页面的规范化重定向 - 搜索参数
+      {
+        source: '/:path*/?(.*)',
+        has: [
+          {
+            type: 'query',
+            key: 'search',
+          }
+        ],
+        destination: '/:path*',
+        permanent: true,
+      },
+      // 处理参数页面的规范化重定向 - 标签参数
+      {
+        source: '/:path*/?(.*)',
+        has: [
+          {
+            type: 'query',
+            key: 'tab',
+          }
+        ],
+        destination: '/:path*',
+        permanent: true,
+      }
+    ];
+  },
 }
 
 module.exports = nextConfig 

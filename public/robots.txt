@@ -16,4 +16,9 @@ Disallow: /api/
 Disallow: /dashboard/
 Disallow: /auth/
 Disallow: /success/
-Disallow: /history/ 
+Disallow: /history/
+
+# Block URL parameters to prevent duplicate content
+Disallow: /*?*search=
+Disallow: /*?*tab=
+Disallow: /*?* 
