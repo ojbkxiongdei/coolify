@@ -394,57 +394,59 @@ export default function CharacterHeadcanonSEO() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-4 bg-gray-900 text-white">
+      {/* 友情链接 - 改为英文 */}
+      <section className="py-8 px-4 bg-white border-t border-gray-200">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Character Headcanon Generator</h3>
-              <p className="text-gray-300 text-sm">
-                The ultimate AI-powered character headcanon generator for fan fiction writers, 
-                roleplayers, and creative enthusiasts.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="font-medium mb-4">Features</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>AI Character Analysis</li>
-                <li>Multi-Fandom Support</li>
-                <li>Multiple Generation Styles</li>
-                <li>Customizable Length Options</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-medium mb-4">Use Cases</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>Fan Fiction Writing</li>
-                <li>Character Development</li>
-                <li>Roleplaying Games</li>
-                <li>Creative Writing Projects</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-medium mb-4">Resources</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>Character Headcanon Guide</li>
-                <li>Fan Fiction Tips</li>
-                <li>Writing Inspiration</li>
-                <li>Community Support</li>
-              </ul>
-            </div>
+          <div className="text-center mb-6">
+            <h2 className="text-xl font-semibold text-gray-900">Friend Links</h2>
+            <p className="text-sm text-gray-600">Creative AI Tools & Resource Partners</p>
           </div>
-          
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-            <p className="text-sm text-gray-400">
-              © 2024 DreamfinityX Character Headcanon Generator. All rights reserved. 
-              Powered by OpenAI technology.
-            </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="https://www.meoai.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-gray-50 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+            >
+              MeoAI
+            </a>
+            <a
+              href="https://dreamfinityx.com/text-to-image"
+              className="px-4 py-2 bg-gray-50 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+            >
+              Text to Image Generator
+            </a>
+            <a
+              href="https://dreamfinityx.com/image-editor"
+              className="px-4 py-2 bg-gray-50 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+            >
+              AI Image Editor
+            </a>
+            <a
+              href="https://dreamfinityx.com/elf-name-generator"
+              className="px-4 py-2 bg-gray-50 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+            >
+              Elf Name Generator
+            </a>
+            <a
+              href="https://openai.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-gray-50 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+            >
+              OpenAI
+            </a>
+            <a
+              href="https://azure.microsoft.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-gray-50 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+            >
+              Azure AI
+            </a>
           </div>
         </div>
-      </footer>
+      </section>
 
       {/* Call to Action */}
       <section className="py-16 px-4 bg-gray-50">
