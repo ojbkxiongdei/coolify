@@ -1,5 +1,7 @@
 import { Metadata } from "next";
-import ElfNamePage from "@/components/ElfNamePage";
+import ElfNameClient from "@/components/ElfNameClient";
+import ElfNameSEO from "@/components/ElfNameSEO";
+import StructuredData from "@/components/StructuredData";
 
 export const metadata: Metadata = {
   title: "Elf Name Generator - Fantasy Names for All Elf Types | DreamfinityX",
@@ -70,6 +72,41 @@ export const metadata: Metadata = {
 };
 
 export default function ElfNameGeneratorPage() {
-  // Our elf name generator page includes wood elf name generator, dark elf name generator, half elf name generator
-  return <ElfNamePage />;
+  return (
+    <div className="min-h-screen">
+      {/* NoScript SEO内容，确保搜索引擎即使不执行JavaScript也能看到关键内容 */}
+      <noscript>
+        <div>
+          <h2>Elf Name Generator - Fantasy Name Creation</h2>
+          <p>
+            Our elf name generator creates names for wood elves, dark elves, half elves, and more.
+            Use our wood elf name generator, dark elf name generator, and half elf name generator tools for your RPG characters.
+            This elf name generator dnd tool is perfect for creating fantasy character names.
+          </p>
+        </div>
+      </noscript>
+      
+      <StructuredData
+        type="software"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Elf Name Generator",
+          "applicationCategory": "EntertainmentApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Generate fantasy elf names for Wood Elves, Dark Elves, High Elves and more with our Elf Name Generator."
+        }}
+      />
+      
+      {/* 主要功能区 - 客户端组件 */}
+      <ElfNameClient />
+      
+      {/* SEO内容 - 直接渲染 */}
+      <ElfNameSEO />
+    </div>
+  );
 }

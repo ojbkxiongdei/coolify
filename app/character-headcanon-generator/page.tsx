@@ -1,6 +1,8 @@
 import React from 'react'
-import CharacterHeadcanonPage from '@/components/CharacterHeadcanonPage'
 import { Metadata } from 'next'
+import CharacterHeadcanonClient from '@/components/CharacterHeadcanonClient'
+import CharacterHeadcanonSEO from '@/components/CharacterHeadcanonSEO'
+import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
   title: 'Character Headcanon Generator - Create Detailed Character Stories | DreamfinityX',
@@ -19,6 +21,56 @@ export const metadata: Metadata = {
 }
 
 export default function CharacterHeadcanonGeneratorPage() {
-  // The character headcanon generator page - supports character headcanons generator functionality
-  return <CharacterHeadcanonPage />
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* NoScript SEO内容，确保搜索引擎即使不执行JavaScript也能看到关键内容 */}
+      <noscript>
+        <div>
+          <h2>Character Headcanon Generator - Create Fan Fiction Characters</h2>
+          <p>
+            Our character headcanon generator creates detailed character stories for any fandom.
+            Use this character headcanons generator for fan fiction writing and roleplaying.
+            Our improved character headcanon generator helps create authentic character backgrounds.
+          </p>
+        </div>
+      </noscript>
+
+      <StructuredData
+        type="software"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Character Headcanon Generator",
+          "applicationCategory": "CreativeApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Create detailed character backstories and headcanons for your fan fiction, roleplaying games, and creative writing projects."
+        }}
+      />
+      
+      {/* 主要功能区 - 客户端交互组件 */}
+      <section className="py-8 px-4" id="generator">
+        <div className="max-w-6xl mx-auto">
+          {/* Page Title */}
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              Character Headcanon Generator | Create Character Stories
+            </h1>
+            <p className="text-lg text-gray-600">
+              Our character headcanon generator creates detailed, believable character stories. Use this improved character headcanon generator for fan fiction, roleplaying, and creative writing.
+            </p>
+          </div>
+
+          {/* Function Module */}
+          <CharacterHeadcanonClient />
+        </div>
+      </section>
+      
+      {/* SEO内容 - 直接渲染 */}
+      <CharacterHeadcanonSEO />
+    </div>
+  );
 } 

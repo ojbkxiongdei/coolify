@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge"
 import { Sparkles, Brush, Upload, Download, Zap, Palette, Camera, Settings, Star, Users, Clock, Shield, Award, Wand2, Image as ImageIcon, PenTool, Layers } from 'lucide-react'
 import Image from 'next/image'
 import SEOImageGallery from './SEOImageGallery'
+import ScrollToElementButton from './ui/ScrollToElementButton'
+import LinkButton from './ui/LinkButton'
 
 const TextToImageSEO = () => {
   return (
@@ -560,20 +562,20 @@ const TextToImageSEO = () => {
               Transform your ideas into stunning visuals with our AI text-to-image generator. No design skills required – just describe what you want to create and watch our AI bring it to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => {
-                  const generator = document.getElementById('image-generator');
-                  if (generator) {
-                    generator.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                }}
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              <ScrollToElementButton
+                elementId="image-generator"
+                variant="primary"
+                className="px-8 py-3 rounded-lg font-semibold"
               >
                 Try Text-to-Image Now
-              </button>
-              <a href="/pricing" className="bg-gray-200 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+              </ScrollToElementButton>
+              <LinkButton 
+                href="/pricing"
+                variant="secondary"
+                className="px-8 py-3 rounded-lg font-semibold"
+              >
                 View Pricing Plans
-              </a>
+              </LinkButton>
             </div>
           </section>
 

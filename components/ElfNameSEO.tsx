@@ -1,9 +1,9 @@
-"use client";
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, Book, Users, Zap, TreePine, Moon, Sun, Waves, Snowflake, Eye } from "lucide-react";
 import SEOImageGallery from './SEOImageGallery';
+import ScrollTopButton from './ui/ScrollTopButton';
+import LinkButton from './ui/LinkButton';
 
 export default function ElfNameSEO() {
   return (
@@ -852,17 +852,19 @@ export default function ElfNameSEO() {
               Use our elf name generator, including specialized wood elf name generator, dark elf name generator, and half elf name generator tools. Perfect for DnD characters, RPG campaigns, and creative writing projects.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              <ScrollTopButton
+                variant="primary"
+                className="px-8 py-3 rounded-lg font-semibold"
               >
                 Try Elf Name Generator Now
-              </button>
-              <a href="/character-headcanon-generator" className="bg-gray-200 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+              </ScrollTopButton>
+              <LinkButton
+                href="/character-headcanon-generator"
+                variant="secondary"
+                className="px-8 py-3 rounded-lg font-semibold"
+              >
                 Create Character Stories
-              </a>
+              </LinkButton>
             </div>
           </section>
         </div>

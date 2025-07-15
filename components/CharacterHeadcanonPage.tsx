@@ -1,10 +1,13 @@
 'use client'
 
-import React, { useState, Suspense, lazy, useEffect, useRef } from 'react'
+import React, { useState, Suspense, useEffect, useRef } from 'react'
 import CharacterHeadcanonGenerator from '@/components/CharacterHeadcanonGenerator'
+import dynamic from 'next/dynamic'
 
-// 懒加载SEO组件
-const CharacterHeadcanonSEO = lazy(() => import('@/components/CharacterHeadcanonSEO'))
+// 懒加载SEO组件，启用服务器端渲染以支持SEO
+const CharacterHeadcanonSEO = dynamic(() => import('@/components/CharacterHeadcanonSEO'), {
+  ssr: true, // 启用服务器端渲染，确保搜索引擎可以索引内容
+})
 
 export default function CharacterHeadcanonPage() {
   const [generatedHeadcanons, setGeneratedHeadcanons] = useState<string>('')
@@ -17,6 +20,12 @@ export default function CharacterHeadcanonPage() {
 
   // 使用 Intersection Observer 监听用户是否滚动到页面底部
   useEffect(() => {
+    // 确保SEO内容在页面加载后无论如何都会显示
+    // 这有助于搜索引擎爬虫能够看到内容
+    const timer = setTimeout(() => {
+      setShouldLoadSEO(true)
+    }, 100); // 页面加载后很快显示SEO内容
+    
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries
@@ -26,7 +35,7 @@ export default function CharacterHeadcanonPage() {
         }
       },
       {
-        rootMargin: '200px' // 提前200px触发加载
+        rootMargin: '300px' // 增加触发区域，提前加载
       }
     )
 
@@ -34,7 +43,10 @@ export default function CharacterHeadcanonPage() {
       observer.observe(seoTriggerRef.current)
     }
 
-    return () => observer.disconnect()
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    }
   }, [])
 
   return (
@@ -92,10 +104,10 @@ export default function CharacterHeadcanonPage() {
             </div>
           </div>
         </div>
+        
+        {/* SEO Content Trigger Point - 移至更靠前的位置 */}
+        <div ref={seoTriggerRef} className="h-1 mt-8" />
       </section>
-
-      {/* SEO Content Trigger Point */}
-      <div ref={seoTriggerRef} className="h-1" />
 
       {/* SEO Content Sections - Intersection Observer Lazy Loaded */}
       {shouldLoadSEO && (

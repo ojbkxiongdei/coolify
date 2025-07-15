@@ -1,10 +1,10 @@
-'use client'
-
 import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Edit3, Sparkles, Brush, Upload, Download, Zap, Palette, Layers, Filter, Camera, Settings, Star, Users, Clock, Shield, Award, Wand2 } from 'lucide-react'
 import SEOImageGallery from './SEOImageGallery'
+import ScrollTopButton from './ui/ScrollTopButton'
+import LinkButton from './ui/LinkButton'
 
 export default function ImageEditorSEO() {
   return (
@@ -571,17 +571,19 @@ export default function ImageEditorSEO() {
               Transform your photos with professional-quality AI image editing. No complex software, no steep learning curve – just powerful AI tools that make image editing simple and fun.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              <ScrollTopButton
+                variant="primary"
+                className="px-8 py-3 rounded-lg font-semibold"
               >
                 Try Image Editor Now
-              </button>
-              <a href="/pricing" className="bg-gray-200 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+              </ScrollTopButton>
+              <LinkButton
+                href="/pricing"
+                variant="secondary"
+                className="px-8 py-3 rounded-lg font-semibold"
+              >
                 View Pricing Plans
-              </a>
+              </LinkButton>
             </div>
           </section>
 
