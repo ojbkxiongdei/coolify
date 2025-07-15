@@ -52,9 +52,10 @@ export default function ElfNamePage() {
     <div className="min-h-screen">
       <ElfNameGenerator />
       
-      {/* 懒加载SEO内容 */}
+      {/* 懒加载SEO内容 - 包含精灵名字生成器的各种类型：wood elf name generator, dark elf name generator, half elf name generator, blood elf name generator */}
       {showSEO && (
         <Suspense fallback={<div className="h-4" />}>
+          {/* 加载elf name generator dnd内容和elf names generator相关组件 */}
           <ElfNameSEO />
         </Suspense>
       )}

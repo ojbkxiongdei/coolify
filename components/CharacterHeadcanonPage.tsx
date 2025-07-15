@@ -39,16 +39,16 @@ export default function CharacterHeadcanonPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Main Function Area - Direct to First Screen */}
+      {/* Character Headcanon Generator - Main Function Area */}
       <section className="py-8 px-4" id="generator">
         <div className="max-w-6xl mx-auto">
           {/* Page Title */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Character Headcanon Generator
+              Character Headcanon Generator | Create Character Stories
             </h1>
             <p className="text-lg text-gray-600">
-              Generate detailed, believable character headcanons with extensive customization options
+              Our character headcanon generator creates detailed, believable character stories. Use this improved character headcanon generator for fan fiction, roleplaying, and creative writing.
             </p>
           </div>
 

@@ -3,21 +3,22 @@ import ElfNamePage from "@/components/ElfNamePage";
 
 export const metadata: Metadata = {
   title: "Elf Name Generator - Fantasy Names for All Elf Types | DreamfinityX",
-  description: "Generate authentic fantasy elf names for D&D, fantasy stories, and RPGs. Create names for wood elves, dark elves, half-elves, and more with our AI-powered generator. Perfect for writers, gamers, and fantasy enthusiasts.",
+  description: "Generate authentic fantasy elf names for D&D, fantasy stories, and RPGs. Create names for wood elves, dark elves, half-elves, and blood elves with our AI-powered elf name generator. Perfect for writers, gamers, and fantasy enthusiasts.",
   keywords: [
     "elf name generator",
+    "half elf name generator",
+    "wood elf name generator", 
+    "dark elf name generator",
+    "elf names generator",
+    "elf name generator dnd",
+    "blood elf name generator",
     "fantasy name generator", 
     "D&D elf names",
-    "half elf name generator",
-    "wood elf names",
-    "dark elf names",
     "fantasy names",
     "RPG names",
     "character names",
-    "elf names generator",
     "random elf names",
     "fantasy character generator",
-    "tolkien elf names",
     "elvish names",
     "elven names"
   ],
@@ -34,8 +35,8 @@ export const metadata: Metadata = {
     canonical: "/elf-name-generator",
   },
   openGraph: {
-    title: "Elf Name Generator - Fantasy Names for All Elf Types",
-    description: "Generate authentic fantasy elf names for D&D, fantasy stories, and RPGs. Create names for wood elves, dark elves, half-elves, and more with our AI-powered generator.",
+    title: "Elf Name Generator - Create Names for Wood Elves, Dark Elves & Half Elves",
+    description: "Generate authentic fantasy elf names for D&D, fantasy stories, and RPGs with our wood elf name generator, dark elf name generator, half elf name generator, and blood elf name generator tools.",
     url: "https://dreamfinityx.com/elf-name-generator",
     siteName: "DreamfinityX",
     locale: "en_US",
@@ -51,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Elf Name Generator - Fantasy Names for All Elf Types",
-    description: "Generate authentic fantasy elf names for D&D, fantasy stories, and RPGs. Create names for wood elves, dark elves, half-elves, and more.",
+    title: "Elf Name Generator for D&D, Wood Elves, Dark Elves & Half Elves",
+    description: "Generate authentic fantasy elf names for D&D, fantasy stories, and RPGs. Wood elf name generator, dark elf name generator, half elf name generator, and blood elf name generator tools.",
     images: ["/og-elf-name-generator.jpg"],
   },
   robots: {
@@ -69,5 +70,6 @@ export const metadata: Metadata = {
 };
 
 export default function ElfNameGeneratorPage() {
+  // Our elf name generator page includes wood elf name generator, dark elf name generator, half elf name generator
   return <ElfNamePage />;
 }

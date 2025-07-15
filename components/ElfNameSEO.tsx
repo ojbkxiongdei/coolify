@@ -266,7 +266,7 @@ export default function ElfNameSEO() {
 
           {/* Elf Name Categories */}
           <section>
-            <h2 className="text-3xl font-bold text-center mb-8">Elf Name Categories and Meanings</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">Elf Name Generator Categories and Meanings</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <Card>
                 <CardHeader>
@@ -353,7 +353,7 @@ export default function ElfNameSEO() {
 
           {/* Role-Playing Applications */}
           <section>
-            <h2 className="text-3xl font-bold text-center mb-8">Role-Playing Game Applications</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">Elf Name Generator DnD Applications</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <Card>
                 <CardHeader>
@@ -419,7 +419,7 @@ export default function ElfNameSEO() {
 
           {/* Linguistic Features */}
           <section>
-            <h2 className="text-3xl font-bold text-center mb-8">Linguistic Features and Pronunciation</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">Elf Name Generator Linguistic Features</h2>
             <div className="space-y-6">
               <Card>
                 <CardHeader>
@@ -654,7 +654,7 @@ export default function ElfNameSEO() {
 
           {/* Extended FAQ */}
           <section>
-            <h2 className="text-3xl font-bold text-center mb-8">Extended FAQ and Help</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">Dark Elf and Wood Elf Name Generator FAQ</h2>
             <div className="space-y-6">
               <Card>
                 <CardHeader>
@@ -697,6 +697,110 @@ export default function ElfNameSEO() {
                   <p className="text-sm text-gray-600">
                     A good elf name should be melodious, meaningful, and appropriate for the character&apos;s culture. Elvish names typically feature flowing vowel sounds, soft consonants, and nature-inspired meanings. They should be memorable with 2-4 syllables being ideal.
                   </p>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* Elf Name Generator Types - Keyword Density Enhancement */}
+          <section>
+            <h2 className="text-3xl font-bold text-center mb-8">Elf Name Generator Collection</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Wood Elf Name Generator</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Our wood elf name generator creates authentic names for forest-dwelling elves. Perfect for rangers, druids, and nature-connected characters. The wood elf name generator produces names with natural elements and sylvan influences.
+                  </p>
+                  <div className="space-y-1 text-xs">
+                    <div>• Nature-themed naming patterns</div>
+                    <div>• Forest culture integration</div>
+                    <div>• Wood elf name generator for D&D</div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Dark Elf Name Generator</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Generate authentic drow names with our dark elf name generator. Perfect for underground campaigns and shadow-themed characters. The dark elf name generator creates names with mysterious and sometimes sinister undertones.
+                  </p>
+                  <div className="space-y-1 text-xs">
+                    <div>• Underworld culture naming patterns</div>
+                    <div>• Drow society integration</div>
+                    <div>• Dark elf name generator for roleplaying</div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Half Elf Name Generator</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Our half elf name generator blends human and elven naming traditions. Perfect for characters with mixed heritage and unique backgrounds. The half elf name generator creates versatile names fitting multiple settings.
+                  </p>
+                  <div className="space-y-1 text-xs">
+                    <div>• Cultural fusion naming patterns</div>
+                    <div>• Adaptable to various campaigns</div>
+                    <div>• Half elf name generator for diverse stories</div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mt-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Blood Elf Name Generator</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Create majestic and powerful names with our blood elf name generator. Perfect for high-fantasy settings and arcane-influenced characters. The blood elf name generator produces names with elegant yet potent qualities.
+                  </p>
+                  <div className="space-y-1 text-xs">
+                    <div>• Arcane-influenced naming patterns</div>
+                    <div>• Magical heritage integration</div>
+                    <div>• Blood elf name generator for fantasy gaming</div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Elf Names Generator</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Our comprehensive elf names generator covers all types of elven cultures. This elf names generator creates authentic fantasy names suited for any setting or story. Use our elf names generator for instant character creation.
+                  </p>
+                  <div className="space-y-1 text-xs">
+                    <div>• Universal elven naming patterns</div>
+                    <div>• Multi-cultural elven integration</div>
+                    <div>• Elf names generator for all character types</div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Elf Name Generator DnD</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Our specialized elf name generator DnD creates names perfectly aligned with Dungeons & Dragons lore. This elf name generator DnD integrates with official race descriptions and naming conventions from the Player's Handbook.
+                  </p>
+                  <div className="space-y-1 text-xs">
+                    <div>• D&D rulebook compliant names</div>
+                    <div>• Campaign setting appropriate</div>
+                    <div>• Elf name generator DnD for authentic gameplay</div>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -745,7 +849,7 @@ export default function ElfNameSEO() {
           <section className="text-center bg-gray-50 rounded-lg p-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Create Your Perfect Elf Name Today</h2>
             <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-              Generate authentic fantasy elf names for your D&D characters, RPG campaigns, and creative writing projects. Free to use with endless possibilities.
+              Use our elf name generator, including specialized wood elf name generator, dark elf name generator, and half elf name generator tools. Perfect for DnD characters, RPG campaigns, and creative writing projects.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
@@ -771,8 +875,8 @@ export default function ElfNameSEO() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": "Elf Name Generator",
-            "description": "Generate authentic fantasy elf names for D&D, RPG campaigns, and creative writing. AI-powered generator with multiple elf types and cultural variations.",
+                            "name": "Elf Name Generator",
+                "description": "Generate authentic fantasy elf names with our wood elf name generator, dark elf name generator, half elf name generator, blood elf name generator, and elf name generator dnd tools.",
             "url": "https://dreamfinityx.com/elf-name-generator",
             "applicationCategory": "GamingApplication",
             "operatingSystem": "Any",
@@ -785,7 +889,7 @@ export default function ElfNameSEO() {
               "@type": "Organization",
               "name": "DreamfinityX"
             },
-            "keywords": "elf name generator, fantasy names, D&D names, RPG characters, fantasy character names, elvish names"
+            "keywords": "elf name generator, half elf name generator, wood elf name generator, dark elf name generator, elf names generator, elf name generator dnd, blood elf name generator"
           })
         }}
       />

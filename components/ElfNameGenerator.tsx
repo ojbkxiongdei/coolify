@@ -124,10 +124,10 @@ export default function ElfNameGenerator() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Elf Name Generator
+              Elf Name Generator | Fantasy Name Creation Tool
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Generate authentic elf names for your fantasy stories, D&D characters, and RPG games. Support for multiple elf types and styles.
+              Our complete elf name generator suite includes wood elf name generator, dark elf name generator, half elf name generator, blood elf name generator, and elf name generator dnd tools for your fantasy stories, D&D characters, and RPG games. The best elf names generator available online!
             </p>
           </div>
 
