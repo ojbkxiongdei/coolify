@@ -794,7 +794,7 @@ export default function ElfNameSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600 mb-3">
-                    Our specialized elf name generator DnD creates names perfectly aligned with Dungeons & Dragons lore. This elf name generator DnD integrates with official race descriptions and naming conventions from the Player's Handbook.
+                    Our specialized elf name generator DnD creates names perfectly aligned with Dungeons & Dragons lore. This elf name generator DnD integrates with official race descriptions and naming conventions from the Player&apos;s Handbook.
                   </p>
                   <div className="space-y-1 text-xs">
                     <div>• D&D rulebook compliant names</div>

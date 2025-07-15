@@ -10,7 +10,7 @@ import { refreshSubscription, refreshCredits } from '@/lib/hooks/useUser'
 
 function SuccessContent() {
   const searchParams = useSearchParams()
-  const sessionId = searchParams.get('session_id')
+  const sessionId = searchParams?.get('session_id')
   const [loading, setLoading] = useState(true)
   const [success, setSuccess] = useState(false)
 

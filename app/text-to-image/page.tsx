@@ -1,12 +1,15 @@
 'use client'
 
-import React, { useState, Suspense, lazy } from 'react'
+import React, { useState, Suspense } from 'react'
 import Head from 'next/head'
 import ImageGenerator from '@/components/ImageGenerator'
 import ImageResults from '@/components/ImageResults'
+import dynamic from 'next/dynamic'
 
-// 懒加载SEO组件
-const TextToImageSEO = lazy(() => import('@/components/TextToImageSEO'))
+// 动态导入SEO组件，启用服务器端渲染以支持SEO
+const TextToImageSEO = dynamic(() => import('@/components/TextToImageSEO'), {
+  ssr: true, // 启用服务器端渲染，确保搜索引擎可以索引内容
+})
 
 export default function TextToImagePage() {
   const [generatedImages, setGeneratedImages] = useState<string[]>([])
@@ -15,9 +18,18 @@ export default function TextToImagePage() {
   const handleImagesGenerated = (images: string[]) => {
     setGeneratedImages(images)
   }
+  
+  // 在组件挂载时添加关键的静态SEO内容 (noscript标签在return中添加)
 
-  // 使用 Intersection Observer 监听用户是否滚动到页面底部
+  // 使用定时器和 Intersection Observer 确保SEO内容加载
   React.useEffect(() => {
+    // 设置一个定时器，确保SEO内容在页面加载后显示，无论是否滚动
+    // 这有助于搜索引擎爬虫能够看到内容
+    const timer = setTimeout(() => {
+      setShowSEO(true);
+    }, 100); // 页面加载后很快显示SEO内容
+    
+    // 同时继续使用 Intersection Observer 监听滚动，优化用户体验
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries
@@ -27,14 +39,14 @@ export default function TextToImagePage() {
         }
       },
       {
-        rootMargin: '200px'
+        rootMargin: '300px' // 增加触发区域，提前加载
       }
     )
 
     const trigger = document.createElement('div')
     trigger.style.height = '1px'
     trigger.style.position = 'absolute'
-    trigger.style.bottom = '50%'
+    trigger.style.bottom = '80%' // 移至更靠近顶部，确保早点触发
     trigger.style.left = '0'
     trigger.style.width = '100%'
     trigger.style.pointerEvents = 'none'
@@ -43,6 +55,7 @@ export default function TextToImagePage() {
     observer.observe(trigger)
 
     return () => {
+      clearTimeout(timer);
       observer.disconnect()
       if (document.body.contains(trigger)) {
         document.body.removeChild(trigger)
@@ -52,6 +65,17 @@ export default function TextToImagePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* NoScript SEO内容，确保搜索引擎即使不执行JavaScript也能看到关键内容 */}
+      <noscript>
+        <div style={{display: 'none'}}>
+          <h2>AI Image Generator - Text to Image | DreamfinityX</h2>
+          <p>
+            Transform your words into stunning visuals with our AI image generator.
+            Create professional artwork, illustrations, and graphics from text descriptions using advanced AI technology.
+            Our text to image generator creates high-quality visuals for any creative need.
+          </p>
+        </div>
+      </noscript>
       <Head>
         <title>AI Image Generator - Text to Image | DreamfinityX</title>
         <meta name="description" content="Transform your words into stunning visuals with our AI image generator. Create professional artwork, illustrations, and graphics from text descriptions using advanced AI technology." />

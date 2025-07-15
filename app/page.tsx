@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, Suspense, lazy, useEffect } from 'react'
+import React, { useState, Suspense, useEffect } from 'react'
 import Head from 'next/head'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -10,9 +10,12 @@ import SEOImageGallery from '@/components/SEOImageGallery'
 import StructuredData from '@/components/StructuredData'
 import Image from 'next/image'
 import { usePathname, useSearchParams } from 'next/navigation'
+import dynamic from 'next/dynamic'
 
-// 懒加载SEO组件
-const SEOContent = lazy(() => import('@/components/SEOContent'))
+// 动态导入SEO组件，启用服务器端渲染以支持SEO
+const SEOContent = dynamic(() => import('@/components/SEOContent'), {
+  ssr: true, // 启用服务器端渲染，确保搜索引擎可以索引内容
+})
 
 function HomeContent() {
   const [shouldLoadSEO, setShouldLoadSEO] = useState(false)
@@ -22,8 +25,15 @@ function HomeContent() {
   const hasParams = searchParams && searchParams.toString().length > 0
   const canonicalUrl = "https://dreamfinityx.com/"
 
-  // 使用 Intersection Observer 监听用户是否滚动到页面底部
+  // 使用定时器和 Intersection Observer 确保SEO内容加载，同时优化用户体验
   useEffect(() => {
+    // 设置一个定时器，确保SEO内容在页面加载后显示，无论是否滚动
+    // 这有助于搜索引擎爬虫能够看到内容
+    const timer = setTimeout(() => {
+      setShouldLoadSEO(true);
+    }, 100); // 页面加载后很快显示SEO内容
+    
+    // 同时继续使用 Intersection Observer 监听滚动，优化用户体验
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries
@@ -33,14 +43,14 @@ function HomeContent() {
         }
       },
       {
-        rootMargin: '200px'
+        rootMargin: '300px' // 增加触发区域，提前加载
       }
     )
 
     const trigger = document.createElement('div')
     trigger.style.height = '1px'
     trigger.style.position = 'absolute'
-    trigger.style.bottom = '50%'
+    trigger.style.bottom = '80%' // 移至更靠近顶部，确保早点触发
     trigger.style.left = '0'
     trigger.style.width = '100%'
     trigger.style.pointerEvents = 'none'
@@ -49,6 +59,7 @@ function HomeContent() {
     observer.observe(trigger)
 
     return () => {
+      clearTimeout(timer);
       observer.disconnect()
       if (document.body.contains(trigger)) {
         document.body.removeChild(trigger)
@@ -564,12 +575,26 @@ function HomeContent() {
 
 export default function Home() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-2 border-gray-900 border-t-transparent"></div>
-      </div>
-    }>
-      <HomeContent />
-    </Suspense>
+    <>
+      {/* NoScript SEO内容，确保搜索引擎即使不执行JavaScript也能看到关键内容 */}
+      <noscript>
+        <div style={{display: 'none'}}>
+          <h2>DreamfinityX - AI Creative Tools Platform</h2>
+          <p>
+            Professional AI creative tools platform for designers, writers, and creators.
+            Generate images from text, edit photos with AI, create character stories, and generate fantasy names.
+            Our text-to-image generator, AI image editor, character headcanon generator, and elf name generator tools
+            provide comprehensive creative solutions.
+          </p>
+        </div>
+      </noscript>
+      <Suspense fallback={
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-2 border-gray-900 border-t-transparent"></div>
+        </div>
+      }>
+        <HomeContent />
+      </Suspense>
+    </>
   )
 } 

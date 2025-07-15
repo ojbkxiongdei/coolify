@@ -110,8 +110,8 @@ export default function CharacterHeadcanonSEO() {
                 </p>
                 <p>
                   The character headcanon generator analyzes traits, relationships, 
-                  and canonical information to produce authentic stories. Whether you're writing fan fiction, 
-                  developing backstories, or exploring "what if" scenarios, our character headcanons generator 
+                  and canonical information to produce authentic stories. Whether you&apos;re writing fan fiction, 
+                  developing backstories, or exploring &quot;what if&quot; scenarios, our character headcanons generator 
                   provides the creative ideas you need. This improved character headcanon generator saves you time.
                 </p>
                 <p>
