@@ -1,0 +1,42 @@
+---
+title: 风格转换器组件架构规则
+---
+
+# 风格转换器组件架构规则
+
+## 组件结构
+风格转换器功能（如Pixar、Ghibli等）必须遵循以下架构：
+
+1. **服务器组件页面**：`app/[style]-style-converter/page.tsx`
+   - 负责元数据和SEO设置
+   - 导入客户端和SEO组件
+
+2. **客户端交互组件**：`components/[Style]StyleConverterClient.tsx`
+   - 包装主转换组件
+   - 处理结果状态展示
+
+3. **核心转换组件**：`components/[Style]StyleConverter.tsx`
+   - 处理文件上传、设置和API调用
+   - 遵循统一的props接口：`{ onImagesConverted: (images: string[]) => void }`
+
+4. **SEO内容组件**：`components/[Style]StyleConverterSEO.tsx`
+   - 服务端渲染
+   - 使用SEOImageGallery组件展示示例
+
+5. **API端点**：`app/api/[style]-style-convert/route.ts`
+   - 验证参数和权限
+   - 处理图像转换请求
+
+## 功能一致性
+所有风格转换器必须实现以下一致的功能：
+- 图像上传和预览
+- 风格强度调整 (subtle/medium/strong)
+- 输出尺寸选项 (1024x1024, 1024x1536, 1536x1024)
+- 质量选项 (low/medium/high)
+- 生成多个变体的选项
+- 输出格式选项 (PNG/JPEG)
+
+## 错误处理
+- 用户未登录时按钮仍可点击，点击后引导登录
+- 显示清晰的错误信息
+- 积分不足时提示用户购买

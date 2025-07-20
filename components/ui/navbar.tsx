@@ -1,6 +1,6 @@
 'use client'
 
-import { Book, Menu, Sunset, Trees, Zap, TreePine } from "lucide-react";
+import { Book, Menu, Sunset, Trees, Zap, TreePine, Mountain } from "lucide-react";
 import UserDropdown from "@/components/UserDropdown";
 import Image from "next/image";
 
@@ -74,6 +74,18 @@ const Navbar1 = ({
           icon: <Trees className="size-5 shrink-0" />,
           url: "/image-editor",
         },
+        {
+          title: "Pixar Style Converter",
+          description: "Transform photos into Pixar-style animations",
+          icon: <Sunset className="size-5 shrink-0" />,
+          url: "/pixar-style-converter",
+        },
+        {
+          title: "Studio Ghibli Style Converter",
+          description: "Transform photos into Studio Ghibli-style artwork",
+          icon: <Mountain className="size-5 shrink-0" />,
+          url: "/ghibli-style-converter",
+        },
       ],
     },
     {
@@ -105,7 +117,7 @@ const Navbar1 = ({
   ],
 }: Navbar1Props) => {
   return (
-    <section className="py-4 bg-white/95 backdrop-blur-sm border-b border-gray-300 sticky top-0 z-50">
+    <section className="py-4 bg-white/90 backdrop-blur-sm border-b border-gray-300 sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
@@ -186,7 +198,7 @@ const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger className="text-muted-foreground">{item.title}</NavigationMenuTrigger>
+        <NavigationMenuTrigger className="text-muted-foreground bg-transparent hover:bg-muted">{item.title}</NavigationMenuTrigger>
         <NavigationMenuContent>
           <ul className="w-80 p-3">
             <NavigationMenuLink>
@@ -220,7 +232,7 @@ const renderMenuItem = (item: MenuItem) => {
   return (
     <NavigationMenuItem key={item.title}>
       <NavigationMenuLink
-        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
+        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
         href={item.url}
       >
         {item.title}

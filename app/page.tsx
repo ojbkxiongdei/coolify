@@ -5,12 +5,13 @@ import Head from 'next/head'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Sparkles, Edit3, Book, TreePine, Users, Star, Zap, ArrowRight, Image as ImageIcon, Palette, Wand2 } from 'lucide-react'
+import { Sparkles, Edit3, Book, TreePine, Users, Star, Zap, ArrowRight, Image as ImageIcon, Palette, Wand2, Mountain } from 'lucide-react'
 import SEOImageGallery from '@/components/SEOImageGallery'
 import StructuredData from '@/components/StructuredData'
 import Image from 'next/image'
 import { usePathname, useSearchParams } from 'next/navigation'
 import dynamic from 'next/dynamic'
+import { LeftScrollButton, RightScrollButton } from '@/components/ui/ScrollButtons'
 
 // 动态导入SEO组件，启用服务器端渲染以支持SEO
 const SEOContent = dynamic(() => import('@/components/SEOContent'), {
@@ -207,7 +208,7 @@ function HomeContent() {
                 />
               </div>
               <div className="text-center">
-                <Button asChild className="bg-blue-600 hover:bg-blue-700">
+                <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5">
                   <a href="/text-to-image">Try Text-to-Image <ArrowRight className="w-4 h-4 ml-2" /></a>
                 </Button>
               </div>
@@ -232,8 +233,60 @@ function HomeContent() {
                 />
               </div>
               <div className="text-center">
-                <Button asChild variant="outline" className="border-purple-300 text-purple-700 hover:bg-purple-50">
+                <Button asChild className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5">
                   <a href="/image-editor">Try Image Editor <ArrowRight className="w-4 h-4 ml-2" /></a>
+                </Button>
+              </div>
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 mb-12">
+            <div>
+              <h3 className="text-2xl font-bold text-orange-600 mb-4 flex items-center">
+                <Palette className="w-6 h-6 mr-2" />
+                Pixar Style Converter
+              </h3>
+              <p className="text-gray-700 mb-6">
+                Transform your photos into charming Pixar-style animations. Turn portraits, family photos, and selfies
+                into beautiful cartoon characters with the iconic Pixar look.
+              </p>
+              <div className="mb-6 rounded-xl overflow-hidden shadow-md max-w-sm mx-auto">
+                <Image 
+                  src="/seo-images/Pixar-Style-Transformation.png" 
+                  alt="Before and after photo transformation to Pixar animation style showing exaggerated features and vibrant colors"
+                  width={500}
+                  height={350}
+                  className="w-full object-cover"
+                />
+              </div>
+              <div className="text-center">
+                <Button asChild className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5">
+                  <a href="/pixar-style-converter">Try Pixar Converter <ArrowRight className="w-4 h-4 ml-2" /></a>
+                </Button>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-2xl font-bold text-cyan-600 mb-4 flex items-center">
+                <Mountain className="w-6 h-6 mr-2" />
+                Studio Ghibli Style Converter
+              </h3>
+              <p className="text-gray-700 mb-6">
+                Transform your photos into enchanting Studio Ghibli-style artwork. Convert portraits, landscapes, and scenes 
+                into beautiful watercolor-style art with the iconic dreamy Ghibli aesthetic.
+              </p>
+              <div className="mb-6 rounded-xl overflow-hidden shadow-md max-w-sm mx-auto">
+                <Image 
+                  src="/seo-images/Ghibli-Style-Transformation.png" 
+                  alt="Before and after photo transformation to Studio Ghibli style showing watercolor textures and dreamy atmosphere"
+                  width={500}
+                  height={350}
+                  className="w-full object-cover"
+                />
+              </div>
+              <div className="text-center">
+                <Button asChild className="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-2.5">
+                  <a href="/ghibli-style-converter">Try Ghibli Converter <ArrowRight className="w-4 h-4 ml-2" /></a>
                 </Button>
               </div>
             </div>
@@ -259,12 +312,12 @@ function HomeContent() {
                 />
               </div>
               <div className="text-center">
-                <Button asChild variant="outline" className="border-green-300 text-green-700 hover:bg-green-50">
+                <Button asChild className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5">
                   <a href="/character-headcanon-generator">Create Characters <ArrowRight className="w-4 h-4 ml-2" /></a>
                 </Button>
               </div>
             </div>
-
+            
             <div>
               <h3 className="text-2xl font-bold text-amber-600 mb-4 flex items-center">
                 <TreePine className="w-6 h-6 mr-2" />
@@ -273,7 +326,7 @@ function HomeContent() {
               <p className="text-gray-700 mb-6">
                 Generate authentic elf names for D&D campaigns, fantasy stories, and RPG characters
                 with cultural accuracy and creative flair. Enhance your worldbuilding and character development
-                with linguistically consistent fantasy names.
+                with fantasy names.
               </p>
               <div className="mb-6 rounded-xl overflow-hidden shadow-md max-w-sm mx-auto">
                 <Image 
@@ -285,7 +338,7 @@ function HomeContent() {
                 />
               </div>
               <div className="text-center">
-                <Button asChild variant="outline" className="border-amber-300 text-amber-700 hover:bg-amber-50">
+                <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2.5">
                   <a href="/elf-name-generator">Generate Names <ArrowRight className="w-4 h-4 ml-2" /></a>
                 </Button>
               </div>
@@ -295,7 +348,7 @@ function HomeContent() {
       </section>
 
       {/* Tools Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -305,115 +358,214 @@ function HomeContent() {
               Everything you need to bring your creative ideas to life, all in one platform
             </p>
           </div>
+          
+          <div className="relative">
+            {/* 横向滚动箭头 - 使用客户端组件 */}
+            <LeftScrollButton containerId="tools-scroll-container" />
+            <RightScrollButton containerId="tools-scroll-container" />
+            
+            {/* 横向滚动容器 */}
+            <div 
+              id="tools-scroll-container" 
+              className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide"
+              style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}
+            >
+              {/* Text-to-Image Tool */}
+              <div className="min-w-[300px] w-[300px] snap-start">
+                <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-blue-200 h-full flex flex-col">
+                  <CardHeader className="text-center">
+                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
+                      <ImageIcon className="w-8 h-8 text-blue-600" aria-label="AI Image Generator Icon" />
+                    </div>
+                    <CardTitle className="text-xl">AI Image Generator</CardTitle>
+                    <CardDescription>Transform text into stunning visuals</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-center flex-1 flex flex-col">
+                    <p className="text-sm text-gray-600 mb-4">
+                      Create professional artwork, illustrations, and graphics from simple text descriptions using advanced AI technology.
+                    </p>
+                    <div className="flex flex-wrap gap-1 justify-center mb-4">
+                      <Badge variant="secondary" className="text-xs">Text-to-Image</Badge>
+                      <Badge variant="secondary" className="text-xs">High Quality</Badge>
+                      <Badge variant="secondary" className="text-xs">Multiple Styles</Badge>
+                    </div>
+                    <div className="mt-auto">
+                      <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                        <a href="/text-to-image">
+                          Try Now
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Text-to-Image Tool */}
-            <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-blue-200">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
-                  <ImageIcon className="w-8 h-8 text-blue-600" aria-label="AI Image Generator Icon" />
-                </div>
-                <CardTitle className="text-xl">AI Image Generator</CardTitle>
-                <CardDescription>Transform text into stunning visuals</CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-sm text-gray-600 mb-4">
-                  Create professional artwork, illustrations, and graphics from simple text descriptions using advanced AI technology.
-                </p>
-                <div className="flex flex-wrap gap-1 justify-center mb-4">
-                  <Badge variant="secondary" className="text-xs">Text-to-Image</Badge>
-                  <Badge variant="secondary" className="text-xs">High Quality</Badge>
-                  <Badge variant="secondary" className="text-xs">Multiple Styles</Badge>
-                </div>
-                <Button asChild className="w-full">
-                  <a href="/text-to-image">
-                    Try Now
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+              {/* Image Editor Tool */}
+              <div className="min-w-[300px] w-[300px] snap-start">
+                <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-purple-200 h-full flex flex-col">
+                  <CardHeader className="text-center">
+                    <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-200 transition-colors">
+                      <Edit3 className="w-8 h-8 text-purple-600" />
+                    </div>
+                    <CardTitle className="text-xl">AI Image Editor</CardTitle>
+                    <CardDescription>Edit and enhance your photos with AI</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-center flex-1 flex flex-col">
+                    <p className="text-sm text-gray-600 mb-4">
+                      Professional photo editing with AI-powered tools for background removal, style transfer, and artistic effects.
+                    </p>
+                    <div className="flex flex-wrap gap-1 justify-center mb-4">
+                      <Badge variant="secondary" className="text-xs">Photo Editing</Badge>
+                      <Badge variant="secondary" className="text-xs">Style Transfer</Badge>
+                      <Badge variant="secondary" className="text-xs">AI Enhancement</Badge>
+                    </div>
+                    <div className="mt-auto">
+                      <Button asChild className="w-full bg-purple-600 hover:bg-purple-700 text-white">
+                        <a href="/image-editor">
+                          Edit Photos
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
 
-            {/* Image Editor Tool */}
-            <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-purple-200">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-200 transition-colors">
-                  <Edit3 className="w-8 h-8 text-purple-600" />
-                </div>
-                <CardTitle className="text-xl">AI Image Editor</CardTitle>
-                <CardDescription>Edit and enhance your photos with AI</CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-sm text-gray-600 mb-4">
-                  Professional photo editing with AI-powered tools for background removal, style transfer, and artistic effects.
-                </p>
-                <div className="flex flex-wrap gap-1 justify-center mb-4">
-                  <Badge variant="secondary" className="text-xs">Photo Editing</Badge>
-                  <Badge variant="secondary" className="text-xs">Style Transfer</Badge>
-                  <Badge variant="secondary" className="text-xs">AI Enhancement</Badge>
-                </div>
-                <Button asChild className="w-full" variant="outline">
-                  <a href="/image-editor">
-                    Edit Photos
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+              {/* Pixar Style Converter Tool */}
+              <div className="min-w-[300px] w-[300px] snap-start">
+                <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-orange-200 h-full flex flex-col">
+                  <CardHeader className="text-center">
+                    <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 transition-colors">
+                      <Palette className="w-8 h-8 text-orange-600" />
+                    </div>
+                    <CardTitle className="text-xl">Pixar Style Converter</CardTitle>
+                    <CardDescription>Transform photos into Pixar animations</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-center flex-1 flex flex-col">
+                    <p className="text-sm text-gray-600 mb-4">
+                      Convert portraits and photos into Pixar-style animated characters with signature large eyes, smooth textures, and vibrant colors.
+                    </p>
+                    <div className="flex flex-wrap gap-1 justify-center mb-4">
+                      <Badge variant="secondary" className="text-xs">Pixar Animation</Badge>
+                      <Badge variant="secondary" className="text-xs">Photo Conversion</Badge>
+                      <Badge variant="secondary" className="text-xs">Character Design</Badge>
+                    </div>
+                    <div className="mt-auto">
+                      <Button asChild className="w-full bg-orange-600 hover:bg-orange-700 text-white">
+                        <a href="/pixar-style-converter">
+                          Transform Photos
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
 
-            {/* Character Headcanon Tool */}
-            <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-green-200">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
-                  <Book className="w-8 h-8 text-green-600" />
-                </div>
-                <CardTitle className="text-xl">Character Creator</CardTitle>
-                <CardDescription>Generate detailed character stories</CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-sm text-gray-600 mb-4">
-                  Create detailed character headcanons and backstories for any fandom, perfect for writers and role-players.
-                </p>
-                <div className="flex flex-wrap gap-1 justify-center mb-4">
-                  <Badge variant="secondary" className="text-xs">Character Stories</Badge>
-                  <Badge variant="secondary" className="text-xs">Fan Fiction</Badge>
-                  <Badge variant="secondary" className="text-xs">FREE</Badge>
-                </div>
-                <Button asChild className="w-full" variant="outline">
-                  <a href="/character-headcanon-generator">
-                    Create Characters
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+              {/* Studio Ghibli Style Converter Tool */}
+              <div className="min-w-[300px] w-[300px] snap-start">
+                <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-cyan-200 h-full flex flex-col">
+                  <CardHeader className="text-center">
+                    <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-cyan-200 transition-colors">
+                      <Mountain className="w-8 h-8 text-cyan-600" />
+                    </div>
+                    <CardTitle className="text-xl">Ghibli Style Converter</CardTitle>
+                    <CardDescription>Transform photos into Ghibli artwork</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-center flex-1 flex flex-col">
+                    <p className="text-sm text-gray-600 mb-4">
+                      Convert portraits and landscapes into Studio Ghibli-style artwork with the signature watercolor aesthetic, dreamy atmosphere, and hand-painted look.
+                    </p>
+                    <div className="flex flex-wrap gap-1 justify-center mb-4">
+                      <Badge variant="secondary" className="text-xs">Studio Ghibli</Badge>
+                      <Badge variant="secondary" className="text-xs">Watercolor Style</Badge>
+                      <Badge variant="secondary" className="text-xs">Artistic Conversion</Badge>
+                    </div>
+                    <div className="mt-auto">
+                      <Button asChild className="w-full bg-cyan-600 hover:bg-cyan-700 text-white">
+                        <a href="/ghibli-style-converter">
+                          Transform Photos
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
 
-            {/* Elf Name Generator Tool */}
-            <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-amber-200">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition-colors">
-                  <TreePine className="w-8 h-8 text-amber-600" />
-                </div>
-                <CardTitle className="text-xl">Fantasy Names</CardTitle>
-                <CardDescription>Generate authentic fantasy names</CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-sm text-gray-600 mb-4">
-                  Generate authentic elf names for D&D campaigns, fantasy stories, and RPG characters with cultural accuracy.
-                </p>
-                <div className="flex flex-wrap gap-1 justify-center mb-4">
-                  <Badge variant="secondary" className="text-xs">Elf Names</Badge>
-                  <Badge variant="secondary" className="text-xs">D&D RPG</Badge>
-                  <Badge variant="secondary" className="text-xs">FREE</Badge>
-                </div>
-                <Button asChild className="w-full" variant="outline">
-                  <a href="/elf-name-generator">
-                    Generate Names
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+              {/* Character Headcanon Tool */}
+              <div className="min-w-[300px] w-[300px] snap-start">
+                <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-green-200 h-full flex flex-col">
+                  <CardHeader className="text-center">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
+                      <Book className="w-8 h-8 text-green-600" />
+                    </div>
+                    <CardTitle className="text-xl">Character Creator</CardTitle>
+                    <CardDescription>Generate detailed character stories</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-center flex-1 flex flex-col">
+                    <p className="text-sm text-gray-600 mb-4">
+                      Create detailed character headcanons and backstories for any fandom, perfect for writers and role-players.
+                    </p>
+                    <div className="flex flex-wrap gap-1 justify-center mb-4">
+                      <Badge variant="secondary" className="text-xs">Character Stories</Badge>
+                      <Badge variant="secondary" className="text-xs">Fan Fiction</Badge>
+                      <Badge variant="secondary" className="text-xs">FREE</Badge>
+                    </div>
+                    <div className="mt-auto">
+                      <Button asChild className="w-full bg-green-600 hover:bg-green-700 text-white">
+                        <a href="/character-headcanon-generator">
+                          Create Characters
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Elf Name Generator Tool */}
+              <div className="min-w-[300px] w-[300px] snap-start">
+                <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-amber-200 h-full flex flex-col">
+                  <CardHeader className="text-center">
+                    <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition-colors">
+                      <TreePine className="w-8 h-8 text-amber-600" />
+                    </div>
+                    <CardTitle className="text-xl">Fantasy Names</CardTitle>
+                    <CardDescription>Generate authentic fantasy names</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-center flex-1 flex flex-col">
+                    <p className="text-sm text-gray-600 mb-4">
+                      Generate authentic elf names for D&D campaigns, fantasy stories, and RPG characters with cultural accuracy.
+                    </p>
+                    <div className="flex flex-wrap gap-1 justify-center mb-4">
+                      <Badge variant="secondary" className="text-xs">Elf Names</Badge>
+                      <Badge variant="secondary" className="text-xs">D&D RPG</Badge>
+                      <Badge variant="secondary" className="text-xs">FREE</Badge>
+                    </div>
+                    <div className="mt-auto">
+                      <Button asChild className="w-full bg-amber-600 hover:bg-amber-700 text-white">
+                        <a href="/elf-name-generator">
+                          Generate Names
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+            
+            {/* 滚动指示器 */}
+            <div className="flex justify-center mt-6 gap-2">
+              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+            </div>
           </div>
         </div>
       </section>

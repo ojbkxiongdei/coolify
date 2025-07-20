@@ -34,7 +34,7 @@ export const database = {
     imageUrl: string
     originalFilename?: string
     settings: Record<string, any>
-    generationType: 'text-to-image' | 'image-edit'
+    generationType: 'text-to-image' | 'image-edit' | 'pixar-style-convert' | 'ghibli-style-convert'
   }) {
     if (!data.imageUrl.startsWith('data:image/')) {
       throw new Error('Expected Base64 image data')

@@ -7,7 +7,7 @@ interface StoredImage {
   timestamp: number
   prompt: string
   settings: Record<string, any>
-  generationType: 'text-to-image' | 'image-edit'
+  generationType: 'text-to-image' | 'image-edit' | 'pixar-style-convert' | 'ghibli-style-convert'
 }
 
 class LocalImageStorage {
@@ -20,7 +20,7 @@ class LocalImageStorage {
     imageData: string
     prompt: string
     settings: Record<string, any>
-    generationType: 'text-to-image' | 'image-edit'
+    generationType: 'text-to-image' | 'image-edit' | 'pixar-style-convert' | 'ghibli-style-convert'
   }): void {
     try {
       const storedImage: StoredImage = {

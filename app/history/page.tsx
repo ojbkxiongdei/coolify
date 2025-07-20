@@ -91,7 +91,7 @@ export default function HistoryPage() {
 
   // 删除图片
   const handleDeleteImage = async (id: string) => {
-    if (!confirm('确定要删除这张图片吗？')) return
+    if (!confirm('Are you sure you want to delete this image?')) return
     
     try {
       await database.deleteImageGeneration(id)
@@ -103,13 +103,13 @@ export default function HistoryPage() {
       setStorageInfo(info)
     } catch (error) {
       console.error('Delete failed:', error)
-      alert('删除失败，请重试')
+      alert('Delete failed, please try again')
     }
   }
 
   // 清空所有图片
   const handleClearAll = async () => {
-    if (!confirm('确定要清空所有本地图片吗？此操作不可恢复！')) return
+    if (!confirm('Are you sure you want to clear all local images? This action cannot be undone!')) return
     
     try {
       database.clearAllImages()
@@ -118,7 +118,7 @@ export default function HistoryPage() {
       setStorageInfo(info)
     } catch (error) {
       console.error('Clear all failed:', error)
-      alert('清空失败，请重试')
+      alert('Clear all failed, please try again')
     }
   }
 
@@ -192,12 +192,12 @@ export default function HistoryPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     <span className="text-sm text-gray-600">
-                      本地存储：{storageInfo.imageCount} 张图片，{storageInfo.storageSize}
+                      Local Storage: {storageInfo.imageCount} images, {storageInfo.storageSize}
                     </span>
                   </div>
                   {storageInfo.isNearLimit && (
                     <span className="px-2 py-1 text-xs bg-yellow-100 text-yellow-800 rounded-full">
-                      存储空间接近满载
+                      Storage almost full
                     </span>
                   )}
                 </div>
@@ -207,7 +207,7 @@ export default function HistoryPage() {
                     onClick={handleClearAll}
                     className="px-3 py-1 text-sm text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md"
                   >
-                    清空所有图片
+                    Clear all images
                   </button>
                 )}
               </div>
@@ -249,7 +249,7 @@ export default function HistoryPage() {
                           <svg className="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
-                          <p className="text-sm">图片不可用</p>
+                          <p className="text-sm">Image unavailable</p>
                         </div>
                       </div>
                     )}
@@ -296,7 +296,7 @@ export default function HistoryPage() {
                           download={`dreamfinity-${generation.id}.png`}
                           className="flex-1 px-3 py-2 bg-gray-900 text-white text-xs rounded-md hover:bg-gray-800 text-center"
                         >
-                          下载
+                          Download
                         </a>
                       )}
                     </div>
