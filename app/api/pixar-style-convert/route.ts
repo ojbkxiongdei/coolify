@@ -1,7 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { createClient } from '@/lib/supabase/server'
 
 const AZURE_ENDPOINT = process.env.AZURE_ENDPOINT
 const ***REMOVED*** = process.env.***REMOVED*** 
+
+// Credits消耗规则
+const CREDIT_COSTS = {
+  'low': 1,
+  'medium': 4,
+  'high': 15
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,6 +28,37 @@ export async function POST(request: NextRequest) {
 
     if (!imageFile) {
       return NextResponse.json({ error: 'Please upload an image to convert' }, { status: 400 })
+    }
+
+    // 验证用户身份和credits
+    const supabase = await createClient()
+    const { data: { user: currentUser } } = await supabase.auth.getUser()
+    
+    if (!currentUser) {
+      return NextResponse.json({ error: 'Please login to convert images' }, { status: 401 })
+    }
+
+    // 检查用户是否有足够的credits
+    const creditsNeeded = CREDIT_COSTS[quality as keyof typeof CREDIT_COSTS] * n
+    
+    const { data: userCredits, error: creditsError } = await supabase
+      .from('user_credits')
+      .select('*')
+      .eq('user_id', currentUser.id)
+      .single()
+    
+    if (creditsError || !userCredits) {
+      return NextResponse.json({ error: 'Failed to fetch user credits' }, { status: 500 })
+    }
+    
+    const availableCredits = userCredits.total_credits - userCredits.used_credits
+    if (availableCredits < creditsNeeded) {
+      return NextResponse.json({ 
+        error: 'Insufficient credits',
+        required: creditsNeeded,
+        available: availableCredits,
+        message: `您需要 ${creditsNeeded} Credits 来转换 ${n} 张 ${quality} 质量的皮克斯风格图片，但您只有 ${availableCredits} Credits 可用。`
+      }, { status: 400 })
     }
 
     // Validate parameters
@@ -114,6 +153,36 @@ export async function POST(request: NextRequest) {
       return `data:image/${output_format};base64,${item.b64_json}`
     })
 
+    // 生成成功后消耗credits
+    const generationId = `pixar_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+    
+    const { error: updateError } = await supabase
+      .from('user_credits')
+      .update({
+        used_credits: userCredits.used_credits + creditsNeeded
+      })
+      .eq('user_id', currentUser.id)
+    
+    if (updateError) {
+      console.error('Failed to consume credits:', updateError)
+      // 不阻止响应，但记录错误
+    }
+    
+    // 记录交易
+    const { error: transactionError } = await supabase
+      .from('credit_transactions')
+      .insert({
+        user_id: currentUser.id,
+        type: 'spent',
+        amount: -creditsNeeded,
+        description: `皮克斯风格转换${n}张${quality}质量图片`,
+        generation_id: generationId
+      })
+    
+    if (transactionError) {
+      console.error('Failed to record transaction:', transactionError)
+    }
+
     return NextResponse.json({
       success: true,
       images,
@@ -121,6 +190,9 @@ export async function POST(request: NextRequest) {
       // Keep backward compatibility
       image: data.data[0].b64_json,
       imageUrl: images[0],
+      creditsConsumed: creditsNeeded,
+      remainingCredits: availableCredits - creditsNeeded,
+      generationId
     })
   } catch (error) {
     console.error('Pixar style conversion error:', error)
