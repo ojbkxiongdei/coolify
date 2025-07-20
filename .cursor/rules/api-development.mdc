@@ -1,7 +1,3 @@
----
-description: # API Development Rules
-alwaysApply: false
----
 # API Development Rules
 
 ## Next.js 14 App Router API Routes
@@ -122,8 +118,8 @@ if (!response.ok) {
 ## Environment Variables
 ```typescript
 // ✅ Environment validation
-const AZURE_ENDPOINT = process.env.AZURE_ENDPOINT || 'https://***REMOVED***'
-const ***REMOVED*** = process.env.***REMOVED*** || 'fallback-key'
+const AZURE_ENDPOINT = process.env.AZURE_ENDPOINT
+const ***REMOVED*** = process.env.***REMOVED***
 
 if (!AZURE_ENDPOINT || !***REMOVED***) {
   throw new Error('Missing required environment variables')
@@ -346,6 +342,10 @@ if (error?.code === 'PGRST116') {
 
 ## API Response Standards
 - Maintain backward compatibility with single `imageUrl` field
+- Return arrays in `images` field for multiple results
+- Consistent error response format
+- Include success/error flags in responses
+
 - Return arrays in `images` field for multiple results
 - Consistent error response format
 - Include success/error flags in responses

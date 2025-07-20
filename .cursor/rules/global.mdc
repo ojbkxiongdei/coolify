@@ -14,28 +14,19 @@
 - **API Routes**: Use named exports (GET, POST, etc.)
 - **Metadata**: Include proper metadata for SEO
 
-## Environment Variables
+## Environment Variables Pattern
 ```bash
-# Azure OpenAI Configuration
-AZURE_ENDPOINT=https://your-endpoint.cognitiveservices.azure.com
-***REMOVED***=your-api-key
-
-# Supabase Configuration
-NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-
-# Google OAuth
-GOOGLE_CLIENT_ID=your-google-client-id
-GOOGLE_CLIENT_SECRET=your-google-client-secret
-
-# Stripe Configuration (Test Mode)
-***REMOVED***=sk_test_your-stripe-secret-key
-***REMOVED***=pk_test_your-stripe-publishable-key
-***REMOVED***=whsec_your-webhook-secret
-
-# Application
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
+# Required variables format (do not include actual values):
+AZURE_ENDPOINT=
+***REMOVED***=
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+***REMOVED***=
+***REMOVED***=
+***REMOVED***=
+NEXT_PUBLIC_SITE_URL=
 ```
 
 ## Development Workflow
@@ -45,153 +36,34 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 4. **Performance**: Monitor Core Web Vitals
 5. **Security**: Validate all inputs and API calls
 
-## Common Patterns
-```typescript
-// ✅ API Response pattern
-interface ApiResponse<T> {
-  success: boolean
-  data?: T
-  error?: string
-}
-
-// ✅ Loading state pattern
-const [isLoading, setIsLoading] = useState(false)
-
-// ✅ Error handling pattern
-try {
-  // API call
-} catch (error) {
-  console.error('Error:', error)
-  // User feedback
-} finally {
-  setIsLoading(false)
-}
-
-// ✅ User authentication pattern
-const { user, loading } = useUser()
-
-// ✅ Credits validation pattern
-const availableCredits = credits.total_credits - credits.used_credits
-if (availableCredits < requiredCredits) {
-  // Handle insufficient credits
-}
-```
-
-## User Authentication & State Management
-- **Global State**: Use [lib/hooks/useUser.ts](mdc:lib/hooks/useUser.ts) for user authentication
-- **Caching**: 5-minute cache to prevent loading flicker
-- **User Dropdown**: [components/UserDropdown.tsx](mdc:components/UserDropdown.tsx) for auth UI
+## User Authentication & Credits System
+- **User Hook**: Use `useUser()` hook for authentication state
+- **Credits Calculation**: `available_credits = total_credits - used_credits`
 - **Auto-provisioning**: Automatic user profile and credits creation
-
-## Credits System Guidelines
-- **Field Names**: Use `last_reset_at` not `last_reset` in database
-- **Balance Calculation**: `available_credits = total_credits - used_credits`
-- **Error Handling**: Handle PGRST116 errors with auto-creation
-- **UI Updates**: Real-time credits display in UserDropdown
-
-## Performance Guidelines
-- **Image Optimization**: Always use Next.js Image component
-- **Code Splitting**: Lazy load non-critical components
-- **Bundle Size**: Monitor and optimize bundle size
-- **Caching**: Implement appropriate caching strategies
-- **Database**: Use async operations that don't block UI
-
-## Security Considerations
-- **Input Validation**: Validate all user inputs
-- **API Protection**: Secure API endpoints with authentication
-- **Environment Variables**: Keep secrets secure, never in client code
-- **CORS**: Configure proper CORS settings
-- **RLS**: Use Row Level Security for database access
-- **Payment Security**: Let Stripe handle sensitive payment data
-
-## Accessibility Requirements
-- **Alt Text**: All images must have descriptive alt text
-- **Keyboard Navigation**: Ensure keyboard accessibility
-- **Color Contrast**: Maintain adequate color contrast
-- **Screen Readers**: Support screen reader navigation
-- **Focus Management**: Proper focus indicators
-
-## Mobile-First Design
-- **Responsive Design**: All components must be mobile-responsive
-- **Touch Targets**: Minimum 44px touch targets
-- **Performance**: Optimize for mobile performance
-- **Navigation**: Touch-friendly navigation patterns
-
-## Component Architecture
-- **UI Components**: Use [components/ui/](mdc:components/ui/) for reusable components
-- **Radix UI**: Use Radix UI primitives for complex components
-- **Error Boundaries**: Wrap components in ErrorBoundary
-- **Loading States**: Provide clear loading feedback
 
 ## Database Best Practices
 - **Schema Consistency**: Use proper field names (`last_reset_at`)
-- **Auto-creation**: Handle missing records gracefully
 - **RLS Policies**: Ensure proper row-level security
-- **Migrations**: Execute schema changes in Supabase Dashboard
-- **Indexes**: Create indexes for performance-critical queries
-
-## Error Handling Patterns
-```typescript
-// ✅ Component error boundaries
-import { ErrorBoundary } from 'components/ErrorBoundary'
-
-// ✅ Graceful error handling
-const handleError = (error: Error) => {
-  console.error('Error details:', error)
-  // User-friendly error message
-  alert('Something went wrong. Please try again.')
-}
-
-// ✅ Database error handling
-if (error?.code === 'PGRST116') {
-  // Auto-create missing record
-}
-```
-
-## Testing Strategy
-- **Unit Tests**: Test individual components
-- **Integration Tests**: Test API endpoints
-- **E2E Tests**: Test user workflows (sign in, credits, payments)
-- **Performance Tests**: Monitor Core Web Vitals
-- **Accessibility Tests**: Automated accessibility checks
+- **Migrations**: Apply schema changes via SQL files in lib/database/
 
 ## Deployment Checklist
 - [ ] All environment variables configured
-- [ ] Database migrations completed (schema.sql + pricing-schema.sql)
+- [ ] Database migrations completed
 - [ ] API endpoints tested
 - [ ] Stripe webhook configured
 - [ ] Mobile responsiveness verified
 - [ ] Performance optimized
 - [ ] Security headers configured
 - [ ] Error handling implemented
-- [ ] Monitoring setup
 
 ## Common Anti-Patterns to Avoid
 ❌ Using wrong field names (`last_reset` vs `last_reset_at`)
 ❌ Blocking UI with synchronous operations
 ❌ Using `<img>` instead of `<Image>`
 ❌ Hardcoding API keys in client code
-❌ Not handling loading states
-❌ Missing error boundaries
+❌ Missing loading states or error boundaries
 ❌ Poor mobile experience
-❌ Ignoring accessibility requirements
-❌ Not testing edge cases
 ❌ Not validating user inputs
-
-## Best Practices Checklist
-✅ TypeScript for type safety
-✅ Proper error handling with graceful fallbacks
-✅ Mobile-responsive design
-✅ Accessibility compliance
-✅ Performance optimization
-✅ Security best practices (RLS, input validation)
-✅ Clean code standards
-✅ Comprehensive testing
-✅ Proper documentation
-✅ Environment configuration
-✅ Global user state management
-✅ Credits system integration
-✅ Payment processing security
 
 
 
