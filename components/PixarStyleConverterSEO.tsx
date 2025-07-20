@@ -34,7 +34,7 @@ export default function PixarStyleConverterSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    Transform photos into characters with Pixar's signature style. Get the iconic big eyes, smooth textures, and expressive features that define Pixar animation characters.
+                    Transform photos into characters with Pixar&apos;s signature style. Get the iconic big eyes, smooth textures, and expressive features that define Pixar animation characters.
                   </p>
                 </CardContent>
               </Card>
@@ -94,7 +94,7 @@ export default function PixarStyleConverterSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    Experience the smooth, slightly textured surfaces that define Pixar's 3D animation style. Our converter adds the perfect amount of texture for that authentic Pixar look.
+                    Experience the smooth, slightly textured surfaces that define Pixar&apos;s 3D animation style. Our converter adds the perfect amount of texture for that authentic Pixar look.
                   </p>
                 </CardContent>
               </Card>
@@ -201,7 +201,7 @@ export default function PixarStyleConverterSEO() {
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <p className="text-sm text-gray-600">
-                    Use Pixar-style conversions for creative projects like custom illustrations, children's books, classroom materials, personalized gifts, and digital art collections.
+                    Use Pixar-style conversions for creative projects like custom illustrations, children&apos;s books, classroom materials, personalized gifts, and digital art collections.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <Badge variant="outline">Digital Art</Badge>
@@ -237,7 +237,7 @@ export default function PixarStyleConverterSEO() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">2. Adjust Style Settings</h3>
                   <p className="text-gray-600">
-                    Choose your preferred style strength (subtle, medium, or strong), output size, and quality settings. You can also select the number of variations you'd like to generate.
+                    Choose your preferred style strength (subtle, medium, or strong), output size, and quality settings. You can also select the number of variations you&apos;d like to generate.
                   </p>
                 </div>
               </div>
@@ -290,7 +290,7 @@ export default function PixarStyleConverterSEO() {
                 <div>
                   <h4 className="text-lg font-semibold text-gray-800 mb-2">Our Pixar Style Converter Technology</h4>
                   <p className="text-gray-700 mb-4">
-                    The Pixar style converter uses advanced AI to analyze your photos and apply authentic Pixar animation transformations. Our system doesn't just apply filters—it reimagines your photos with true Pixar character styling while preserving recognizable features of the original subjects.
+                    The Pixar style converter uses advanced AI to analyze your photos and apply authentic Pixar animation transformations. Our system doesn&apos;t just apply filters—it reimagines your photos with true Pixar character styling while preserving recognizable features of the original subjects.
                   </p>
                   <h4 className="text-lg font-semibold text-gray-800 mb-2">Pixar Animation Transformation Process</h4>
                   <ul className="list-disc pl-5 space-y-1 text-gray-600">
@@ -451,7 +451,7 @@ export default function PixarStyleConverterSEO() {
                   Enhance your creative projects with Pixar-style character transformations. Convert reference photos into Pixar animation style characters for illustrations, stories, presentations, and educational materials. These Pixar-inspired images add charm and visual appeal to any creative endeavor.
                 </p>
                 <p className="text-sm text-gray-600">
-                  Great for: Blog illustrations, presentations, children's books, educational materials
+                  Great for: Blog illustrations, presentations, children&apos;s books, educational materials
                 </p>
               </div>
             </div>
@@ -485,7 +485,7 @@ export default function PixarStyleConverterSEO() {
 
               <Card>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-lg">How do I control how "Pixar-like" my photo becomes?</CardTitle>
+                  <CardTitle className="text-lg">How do I control how &quot;Pixar-like&quot; my photo becomes?</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
@@ -500,7 +500,7 @@ export default function PixarStyleConverterSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    The images you create with our Pixar Style Converter are for personal use. For commercial purposes, please ensure you have the appropriate rights to both the original photos and be aware that "Pixar style" is inspired by Pixar's aesthetic but should not be represented as official Pixar animation content in commercial applications.
+                    The images you create with our Pixar Style Converter are for personal use. For commercial purposes, please ensure you have the appropriate rights to both the original photos and be aware that &quot;Pixar style&quot; is inspired by Pixar&apos;s aesthetic but should not be represented as official Pixar animation content in commercial applications.
                   </p>
                 </CardContent>
               </Card>

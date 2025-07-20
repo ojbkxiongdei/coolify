@@ -1,6 +1,3 @@
----
-title: 风格转换器组件架构规则
----
 
 # 风格转换器组件架构规则
 
@@ -10,22 +7,27 @@ title: 风格转换器组件架构规则
 1. **服务器组件页面**：`app/[style]-style-converter/page.tsx`
    - 负责元数据和SEO设置
    - 导入客户端和SEO组件
+   - 遵循与其他功能页相同的布局模式
 
 2. **客户端交互组件**：`components/[Style]StyleConverterClient.tsx`
    - 包装主转换组件
    - 处理结果状态展示
+   - 使用'use client'指令
 
 3. **核心转换组件**：`components/[Style]StyleConverter.tsx`
    - 处理文件上传、设置和API调用
    - 遵循统一的props接口：`{ onImagesConverted: (images: string[]) => void }`
+   - 实现错误处理和加载状态
 
 4. **SEO内容组件**：`components/[Style]StyleConverterSEO.tsx`
    - 服务端渲染
    - 使用SEOImageGallery组件展示示例
+   - 包含1000+关键词密度的SEO内容
 
 5. **API端点**：`app/api/[style]-style-convert/route.ts`
    - 验证参数和权限
    - 处理图像转换请求
+   - 使用环境变量存储API密钥
 
 ## 功能一致性
 所有风格转换器必须实现以下一致的功能：
@@ -36,7 +38,72 @@ title: 风格转换器组件架构规则
 - 生成多个变体的选项
 - 输出格式选项 (PNG/JPEG)
 
+## API调用模式
+```typescript
+// 风格转换API调用示例
+const response = await fetch('/api/ghibli-style-convert', {
+  method: 'POST',
+  body: formData, // 包含图片、提示词和设置
+});
+
+// 后端API实现
+export async function POST(request: NextRequest) {
+  try {
+    const formData = await request.formData();
+    const imageFile = formData.get('image') as File;
+    const prompt = formData.get('prompt') as string;
+    const styleStrength = formData.get('style_strength') as string || 'medium';
+    
+    // Azure API集成
+    const azureFormData = new FormData();
+    azureFormData.append('image', imageFile);
+    azureFormData.append('prompt', stylePrompt);
+    
+    const response = await fetch(
+      `${AZURE_ENDPOINT}/openai/deployments/gpt-image-1/images/edits?api-version=2025-04-01-preview`,
+      {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${***REMOVED***}` },
+        body: azureFormData,
+      }
+    );
+    
+    // 处理结果...
+  } catch (error) {
+    // 错误处理...
+  }
+}
+```
+
 ## 错误处理
 - 用户未登录时按钮仍可点击，点击后引导登录
+- 显示清晰的错误信息
+- 积分不足时提示用户购买
+- 图像处理失败时提供友好的错误消息
+
+## UI设计规范
+- 遵循项目的黑白灰配色方案
+- 保持界面简洁、易用
+- 图片预览使用固定高宽比的容器
+- 上传区域使用虚线边框和图标
+- 结果显示区域使用网格布局
+
+## 导航和用户体验
+- 在导航栏中添加风格转换器链接
+- 首页添加风格转换器功能介绍和入口
+- 相关功能间提供交叉导航链接
+- 使用平滑滚动的CTA按钮
+
+## 已实现的风格转换器
+1. **Ghibli风格转换器**：将图片转换为吉卜力工作室动画风格
+2. **Pixar风格转换器**：将图片转换为皮克斯动画风格
+
+## 未来可能扩展的风格
+- 迪士尼风格转换器
+- 日系动漫风格转换器
+- 漫画风格转换器
+- 水彩画风格转换器
+- 油画风格转换器
+
 - 显示清晰的错误信息
 - 积分不足时提示用户购买

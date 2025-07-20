@@ -83,7 +83,7 @@ export default function GhibliStyleConverterSEO() {
             </div>
             <div className="text-center">
               <p className="text-gray-600 max-w-3xl mx-auto mb-6">
-                Experience the magic of Studio Ghibli's iconic art style with our AI-powered converter. 
+                Experience the magic of Studio Ghibli&apos;s iconic art style with our AI-powered converter. 
                 Transform your photos into stunning Ghibli-inspired artwork with the signature watercolor textures,
                 dreamy atmosphere, and hand-painted aesthetic that defines films like Spirited Away, My Neighbor Totoro, and Princess Mononoke.
               </p>
@@ -217,7 +217,7 @@ export default function GhibliStyleConverterSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    The best results come from photos with natural elements like landscapes, forests, water features, and skies. Studio Ghibli's style embraces nature, so photos with these elements transform beautifully. Our converter also works well with portraits, architectural shots, and everyday scenes, transforming them all into the magical Studio Ghibli aesthetic.
+                    The best results come from photos with natural elements like landscapes, forests, water features, and skies. Studio Ghibli&apos;s style embraces nature, so photos with these elements transform beautifully. Our converter also works well with portraits, architectural shots, and everyday scenes, transforming them all into the magical Studio Ghibli aesthetic.
                   </p>
                 </CardContent>
               </Card>
@@ -239,7 +239,7 @@ export default function GhibliStyleConverterSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    The images you create with our Studio Ghibli Style Converter are for personal use. For commercial purposes, please ensure you have the appropriate rights to both the original photos and be aware that "Ghibli style" is inspired by Studio Ghibli's aesthetic but should not be represented as official Studio Ghibli content in commercial applications.
+                    The images you create with our Studio Ghibli Style Converter are for personal use. For commercial purposes, please ensure you have the appropriate rights to both the original photos and be aware that &quot;Ghibli style&quot; is inspired by Studio Ghibli&apos;s aesthetic but should not be represented as official Studio Ghibli content in commercial applications.
                   </p>
                 </CardContent>
               </Card>
@@ -283,7 +283,7 @@ export default function GhibliStyleConverterSEO() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600">
-                    Our Studio Ghibli Style Converter uses advanced AI neural networks trained on thousands of Studio Ghibli animation frames and artwork. The system analyzes colors, textures, lighting, and composition in your photo, then applies transformations that match the distinctive Ghibli aesthetic. This includes softening textures, adjusting colors to match Ghibli's pastel palette, and adding the characteristic watercolor effect to create authentic Ghibli-inspired artwork from your photos.
+                    Our Studio Ghibli Style Converter uses advanced AI neural networks trained on thousands of Studio Ghibli animation frames and artwork. The system analyzes colors, textures, lighting, and composition in your photo, then applies transformations that match the distinctive Ghibli aesthetic. This includes softening textures, adjusting colors to match Ghibli&apos;s pastel palette, and adding the characteristic watercolor effect to create authentic Ghibli-inspired artwork from your photos.
                   </p>
                 </CardContent>
               </Card>
