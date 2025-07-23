@@ -1,8 +1,9 @@
 'use client'
 
-import { Book, Menu, Sunset, Trees, Zap, TreePine, Mountain } from "lucide-react";
+import { Book, Menu, Sunset, Trees, Zap, TreePine, Mountain, ChevronDown } from "lucide-react";
 import UserDropdown from "@/components/UserDropdown";
 import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
 
 import {
   Accordion,
@@ -11,15 +12,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
   Sheet,
   SheetContent,
@@ -123,6 +116,40 @@ const Navbar1 = ({
     { name: "Terms", url: "/terms" },
   ],
 }: Navbar1Props) => {
+  // 添加状态来管理悬停菜单
+  const [openPopover, setOpenPopover] = useState<string | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // 处理菜单打开
+  const handleOpen = (title: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setOpenPopover(title);
+  };
+  
+  // 处理菜单关闭，添加延迟
+  const handleClose = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    
+    timeoutRef.current = setTimeout(() => {
+      setOpenPopover(null);
+      timeoutRef.current = null;
+    }, 150); // 150ms的延迟，可以根据需要调整
+  };
+  
+  // 清理定时器
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section className="py-4 bg-white border-b border-gray-300 sticky top-0 z-50">
       <div className="container mx-auto px-4">
@@ -133,11 +160,14 @@ const Navbar1 = ({
               <span className="text-xl font-bold text-gray-900">{logo.title}</span>
             </a>
             <div className="flex items-center">
-              <NavigationMenu>
-                <NavigationMenuList className="gap-2">
-                  {menu.map((item) => renderMenuItem(item))}
-                </NavigationMenuList>
-              </NavigationMenu>
+              <div className="flex gap-2">
+                {menu.map((item) => renderMenuItem(
+                  item, 
+                  openPopover, 
+                  handleOpen,
+                  handleClose
+                ))}
+              </div>
             </div>
           </div>
           <div className="flex gap-2">
@@ -201,16 +231,37 @@ const Navbar1 = ({
   );
 };
 
-const renderMenuItem = (item: MenuItem) => {
+const renderMenuItem = (
+  item: MenuItem, 
+  openPopover: string | null,
+  handleOpen: (title: string) => void,
+  handleClose: () => void
+) => {
   if (item.items) {
     return (
-      <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger className="bg-white text-gray-700 hover:bg-gray-100 data-[state=open]:bg-gray-100">
-          {item.title}
-        </NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <div className="bg-white">
-            <ul className="grid w-[400px] gap-3 p-4">
+      <Popover 
+        key={item.title}
+        open={openPopover === item.title}
+      >
+        <div
+          className="relative"
+          onMouseEnter={() => handleOpen(item.title)}
+          onMouseLeave={handleClose}
+        >
+          <PopoverTrigger asChild>
+            <button 
+              className="inline-flex items-center h-10 gap-1 px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-md hover:bg-gray-100"
+            >
+              {item.title}
+              <ChevronDown className="w-4 h-4" />
+            </button>
+          </PopoverTrigger>
+          <PopoverContent 
+            className="w-[400px] p-0 bg-white rounded-md shadow-md"
+            align="start"
+            sideOffset={2} // 减小间隙
+          >
+            <ul className="grid gap-3 p-4">
               {item.items.map((subItem) => (
                 <li key={subItem.title}>
                   <a
@@ -234,21 +285,20 @@ const renderMenuItem = (item: MenuItem) => {
                 </li>
               ))}
             </ul>
-          </div>
-        </NavigationMenuContent>
-      </NavigationMenuItem>
+          </PopoverContent>
+        </div>
+      </Popover>
     );
   }
 
   return (
-    <NavigationMenuItem key={item.title}>
-      <NavigationMenuLink
-        className="inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900"
-        href={item.url}
-      >
-        {item.title}
-      </NavigationMenuLink>
-    </NavigationMenuItem>
+    <a
+      key={item.title}
+      className="inline-flex h-10 items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900"
+      href={item.url}
+    >
+      {item.title}
+    </a>
   );
 };
 
