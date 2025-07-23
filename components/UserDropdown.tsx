@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { useUser, useCredits, useSubscription, clearUserCache, getCachedUser, cleanExpiredCache } from '@/lib/hooks/useUser'
 import { createClient } from '@/lib/supabase/client'
-import Image from 'next/image'
 import { ChevronDown, Zap, LogOut, User as UserIcon, Crown } from 'lucide-react'
 import {
   DropdownMenu,
@@ -20,8 +19,6 @@ export default function UserDropdown() {
   const credits = useCredits()
   const { isMember } = useSubscription()
   const [isLoading, setIsLoading] = useState(false)
-  const [imageError, setImageError] = useState(false)
-  const [imageLoading, setImageLoading] = useState(false)
 
   // 初始化时清理过期缓存
   useEffect(() => {
@@ -34,12 +31,6 @@ export default function UserDropdown() {
   
   // 只有在没有任何用户数据且正在加载时才显示loading
   const shouldShowLoading = loading && !displayUser
-
-  // 重置图片错误状态当用户改变时
-  useEffect(() => {
-    setImageError(false)
-    setImageLoading(false)
-  }, [displayUser?.id])
 
   const handleGoogleSignIn = async () => {
     setIsLoading(true)
@@ -84,25 +75,6 @@ export default function UserDropdown() {
     }
   }
 
-  // 处理图片加载错误
-  const handleImageError = () => {
-    console.warn('Avatar image failed to load:', displayUser?.user_metadata?.avatar_url)
-    setImageError(true)
-    setImageLoading(false)
-  }
-
-  // 处理图片加载开始
-  const handleImageLoadStart = () => {
-    setImageLoading(true)
-    setImageError(false)
-  }
-
-  // 处理图片加载完成
-  const handleImageLoad = () => {
-    setImageLoading(false)
-    setImageError(false)
-  }
-
   // 只有在真正需要时才显示loading spinner
   if (shouldShowLoading) {
     return (
@@ -113,49 +85,13 @@ export default function UserDropdown() {
   }
 
   if (displayUser) {
-    // 检查是否有可用的头像URL
-    const avatarUrl = displayUser.user_metadata?.avatar_url
-    const shouldShowAvatar = avatarUrl && !imageError
-
-    // 调试信息（开发环境）
-    if (process.env.NODE_ENV === 'development') {
-      console.log('UserDropdown render:', {
-        userId: displayUser.id,
-        avatarUrl,
-        imageError,
-        imageLoading
-      })
-    }
-
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="flex items-center space-x-2 p-2">
-            {shouldShowAvatar ? (
-              <div className="relative w-8 h-8">
-                {imageLoading && (
-                  <div className="absolute inset-0 bg-gray-200 rounded-full flex items-center justify-center">
-                    <div className="w-4 h-4 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
-                  </div>
-                )}
-                <Image
-                  src={avatarUrl}
-                  alt="Profile"
-                  width={32}
-                  height={32}
-                  className={`w-8 h-8 rounded-full ${imageLoading ? 'opacity-0' : 'opacity-100'}`}
-                  unoptimized
-                  priority={false}
-                  onLoadingComplete={handleImageLoad}
-                  onLoadStart={handleImageLoadStart}
-                  onError={handleImageError}
-                />
-              </div>
-            ) : (
               <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                 <UserIcon className="w-4 h-4 text-gray-600" />
               </div>
-            )}
             <ChevronDown className="w-4 h-4 text-gray-600" />
           </Button>
         </DropdownMenuTrigger>

@@ -1,0 +1,141 @@
+# SEO优化策略
+
+## 三级关键词层次结构
+
+项目采用经典的"支柱-集群-叶"关键词结构，以优化搜索引擎排名和用户体验：
+
+1. **支柱页面 (Pillar)** - 主题核心页面
+   - 示例：`/names`, `/stories`, `/images`
+   - 功能：聚合相关主题的集群页面
+   - 关键词：广泛的主题关键词
+
+2. **集群页面 (Cluster)** - 子主题页面
+   - 示例：`/names/fantasy`, `/images/style-transfer`
+   - 功能：聚合特定子主题的叶页面
+   - 关键词：中等特异性关键词
+
+3. **叶页面 (Leaf)** - 实际功能页面
+   - 示例：`/names/fantasy/elf-name-generator`, `/images/style-transfer/ghibli-style-converter`
+   - 功能：提供特定工具和功能
+   - 关键词：高度特异性长尾关键词
+
+## URL结构
+
+- 统一使用`/[pillar]/[cluster]/[leaf]`格式
+- 使用SEO友好的短划线分隔符（例如`elf-name-generator`）
+- 保持URL长度适中，使用描述性关键词
+
+## 元数据优化
+
+每个页面都应包含以下元数据：
+
+```jsx
+export const metadata = {
+  title: "描述性标题 | DreamfinityX",
+  description: "包含主要关键词的简洁描述...",
+  openGraph: {
+    title: "社交媒体标题",
+    description: "社交媒体描述",
+    images: [{ url: "/seo-images/相关图片.png" }]
+  }
+}
+```
+
+## 结构化数据
+
+每个页面应实现适当的结构化数据：
+
+1. **面包屑导航**：
+```jsx
+<StructuredData
+  type="BreadcrumbList"
+  data={{
+    itemListElement: [
+      {
+        position: 1,
+        name: "支柱",
+        item: "https://dreamfinityx.com/pillar"
+      },
+      // ...更多层级
+    ]
+  }}
+/>
+```
+
+2. **工具/软件应用**：
+```jsx
+<StructuredData
+  type="SoftwareApplication"
+  data={{
+    name: "工具名称",
+    applicationCategory: "工具类别",
+    offers: {
+      price: "0",
+      priceCurrency: "USD"
+    }
+  }}
+/>
+```
+
+## 内容策略
+
+1. **SEO内容组件**：
+   - 每个功能页面使用专门的`*SEO.tsx`组件
+   - 内容应包含1000+关键词
+   - 使用延迟加载避免影响页面性能
+
+2. **内容结构**：
+   - 使用适当的H1-H6标题层次
+   - 包含常见问题解答段落
+   - 包含优势和使用场景描述
+   - 提供相关工具链接
+
+## 图片优化
+
+1. **SEO图片**：
+   - 存储在`/public/seo-images/`目录
+   - 包含描述性文件名
+   - 使用Next.js的Image组件加载
+   - 提供适当的alt文本
+
+2. **图片画廊**：
+   - 使用`SEOImageGallery`组件展示示例作品
+   - 每个图片带有结构化描述
+
+## 导航和内部链接
+
+1. **面包屑导航**：
+   - 在每个页面显示完整路径
+   - 链接到上级页面
+
+2. **内部链接策略**：
+   - 从支柱页面链接到所有相关集群页面
+   - 从集群页面链接到所有相关叶页面
+   - 在相关内容部分提供交叉链接
+
+## URL重定向策略
+
+使用中间件实现旧URL到新URL结构的301重定向：
+
+```jsx
+// middleware.ts
+export function middleware(request: NextRequest) {
+  // 旧URL到新URL的映射
+  const redirectMap = {
+    '/elf-name-generator': '/names/fantasy/elf-name-generator',
+    // ...更多重定向规则
+  }
+}
+```
+
+## 页面性能优化
+
+1. **核心网页指标**：
+   - 优化LCP (Largest Contentful Paint)
+   - 最小化CLS (Cumulative Layout Shift)
+   - 改善FID (First Input Delay)
+
+2. **资源优化**：
+   - 优先加载关键CSS
+   - 延迟加载非关键JavaScript
+   - 使用Next.js的图像优化

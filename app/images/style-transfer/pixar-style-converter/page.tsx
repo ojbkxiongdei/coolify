@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import PixarStyleConverterClient from '@/components/PixarStyleConverterClient'
 import PixarStyleConverterSEO from '@/components/PixarStyleConverterSEO'
 import StructuredData from '@/components/StructuredData'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: "Pixar Style Image Converter - Transform Photos into Pixar Animation | DreamfinityX",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pixar Style Image Converter - Transform Photos into Pixar Animation | DreamfinityX",
     description: "Convert your photos into Pixar-style animations with our AI converter. Transform portraits into beautiful Pixar-inspired cartoon characters.",
-    url: "https://dreamfinityx.com/pixar-style-converter",
+    url: "https://dreamfinityx.com/images/style-transfer/pixar-style-converter",
     type: "website",
     locale: "en_US",
   },
@@ -31,13 +32,32 @@ export const metadata: Metadata = {
     description: "Convert your photos into Pixar-style animations with our AI converter. Transform portraits into beautiful Pixar-inspired cartoon characters.",
   },
   alternates: {
-    canonical: "https://dreamfinityx.com/pixar-style-converter",
+    canonical: "https://dreamfinityx.com/images/style-transfer/pixar-style-converter",
   },
 }
 
 export default function PixarStyleConverterPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <nav className="container mx-auto px-4 text-sm py-4 text-gray-500">
+        <ol className="flex flex-wrap">
+          <li className="flex items-center">
+            <Link href="/" className="hover:text-blue-600">Home</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="flex items-center">
+            <Link href="/images" className="hover:text-blue-600">Image Tools</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="flex items-center">
+            <Link href="/images/style-transfer" className="hover:text-blue-600">Style Transfer</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="text-gray-700 font-medium">Pixar Style Converter</li>
+        </ol>
+      </nav>
+      
       {/* NoScript SEO内容，确保搜索引擎即使不执行JavaScript也能看到关键内容 */}
       <noscript>
         <div>
@@ -61,7 +81,36 @@ export default function PixarStyleConverterPage() {
             "price": "0",
             "priceCurrency": "USD"
           },
-          "description": "Convert your photos into Pixar-style animations with our AI converter. Transform portraits into beautiful Pixar-inspired cartoon characters."
+          "description": "Convert your photos into Pixar-style animations with our AI converter. Transform portraits into beautiful Pixar-inspired cartoon characters.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://dreamfinityx.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Image Tools",
+                "item": "https://dreamfinityx.com/images"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Style Transfer",
+                "item": "https://dreamfinityx.com/images/style-transfer"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Pixar Style Converter",
+                "item": "https://dreamfinityx.com/images/style-transfer/pixar-style-converter"
+              }
+            ]
+          }
         }}
       />
 

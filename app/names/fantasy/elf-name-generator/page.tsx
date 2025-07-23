@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import ElfNameClient from "@/components/ElfNameClient";
 import ElfNameSEO from "@/components/ElfNameSEO";
 import StructuredData from "@/components/StructuredData";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Elf Name Generator - Fantasy Names for All Elf Types | DreamfinityX",
@@ -34,12 +35,12 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://dreamfinityx.com"),
   alternates: {
-    canonical: "/elf-name-generator",
+    canonical: "/names/fantasy/elf-name-generator",
   },
   openGraph: {
     title: "Elf Name Generator - Create Names for Wood Elves, Dark Elves & Half Elves",
     description: "Generate authentic fantasy elf names for D&D, fantasy stories, and RPGs with our wood elf name generator, dark elf name generator, half elf name generator, and blood elf name generator tools.",
-    url: "https://dreamfinityx.com/elf-name-generator",
+    url: "https://dreamfinityx.com/names/fantasy/elf-name-generator",
     siteName: "DreamfinityX",
     locale: "en_US",
     type: "website",
@@ -74,6 +75,25 @@ export const metadata: Metadata = {
 export default function ElfNameGeneratorPage() {
   return (
     <div className="min-h-screen">
+      {/* Breadcrumb Navigation */}
+      <nav className="container mx-auto px-4 text-sm py-4 text-gray-500">
+        <ol className="flex flex-wrap">
+          <li className="flex items-center">
+            <Link href="/" className="hover:text-blue-600">Home</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="flex items-center">
+            <Link href="/names" className="hover:text-blue-600">Name Generators</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="flex items-center">
+            <Link href="/names/fantasy" className="hover:text-blue-600">Fantasy Names</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="text-gray-700 font-medium">Elf Name Generator</li>
+        </ol>
+      </nav>
+      
       {/* NoScript SEO内容，确保搜索引擎即使不执行JavaScript也能看到关键内容 */}
       <noscript>
         <div>
@@ -98,7 +118,36 @@ export default function ElfNameGeneratorPage() {
             "price": "0",
             "priceCurrency": "USD"
           },
-          "description": "Generate fantasy elf names for Wood Elves, Dark Elves, High Elves and more with our Elf Name Generator."
+          "description": "Generate fantasy elf names for Wood Elves, Dark Elves, High Elves and more with our Elf Name Generator.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://dreamfinityx.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Name Generators",
+                "item": "https://dreamfinityx.com/names"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Fantasy Names",
+                "item": "https://dreamfinityx.com/names/fantasy"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Elf Name Generator",
+                "item": "https://dreamfinityx.com/names/fantasy/elf-name-generator"
+              }
+            ]
+          }
         }}
       />
       
@@ -109,4 +158,4 @@ export default function ElfNameGeneratorPage() {
       <ElfNameSEO />
     </div>
   );
-}
+} 

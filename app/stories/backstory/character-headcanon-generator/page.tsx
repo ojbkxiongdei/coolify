@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import CharacterHeadcanonClient from '@/components/CharacterHeadcanonClient'
 import CharacterHeadcanonSEO from '@/components/CharacterHeadcanonSEO'
 import StructuredData from '@/components/StructuredData'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Character Headcanon Generator - Create Detailed Character Stories | DreamfinityX',
@@ -12,17 +13,36 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Character Headcanon Generator - Create Fan Fiction Characters',
     description: 'Use our character headcanon generator to create detailed character stories. The best character headcanons generator for fan fiction writers and creative enthusiasts.',
-    url: 'https://dreamfinityx.com/character-headcanon-generator',
+    url: 'https://dreamfinityx.com/stories/backstory/character-headcanon-generator',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://dreamfinityx.com/character-headcanon-generator',
+    canonical: 'https://dreamfinityx.com/stories/backstory/character-headcanon-generator',
   },
 }
 
 export default function CharacterHeadcanonGeneratorPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <nav className="container mx-auto px-4 text-sm py-4 text-gray-500">
+        <ol className="flex flex-wrap">
+          <li className="flex items-center">
+            <Link href="/" className="hover:text-blue-600">Home</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="flex items-center">
+            <Link href="/stories" className="hover:text-blue-600">Story Tools</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="flex items-center">
+            <Link href="/stories/backstory" className="hover:text-blue-600">Backstory</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="text-gray-700 font-medium">Character Headcanon Generator</li>
+        </ol>
+      </nav>
+      
       {/* NoScript SEO内容，确保搜索引擎即使不执行JavaScript也能看到关键内容 */}
       <noscript>
         <div>
@@ -47,7 +67,36 @@ export default function CharacterHeadcanonGeneratorPage() {
             "price": "0",
             "priceCurrency": "USD"
           },
-          "description": "Create detailed character backstories and headcanons for your fan fiction, roleplaying games, and creative writing projects."
+          "description": "Create detailed character backstories and headcanons for your fan fiction, roleplaying games, and creative writing projects.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://dreamfinityx.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Story Tools",
+                "item": "https://dreamfinityx.com/stories"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Backstory",
+                "item": "https://dreamfinityx.com/stories/backstory"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Character Headcanon Generator",
+                "item": "https://dreamfinityx.com/stories/backstory/character-headcanon-generator"
+              }
+            ]
+          }
         }}
       />
       

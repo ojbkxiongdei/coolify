@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import TextToImageClient from '@/components/TextToImageClient'
 import TextToImageSEO from '@/components/TextToImageSEO'
 import StructuredData from '@/components/StructuredData'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: "AI Image Generator - Text to Image | DreamfinityX",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Image Generator - Text to Image | DreamfinityX",
     description: "Transform your words into stunning visuals with our AI image generator. Create professional artwork and graphics from text descriptions.",
-    url: "https://dreamfinityx.com/text-to-image",
+    url: "https://dreamfinityx.com/images/text-to-image/ai-image-generator",
     type: "website",
     locale: "en_US",
   },
@@ -31,13 +32,32 @@ export const metadata: Metadata = {
     description: "Transform your words into stunning visuals with our AI image generator. Create professional artwork and graphics from text descriptions.",
   },
   alternates: {
-    canonical: "https://dreamfinityx.com/text-to-image",
+    canonical: "https://dreamfinityx.com/images/text-to-image/ai-image-generator",
   },
 }
 
 export default function TextToImagePage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <nav className="container mx-auto px-4 text-sm py-4 text-gray-500">
+        <ol className="flex flex-wrap">
+          <li className="flex items-center">
+            <Link href="/" className="hover:text-blue-600">Home</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="flex items-center">
+            <Link href="/images" className="hover:text-blue-600">Image Tools</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="flex items-center">
+            <Link href="/images/text-to-image" className="hover:text-blue-600">Text to Image</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="text-gray-700 font-medium">AI Image Generator</li>
+        </ol>
+      </nav>
+      
       {/* NoScript SEO内容，确保搜索引擎即使不执行JavaScript也能看到关键内容 */}
       <noscript>
         <div>
@@ -62,7 +82,36 @@ export default function TextToImagePage() {
             "price": "0",
             "priceCurrency": "USD"
           },
-          "description": "Transform your words into stunning visuals with our AI image generator. Create professional artwork from text descriptions."
+          "description": "Transform your words into stunning visuals with our AI image generator. Create professional artwork from text descriptions.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://dreamfinityx.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Image Tools",
+                "item": "https://dreamfinityx.com/images"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Text to Image",
+                "item": "https://dreamfinityx.com/images/text-to-image"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "AI Image Generator",
+                "item": "https://dreamfinityx.com/images/text-to-image/ai-image-generator"
+              }
+            ]
+          }
         }}
       />
 

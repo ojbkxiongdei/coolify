@@ -1,0 +1,65 @@
+# 导航菜单组件
+
+## 导航菜单实现
+
+导航菜单组件基于Radix UI的NavigationMenu原语构建，支持多级导航和响应式设计。
+
+### 关键组件
+
+- `NavigationMenu` - 容器组件，管理所有导航菜单项
+- `NavigationMenuList` - 导航项的列表容器
+- `NavigationMenuItem` - 单个导航项
+- `NavigationMenuTrigger` - 触发下拉菜单的按钮
+- `NavigationMenuContent` - 下拉菜单内容
+- `NavigationMenuViewport` - 渲染下拉菜单内容的视口
+
+### 菜单结构
+
+```jsx
+<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>项目</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <ul>
+          <li>子项目1</li>
+          <li>子项目2</li>
+        </ul>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+  <NavigationMenuViewport />
+</NavigationMenu>
+```
+
+## 定位问题解决方案
+
+为确保下拉菜单正确定位在其父菜单项下方，必须遵循以下实现：
+
+1. `NavigationMenu`组件内必须包含`NavigationMenuViewport`
+2. `NavigationMenuContent`必须设置正确的类名：
+   ```
+   left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto
+   ```
+3. `NavigationMenuViewport`必须包装在一个定位为`absolute left-0 top-full flex justify-center`的div中
+
+## 导航栏实现
+
+`navbar.tsx`实现了站点的主导航，使用了上述导航菜单组件。导航栏包含：
+
+1. 网站Logo
+2. 主导航菜单（使用`NavigationMenu`）
+3. 用户下拉菜单（使用`UserDropdown`）
+4. 移动端响应式菜单（使用`Sheet`）
+
+### 导航菜单样式
+
+- 使用不透明的白色背景（`bg-white`）确保内容可见
+- 下拉菜单使用边框和阴影区分
+- 悬停状态使用浅灰色背景（`hover:bg-gray-100`）
+
+## 常见问题
+
+1. **下拉菜单位置不正确** - 确保遵循Radix UI的定位方式，特别是`NavigationMenuViewport`的放置位置
+2. **菜单内容透明** - 为菜单内容添加`bg-white`背景类
+3. **移动端菜单显示问题** - 检查响应式断点和Sheet组件实现

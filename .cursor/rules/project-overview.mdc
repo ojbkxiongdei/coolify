@@ -1,0 +1,32 @@
+# 项目概览
+
+DreamfinityX是一个提供多种AI创意工具的Next.js应用，包括名字生成、故事创作和图像处理工具。
+
+## 主要功能
+
+- **名字生成器**：生成各种风格的名字，如精灵名字
+- **故事工具**：角色背景故事生成等
+- **图像工具**：文本到图像生成、图像编辑、风格转换（吉卜力风格、皮克斯风格）
+
+## 项目结构
+
+- `/app`: Next.js App Router结构，包含页面组件和API路由
+- `/components`: 可复用的React组件
+- `/lib`: 工具函数、数据库连接和hooks
+- `/public`: 静态资源和SEO图片
+
+## SEO策略
+
+项目使用三级URL结构进行SEO优化：
+- 第一级：主题柱页面（如`/names`、`/stories`、`/images`）
+- 第二级：聚类页面（如`/names/fantasy`、`/images/style-transfer`）
+- 第三级：功能页面（如`/names/fantasy/elf-name-generator`）
+
+## 技术栈
+
+- Next.js 14（使用App Router）
+- React
+- TypeScript
+- Tailwind CSS
+- Supabase（认证和数据库）
+- Stripe（支付处理）

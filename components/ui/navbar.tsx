@@ -18,6 +18,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import {
   Sheet,
@@ -59,50 +60,56 @@ const Navbar1 = ({
   menu = [
     { title: "Home", url: "/" },
     {
-      title: "AI Image Tools",
-      url: "#",
+      title: "Name Generators",
+      url: "/names",
       items: [
         {
-          title: "Text to Image",
+          title: "Elf Name Generator",
+          description: "Generate authentic fantasy elf names for D&D and RPGs",
+          icon: <TreePine className="size-5 shrink-0" />,
+          url: "/names/fantasy/elf-name-generator",
+        },
+      ],
+    },
+    {
+      title: "Story Tools",
+      url: "/stories",
+      items: [
+        {
+          title: "Character Headcanon Generator",
+          description: "Create detailed character profiles for any fandom",
+          icon: <Book className="size-5 shrink-0" />,
+          url: "/stories/backstory/character-headcanon-generator",
+        },
+      ],
+    },
+    {
+      title: "Image Tools",
+      url: "/images",
+      items: [
+        {
+          title: "Text to Image Generator",
           description: "Transform your words into stunning visuals",
           icon: <Zap className="size-5 shrink-0" />,
-          url: "/text-to-image",
+          url: "/images/text-to-image/ai-image-generator",
         },
         {
           title: "Image Editor",
           description: "AI-powered image editing and enhancement",
           icon: <Trees className="size-5 shrink-0" />,
-          url: "/image-editor",
+          url: "/images/editing/ai-image-editor",
+        },
+        {
+          title: "Ghibli Style Converter",
+          description: "Transform photos into Studio Ghibli art style",
+          icon: <Sunset className="size-5 shrink-0" />,
+          url: "/images/style-transfer/ghibli-style-converter",
         },
         {
           title: "Pixar Style Converter",
-          description: "Transform photos into Pixar-style animations",
+          description: "Transform photos into Pixar animation style",
           icon: <Sunset className="size-5 shrink-0" />,
-          url: "/pixar-style-converter",
-        },
-        {
-          title: "Studio Ghibli Style Converter",
-          description: "Transform photos into Studio Ghibli-style artwork",
-          icon: <Mountain className="size-5 shrink-0" />,
-          url: "/ghibli-style-converter",
-        },
-      ],
-    },
-    {
-      title: "Text Generators",
-      url: "#",
-      items: [
-        {
-          title: "Character Headcanon Generator",
-          description: "Generate detailed character headcanons for any fandom",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/character-headcanon-generator",
-        },
-        {
-          title: "Elf Name Generator",
-          description: "Generate authentic fantasy elf names for D&D and RPGs",
-          icon: <TreePine className="size-5 shrink-0" />,
-          url: "/elf-name-generator",
+          url: "/images/style-transfer/pixar-style-converter",
         },
       ],
     },
@@ -117,7 +124,7 @@ const Navbar1 = ({
   ],
 }: Navbar1Props) => {
   return (
-    <section className="py-4 bg-white/90 backdrop-blur-sm border-b border-gray-300 sticky top-0 z-50">
+    <section className="py-4 bg-white border-b border-gray-300 sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
@@ -127,7 +134,7 @@ const Navbar1 = ({
             </a>
             <div className="flex items-center">
               <NavigationMenu>
-                <NavigationMenuList>
+                <NavigationMenuList className="gap-2">
                   {menu.map((item) => renderMenuItem(item))}
                 </NavigationMenuList>
               </NavigationMenu>
@@ -198,23 +205,27 @@ const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger className="text-muted-foreground bg-transparent hover:bg-muted">{item.title}</NavigationMenuTrigger>
+        <NavigationMenuTrigger className="bg-white text-gray-700 hover:bg-gray-100 data-[state=open]:bg-gray-100">
+          {item.title}
+        </NavigationMenuTrigger>
         <NavigationMenuContent>
-          <ul className="w-80 p-3">
-            <NavigationMenuLink>
+          <div className="bg-white">
+            <ul className="grid w-[400px] gap-3 p-4">
               {item.items.map((subItem) => (
                 <li key={subItem.title}>
                   <a
-                    className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
+                    className="flex select-none items-center gap-3 rounded-md p-3 text-sm leading-none no-underline outline-none transition-colors hover:bg-gray-100"
                     href={subItem.url}
                   >
-                    {subItem.icon}
+                    <div className="bg-gray-100 p-2 rounded-md">
+                      {subItem.icon}
+                    </div>
                     <div>
-                      <div className="text-sm font-semibold">
+                      <div className="font-medium text-gray-900">
                         {subItem.title}
                       </div>
                       {subItem.description && (
-                        <p className="text-sm leading-snug text-muted-foreground">
+                        <p className="line-clamp-2 mt-1 text-sm text-gray-500">
                           {subItem.description}
                         </p>
                       )}
@@ -222,8 +233,8 @@ const renderMenuItem = (item: MenuItem) => {
                   </a>
                 </li>
               ))}
-            </NavigationMenuLink>
-          </ul>
+            </ul>
+          </div>
         </NavigationMenuContent>
       </NavigationMenuItem>
     );
@@ -232,7 +243,7 @@ const renderMenuItem = (item: MenuItem) => {
   return (
     <NavigationMenuItem key={item.title}>
       <NavigationMenuLink
-        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
+        className="inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900"
         href={item.url}
       >
         {item.title}
@@ -249,23 +260,25 @@ const renderMobileMenuItem = (item: MenuItem) => {
           {item.title}
         </AccordionTrigger>
         <AccordionContent className="mt-2">
-          {item.items.map((subItem) => (
-            <a
-              key={subItem.title}
-              className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
-              href={subItem.url}
-            >
-              {subItem.icon}
-              <div>
-                <div className="text-sm font-semibold">{subItem.title}</div>
-                {subItem.description && (
-                  <p className="text-sm leading-snug text-muted-foreground">
-                    {subItem.description}
-                  </p>
-                )}
-              </div>
-            </a>
-          ))}
+          <div className="flex flex-col space-y-2">
+            {item.items.map((subItem) => (
+              <a
+                key={subItem.title}
+                className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-muted"
+                href={subItem.url}
+              >
+                {subItem.icon}
+                <div>
+                  <div className="text-sm font-semibold">{subItem.title}</div>
+                  {subItem.description && (
+                    <p className="text-sm leading-snug text-muted-foreground">
+                      {subItem.description}
+                    </p>
+                  )}
+                </div>
+              </a>
+            ))}
+          </div>
         </AccordionContent>
       </AccordionItem>
     );

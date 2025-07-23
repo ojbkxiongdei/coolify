@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import GhibliStyleConverterClient from '@/components/GhibliStyleConverterClient'
 import { GhibliStyleConverterSEO, StructuredData } from '@/components'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: "Studio Ghibli Style Image Converter - Transform Photos into Ghibli Art | DreamfinityX",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Studio Ghibli Style Image Converter - Transform Photos into Ghibli Art | DreamfinityX",
     description: "Convert your photos into Studio Ghibli-style animations with our AI converter. Transform landscapes and portraits into magical Ghibli-inspired watercolor art.",
-    url: "https://dreamfinityx.com/ghibli-style-converter",
+    url: "https://dreamfinityx.com/images/style-transfer/ghibli-style-converter",
     type: "website",
     locale: "en_US",
   },
@@ -30,13 +31,32 @@ export const metadata: Metadata = {
     description: "Convert your photos into Studio Ghibli-style animations with our AI converter. Transform landscapes and portraits into magical Ghibli-inspired watercolor art.",
   },
   alternates: {
-    canonical: "https://dreamfinityx.com/ghibli-style-converter",
+    canonical: "https://dreamfinityx.com/images/style-transfer/ghibli-style-converter",
   },
 }
 
 export default function GhibliStyleConverterPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <nav className="container mx-auto px-4 text-sm py-4 text-gray-500">
+        <ol className="flex flex-wrap">
+          <li className="flex items-center">
+            <Link href="/" className="hover:text-blue-600">Home</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="flex items-center">
+            <Link href="/images" className="hover:text-blue-600">Image Tools</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="flex items-center">
+            <Link href="/images/style-transfer" className="hover:text-blue-600">Style Transfer</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="text-gray-700 font-medium">Ghibli Style Converter</li>
+        </ol>
+      </nav>
+      
       {/* NoScript SEO内容，确保搜索引擎即使不执行JavaScript也能看到关键内容 */}
       <noscript>
         <div>
@@ -60,7 +80,36 @@ export default function GhibliStyleConverterPage() {
             "price": "0",
             "priceCurrency": "USD"
           },
-          "description": "Convert your photos into Studio Ghibli-style animations with our AI converter. Transform portraits and landscapes into magical Ghibli-inspired watercolor art with hand-drawn aesthetics."
+          "description": "Convert your photos into Studio Ghibli-style animations with our AI converter. Transform portraits and landscapes into magical Ghibli-inspired watercolor art with hand-drawn aesthetics.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://dreamfinityx.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Image Tools",
+                "item": "https://dreamfinityx.com/images"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Style Transfer",
+                "item": "https://dreamfinityx.com/images/style-transfer"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Ghibli Style Converter",
+                "item": "https://dreamfinityx.com/images/style-transfer/ghibli-style-converter"
+              }
+            ]
+          }
         }}
       />
 
