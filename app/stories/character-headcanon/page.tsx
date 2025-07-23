@@ -96,7 +96,7 @@ export default function CharacterHeadcanonPage() {
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-2xl font-bold mb-2">Character Development Arc</h3>
               <p className="text-gray-700 mb-4">
-                Plot your character's growth throughout a story, from their starting point
+                Plot your character&apos;s growth throughout a story, from their starting point
                 to their ultimate transformation.
               </p>
               <p className="text-blue-600 font-semibold opacity-50">Coming Soon</p>
@@ -119,7 +119,7 @@ export default function CharacterHeadcanonPage() {
             <div className="p-4">
               <h3 className="text-xl font-bold mb-2">Rich Backstories</h3>
               <p className="text-gray-700">
-                Create detailed histories that explain your character's current situation,
+                Create detailed histories that explain your character&apos;s current situation,
                 skills, attitudes, and relationships.
               </p>
             </div>
@@ -168,7 +168,7 @@ export default function CharacterHeadcanonPage() {
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-xl font-bold mb-2">1. Name Your Character</h3>
               <p className="text-gray-700 mb-4">
-                Start by finding the perfect name that fits your character's identity.
+                Start by finding the perfect name that fits your character&apos;s identity.
               </p>
               <Link href="/names" className="text-blue-600 font-semibold hover:underline">
                 Name Generators →

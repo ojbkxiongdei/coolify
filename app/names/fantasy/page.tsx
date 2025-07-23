@@ -99,7 +99,7 @@ export default function FantasyNamesPage() {
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-2xl font-bold mb-2">Fantasy Place Name Generator</h3>
               <p className="text-gray-700 mb-4">
-                Create evocative names for your fantasy world's towns, cities, forests, mountains,
+                Create evocative names for your fantasy world&apos;s towns, cities, forests, mountains,
                 and other locations with descriptions and characteristics.
               </p>
               <p className="text-blue-600 font-semibold opacity-50">Coming Soon</p>
@@ -130,7 +130,7 @@ export default function FantasyNamesPage() {
             <div className="p-4">
               <h3 className="text-xl font-bold mb-2">Game-Ready</h3>
               <p className="text-gray-700">
-                Created with tabletop RPGs in mind, our names fit perfectly in D&D, Pathfinder,
+                Created with tabletop RPGs in mind, our names fit perfectly in D&amp;D, Pathfinder,
                 and other fantasy role-playing systems.
               </p>
             </div>

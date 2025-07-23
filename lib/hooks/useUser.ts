@@ -11,7 +11,7 @@ interface UserCredits {
 }
 
 // 缓存版本控制，避免部署后缓存不匹配
-const CACHE_VERSION = '1752985772368.w1i88g'
+const CACHE_VERSION = '1753287544104.gmc8r'
 
 // 全局用户缓存和状态，避免重复请求和loading闪烁
 let userCache: { user: User | null; timestamp: number; version: string } | null = null

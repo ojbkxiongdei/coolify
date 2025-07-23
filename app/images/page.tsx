@@ -101,7 +101,7 @@ export default function ImagesHub() {
             <div className="p-4">
               <h3 className="text-xl font-bold mb-2">Professional Quality</h3>
               <p className="text-gray-700">
-                Powered by Azure OpenAI's GPT-image-1 model, our tools produce high-resolution, 
+                Powered by Azure OpenAI&apos;s GPT-image-1 model, our tools produce high-resolution, 
                 detailed images suitable for professional projects.
               </p>
             </div>

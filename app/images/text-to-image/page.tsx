@@ -162,7 +162,7 @@ export default function TextToImageHub() {
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-xl font-bold mb-2">Character Stories</h3>
               <p className="text-gray-700 mb-4">
-                Create backstories for characters you've visualized with our text-to-image tools.
+                Create backstories for characters you&apos;ve visualized with our text-to-image tools.
               </p>
               <Link href="/stories/backstory/character-headcanon-generator" className="text-blue-600 font-semibold hover:underline">
                 Generate Character Stories →

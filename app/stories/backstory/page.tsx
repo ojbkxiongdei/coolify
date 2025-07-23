@@ -140,7 +140,7 @@ export default function BackstoryHub() {
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-xl font-bold mb-2">Name Your Character</h3>
               <p className="text-gray-700 mb-4">
-                Find the perfect name that fits your character's identity and backstory.
+                Find the perfect name that fits your character&apos;s identity and backstory.
               </p>
               <Link href="/names/fantasy/elf-name-generator" className="text-blue-600 font-semibold hover:underline">
                 Generate Character Names →
@@ -160,7 +160,7 @@ export default function BackstoryHub() {
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-xl font-bold mb-2">Stylize Your Character</h3>
               <p className="text-gray-700 mb-4">
-                Transform your character's image into different artistic styles.
+                Transform your character&apos;s image into different artistic styles.
               </p>
               <Link href="/images/style-transfer" className="text-blue-600 font-semibold hover:underline">
                 Apply Artistic Styles →

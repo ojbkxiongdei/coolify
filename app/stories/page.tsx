@@ -80,7 +80,7 @@ export default function StoriesHub() {
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-2xl font-bold mb-2">Plot Twists Generator</h3>
               <p className="text-gray-700 mb-4">
-                Overcome writer's block with unexpected plot developments and twists that will
+                Overcome writer&apos;s block with unexpected plot developments and twists that will
                 keep your audience engaged and surprised.
               </p>
               <p className="text-blue-600 font-semibold opacity-50">Coming Soon</p>
@@ -111,7 +111,7 @@ export default function StoriesHub() {
             <div className="p-4">
               <h3 className="text-xl font-bold mb-2">Overcome Creative Blocks</h3>
               <p className="text-gray-700">
-                Break through writer's block with fresh ideas and perspectives that kickstart
+                Break through writer&apos;s block with fresh ideas and perspectives that kickstart
                 your imagination and renew your creative energy.
               </p>
             </div>
