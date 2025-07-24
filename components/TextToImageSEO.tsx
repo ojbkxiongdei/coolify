@@ -1,13 +1,11 @@
-'use client';
-
 import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Sparkles, Brush, Upload, Download, Zap, Palette, Camera, Settings, Star, Users, Clock, Shield, Award, Wand2, Image as ImageIcon, PenTool, Layers } from 'lucide-react'
 import Image from 'next/image'
-import SEOImageGallery from './SEOImageGallery'
-import ScrollToElementButton from './ui/ScrollToElementButton'
-import LinkButton from './ui/LinkButton'
+import Link from 'next/link'
+
+// 移除SEOImageGallery引用，改用原生组件
 
 const TextToImageSEO = () => {
   return (
@@ -127,31 +125,58 @@ const TextToImageSEO = () => {
             </div>
           </section>
 
-          {/* AI Generated Art Examples Gallery */}
-          <SEOImageGallery
-            title="AI Text-to-Image Art Gallery"
-            description="Explore the infinite possibilities of AI art creation, from photorealistic images to abstract artwork"
-            images={[
-              {
-                url: "/seo-images/Natural Landscape.png",
-                alt: "AI generated sunset mountain lake landscape",
-                title: "Natural Landscape",
-                description: "Prompt example: Peaceful lake at sunset with mountain reflections, oil painting style, warm colors, high quality"
-              },
-              {
-                url: "/seo-images/Sci-Fi Concept.png",
-                alt: "AI generated futuristic cyberpunk city concept art",
-                title: "Sci-Fi Concept",
-                description: "Prompt example: Futuristic city nightscape, neon lighting, cyberpunk style, digital art, high contrast"
-              },
-              {
-                url: "/seo-images/Portrait Photography.png",
-                alt: "AI generated professional business portrait",
-                title: "Portrait Photography",
-                description: "Prompt example: Professional business portrait, confident smile, warm lighting, modern photography style"
-              }
-            ]}
-          />
+          {/* 替换SEOImageGallery为原生组件 */}
+          <section>
+            <h2 className="text-3xl font-bold text-center mb-6">AI Text-to-Image Art Gallery</h2>
+            <p className="text-center text-gray-600 mb-8">Explore the infinite possibilities of AI art creation, from photorealistic images to abstract artwork</p>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="overflow-hidden rounded-xl shadow-md">
+                <div className="relative h-64">
+                  <Image 
+                    src="/seo-images/Natural Landscape.png"
+                    alt="AI generated sunset mountain lake landscape"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 bg-white">
+                  <h3 className="font-semibold mb-1">Natural Landscape</h3>
+                  <p className="text-sm text-gray-600">Prompt example: Peaceful lake at sunset with mountain reflections, oil painting style, warm colors, high quality</p>
+                </div>
+              </div>
+              
+              <div className="overflow-hidden rounded-xl shadow-md">
+                <div className="relative h-64">
+                  <Image 
+                    src="/seo-images/Sci-Fi Concept.png"
+                    alt="AI generated futuristic cyberpunk city concept art"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 bg-white">
+                  <h3 className="font-semibold mb-1">Sci-Fi Concept</h3>
+                  <p className="text-sm text-gray-600">Prompt example: Futuristic city nightscape, neon lighting, cyberpunk style, digital art, high contrast</p>
+                </div>
+              </div>
+              
+              <div className="overflow-hidden rounded-xl shadow-md">
+                <div className="relative h-64">
+                  <Image 
+                    src="/seo-images/Portrait Photography.png"
+                    alt="AI generated professional business portrait"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 bg-white">
+                  <h3 className="font-semibold mb-1">Portrait Photography</h3>
+                  <p className="text-sm text-gray-600">Prompt example: Professional business portrait, confident smile, warm lighting, modern photography style</p>
+                </div>
+              </div>
+            </div>
+          </section>
 
           {/* Use Cases */}
           <section>
@@ -562,20 +587,15 @@ const TextToImageSEO = () => {
               Transform your ideas into stunning visuals with our AI text-to-image generator. No design skills required – just describe what you want to create and watch our AI bring it to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ScrollToElementButton
-                elementId="image-generator"
-                variant="primary"
-                className="px-8 py-3 rounded-lg font-semibold"
-              >
-                Try Text-to-Image Now
-              </ScrollToElementButton>
-              <LinkButton 
+              <Link href="/images/ai-image-generator" className="px-8 py-3 rounded-lg font-semibold bg-blue-600 text-white hover:bg-blue-700">
+                Try Image Generator
+              </Link>
+              <Link
                 href="/pricing"
-                variant="secondary"
-                className="px-8 py-3 rounded-lg font-semibold"
+                className="px-8 py-3 rounded-lg font-semibold bg-gray-200 hover:bg-gray-300"
               >
                 View Pricing Plans
-              </LinkButton>
+              </Link>
             </div>
           </section>
 
@@ -591,7 +611,7 @@ const TextToImageSEO = () => {
             "@type": "WebApplication",
             "name": "AI Text to Image Generator",
             "description": "Transform text into stunning visuals with AI. Generate professional artwork, illustrations, and graphics from text descriptions using advanced AI technology.",
-            "url": "https://dreamfinityx.com/text-to-image",
+            "url": "https://dreamfinityx.com/images/ai-image-generator",
             "applicationCategory": "DesignApplication",
             "operatingSystem": "Any",
             "offers": {

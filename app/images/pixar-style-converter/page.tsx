@@ -20,11 +20,18 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Pixar Style Image Converter - Transform Photos into Pixar Animation | DreamfinityX",
-    description: "Convert your photos into Pixar-style animations with our AI converter. Transform portraits into beautiful Pixar-inspired cartoon characters.",
-    url: "https://dreamfinityx.com/images/style-transfer/pixar-style-converter",
+    title: "Pixar Style Converter | Transform Photos to 3D Animation",
+    description: "Turn your photos into Pixar-style 3D animation with our AI style converter. Free online tool to create beautiful Pixar-inspired images.",
+    url: "https://dreamfinityx.com/images/pixar-style-converter",
     type: "website",
-    locale: "en_US",
+    images: [
+      {
+        url: "https://dreamfinityx.com/seo-images/Pixar-Style-Transformation.png", 
+        width: 1200,
+        height: 630,
+        alt: "Photo transformed into Pixar 3D style"
+      }
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -32,7 +39,7 @@ export const metadata: Metadata = {
     description: "Convert your photos into Pixar-style animations with our AI converter. Transform portraits into beautiful Pixar-inspired cartoon characters.",
   },
   alternates: {
-    canonical: "https://dreamfinityx.com/images/style-transfer/pixar-style-converter",
+    canonical: "https://dreamfinityx.com/images/pixar-style-converter",
   },
 }
 
@@ -40,18 +47,10 @@ export default function PixarStyleConverterPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb Navigation */}
-      <nav className="container mx-auto px-4 text-sm py-4 text-gray-500">
+      <nav className="text-sm py-4 text-gray-500 container mx-auto px-4">
         <ol className="flex flex-wrap">
           <li className="flex items-center">
-            <Link href="/" className="hover:text-blue-600">Home</Link>
-            <span className="mx-2">/</span>
-          </li>
-          <li className="flex items-center">
             <Link href="/images" className="hover:text-blue-600">Image Tools</Link>
-            <span className="mx-2">/</span>
-          </li>
-          <li className="flex items-center">
-            <Link href="/images/style-transfer" className="hover:text-blue-600">Style Transfer</Link>
             <span className="mx-2">/</span>
           </li>
           <li className="text-gray-700 font-medium">Pixar Style Converter</li>
@@ -100,14 +99,8 @@ export default function PixarStyleConverterPage() {
               {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "Style Transfer",
-                "item": "https://dreamfinityx.com/images/style-transfer"
-              },
-              {
-                "@type": "ListItem",
-                "position": 4,
                 "name": "Pixar Style Converter",
-                "item": "https://dreamfinityx.com/images/style-transfer/pixar-style-converter"
+                "item": "https://dreamfinityx.com/images/pixar-style-converter"
               }
             ]
           }

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: "Transform your words into stunning visuals with our AI image generator. Create professional artwork and graphics from text descriptions.",
   },
   alternates: {
-    canonical: "https://dreamfinityx.com/images/text-to-image/ai-image-generator",
+    canonical: "https://dreamfinityx.com/images/ai-image-generator",
   },
 }
 
@@ -43,15 +43,7 @@ export default function TextToImagePage() {
       <nav className="container mx-auto px-4 text-sm py-4 text-gray-500">
         <ol className="flex flex-wrap">
           <li className="flex items-center">
-            <Link href="/" className="hover:text-blue-600">Home</Link>
-            <span className="mx-2">/</span>
-          </li>
-          <li className="flex items-center">
             <Link href="/images" className="hover:text-blue-600">Image Tools</Link>
-            <span className="mx-2">/</span>
-          </li>
-          <li className="flex items-center">
-            <Link href="/images/text-to-image" className="hover:text-blue-600">Text to Image</Link>
             <span className="mx-2">/</span>
           </li>
           <li className="text-gray-700 font-medium">AI Image Generator</li>
@@ -101,14 +93,8 @@ export default function TextToImagePage() {
               {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "Text to Image",
-                "item": "https://dreamfinityx.com/images/text-to-image"
-              },
-              {
-                "@type": "ListItem",
-                "position": 4,
                 "name": "AI Image Generator",
-                "item": "https://dreamfinityx.com/images/text-to-image/ai-image-generator"
+                "item": "https://dreamfinityx.com/images/ai-image-generator"
               }
             ]
           }

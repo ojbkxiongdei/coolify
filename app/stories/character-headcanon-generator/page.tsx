@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Character Headcanon Generator - Create Fan Fiction Characters',
     description: 'Use our character headcanon generator to create detailed character stories. The best character headcanons generator for fan fiction writers and creative enthusiasts.',
-    url: 'https://dreamfinityx.com/stories/backstory/character-headcanon-generator',
+    url: 'https://dreamfinityx.com/stories/character-headcanon-generator',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://dreamfinityx.com/stories/backstory/character-headcanon-generator',
+    canonical: 'https://dreamfinityx.com/stories/character-headcanon-generator',
   },
 }
 
@@ -28,15 +28,7 @@ export default function CharacterHeadcanonGeneratorPage() {
       <nav className="container mx-auto px-4 text-sm py-4 text-gray-500">
         <ol className="flex flex-wrap">
           <li className="flex items-center">
-            <Link href="/" className="hover:text-blue-600">Home</Link>
-            <span className="mx-2">/</span>
-          </li>
-          <li className="flex items-center">
             <Link href="/stories" className="hover:text-blue-600">Story Tools</Link>
-            <span className="mx-2">/</span>
-          </li>
-          <li className="flex items-center">
-            <Link href="/stories/backstory" className="hover:text-blue-600">Backstory</Link>
             <span className="mx-2">/</span>
           </li>
           <li className="text-gray-700 font-medium">Character Headcanon Generator</li>
@@ -86,14 +78,8 @@ export default function CharacterHeadcanonGeneratorPage() {
               {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "Backstory",
-                "item": "https://dreamfinityx.com/stories/backstory"
-              },
-              {
-                "@type": "ListItem",
-                "position": 4,
                 "name": "Character Headcanon Generator",
-                "item": "https://dreamfinityx.com/stories/backstory/character-headcanon-generator"
+                "item": "https://dreamfinityx.com/stories/character-headcanon-generator"
               }
             ]
           }

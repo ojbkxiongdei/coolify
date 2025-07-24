@@ -32,14 +32,8 @@ export default function ImagesHub() {
           </p>
           
           <div className="flex flex-wrap gap-4 mb-8">
-            <Link href="/images/text-to-image" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-              Text to Image
-            </Link>
-            <Link href="/images/style-transfer" className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition">
-              Style Transfer
-            </Link>
-            <Link href="/images/editor" className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition">
-              Image Editor
+            <Link href="/images/ai-image-generator" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+              AI Image Generator
             </Link>
           </div>
         </section>
@@ -49,35 +43,35 @@ export default function ImagesHub() {
           
           <div className="grid md:grid-cols-2 gap-6">
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
-              <h3 className="text-2xl font-bold mb-2">Text to Image Generator</h3>
+              <h3 className="text-2xl font-bold mb-2">AI Image Generator</h3>
               <p className="text-gray-700 mb-4">
-                Transform written descriptions into stunning visual artwork. Our AI understands complex 
-                prompts to create detailed, high-quality images from your ideas.
+                Transform text descriptions into stunning images with our AI image
+                generator. Create artwork, concept designs, or visualize your ideas.
               </p>
-              <Link href="/images/text-to-image" className="text-blue-600 font-semibold hover:underline">
-                Generate Images →
+              <Link href="/images/ai-image-generator" className="text-blue-600 font-semibold hover:underline">
+                Try AI Image Generator →
               </Link>
             </div>
             
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-2xl font-bold mb-2">Ghibli Style Converter</h3>
               <p className="text-gray-700 mb-4">
-                Transform any photo into a beautiful Studio Ghibli inspired artwork with our 
-                specialized style transfer tool. Perfect for fans of anime and animation.
+                Transform your photos into the distinctive hand-painted, watercolor style 
+                of Studio Ghibli films like &quot;Spirited Away&quot; and &quot;My Neighbor Totoro&quot;.
               </p>
-              <Link href="/images/style-transfer/ghibli-style-converter" className="text-blue-600 font-semibold hover:underline">
-                Create Ghibli Art →
+              <Link href="/images/ghibli-style-converter" className="text-blue-600 font-semibold hover:underline">
+                Try Ghibli Style Converter →
               </Link>
             </div>
             
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-2xl font-bold mb-2">Pixar Style Converter</h3>
               <p className="text-gray-700 mb-4">
-                Transform photos into Pixar-inspired 3D animated style artwork with our 
-                specialized AI tool. Great for family portraits and fun transformations.
+                Convert your photos into Pixar-style 3D animated characters and scenes.
+                Perfect for creating family portraits in the style of &quot;Toy Story&quot; or &quot;Up&quot;.
               </p>
-              <Link href="/images/style-transfer/pixar-style-converter" className="text-blue-600 font-semibold hover:underline">
-                Create Pixar Art →
+              <Link href="/images/pixar-style-converter" className="text-blue-600 font-semibold hover:underline">
+                Try Pixar Style Converter →
               </Link>
             </div>
             
@@ -87,7 +81,7 @@ export default function ImagesHub() {
                 Enhance and transform existing images with our AI-powered editor. Remove backgrounds, 
                 apply effects, and make intelligent edits with simple text instructions.
               </p>
-              <Link href="/images/editor" className="text-blue-600 font-semibold hover:underline">
+              <Link href="/images/ai-image-editor" className="text-blue-600 font-semibold hover:underline">
                 Edit Images →
               </Link>
             </div>
@@ -146,8 +140,8 @@ export default function ImagesHub() {
               <p className="text-gray-700 mb-4">
                 Give your visualized characters depth with rich backstories and character profiles.
               </p>
-              <Link href="/stories/character-headcanon" className="text-blue-600 font-semibold hover:underline">
-                Create Character Backstories →
+              <Link href="/stories/character-headcanon-generator" className="text-blue-600 font-semibold hover:underline">
+                Create Character Headcanons →
               </Link>
             </div>
           </div>

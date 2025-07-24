@@ -1,27 +1,22 @@
 # SEO优化策略
 
-## 三级关键词层次结构
+## 二级关键词层次结构
 
-项目采用经典的"支柱-集群-叶"关键词结构，以优化搜索引擎排名和用户体验：
+项目采用优化的"主题-内容"关键词结构，以提升搜索引擎排名和用户体验：
 
-1. **支柱页面 (Pillar)** - 主题核心页面
+1. **主题页面 (Topic)** - 主题核心页面
    - 示例：`/names`, `/stories`, `/images`
-   - 功能：聚合相关主题的集群页面
+   - 功能：聚合相关主题的内容页面
    - 关键词：广泛的主题关键词
 
-2. **集群页面 (Cluster)** - 子主题页面
-   - 示例：`/names/fantasy`, `/images/style-transfer`
-   - 功能：聚合特定子主题的叶页面
-   - 关键词：中等特异性关键词
-
-3. **叶页面 (Leaf)** - 实际功能页面
-   - 示例：`/names/fantasy/elf-name-generator`, `/images/style-transfer/ghibli-style-converter`
+2. **内容页面 (Content)** - 功能页面
+   - 示例：`/names/elf-name-generator`, `/images/ghibli-style-converter`
    - 功能：提供特定工具和功能
-   - 关键词：高度特异性长尾关键词
+   - 关键词：特异性长尾关键词
 
 ## URL结构
 
-- 统一使用`/[pillar]/[cluster]/[leaf]`格式
+- 统一使用`/[topic]/[content]`格式
 - 使用SEO友好的短划线分隔符（例如`elf-name-generator`）
 - 保持URL长度适中，使用描述性关键词
 
@@ -53,10 +48,14 @@ export const metadata = {
     itemListElement: [
       {
         position: 1,
-        name: "支柱",
-        item: "https://dreamfinityx.com/pillar"
+        name: "主题",
+        item: "https://dreamfinityx.com/topic"
       },
-      // ...更多层级
+      {
+        position: 2,
+        name: "内容",
+        item: "https://dreamfinityx.com/topic/content"
+      }
     ]
   }}
 />
@@ -109,8 +108,7 @@ export const metadata = {
    - 链接到上级页面
 
 2. **内部链接策略**：
-   - 从支柱页面链接到所有相关集群页面
-   - 从集群页面链接到所有相关叶页面
+   - 从主题页面链接到所有相关内容页面
    - 在相关内容部分提供交叉链接
 
 ## URL重定向策略
@@ -121,10 +119,13 @@ export const metadata = {
 // middleware.ts
 export function middleware(request: NextRequest) {
   // 旧URL到新URL的映射
-  const redirectMap = {
-    '/elf-name-generator': '/names/fantasy/elf-name-generator',
+  const redirects = [
+    // 旧的三级URL结构重定向到新的二级URL结构
+    { source: '/names/fantasy/elf-name-generator', destination: '/names/elf-name-generator' },
+    { source: '/images/style-transfer/ghibli-style-converter', destination: '/images/ghibli-style-converter' },
+    { source: '/stories/backstory/character-headcanon-generator', destination: '/stories/character-headcanon-generator' },
     // ...更多重定向规则
-  }
+  ]
 }
 ```
 

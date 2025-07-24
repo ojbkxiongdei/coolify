@@ -2,25 +2,36 @@ import { updateSession } from '@/lib/supabase/middleware'
 import { type NextRequest, NextResponse } from 'next/server'
 
 export async function middleware(request: NextRequest) {
-  // 定义重定向规则 - 旧页面到新结构的映射
+  // 定义重定向规则
   const redirects = [
-    // 名字生成器重定向
-    { source: '/elf-name-generator', destination: '/names/fantasy/elf-name-generator' },
+    // 精灵名字生成器
+    { source: '/elf-name-generator', destination: '/names/elf-name-generator' },
+    { source: '/names/fantasy/elf-name-generator', destination: '/names/elf-name-generator' },
     
-    // 图像处理工具重定向
-    { source: '/text-to-image', destination: '/images/text-to-image/ai-image-generator' },
-    { source: '/image-editor', destination: '/images/editing/ai-image-editor' },
-    { source: '/images/editor', destination: '/images/editing' },  // 修复导航中的链接
-    { source: '/ghibli-style-converter', destination: '/images/style-transfer/ghibli-style-converter' },
-    { source: '/pixar-style-converter', destination: '/images/style-transfer/pixar-style-converter' },
+    // 图像风格转换
+    { source: '/ghibli-style-converter', destination: '/images/ghibli-style-converter' },
+    { source: '/pixar-style-converter', destination: '/images/pixar-style-converter' },
+    { source: '/images/style-transfer/ghibli-style-converter', destination: '/images/ghibli-style-converter' },
+    { source: '/images/style-transfer/pixar-style-converter', destination: '/images/pixar-style-converter' },
     
-    // 故事/角色生成器重定向
-    { source: '/character-headcanon-generator', destination: '/stories/backstory/character-headcanon-generator' },
-    { source: '/stories/character-headcanon/generator', destination: '/stories/backstory/character-headcanon-generator' },
-    { source: '/stories/character-headcanon', destination: '/stories/backstory' },
-    { source: '/stories/character-headcanon/examples', destination: '/stories/backstory' },
-    { source: '/stories/character-headcanon/tips', destination: '/stories/backstory' },
-    { source: '/stories/world-building', destination: '/stories' },  // 添加处理world-building的重定向
+    // 图像生成和编辑
+    { source: '/ai-image-generator', destination: '/images/ai-image-generator' },
+    { source: '/images/text-to-image/ai-image-generator', destination: '/images/ai-image-generator' },
+    { source: '/ai-image-editor', destination: '/images/ai-image-editor' },
+    { source: '/images/editing/ai-image-editor', destination: '/images/ai-image-editor' },
+    
+    // 角色设定生成器
+    { source: '/character-headcanon-generator', destination: '/stories/character-headcanon-generator' },
+    { source: '/stories/character-headcanon/generator', destination: '/stories/character-headcanon-generator' },
+    { source: '/stories/backstory/character-headcanon-generator', destination: '/stories/character-headcanon-generator' },
+    
+    // 二级页面重定向到一级页面
+    { source: '/names/fantasy', destination: '/names' },
+    { source: '/images/style-transfer', destination: '/images' },
+    { source: '/images/text-to-image', destination: '/images' },
+    { source: '/images/editing', destination: '/images' },
+    { source: '/stories/backstory', destination: '/stories' },
+    { source: '/stories/character-headcanon', destination: '/stories' },
   ];
 
   // 检查当前URL是否需要重定向

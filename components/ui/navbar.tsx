@@ -1,6 +1,6 @@
 'use client'
 
-import { Book, Menu, Sunset, Trees, Zap, TreePine, Mountain, ChevronDown } from "lucide-react";
+import { Book, Menu, Sunset, Trees, Zap, TreePine, Mountain, ChevronDown, Wand2, ImageIcon, ImageDown } from "lucide-react";
 import UserDropdown from "@/components/UserDropdown";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
@@ -58,9 +58,9 @@ const Navbar1 = ({
       items: [
         {
           title: "Elf Name Generator",
-          description: "Generate authentic fantasy elf names for D&D and RPGs",
-          icon: <TreePine className="size-5 shrink-0" />,
-          url: "/names/fantasy/elf-name-generator",
+          description: "Generate fantasy elf names for your characters",
+          icon: <Wand2 className="size-5 shrink-0" />,
+          url: "/names/elf-name-generator",
         },
       ],
     },
@@ -72,7 +72,7 @@ const Navbar1 = ({
           title: "Character Headcanon Generator",
           description: "Create detailed character profiles for any fandom",
           icon: <Book className="size-5 shrink-0" />,
-          url: "/stories/backstory/character-headcanon-generator",
+          url: "/stories/character-headcanon-generator",
         },
       ],
     },
@@ -82,27 +82,27 @@ const Navbar1 = ({
       items: [
         {
           title: "Text to Image Generator",
-          description: "Transform your words into stunning visuals",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "/images/text-to-image/ai-image-generator",
+          description: "Create images from text descriptions",
+          icon: <ImageIcon className="size-5 shrink-0" />,
+          url: "/images/ai-image-generator",
         },
         {
-          title: "Image Editor",
-          description: "AI-powered image editing and enhancement",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/images/editing/ai-image-editor",
+          title: "AI Image Editor",
+          description: "Edit and enhance your images with AI",
+          icon: <ImageDown className="size-5 shrink-0" />,
+          url: "/images/ai-image-editor",
         },
         {
           title: "Ghibli Style Converter",
           description: "Transform photos into Studio Ghibli art style",
           icon: <Sunset className="size-5 shrink-0" />,
-          url: "/images/style-transfer/ghibli-style-converter",
+          url: "/images/ghibli-style-converter",
         },
         {
           title: "Pixar Style Converter",
           description: "Transform photos into Pixar animation style",
           icon: <Sunset className="size-5 shrink-0" />,
-          url: "/images/style-transfer/pixar-style-converter",
+          url: "/images/pixar-style-converter",
         },
       ],
     },

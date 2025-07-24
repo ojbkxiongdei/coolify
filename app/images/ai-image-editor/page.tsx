@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: "Edit and enhance your images with our AI-powered image editor. Professional photo editing and artistic effects with AI.",
   },
   alternates: {
-    canonical: "https://dreamfinityx.com/images/editing/ai-image-editor",
+    canonical: "https://dreamfinityx.com/images/ai-image-editor",
   },
 }
 
@@ -43,15 +43,7 @@ export default function ImageEditorPage() {
       <nav className="container mx-auto px-4 text-sm py-4 text-gray-500">
         <ol className="flex flex-wrap">
           <li className="flex items-center">
-            <Link href="/" className="hover:text-blue-600">Home</Link>
-            <span className="mx-2">/</span>
-          </li>
-          <li className="flex items-center">
             <Link href="/images" className="hover:text-blue-600">Image Tools</Link>
-            <span className="mx-2">/</span>
-          </li>
-          <li className="flex items-center">
-            <Link href="/images/editing" className="hover:text-blue-600">Editing</Link>
             <span className="mx-2">/</span>
           </li>
           <li className="text-gray-700 font-medium">AI Image Editor</li>
@@ -101,14 +93,8 @@ export default function ImageEditorPage() {
               {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "Editing",
-                "item": "https://dreamfinityx.com/images/editing"
-              },
-              {
-                "@type": "ListItem",
-                "position": 4,
                 "name": "AI Image Editor",
-                "item": "https://dreamfinityx.com/images/editing/ai-image-editor"
+                "item": "https://dreamfinityx.com/images/ai-image-editor"
               }
             ]
           }

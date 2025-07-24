@@ -87,19 +87,19 @@ function HomeContent() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Head>
-        <title>DreamfinityX - AI Creative Tools Platform | Text-to-Image, Image Editor & More</title>
-        <meta name="description" content="Professional AI creative tools platform. Generate images from text, edit photos with AI, create character stories, and generate fantasy names. All-in-one creative AI solution for designers, writers, and creators." />
-        <meta name="keywords" content="AI creative tools, AI art generator, text to image generator, AI image editor, character creator, fantasy name generator, creative AI, digital art tools, AI writing tools, AI image generation, DALL-E alternative, GPT image model, AI character development, fantasy elf names, professional AI art, image style transfer, background removal, AI photo enhancement" />
+        <title>DreamfinityX - Complete AI Creative Platform | Images, Stories & Names</title>
+        <meta name="description" content="All-in-one AI creative platform for generating stunning images, crafting compelling stories, and creating authentic character names. The ultimate toolkit for designers, writers, and world-builders." />
+        <meta name="keywords" content="AI creative platform, AI image generator, text to image, character story generator, fantasy name generator, creative AI, AI story creator, character development, worldbuilding tools, digital art creation, fantasy writing assistant, RPG character tools" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content="DreamfinityX - AI Creative Tools Platform" />
-        <meta property="og:description" content="Professional AI creative tools platform with text-to-image generation, image editing, character creation, and name generation tools." />
+        <meta property="og:title" content="DreamfinityX - Complete AI Creative Platform" />
+        <meta property="og:description" content="All-in-one AI platform for images, stories, and names - the ultimate creative toolkit for designers, writers, and world-builders." />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="DreamfinityX - AI Creative Tools Platform" />
-        <meta name="twitter:description" content="Professional AI creative tools platform with advanced AI-powered creative solutions for designers, writers, and creators." />
+        <meta name="twitter:title" content="DreamfinityX - Complete AI Creative Platform" />
+        <meta name="twitter:description" content="Generate images, craft stories, create authentic names - your complete AI-powered creative solution." />
       </Head>
 
       {/* Hero Section */}
@@ -108,19 +108,20 @@ function HomeContent() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-center md:text-left">
               <div className="mb-8">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                  AI Creative Tools
-                  <span className="block text-blue-600">for Everyone</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-wide">
+                  Complete AI
+                  <span className="block mt-3 md:mt-4">
+                    <span className="text-blue-600">Creative</span> Platform
+                  </span>
                 </h1>
                 <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto md:mx-0">
-                  Transform your creative ideas into reality with our comprehensive AI-powered platform. 
-                  Generate stunning images, edit photos, create characters, and explore endless possibilities.
+                  Your all-in-one AI platform for digital creation: generate stunning images, craft compelling stories, and create authentic names. The perfect creative solution for designers, writers, and world-builders.
                 </p>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6 md:mb-0">
                 <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700">
-                  <a href="/text-to-image">
+                  <a href="/images/ai-image-generator">
                     <Sparkles className="w-5 h-5 mr-2" />
                     Try Text-to-Image
                   </a>
@@ -182,9 +183,9 @@ function HomeContent() {
       <section className="py-16 px-4 bg-gradient-to-br from-white to-gray-50 border-t border-gray-100">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Core AI Creative Tools</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Comprehensive AI Creative Suite</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Four powerful AI-powered creative tools to bring your ideas to life
+              Unlock the creative power of AI across image generation, story creation, and name development - all in one unified platform
             </p>
           </div>
 
@@ -209,7 +210,7 @@ function HomeContent() {
               </div>
               <div className="text-center">
                 <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5">
-                  <a href="/text-to-image">Try Text-to-Image <ArrowRight className="w-4 h-4 ml-2" /></a>
+                  <a href="/images/ai-image-generator">Try Text-to-Image <ArrowRight className="w-4 h-4 ml-2" /></a>
                 </Button>
               </div>
             </div>
@@ -234,7 +235,7 @@ function HomeContent() {
               </div>
               <div className="text-center">
                 <Button asChild className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5">
-                  <a href="/image-editor">Try Image Editor <ArrowRight className="w-4 h-4 ml-2" /></a>
+                  <a href="/images/ai-image-editor">Try Image Editor <ArrowRight className="w-4 h-4 ml-2" /></a>
                 </Button>
               </div>
             </div>
@@ -296,7 +297,7 @@ function HomeContent() {
             <div>
               <h3 className="text-2xl font-bold text-green-600 mb-4 flex items-center">
                 <Book className="w-6 h-6 mr-2" />
-                Character Creator
+                Character Headcanon Creator
               </h3>
               <p className="text-gray-700 mb-6">
                 Generate detailed character headcanons and backstories for any fandom or creative project.
@@ -321,7 +322,7 @@ function HomeContent() {
             <div>
               <h3 className="text-2xl font-bold text-amber-600 mb-4 flex items-center">
                 <TreePine className="w-6 h-6 mr-2" />
-                Fantasy Name Generator
+                Elf Name Generator
               </h3>
               <p className="text-gray-700 mb-6">
                 Generate authentic elf names for D&D campaigns, fantasy stories, and RPG characters
@@ -352,10 +353,10 @@ function HomeContent() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Powerful AI Creative Tools
+              Unified Creative AI Ecosystem
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Everything you need to bring your creative ideas to life, all in one platform
+              From generating images to crafting stories and creating authentic names - your complete AI-powered creative solution
             </p>
           </div>
           
@@ -391,7 +392,7 @@ function HomeContent() {
                     </div>
                     <div className="mt-auto">
                       <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                        <a href="/text-to-image">
+                        <a href="/images/ai-image-generator">
                           Try Now
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </a>
@@ -422,7 +423,7 @@ function HomeContent() {
                     </div>
                     <div className="mt-auto">
                       <Button asChild className="w-full bg-purple-600 hover:bg-purple-700 text-white">
-                        <a href="/image-editor">
+                        <a href="/images/ai-image-editor">
                           Edit Photos
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </a>
@@ -501,7 +502,7 @@ function HomeContent() {
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
                       <Book className="w-8 h-8 text-green-600" />
                     </div>
-                    <CardTitle className="text-xl">Character Creator</CardTitle>
+                    <CardTitle className="text-xl">Character Headcanon Creator</CardTitle>
                     <CardDescription>Generate detailed character stories</CardDescription>
                   </CardHeader>
                   <CardContent className="text-center flex-1 flex flex-col">
@@ -636,7 +637,7 @@ function HomeContent() {
           
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Button size="lg" asChild className="bg-white text-blue-700 hover:bg-blue-50 hover:text-blue-800">
-              <a href="/text-to-image">
+              <a href="/images/ai-image-generator">
                 <Wand2 className="w-5 h-5 mr-2" />
                 Start Creating for Free
               </a>
@@ -688,9 +689,9 @@ function HomeContent() {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "DreamfinityX",
-          "description": "Professional AI-powered creative platform with image generation, editing, character creation, and name generation tools",
+          "description": "Complete AI creative platform for generating images, crafting stories, and creating character names - the ultimate toolkit for designers, writers, and world-builders",
           "url": "https://dreamfinityx.com",
-          "applicationCategory": "DesignApplication, ArtApplication, CreativeToolSuite",
+          "applicationCategory": "CreativeSuite, DigitalArtApplication, StoryGenerationSoftware, NameGenerationTool",
           "operatingSystem": "Web Browser",
           "offers": {
             "@type": "AggregateOffer",
@@ -702,17 +703,17 @@ function HomeContent() {
           "screenshot": [
             "https://dreamfinityx.com/seo-images/Natural Landscape.png",
             "https://dreamfinityx.com/seo-images/Portrait Photography.png",
-            "https://dreamfinityx.com/seo-images/Style Transfer.png"
+            "https://dreamfinityx.com/seo-images/Wizard Character.png"
           ],
           "featureList": [
-            "AI Text to Image Generation",
-            "AI Image Editing",
+            "AI Image Generation",
             "Character Story Creation",
             "Fantasy Name Generation",
-            "Multiple Output Formats",
-            "High Resolution Output",
             "Style Transfer",
-            "Background Removal"
+            "World Building",
+            "Creative Writing Support",
+            "RPG Character Development",
+            "High Quality Visual Design"
           ],
           "creator": {
             "@type": "Organization",
@@ -731,12 +732,11 @@ export default function Home() {
       {/* NoScript SEO内容，确保搜索引擎即使不执行JavaScript也能看到关键内容 */}
       <noscript>
         <div style={{display: 'none'}}>
-          <h2>DreamfinityX - AI Creative Tools Platform</h2>
+          <h2>DreamfinityX - Complete AI Creative Platform</h2>
           <p>
-            Professional AI creative tools platform for designers, writers, and creators.
-            Generate images from text, edit photos with AI, create character stories, and generate fantasy names.
-            Our text-to-image generator, AI image editor, character headcanon generator, and elf name generator tools
-            provide comprehensive creative solutions.
+            All-in-one AI creative platform for generating stunning images, crafting compelling stories, and creating authentic character names. 
+            The ultimate toolkit for designers, writers, and world-builders. Our integrated suite includes text-to-image generation, 
+            character headcanon creator, and fantasy name generators to support your complete creative workflow.
           </p>
         </div>
       </noscript>

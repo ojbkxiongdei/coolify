@@ -2,8 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, Book, Users, Zap, TreePine, Moon, Sun, Waves, Snowflake, Eye } from "lucide-react";
 import SEOImageGallery from './SEOImageGallery';
-import ScrollTopButton from './ui/ScrollTopButton';
-import LinkButton from './ui/LinkButton';
+import Link from 'next/link';
 
 export default function ElfNameSEO() {
   return (
@@ -846,25 +845,26 @@ export default function ElfNameSEO() {
           </section>
 
           {/* Call to Action */}
-          <section className="text-center bg-gray-50 rounded-lg p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Create Your Perfect Elf Name Today</h2>
-            <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-              Use our elf name generator, including specialized wood elf name generator, dark elf name generator, and half elf name generator tools. Perfect for DnD characters, RPG campaigns, and creative writing projects.
+          <section className="text-center py-12 my-12 bg-gray-50 rounded-lg">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              Generate Perfect Elven Names Today
+            </h2>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Whether you need a name for your fantasy character, RPG campaign, creative writing, or game development - our Elf Name Generator provides authentic, lore-friendly names in seconds.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ScrollTopButton
-                variant="primary"
-                className="px-8 py-3 rounded-lg font-semibold"
+              <Link 
+                href="/names/elf-name-generator"
+                className="px-8 py-3 rounded-lg font-semibold bg-blue-600 text-white hover:bg-blue-700"
               >
-                Try Elf Name Generator Now
-              </ScrollTopButton>
-              <LinkButton
-                href="/character-headcanon-generator"
-                variant="secondary"
-                className="px-8 py-3 rounded-lg font-semibold"
+                Generate Elf Names Now
+              </Link>
+              <Link
+                href="/stories/character-headcanon-generator"
+                className="px-8 py-3 rounded-lg font-semibold bg-gray-200 text-gray-900 hover:bg-gray-300"
               >
-                Create Character Stories
-              </LinkButton>
+                Try Character Creator
+              </Link>
             </div>
           </section>
         </div>

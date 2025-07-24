@@ -5,13 +5,15 @@ export async function GET() {
   const currentDate = new Date().toISOString()
   
   const staticPages = [
+    // 主要页面
     {
-      url: baseUrl,
+      url: `${baseUrl}`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
-    // 图片生成和编辑工具
+    
+    // 图像工具页面
     {
       url: `${baseUrl}/images`,
       lastModified: currentDate,
@@ -19,47 +21,30 @@ export async function GET() {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/images/text-to-image`,
+      url: `${baseUrl}/images/ai-image-generator`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.8,
     },
     {
-      url: `${baseUrl}/images/text-to-image/ai-image-generator`,
+      url: `${baseUrl}/images/ai-image-editor`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.8,
     },
     {
-      url: `${baseUrl}/images/editing`,
+      url: `${baseUrl}/images/ghibli-style-converter`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.8,
     },
     {
-      url: `${baseUrl}/images/editing/ai-image-editor`,
+      url: `${baseUrl}/images/pixar-style-converter`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.8,
     },
-    {
-      url: `${baseUrl}/images/style-transfer`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/images/style-transfer/ghibli-style-converter`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/images/style-transfer/pixar-style-converter`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
+    
     // 名字生成工具
     {
       url: `${baseUrl}/names`,
@@ -68,18 +53,13 @@ export async function GET() {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/names/fantasy`,
+      url: `${baseUrl}/names/elf-name-generator`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.8,
     },
-    {
-      url: `${baseUrl}/names/fantasy/elf-name-generator`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    // 故事和角色生成工具
+    
+    // 故事工具 
     {
       url: `${baseUrl}/stories`,
       lastModified: currentDate,
@@ -87,31 +67,19 @@ export async function GET() {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/stories/backstory`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/stories/backstory/character-headcanon-generator`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/stories/character-headcanon`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    // 历史记录
-    {
-      url: `${baseUrl}/history`,
+      url: `${baseUrl}/stories/character-headcanon-generator`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    
     // 其他页面
+    {
+      url: `${baseUrl}/history`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
     {
       url: `${baseUrl}/pricing`,
       lastModified: currentDate,
@@ -121,20 +89,14 @@ export async function GET() {
     {
       url: `${baseUrl}/privacy`,
       lastModified: currentDate,
-      changeFrequency: 'monthly',
+      changeFrequency: 'yearly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/terms`,
       lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/success`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.5,
+      changeFrequency: 'yearly',
+      priority: 0.6,
     },
   ]
 

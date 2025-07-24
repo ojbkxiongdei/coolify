@@ -32,14 +32,8 @@ export default function StoriesHub() {
           </p>
           
           <div className="flex flex-wrap gap-4 mb-8">
-            <Link href="/stories/character-headcanon" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+            <Link href="/stories/character-headcanon-generator" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
               Character Headcanons
-            </Link>
-            <Link href="/stories/backstory" className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition">
-              Character Backstories
-            </Link>
-            <Link href="/stories/world-building" className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition">
-              World Building
             </Link>
           </div>
         </section>
@@ -54,7 +48,7 @@ export default function StoriesHub() {
                 Create detailed character profiles, personalities, and motivations for your 
                 fiction, role-playing games, or fan creations.
               </p>
-              <Link href="/stories/character-headcanon/generator" className="text-blue-600 font-semibold hover:underline">
+              <Link href="/stories/character-headcanon-generator" className="text-blue-600 font-semibold hover:underline">
                 Create Character Headcanons →
               </Link>
             </div>
@@ -138,10 +132,11 @@ export default function StoriesHub() {
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-2xl font-bold mb-2">Character Visualization</h3>
               <p className="text-gray-700 mb-4">
-                Bring your characters to life visually after developing their story and personality.
+                Turn your text descriptions into beautiful images to visualize your story
+                scenes, characters, and settings.
               </p>
-              <Link href="/images/text-to-image" className="text-blue-600 font-semibold hover:underline">
-                Generate Character Images →
+              <Link href="/images/ai-image-generator" className="text-blue-600 font-semibold hover:underline">
+                Create Story Visuals →
               </Link>
             </div>
           </div>

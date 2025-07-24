@@ -32,14 +32,8 @@ export default function NamesHub() {
           </p>
           
           <div className="flex flex-wrap gap-4 mb-8">
-            <Link href="/names/fantasy" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-              Fantasy Names
-            </Link>
-            <Link href="/names/sci-fi" className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition">
-              Sci-Fi Names
-            </Link>
-            <Link href="/names/character" className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition">
-              Character Names
+            <Link href="/names/elf-name-generator" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+              Elf Name Generator
             </Link>
           </div>
         </section>
@@ -51,10 +45,10 @@ export default function NamesHub() {
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-2xl font-bold mb-2">Elf Name Generator</h3>
               <p className="text-gray-700 mb-4">
-                Create authentic elvish names for your fantasy characters, D&D campaigns, or 
-                creative writing. Generate names with meaning and background stories.
+                Generate authentic-sounding elvish names for your fantasy characters,
+                with options for different elf types and customization.
               </p>
-              <Link href="/names/fantasy/elf-name-generator" className="text-blue-600 font-semibold hover:underline">
+              <Link href="/names/elf-name-generator" className="text-blue-600 font-semibold hover:underline">
                 Generate Elf Names →
               </Link>
             </div>
@@ -110,20 +104,22 @@ export default function NamesHub() {
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-2xl font-bold mb-2">Character Backstories</h3>
               <p className="text-gray-700 mb-4">
-                Generate rich, detailed backstories and character profiles to bring your named characters to life.
+                Create rich, detailed character profiles for any fandom with our
+                AI-powered character headcanon generator.
               </p>
-              <Link href="/stories/character-headcanon" className="text-blue-600 font-semibold hover:underline">
-                Create Character Backstories →
+              <Link href="/stories/character-headcanon-generator" className="text-blue-600 font-semibold hover:underline">
+                Create Character Headcanons →
               </Link>
             </div>
             
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-2xl font-bold mb-2">Character Portraits</h3>
               <p className="text-gray-700 mb-4">
-                Visualize your named characters with our AI image generation tools. Create portraits and scenes.
+                Turn your text descriptions into beautiful images to visualize your 
+                characters after naming them.
               </p>
-              <Link href="/images/text-to-image" className="text-blue-600 font-semibold hover:underline">
-                Generate Character Images →
+              <Link href="/images/ai-image-generator" className="text-blue-600 font-semibold hover:underline">
+                Create Character Images →
               </Link>
             </div>
           </div>

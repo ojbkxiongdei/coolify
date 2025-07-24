@@ -17,10 +17,9 @@ DreamfinityX是一个提供多种AI创意工具的Next.js应用，包括名字�
 
 ## SEO策略
 
-项目使用三级URL结构进行SEO优化：
+项目使用两级URL结构进行SEO优化：
 - 第一级：主题柱页面（如`/names`、`/stories`、`/images`）
-- 第二级：聚类页面（如`/names/fantasy`、`/images/style-transfer`）
-- 第三级：功能页面（如`/names/fantasy/elf-name-generator`）
+- 第二级：功能页面（如`/names/elf-name-generator`、`/images/ghibli-style-converter`）
 
 ## 技术栈
 

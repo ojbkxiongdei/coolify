@@ -15,6 +15,7 @@ import {
 import { Button } from "@/components/ui/button"
 
 export default function UserDropdown() {
+  const supabase = createClient()
   const { user, loading } = useUser()
   const credits = useCredits()
   const { isMember } = useSubscription()
@@ -79,7 +80,7 @@ export default function UserDropdown() {
   if (shouldShowLoading) {
     return (
       <div className="flex items-center space-x-2">
-        <div className="w-5 h-5 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
+        <div className="w-6 h-6 rounded-full border-2 border-indigo-300 border-t-indigo-600 animate-spin"></div>
       </div>
     )
   }
@@ -89,9 +90,9 @@ export default function UserDropdown() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="flex items-center space-x-2 p-2">
-              <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
-                <UserIcon className="w-4 h-4 text-gray-600" />
-              </div>
+            <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-sm hover:shadow-md transform hover:scale-105 transition-all duration-200">
+              <UserIcon className="w-4 h-4 text-white" />
+            </div>
             <ChevronDown className="w-4 h-4 text-gray-600" />
           </Button>
         </DropdownMenuTrigger>
@@ -114,34 +115,44 @@ export default function UserDropdown() {
           <DropdownMenuSeparator />
           
           {/* Credits信息 */}
-          <DropdownMenuItem className="flex items-center justify-between p-3 cursor-default">
-            <div className="flex items-center space-x-2">
-              <Zap className="w-4 h-4 text-gray-700" />
-              <span className="text-sm">Available Credits</span>
+          <DropdownMenuItem className="cursor-default">
+            <div className="flex items-center w-full justify-between">
+              <div className="flex items-center space-x-2">
+                <Zap className="w-4 h-4 text-gray-700" />
+                <span className="text-sm">Available Credits</span>
+              </div>
+              <span className="text-sm font-bold text-gray-700">
+                {credits ? credits.available_credits : (
+                  <div className="w-4 h-4 rounded-full border-2 border-indigo-300 border-t-indigo-600 animate-spin"></div>
+                )}
+              </span>
             </div>
-            <span className="text-sm font-bold text-gray-700">
-              {credits ? credits.available_credits : (
-                <div className="w-4 h-4 border border-gray-700 border-t-transparent rounded-full animate-spin"></div>
-              )}
-            </span>
           </DropdownMenuItem>
           
           {/* 根据用户状态显示不同的价格链接 */}
           {isMember ? (
             // 会员用户：显示"Purchase Credits"
             <DropdownMenuItem asChild>
-              <a href="/pricing" className="text-gray-700 cursor-pointer">
-                <Zap className="w-4 h-4 mr-2" />
-                <span className="text-sm">Purchase Credits</span>
+              <a href="/pricing" className="text-gray-700 cursor-pointer w-full">
+                <div className="flex items-center w-full justify-between">
+                  <div className="flex items-center space-x-2">
+                    <Zap className="w-4 h-4 text-gray-700" />
+                    <span className="text-sm">Purchase Credits</span>
+                  </div>
+                </div>
               </a>
             </DropdownMenuItem>
           ) : (
             // 非会员用户：Credits低于10时显示"Get Subscription"
             credits && credits.available_credits <= 10 && (
               <DropdownMenuItem asChild>
-                <a href="/pricing" className="text-gray-700 cursor-pointer">
-                  <Zap className="w-4 h-4 mr-2" />
-                  <span className="text-sm">Get Subscription</span>
+                <a href="/pricing" className="text-gray-700 cursor-pointer w-full">
+                  <div className="flex items-center w-full justify-between">
+                    <div className="flex items-center space-x-2">
+                      <Zap className="w-4 h-4 text-gray-700" />
+                      <span className="text-sm">Get Subscription</span>
+                    </div>
+                  </div>
                 </a>
               </DropdownMenuItem>
             )
@@ -155,10 +166,14 @@ export default function UserDropdown() {
             disabled={isLoading}
             className="cursor-pointer text-red-600 focus:text-red-600"
           >
-            <LogOut className="w-4 h-4 mr-2" />
-            <span className="text-sm">
-              {isLoading ? 'Signing out...' : 'Sign out'}
-            </span>
+            <div className="flex items-center w-full justify-between">
+              <div className="flex items-center space-x-2">
+                <LogOut className="w-4 h-4" />
+                <span className="text-sm">
+                  {isLoading ? 'Signing out...' : 'Sign out'}
+                </span>
+              </div>
+            </div>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

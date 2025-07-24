@@ -1,7 +1,6 @@
 import React from 'react'
 import SEOImageGallery from './SEOImageGallery'
-import ScrollTopButton from './ui/ScrollTopButton'
-import LinkButton from './ui/LinkButton'
+import Link from 'next/link'
 
 export default function CharacterHeadcanonSEO() {
   return (
@@ -448,31 +447,6 @@ export default function CharacterHeadcanonSEO() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Use Our Character Headcanon Generator Today</h2>
-          <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-            Try our character headcanons generator to create detailed, believable characters for any fandom. Our character headcanon generator tool is perfect for fan fiction writers, roleplayers, and creative enthusiasts who need characters headcanon generator solutions.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <ScrollTopButton
-              variant="primary"
-              className="px-8 py-3 rounded-lg font-semibold"
-            >
-              Try Character Headcanon Generator Now
-            </ScrollTopButton>
-            <LinkButton 
-              href="/elf-name-generator" 
-              variant="secondary"
-              className="px-8 py-3 rounded-lg font-semibold"
-            >
-              Generate Fantasy Names
-            </LinkButton>
-          </div>
-        </div>
-      </section>
-
       {/* Structured Data for SEO */}
       <script
         type="application/ld+json"
@@ -481,20 +455,15 @@ export default function CharacterHeadcanonSEO() {
             "@context": "https://schema.org",
             "@type": "WebApplication",
             "name": "Character Headcanon Generator",
-            "description": "Our character headcanon generator creates detailed character stories for any fandom. This character headcanons generator helps fan fiction writers develop believable characters for their creative work.",
+            "description": "Create detailed character backgrounds and headcanons for fan fiction, role-playing games, and creative writing",
             "url": "https://dreamfinityx.com/character-headcanon-generator",
-            "applicationCategory": "WritingApplication",
+            "applicationCategory": "CreativeWritingApplication",
             "operatingSystem": "Any",
             "offers": {
               "@type": "Offer",
               "price": "0",
               "priceCurrency": "USD"
-            },
-            "creator": {
-              "@type": "Organization",
-              "name": "DreamfinityX"
-            },
-            "keywords": "character headcanon generator, character headcanons generator, character headcanon generator improved, characters headcanon generator, random character headcanon generator, headcanon character generator, fan fiction"
+            }
           })
         }}
       />

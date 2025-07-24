@@ -4,8 +4,8 @@ import { GhibliStyleConverterSEO, StructuredData } from '@/components'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Studio Ghibli Style Image Converter - Transform Photos into Ghibli Art | DreamfinityX",
-  description: "Convert your photos into Studio Ghibli-style animations with our AI converter. Transform portraits, landscapes and selfies into beautiful Ghibli-inspired artwork with the signature hand-painted watercolor aesthetic.",
+  title: "Ghibli Style Converter | Transform Photos to Studio Ghibli Art",
+  description: "Turn your photos into beautiful Studio Ghibli style artwork with our AI style converter. Free online tool to create Miyazaki-inspired images.",
   keywords: "studio ghibli style, ghibli style image generator, ghibli ai image generator, convert image to ghibli style, studio ghibli art style, ghibli-style, studio ghibli style ai, studio ghibli-style, free ghibli style image generator",
   robots: {
     index: true,
@@ -19,11 +19,18 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Studio Ghibli Style Image Converter - Transform Photos into Ghibli Art | DreamfinityX",
-    description: "Convert your photos into Studio Ghibli-style animations with our AI converter. Transform landscapes and portraits into magical Ghibli-inspired watercolor art.",
-    url: "https://dreamfinityx.com/images/style-transfer/ghibli-style-converter",
+    title: "Ghibli Style Converter | Transform Photos to Studio Ghibli Art",
+    description: "Turn your photos into beautiful Studio Ghibli style artwork with our AI style converter. Free online tool to create Miyazaki-inspired images.",
+    url: "https://dreamfinityx.com/images/ghibli-style-converter",
     type: "website",
-    locale: "en_US",
+    images: [
+      {
+        url: "https://dreamfinityx.com/seo-images/Ghibli-Style-Transformation.png", 
+        width: 1200,
+        height: 630,
+        alt: "Photo transformed into Ghibli anime style"
+      }
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -31,7 +38,7 @@ export const metadata: Metadata = {
     description: "Convert your photos into Studio Ghibli-style animations with our AI converter. Transform landscapes and portraits into magical Ghibli-inspired watercolor art.",
   },
   alternates: {
-    canonical: "https://dreamfinityx.com/images/style-transfer/ghibli-style-converter",
+    canonical: "https://dreamfinityx.com/images/ghibli-style-converter",
   },
 }
 
@@ -39,18 +46,10 @@ export default function GhibliStyleConverterPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb Navigation */}
-      <nav className="container mx-auto px-4 text-sm py-4 text-gray-500">
+      <nav className="text-sm py-4 text-gray-500 container mx-auto px-4">
         <ol className="flex flex-wrap">
           <li className="flex items-center">
-            <Link href="/" className="hover:text-blue-600">Home</Link>
-            <span className="mx-2">/</span>
-          </li>
-          <li className="flex items-center">
             <Link href="/images" className="hover:text-blue-600">Image Tools</Link>
-            <span className="mx-2">/</span>
-          </li>
-          <li className="flex items-center">
-            <Link href="/images/style-transfer" className="hover:text-blue-600">Style Transfer</Link>
             <span className="mx-2">/</span>
           </li>
           <li className="text-gray-700 font-medium">Ghibli Style Converter</li>
@@ -99,14 +98,8 @@ export default function GhibliStyleConverterPage() {
               {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "Style Transfer",
-                "item": "https://dreamfinityx.com/images/style-transfer"
-              },
-              {
-                "@type": "ListItem",
-                "position": 4,
                 "name": "Ghibli Style Converter",
-                "item": "https://dreamfinityx.com/images/style-transfer/ghibli-style-converter"
+                "item": "https://dreamfinityx.com/images/ghibli-style-converter"
               }
             ]
           }
