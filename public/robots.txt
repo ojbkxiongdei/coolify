@@ -4,9 +4,13 @@ Allow: /
 # Sitemap locations
 Sitemap: https://dreamfinityx.com/sitemap.xml
 
-# Optimize crawling for important pages
-Allow: /character-headcanon-generator
-Allow: /elf-name-generator
+# Optimize crawling for important pages - Updated for new URL structure
+Allow: /names/elf-name-generator
+Allow: /stories/character-headcanon-generator
+Allow: /images/ai-image-generator
+Allow: /images/ai-image-editor
+Allow: /images/ghibli-style-converter
+Allow: /images/pixar-style-converter
 Allow: /pricing
 Allow: /privacy
 Allow: /terms
