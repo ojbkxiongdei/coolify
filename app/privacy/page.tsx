@@ -9,8 +9,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Privacy Policy - DreamfinityX AI Platform',
     description: 'Read our privacy policy to understand how DreamfinityX collects, uses, and protects your personal information.',
-    url: 'https://dreamfinityx.com/privacy',
     type: 'website',
+    url: 'https://dreamfinityx.com/privacy',
+    locale: 'en_US',
   },
   alternates: {
     canonical: 'https://dreamfinityx.com/privacy',

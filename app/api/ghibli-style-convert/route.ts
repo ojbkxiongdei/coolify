@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 
 const AZURE_ENDPOINT = process.env.AZURE_ENDPOINT 
-const ***REMOVED*** = process.env.***REMOVED***
+const AZURE_API_KEY = process.env.AZURE_API_KEY
 
 // Credits消耗规则
 const CREDIT_COSTS = {
@@ -123,7 +123,7 @@ export async function POST(request: NextRequest) {
       {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${***REMOVED***}`,
+          'Authorization': `Bearer ${AZURE_API_KEY}`,
         },
         body: azureFormData,
       }

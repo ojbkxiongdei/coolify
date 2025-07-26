@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const AZURE_ENDPOINT = process.env.AZURE_ENDPOINT || 'https://***REMOVED***'
-const ***REMOVED*** = process.env.***REMOVED*** || '***REMOVED***'
+const AZURE_ENDPOINT = process.env.AZURE_ENDPOINT
+const AZURE_API_KEY = process.env.AZURE_API_KEY 
 
 export async function POST(request: NextRequest) {
   try {
@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
       {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${***REMOVED***}`,
+          'Authorization': `Bearer ${AZURE_API_KEY}`,
         },
         body: azureFormData,
       }

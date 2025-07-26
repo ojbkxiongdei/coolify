@@ -40,12 +40,12 @@
 
 ```bash
 # Stripe 配置 (必需 - 测试模式)
-***REMOVED***=sk_test_你从控制台复制的密钥
-***REMOVED***=pk_test_你从控制台复制的密钥
+STRIPE_SECRET_KEY=sk_test_你从控制台复制的密钥
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_你从控制台复制的密钥
 NEXT_PUBLIC_BASE_URL=http://localhost:3001
 
 # Webhook 配置 (可选)
-# ***REMOVED***=whsec_你从webhook设置中复制的密钥
+# STRIPE_WEBHOOK_SECRET=whsec_你从webhook设置中复制的密钥
 ```
 
 **注意**: 

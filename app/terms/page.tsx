@@ -9,8 +9,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Terms of Service - DreamfinityX AI Platform',
     description: 'Read our terms of service and user agreement for DreamfinityX AI image generation platform.',
-    url: 'https://dreamfinityx.com/terms',
     type: 'website',
+    url: 'https://dreamfinityx.com/terms',
+    locale: 'en_US',
   },
   alternates: {
     canonical: 'https://dreamfinityx.com/terms',

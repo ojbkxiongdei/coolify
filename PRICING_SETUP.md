@@ -26,9 +26,9 @@
 
 ```bash
 # Stripe 配置
-***REMOVED***=sk_test_xxx                    # Stripe 私钥
-***REMOVED***=pk_test_xxx   # Stripe 公钥
-***REMOVED***=whsec_xxx                  # Webhook 密钥
+STRIPE_SECRET_KEY=sk_test_xxx                    # Stripe 私钥
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_xxx   # Stripe 公钥
+STRIPE_WEBHOOK_SECRET=whsec_xxx                  # Webhook 密钥
 
 # 项目配置
 NEXT_PUBLIC_BASE_URL=http://localhost:3000       # 网站基础URL（生产环境改为实际域名）

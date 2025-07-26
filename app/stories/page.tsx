@@ -9,10 +9,11 @@ export const metadata: Metadata = {
   keywords: 'character generator, backstory creator, character headcanon, story generator, AI writing tools, creative writing',
   robots: 'index, follow',
   openGraph: {
-    title: 'AI Story & Character Generators | DreamfinityX',
+    title: 'AI Story & Character Generators | Create Detailed Characters & Backstories',
     description: 'Create detailed character backgrounds and stories with AI assistance',
-    url: 'https://dreamfinityx.com/stories',
     type: 'website',
+    url: 'https://dreamfinityx.com/stories',
+    locale: 'en_US',
   },
   alternates: {
     canonical: 'https://dreamfinityx.com/stories',

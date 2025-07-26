@@ -509,9 +509,13 @@ export function useSubscription() {
         } else {
           const errorData = await response.text()
           console.error('Subscription API error:', errorData)
+          // 如果API返回错误，设置subscription为null
+          updateSubscription(null)
         }
       } catch (error) {
         console.error('Error fetching subscription:', error)
+        // 如果请求失败，设置subscription为null
+        updateSubscription(null)
       } finally {
         isSubscriptionLoading = false
         setLoading(false)
@@ -519,7 +523,7 @@ export function useSubscription() {
     }
 
     fetchSubscription()
-  }, [user, subscription, updateSubscription]) // 只依赖user，移除subscription避免循环
+  }, [user, updateSubscription]) // 移除subscription依赖，避免循环
 
   // 检查用户是否有活跃的订阅
   const hasActiveSubscription = subscription?.status === 'active'

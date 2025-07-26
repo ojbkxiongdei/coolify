@@ -248,7 +248,7 @@ const response = await fetch(`${process.env.AZURE_ENDPOINT}/openai/images/genera
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'api-key': process.env.***REMOVED***
+    'api-key': process.env.AZURE_API_KEY
   },
   body: JSON.stringify({
     prompt,

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Image Generator - Text to Image | DreamfinityX",
     description: "Transform your words into stunning visuals with our AI image generator. Create professional artwork and graphics from text descriptions.",
-    url: "https://dreamfinityx.com/images/text-to-image/ai-image-generator",
+    url: "https://dreamfinityx.com/images/ai-image-generator",
     type: "website",
     locale: "en_US",
   },

@@ -19,6 +19,8 @@ export async function middleware(request: NextRequest) {
     { source: '/images/text-to-image/ai-image-generator', destination: '/images/ai-image-generator' },
     { source: '/ai-image-editor', destination: '/images/ai-image-editor' },
     { source: '/images/editing/ai-image-editor', destination: '/images/ai-image-editor' },
+    { source: '/text-to-image', destination: '/images/ai-image-generator' },
+    { source: '/image-editor', destination: '/images/ai-image-editor' },
     
     // 角色设定生成器
     { source: '/character-headcanon-generator', destination: '/stories/character-headcanon-generator' },

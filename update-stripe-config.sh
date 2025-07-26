@@ -50,8 +50,8 @@ fi
 cp .env.local .env.local.backup
 
 # 更新配置
-sed -i '' "s/***REMOVED***=.*/***REMOVED***=$SECRET_KEY/" .env.local
-sed -i '' "s/***REMOVED***=.*/***REMOVED***=$PUBLISHABLE_KEY/" .env.local
+sed -i '' "s/STRIPE_SECRET_KEY=.*/STRIPE_SECRET_KEY=$SECRET_KEY/" .env.local
+sed -i '' "s/NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=.*/NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=$PUBLISHABLE_KEY/" .env.local
 
 echo ""
 echo "✅ 配置已更新为 $MODE！"

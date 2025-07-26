@@ -9,14 +9,14 @@ async function testStripeConfig() {
 
   // 检查环境变量
   const requiredEnvVars = [
-    '***REMOVED***',
-    '***REMOVED***', 
+    'STRIPE_SECRET_KEY',
+    'NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY', 
     'NEXT_PUBLIC_BASE_URL'
   ];
 
   // 可选的环境变量
   const optionalEnvVars = [
-    '***REMOVED***'
+    'STRIPE_WEBHOOK_SECRET'
   ];
 
   let missingVars = [];
@@ -51,7 +51,7 @@ async function testStripeConfig() {
   // 测试 Stripe API 连接
   try {
     const Stripe = require('stripe');
-    const stripe = new Stripe(process.env.***REMOVED***);
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
     
     console.log('\n🔗 测试 Stripe API 连接...');
     const account = await stripe.accounts.retrieve();

@@ -11,8 +11,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AI Image Generation & Editing Tools | DreamfinityX',
     description: 'Create and edit stunning images with AI-powered technology',
-    url: 'https://dreamfinityx.com/images',
     type: 'website',
+    url: 'https://dreamfinityx.com/images',
+    locale: 'en_US',
   },
   alternates: {
     canonical: 'https://dreamfinityx.com/images',

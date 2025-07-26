@@ -9,10 +9,11 @@ export const metadata: Metadata = {
   keywords: 'AI name generator, fantasy names, character names, elf names, fantasy name generator, DnD names, RPG character names',
   robots: 'index, follow',
   openGraph: {
-    title: 'AI Name Generators | Fantasy, Character & Creative Names',
+    title: 'AI Name Generators | Fantasy, Character & Creative Names | DreamfinityX',
     description: 'Generate perfect names for characters, fantasy worlds, and creative projects',
-    url: 'https://dreamfinityx.com/names',
     type: 'website',
+    url: 'https://dreamfinityx.com/names',
+    locale: 'en_US',
   },
   alternates: {
     canonical: 'https://dreamfinityx.com/names',

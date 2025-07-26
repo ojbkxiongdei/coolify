@@ -12,7 +12,7 @@ import { loadStripe } from '@stripe/stripe-js'
 import { requireLogin } from '@/lib/utils/requireLogin'
 
 // 预加载Stripe
-const stripePromise = loadStripe(process.env.***REMOVED***!)
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
 interface SubscriptionPlan {
   id: string
@@ -245,7 +245,7 @@ export default function PricingPage() {
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 You&apos;re a premium member! Purchase additional credits to boost your generation capacity.
               </p>
-              {subscription && (
+              {subscription && subscription.subscription_plans && (
                 <div className="mt-4 p-4 bg-white rounded-lg shadow-sm border border-gray-200">
                   <p className="text-sm text-gray-600">
                     Current Plan: <span className="font-semibold text-gray-900">{subscription.subscription_plans.display_name}</span>

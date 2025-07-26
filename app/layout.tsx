@@ -19,6 +19,7 @@ export const metadata = {
     title: 'DreamfinityX - AI Creative Platform',
     description: 'Professional AI platform for text and image generation and editing',
     type: 'website',
+    url: 'https://dreamfinityx.com/',
     locale: 'en_US',
   },
   icons: {

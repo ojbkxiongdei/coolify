@@ -38,7 +38,7 @@ npm install
 Create a `.env.local` file:
 ```
 AZURE_ENDPOINT=https://your-azure-endpoint.cognitiveservices.azure.com
-***REMOVED***=your-azure-api-key
+AZURE_API_KEY=your-azure-api-key
 ```
 
 4. Start the development server
@@ -134,7 +134,7 @@ Edit existing images with AI
 docker build -t dreamfinityx .
 
 # Run container
-docker run -p 3000:3000 -e AZURE_ENDPOINT=your-endpoint -e ***REMOVED***=your-key dreamfinityx
+docker run -p 3000:3000 -e AZURE_ENDPOINT=your-endpoint -e AZURE_API_KEY=your-key dreamfinityx
 ```
 
 ## 🎨 SEO & Performance Features
