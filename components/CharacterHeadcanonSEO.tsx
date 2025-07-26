@@ -402,6 +402,14 @@ export default function CharacterHeadcanonSEO() {
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             <a
+              href="https://ainails.pro"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-gray-50 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+            >
+              AInails.pro（我们的新网站）
+            </a>
+            <a
               href="https://www.meoai.net/"
               target="_blank"
               rel="noopener noreferrer"

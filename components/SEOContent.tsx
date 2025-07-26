@@ -256,6 +256,8 @@ export default function SEOContent() {
             <div>
               <h4 className="font-medium mb-4">Friend Links</h4>
               <ul className="space-y-2 text-sm text-gray-300">
+                {/* 新增：AInails.pro 友链 */}
+                <li><a href="https://ainails.pro" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">AInails.pro（我们的新网站）</a></li>
                 <li><a href="https://chinesenamegenerate.com" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">Chinesenamegenerate.com</a></li>
                 <li><a href="https://dressmeai.com" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">dressmeai.com</a></li>
                 <li><a href="https://checkios.com" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">checkios.com</a></li>
