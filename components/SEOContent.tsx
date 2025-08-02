@@ -258,6 +258,8 @@ export default function SEOContent() {
               <ul className="space-y-2 text-sm text-gray-300">
                 {/* 新增：AInails.pro 友链 */}
                 <li><a href="https://ainails.pro" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">AInails.pro</a></li>
+                <li><a href="https://characterheadcanon.pro" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">Characterheadcanon.pro</a></li>
+                <li><a href="https://elfname.pro" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">Elfname.pro</a></li>
                 <li><a href="https://chinesenamegenerate.com" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">Chinesenamegenerate.com</a></li>
                 <li><a href="https://dressmeai.com" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">dressmeai.com</a></li>
                 <li><a href="https://checkios.com" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">checkios.com</a></li>

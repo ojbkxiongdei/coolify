@@ -410,6 +410,22 @@ export default function CharacterHeadcanonSEO() {
               AInails.pro（我们的新网站）
             </a>
             <a
+              href="https://characterheadcanon.pro"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-gray-50 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+            >
+              Characterheadcanon.pro
+            </a>
+            <a
+              href="https://elfname.pro"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-gray-50 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+            >
+              Elfname.pro
+            </a>
+            <a
               href="https://www.meoai.net/"
               target="_blank"
               rel="noopener noreferrer"
@@ -435,22 +451,7 @@ export default function CharacterHeadcanonSEO() {
             >
               Elf Name Generator
             </a>
-            <a
-              href="https://openai.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-gray-50 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-            >
-              OpenAI
-            </a>
-            <a
-              href="https://azure.microsoft.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-gray-50 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-            >
-              Azure AI
-            </a>
+
           </div>
         </div>
       </section>
