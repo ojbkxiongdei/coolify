@@ -73,13 +73,6 @@ export async function GET() {
       priority: 0.8,
     },
     
-    // 其他页面
-    {
-      url: `${baseUrl}/history`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
     {
       url: `${baseUrl}/pricing`,
       lastModified: currentDate,

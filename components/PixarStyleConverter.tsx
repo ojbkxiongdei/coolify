@@ -64,7 +64,6 @@ export default function PixarStyleConverter({ onImagesConverted }: PixarStyleCon
               try {
                 await database.saveImageGeneration({
                   prompt: 'Pixar style conversion',
-                  imageUrl,
                   originalFilename: uploadedImage.name,
                   settings: {
                     size,

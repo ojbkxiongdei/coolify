@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import TextToImageClient from '@/components/TextToImageClient'
+import AsyncTextToImageClient from '@/components/AsyncTextToImageClient'
 import TextToImageSEO from '@/components/TextToImageSEO'
 import StructuredData from '@/components/StructuredData'
 import Link from 'next/link'
@@ -114,8 +114,8 @@ export default function TextToImagePage() {
             </p>
           </div>
 
-          {/* Image Generator - Client Component */}
-          <TextToImageClient />
+          {/* Image Generator - Async Client Component */}
+          <AsyncTextToImageClient />
         </div>
       </section>
 

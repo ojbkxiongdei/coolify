@@ -106,7 +106,6 @@ const Navbar1 = ({
         },
       ],
     },
-    { title: "History", url: "/history" },
     { title: "Pricing", url: "/pricing" },
   ],
   mobileExtraLinks = [

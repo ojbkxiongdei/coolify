@@ -10,5 +10,6 @@
   },
   "tailwindCSS.includeLanguages": {
     "plaintext": "html"
-  }
+  },
+  "claudeCodeChat.permissions.yoloMode": true
 } 

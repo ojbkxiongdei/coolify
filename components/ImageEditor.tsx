@@ -60,7 +60,6 @@ export default function ImageEditor({ onImagesEdited }: ImageEditorProps) {
               try {
                 await database.saveImageGeneration({
                   prompt: editPrompt,
-                  imageUrl,
                   originalFilename: editImage.name,
                   settings: {
                     size,

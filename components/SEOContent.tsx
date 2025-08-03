@@ -246,7 +246,6 @@ export default function SEOContent() {
             <div>
               <h4 className="font-medium mb-4">Pages</h4>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li><a href="/history" className="hover:underline hover:text-white">History</a></li>
                 <li><a href="/pricing" className="hover:underline hover:text-white">Pricing</a></li>
                 <li><a href="/privacy" className="hover:underline hover:text-white">Privacy Policy</a></li>
                 <li><a href="/terms" className="hover:underline hover:text-white">Terms of Service</a></li>

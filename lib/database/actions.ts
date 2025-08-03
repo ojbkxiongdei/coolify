@@ -28,31 +28,24 @@ function generateId(): string {
 
 // 客户端数据库操作
 export const database = {
-  // 保存图像生成记录（新简化方案：只保存元数据 + 本地存储图片）
+  // 保存图像生成记录（只保存元数据到数据库）
   async saveImageGeneration(data: {
     prompt: string
-    imageUrl: string
+    imageUrl?: string  // 添加可选的imageUrl参数
     originalFilename?: string
     settings: Record<string, any>
     generationType: 'text-to-image' | 'image-edit' | 'pixar-style-convert' | 'ghibli-style-convert'
   }) {
-    if (!data.imageUrl.startsWith('data:image/')) {
-      throw new Error('Expected Base64 image data')
-    }
-
     try {
-      // 生成唯一ID用于本地存储
-      const localId = generateId()
-      
-      // 1. 保存元数据到数据库
+      // 保存元数据到数据库
       const response = await fetch('/api/generations', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          localId: localId, // 传递本地ID用于标识
           prompt: data.prompt,
+          imageUrl: data.imageUrl, // 添加imageUrl到请求体
           originalFilename: data.originalFilename,
           settings: data.settings,
           generationType: data.generationType
@@ -65,19 +58,7 @@ export const database = {
       }
 
       const result = await response.json()
-      const dbId = result.data.id // 数据库生成的UUID
-      
-      // 2. 使用数据库ID保存图片到本地存储
-      localImageStorage.saveImage({
-        id: dbId, // 使用数据库ID确保一致性
-        imageData: data.imageUrl,
-        prompt: data.prompt,
-        settings: data.settings,
-        generationType: data.generationType
-      })
-      
-      console.log('生成记录已保存:', dbId)
-      console.log('图片已保存到本地存储')
+      console.log('生成记录已保存:', result.data.id)
 
       return result.data
     } catch (error) {

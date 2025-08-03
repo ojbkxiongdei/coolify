@@ -64,7 +64,6 @@ export default function GhibliStyleConverter({ onImagesConverted }: GhibliStyleC
               try {
                 await database.saveImageGeneration({
                   prompt: 'Studio Ghibli style conversion',
-                  imageUrl,
                   originalFilename: uploadedImage.name,
                   settings: {
                     size,
