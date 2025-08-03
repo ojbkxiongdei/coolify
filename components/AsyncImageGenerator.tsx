@@ -91,6 +91,14 @@ export default function AsyncImageGenerator() {
     }
   }, [tasks, isLoadingTasks]);
 
+  // 添加一个useEffect来处理用户未登录时的状态
+  useEffect(() => {
+    if (!user) {
+      // 用户未登录时，确保loading状态为false
+      setIsLoadingTasks(false);
+    }
+  }, [user]);
+
   const IMAGES_PER_PAGE = 6
   // Credit consumption rules
   const CREDIT_COSTS = {
@@ -295,6 +303,7 @@ export default function AsyncImageGenerator() {
       initializedRef.current.userCredits = false
       setUserCredits(null)
       setProcessedTaskIds(new Set())
+      setIsLoadingTasks(false); // 用户登出时重置loading状态
     }
   }, [user, fetchUserCredits])
 
