@@ -33,9 +33,9 @@ export default function NamesHub() {
           </p>
           
           <div className="flex flex-wrap gap-4 mb-8">
-            <Link href="/names/elf-name-generator" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-              Elf Name Generator
-            </Link>
+            <a href="https://elfname.pro" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+              Elf Name Generator (elfname.pro)
+            </a>
           </div>
         </section>
         
@@ -49,9 +49,9 @@ export default function NamesHub() {
                 Generate authentic-sounding elvish names for your fantasy characters,
                 with options for different elf types and customization.
               </p>
-              <Link href="/names/elf-name-generator" className="text-blue-600 font-semibold hover:underline">
-                Generate Elf Names →
-              </Link>
+              <a href="https://elfname.pro" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold hover:underline">
+                Visit elfname.pro →
+              </a>
             </div>
             
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
@@ -108,9 +108,9 @@ export default function NamesHub() {
                 Create rich, detailed character profiles for any fandom with our
                 AI-powered character headcanon generator.
               </p>
-              <Link href="/stories/character-headcanon-generator" className="text-blue-600 font-semibold hover:underline">
-                Create Character Headcanons →
-              </Link>
+              <a href="https://characterheadcanon.pro" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold hover:underline">
+                Visit characterheadcanon.pro →
+              </a>
             </div>
             
             <div className="border rounded-xl p-6 hover:shadow-lg transition">

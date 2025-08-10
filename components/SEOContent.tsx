@@ -238,8 +238,8 @@ export default function SEOContent() {
               <ul className="space-y-2 text-sm text-gray-300">
                 <li><a href="/images/ai-image-generator" className="hover:underline hover:text-white">Text to Image</a></li>
                 <li><a href="/images/ai-image-editor" className="hover:underline hover:text-white">Image Editor</a></li>
-                <li><a href="/stories/character-headcanon-generator" className="hover:underline hover:text-white">Character Headcanon Generator</a></li>
-                <li><a href="/names/elf-name-generator" className="hover:underline hover:text-white">Elf Name Generator</a></li>
+                <li><a href="https://characterheadcanon.pro" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">Character Headcanon Generator</a></li>
+                <li><a href="https://elfname.pro" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-white">Elf Name Generator</a></li>
               </ul>
             </div>
             

@@ -33,9 +33,9 @@ export default function StoriesHub() {
           </p>
           
           <div className="flex flex-wrap gap-4 mb-8">
-            <Link href="/stories/character-headcanon-generator" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-              Character Headcanons
-            </Link>
+            <a href="https://characterheadcanon.pro" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+              Character Headcanons (characterheadcanon.pro)
+            </a>
           </div>
         </section>
         
@@ -49,9 +49,9 @@ export default function StoriesHub() {
                 Create detailed character profiles, personalities, and motivations for your 
                 fiction, role-playing games, or fan creations.
               </p>
-              <Link href="/stories/character-headcanon-generator" className="text-blue-600 font-semibold hover:underline">
-                Create Character Headcanons →
-              </Link>
+              <a href="https://characterheadcanon.pro" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold hover:underline">
+                Visit characterheadcanon.pro →
+              </a>
             </div>
             
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
@@ -125,9 +125,9 @@ export default function StoriesHub() {
               <p className="text-gray-700 mb-4">
                 Find the perfect name for your characters before developing their backstory.
               </p>
-              <Link href="/names" className="text-blue-600 font-semibold hover:underline">
-                Generate Character Names →
-              </Link>
+              <a href="https://elfname.pro" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold hover:underline">
+                Visit elfname.pro →
+              </a>
             </div>
             
             <div className="border rounded-xl p-6 hover:shadow-lg transition">

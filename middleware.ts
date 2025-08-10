@@ -4,10 +4,6 @@ import { type NextRequest, NextResponse } from 'next/server'
 export async function middleware(request: NextRequest) {
   // 定义重定向规则
   const redirects = [
-    // 精灵名字生成器
-    { source: '/elf-name-generator', destination: '/names/elf-name-generator' },
-    { source: '/names/fantasy/elf-name-generator', destination: '/names/elf-name-generator' },
-    
     // 图像风格转换
     { source: '/ghibli-style-converter', destination: '/images/ghibli-style-converter' },
     { source: '/pixar-style-converter', destination: '/images/pixar-style-converter' },
@@ -21,11 +17,6 @@ export async function middleware(request: NextRequest) {
     { source: '/images/editing/ai-image-editor', destination: '/images/ai-image-editor' },
     { source: '/text-to-image', destination: '/images/ai-image-generator' },
     { source: '/image-editor', destination: '/images/ai-image-editor' },
-    
-    // 角色设定生成器
-    { source: '/character-headcanon-generator', destination: '/stories/character-headcanon-generator' },
-    { source: '/stories/character-headcanon/generator', destination: '/stories/character-headcanon-generator' },
-    { source: '/stories/backstory/character-headcanon-generator', destination: '/stories/character-headcanon-generator' },
     
     // 二级页面重定向到一级页面
     { source: '/names/fantasy', destination: '/names' },

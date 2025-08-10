@@ -314,7 +314,7 @@ function HomeContent() {
               </div>
               <div className="text-center">
                 <Button asChild className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5">
-                  <a href="/stories/character-headcanon-generator">Create Characters <ArrowRight className="w-4 h-4 ml-2" /></a>
+                  <a href="https://characterheadcanon.pro" target="_blank" rel="noopener noreferrer">Create Characters <ArrowRight className="w-4 h-4 ml-2" /></a>
                 </Button>
               </div>
             </div>
@@ -340,7 +340,7 @@ function HomeContent() {
               </div>
               <div className="text-center">
                 <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2.5">
-                  <a href="/names/elf-name-generator">Generate Names <ArrowRight className="w-4 h-4 ml-2" /></a>
+                  <a href="https://elfname.pro" target="_blank" rel="noopener noreferrer">Generate Names <ArrowRight className="w-4 h-4 ml-2" /></a>
                 </Button>
               </div>
             </div>
@@ -516,7 +516,7 @@ function HomeContent() {
                     </div>
                     <div className="mt-auto">
                       <Button asChild className="w-full bg-green-600 hover:bg-green-700 text-white">
-                        <a href="/stories/character-headcanon-generator">
+                        <a href="https://characterheadcanon.pro" target="_blank" rel="noopener noreferrer">
                           Create Characters
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </a>
@@ -547,7 +547,7 @@ function HomeContent() {
                     </div>
                     <div className="mt-auto">
                       <Button asChild className="w-full bg-amber-600 hover:bg-amber-700 text-white">
-                        <a href="/names/elf-name-generator">
+                        <a href="https://elfname.pro" target="_blank" rel="noopener noreferrer">
                           Generate Names
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </a>

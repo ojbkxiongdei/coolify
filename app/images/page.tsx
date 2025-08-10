@@ -131,9 +131,9 @@ export default function ImagesHub() {
               <p className="text-gray-700 mb-4">
                 Name your characters before visualizing them with our image generation tools.
               </p>
-              <Link href="/names" className="text-blue-600 font-semibold hover:underline">
-                Generate Character Names →
-              </Link>
+              <a href="https://elfname.pro" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold hover:underline">
+                Visit elfname.pro →
+              </a>
             </div>
             
             <div className="border rounded-xl p-6 hover:shadow-lg transition">
@@ -141,9 +141,9 @@ export default function ImagesHub() {
               <p className="text-gray-700 mb-4">
                 Give your visualized characters depth with rich backstories and character profiles.
               </p>
-              <Link href="/stories/character-headcanon-generator" className="text-blue-600 font-semibold hover:underline">
-                Create Character Headcanons →
-              </Link>
+              <a href="https://characterheadcanon.pro" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold hover:underline">
+                Visit characterheadcanon.pro →
+              </a>
             </div>
           </div>
         </section>
