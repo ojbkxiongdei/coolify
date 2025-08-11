@@ -38,10 +38,19 @@ export async function middleware(request: NextRequest) {
 
   // 检查当前URL是否需要重定向
   const url = request.nextUrl.clone();
-  const path = url.pathname;
+  // 规范化路径：移除尾部斜杠，保留根路径为"/"
+  const rawPath = url.pathname;
+  const normalizedPath = rawPath !== '/' ? rawPath.replace(/\/+$/, '') : rawPath;
   
   // 查找匹配的重定向规则
-  const redirect = redirects.find((r) => r.source === path);
+  // 精确匹配
+  let redirect = redirects.find((r) => r.source === normalizedPath);
+  // 前缀匹配（处理带有子路径或多余斜杠的情况）
+  if (!redirect) {
+    redirect = redirects.find((r) =>
+      normalizedPath === r.source || normalizedPath.startsWith(r.source + '/')
+    );
+  }
 
   // 如果找到匹配项，进行重定向
   if (redirect) {
