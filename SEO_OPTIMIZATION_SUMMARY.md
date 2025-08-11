@@ -30,21 +30,23 @@
 
 ### ✅ 已有Canonical URL的页面（之前已配置）
 
-1. **角色头脑风暴生成器** (`app/character-headcanon-generator/page.tsx`) ✅
-2. **精灵名字生成器** (`app/elf-name-generator/page.tsx`) ✅
-3. **隐私政策** (`app/privacy/page.tsx`) ✅
-4. **服务条款** (`app/terms/page.tsx`) ✅
+1. **AI图像生成器** (`app/images/ai-image-generator/page.tsx`) ✅
+2. **AI图像编辑器** (`app/images/ai-image-editor/page.tsx`) ✅
+3. **吉卜力风格转换器** (`app/images/ghibli-style-converter/page.tsx`) ✅
+4. **皮克斯风格转换器** (`app/images/pixar-style-converter/page.tsx`) ✅
+5. **隐私政策** (`app/privacy/page.tsx`) ✅
+6. **服务条款** (`app/terms/page.tsx`) ✅
 
 ### 🔧 技术配置优化
 
 1. **Sitemap.xml更新** (`app/sitemap.xml/route.ts`)
-   - ✅ 添加了elf-name-generator页面
-   - ✅ 添加了privacy页面
+   - ✅ 包含所有图像工具页面
+   - ✅ 添加了privacy和terms页面
    - ✅ 设置了合适的priority和changefreq
 
 2. **Robots.txt优化** (`public/robots.txt`)
-   - ✅ 添加了elf-name-generator的允许规则
-   - ✅ 添加了privacy页面的允许规则
+   - ✅ 添加了所有图像工具的允许规则
+   - ✅ 添加了privacy和terms页面的允许规则
    - ✅ 保持了对敏感页面的禁止访问
 
 ## 📊 SEO配置总览
@@ -54,8 +56,10 @@
 | 页面 | Canonical URL | Meta Tags | Open Graph | Twitter Cards | 索引状态 |
 |------|:-------------:|:---------:|:----------:|:-------------:|:--------:|
 | 首页 | ✅ | ✅ | ✅ | ✅ | index |
-| 角色头脑风暴生成器 | ✅ | ✅ | ✅ | ✅ | index |
-| 精灵名字生成器 | ✅ | ✅ | ✅ | ✅ | index |
+| AI图像生成器 | ✅ | ✅ | ✅ | ✅ | index |
+| AI图像编辑器 | ✅ | ✅ | ✅ | ✅ | index |
+| 吉卜力风格转换器 | ✅ | ✅ | ✅ | ✅ | index |
+| 皮克斯风格转换器 | ✅ | ✅ | ✅ | ✅ | index |
 | 价格页面 | ✅ | ✅ | ✅ | ✅ | index |
 | 隐私政策 | ✅ | ✅ | ✅ | ✅ | index |
 | 服务条款 | ✅ | ✅ | ✅ | ✅ | index |
@@ -84,10 +88,11 @@
    - AI creative platform
 
 2. **功能页面**
-   - Character headcanon generator
-   - Elf name generator
-   - Fantasy name generator
-   - AI writing tool
+   - AI image generator
+   - Text to image generator
+   - Image editor
+   - Ghibli style converter
+   - Pixar style converter
 
 3. **商业页面**
    - AI image generator pricing

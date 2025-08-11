@@ -4,9 +4,8 @@ DreamfinityX是一个提供多种AI创意工具的Next.js应用，包括名字�
 
 ## 主要功能
 
-- **名字生成器**：生成各种风格的名字，如精灵名字
-- **故事工具**：角色背景故事生成等
 - **图像工具**：文本到图像生成、图像编辑、风格转换（吉卜力风格、皮克斯风格）
+- **外部工具**：精灵名字生成器（elfname.pro）、角色背景故事生成器（characterheadcanon.pro）
 
 ## 项目结构
 
@@ -18,8 +17,8 @@ DreamfinityX是一个提供多种AI创意工具的Next.js应用，包括名字�
 ## SEO策略
 
 项目使用两级URL结构进行SEO优化：
-- 第一级：主题柱页面（如`/names`、`/stories`、`/images`）
-- 第二级：功能页面（如`/names/elf-name-generator`、`/images/ghibli-style-converter`）
+- 第一级：主题柱页面（如`/images`）
+- 第二级：功能页面（如`/images/ghibli-style-converter`、`/images/ai-image-generator`）
 
 ## 技术栈
 

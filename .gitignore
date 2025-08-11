@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+/.cursor/rules
 # next.js
 /.next/
 /out/

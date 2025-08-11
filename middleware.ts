@@ -4,6 +4,15 @@ import { type NextRequest, NextResponse } from 'next/server'
 export async function middleware(request: NextRequest) {
   // 定义重定向规则
   const redirects = [
+    // 历史功能页面 → 外部独立站（永久重定向）
+    { source: '/names/elf-name-generator', destination: 'https://elfname.pro' },
+    { source: '/elf-name-generator', destination: 'https://elfname.pro' },
+    { source: '/names/fantasy/elf-name-generator', destination: 'https://elfname.pro' },
+
+    { source: '/stories/character-headcanon-generator', destination: 'https://characterheadcanon.pro' },
+    { source: '/character-headcanon-generator', destination: 'https://characterheadcanon.pro' },
+    { source: '/stories/backstory/character-headcanon-generator', destination: 'https://characterheadcanon.pro' },
+    { source: '/stories/character-headcanon/generator', destination: 'https://characterheadcanon.pro' },
     // 图像风格转换
     { source: '/ghibli-style-converter', destination: '/images/ghibli-style-converter' },
     { source: '/pixar-style-converter', destination: '/images/pixar-style-converter' },
@@ -33,11 +42,16 @@ export async function middleware(request: NextRequest) {
   
   // 查找匹配的重定向规则
   const redirect = redirects.find((r) => r.source === path);
-  
+
   // 如果找到匹配项，进行重定向
   if (redirect) {
+    // 如果目标是外部域名，直接返回永久重定向到该完整URL
+    if (redirect.destination.startsWith('http')) {
+      return NextResponse.redirect(redirect.destination, { status: 308 });
+    }
+    // 站内重定向
     url.pathname = redirect.destination;
-    return NextResponse.redirect(url);
+    return NextResponse.redirect(url, { status: 308 });
   }
   
   // 否则，继续处理认证会话

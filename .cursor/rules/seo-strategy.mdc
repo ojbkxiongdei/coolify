@@ -10,14 +10,14 @@
    - 关键词：广泛的主题关键词
 
 2. **内容页面 (Content)** - 功能页面
-   - 示例：`/names/elf-name-generator`, `/images/ghibli-style-converter`
+   - 示例：`/images/ghibli-style-converter`, `/images/ai-image-generator`
    - 功能：提供特定工具和功能
    - 关键词：特异性长尾关键词
 
 ## URL结构
 
 - 统一使用`/[topic]/[content]`格式
-- 使用SEO友好的短划线分隔符（例如`elf-name-generator`）
+- 使用SEO友好的短划线分隔符（例如`ghibli-style-converter`）
 - 保持URL长度适中，使用描述性关键词
 
 ## 元数据优化
@@ -121,9 +121,8 @@ export function middleware(request: NextRequest) {
   // 旧URL到新URL的映射
   const redirects = [
     // 旧的三级URL结构重定向到新的二级URL结构
-    { source: '/names/fantasy/elf-name-generator', destination: '/names/elf-name-generator' },
     { source: '/images/style-transfer/ghibli-style-converter', destination: '/images/ghibli-style-converter' },
-    { source: '/stories/backstory/character-headcanon-generator', destination: '/stories/character-headcanon-generator' },
+    { source: '/images/style-transfer/pixar-style-converter', destination: '/images/pixar-style-converter' },
     // ...更多重定向规则
   ]
 }

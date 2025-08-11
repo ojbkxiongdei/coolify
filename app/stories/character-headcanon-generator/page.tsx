@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 
 export default function CharacterHeadcanonGeneratorPage() {
-  redirect('https://characterheadcanon.pro');
+  permanentRedirect('https://characterheadcanon.pro');
 } 
