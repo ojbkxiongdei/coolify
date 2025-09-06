@@ -37,10 +37,13 @@ export default function UserDropdown() {
     setIsLoading(true)
     try {
       const supabase = createClient()
+      // 获取当前页面路径
+      const currentPath = window.location.pathname + window.location.search
+      
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/api/auth/callback`,
+          redirectTo: `${window.location.origin}/api/auth/callback?next=${encodeURIComponent(currentPath)}`,
         },
       })
 
