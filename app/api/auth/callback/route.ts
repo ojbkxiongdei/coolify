@@ -26,7 +26,7 @@ export async function GET(request: Request) {
         error: error,
         errorMessage: error.message,
         errorName: error.name,
-        errorCause: error.cause,
+        errorCause: (error as any).cause,
         code: code,
         origin: origin,
         requestUrl: request.url
