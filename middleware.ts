@@ -13,27 +13,34 @@ export async function middleware(request: NextRequest) {
     { source: '/character-headcanon-generator', destination: 'https://characterheadcanon.pro' },
     { source: '/stories/backstory/character-headcanon-generator', destination: 'https://characterheadcanon.pro' },
     { source: '/stories/character-headcanon/generator', destination: 'https://characterheadcanon.pro' },
-    // 图像风格转换
-    { source: '/ghibli-style-converter', destination: '/images/ghibli-style-converter' },
-    { source: '/pixar-style-converter', destination: '/images/pixar-style-converter' },
-    { source: '/images/style-transfer/ghibli-style-converter', destination: '/images/ghibli-style-converter' },
-    { source: '/images/style-transfer/pixar-style-converter', destination: '/images/pixar-style-converter' },
+    // 新的内部路由重定向
+    { source: '/images/ai-image-generator', destination: '/generate' },
+    { source: '/images/ai-image-editor', destination: '/edit' },
+    { source: '/images/ghibli-style-converter', destination: '/ghibli-style-converter' },
+    { source: '/images/pixar-style-converter', destination: '/pixar-style-converter' },
+    { source: '/images', destination: '/' },
     
-    // 图像生成和编辑
-    { source: '/ai-image-generator', destination: '/images/ai-image-generator' },
-    { source: '/images/text-to-image/ai-image-generator', destination: '/images/ai-image-generator' },
-    { source: '/ai-image-editor', destination: '/images/ai-image-editor' },
-    { source: '/images/editing/ai-image-editor', destination: '/images/ai-image-editor' },
-    { source: '/text-to-image', destination: '/images/ai-image-generator' },
-    { source: '/image-editor', destination: '/images/ai-image-editor' },
+    // 将 names 和 stories 重定向到首页
+    { source: '/names', destination: '/' },
+    { source: '/stories', destination: '/' },
     
-    // 二级页面重定向到一级页面
-    { source: '/names/fantasy', destination: '/names' },
-    { source: '/images/style-transfer', destination: '/images' },
-    { source: '/images/text-to-image', destination: '/images' },
-    { source: '/images/editing', destination: '/images' },
-    { source: '/stories/backstory', destination: '/stories' },
-    { source: '/stories/character-headcanon', destination: '/stories' },
+    // 历史路径兼容
+    { source: '/ai-image-generator', destination: '/generate' },
+    { source: '/images/text-to-image/ai-image-generator', destination: '/generate' },
+    { source: '/ai-image-editor', destination: '/edit' },
+    { source: '/images/editing/ai-image-editor', destination: '/edit' },
+    { source: '/text-to-image', destination: '/generate' },
+    { source: '/image-editor', destination: '/edit' },
+    { source: '/images/style-transfer/ghibli-style-converter', destination: '/ghibli-style-converter' },
+    { source: '/images/style-transfer/pixar-style-converter', destination: '/pixar-style-converter' },
+    
+    // 二级页面重定向
+    { source: '/names/fantasy', destination: '/' },
+    { source: '/images/style-transfer', destination: '/' },
+    { source: '/images/text-to-image', destination: '/generate' },
+    { source: '/images/editing', destination: '/edit' },
+    { source: '/stories/backstory', destination: '/' },
+    { source: '/stories/character-headcanon', destination: '/' },
   ];
 
   // 检查当前URL是否需要重定向

@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, Suspense, useEffect } from 'react'
-import Head from 'next/head'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -20,7 +19,6 @@ const SEOContent = dynamic(() => import('@/components/SEOContent'), {
 
 function HomeContent() {
   const [shouldLoadSEO, setShouldLoadSEO] = useState(false)
-  // 获取URL参数以处理规范URL
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const hasParams = searchParams && searchParams.toString().length > 0
@@ -86,48 +84,32 @@ function HomeContent() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Head>
-        <title>DreamfinityX - Complete AI Creative Platform | Images, Stories & Names</title>
-        <meta name="description" content="All-in-one AI creative platform for generating stunning images, crafting compelling stories, and creating authentic character names. The ultimate toolkit for designers, writers, and world-builders." />
-        <meta name="keywords" content="AI creative platform, AI image generator, text to image, character story generator, fantasy name generator, creative AI, AI story creator, character development, worldbuilding tools, digital art creation, fantasy writing assistant, RPG character tools" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content="DreamfinityX - Complete AI Creative Platform" />
-        <meta property="og:description" content="All-in-one AI platform for images, stories, and names - the ultimate creative toolkit for designers, writers, and world-builders." />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="en_US" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="DreamfinityX - Complete AI Creative Platform" />
-        <meta name="twitter:description" content="Generate images, craft stories, create authentic names - your complete AI-powered creative solution." />
-      </Head>
-
-      {/* Hero Section */}
+        {/* Hero Section */}
       <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-center md:text-left">
               <div className="mb-8">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-wide">
-                  Complete AI
+                  Create Stunning
                   <span className="block mt-3 md:mt-4">
-                    <span className="text-blue-600">Creative</span> Platform
+                    <span className="text-blue-600">AI Images</span> in Seconds
                   </span>
                 </h1>
                 <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto md:mx-0">
-                  Your all-in-one AI platform for digital creation: generate stunning images, craft compelling stories, and create authentic names. The perfect creative solution for designers, writers, and world-builders.
+                  Transform your ideas into professional visuals with our AI-powered image generation, editing, and style transfer tools.
                 </p>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6 md:mb-0">
                 <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-700">
-                  <a href="/images/ai-image-generator">
+                  <a href="/generate">
                     <Sparkles className="w-5 h-5 mr-2" />
-                    Try Text-to-Image
+                    Start Creating
                   </a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <a href="/pricing">View Pricing</a>
+                  <a href="/ghibli-style-converter">View Styles</a>
                 </Button>
               </div>
             </div>
@@ -183,9 +165,9 @@ function HomeContent() {
       <section className="py-16 px-4 bg-gradient-to-br from-white to-gray-50 border-t border-gray-100">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Comprehensive AI Creative Suite</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Complete AI Image Creation Suite</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Unlock the creative power of AI across image generation, story creation, and name development - all in one unified platform
+              Everything you need to create, edit, and transform images with professional-quality AI tools
             </p>
           </div>
 
@@ -210,7 +192,7 @@ function HomeContent() {
               </div>
               <div className="text-center">
                 <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5">
-                  <a href="/images/ai-image-generator">Try Text-to-Image <ArrowRight className="w-4 h-4 ml-2" /></a>
+                  <a href="/generate">Try Generator <ArrowRight className="w-4 h-4 ml-2" /></a>
                 </Button>
               </div>
             </div>
@@ -235,7 +217,7 @@ function HomeContent() {
               </div>
               <div className="text-center">
                 <Button asChild className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5">
-                  <a href="/images/ai-image-editor">Try Image Editor <ArrowRight className="w-4 h-4 ml-2" /></a>
+                  <a href="/edit">Edit Images <ArrowRight className="w-4 h-4 ml-2" /></a>
                 </Button>
               </div>
             </div>
@@ -293,58 +275,6 @@ function HomeContent() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold text-green-600 mb-4 flex items-center">
-                <Book className="w-6 h-6 mr-2" />
-                Character Headcanon Creator
-              </h3>
-              <p className="text-gray-700 mb-6">
-                Generate detailed character headcanons and backstories for any fandom or creative project.
-                Perfect for writers, role-players, and game developers.
-              </p>
-              <div className="mb-6 rounded-xl overflow-hidden shadow-md max-w-sm mx-auto">
-                <Image 
-                  src="/seo-images/Wizard Character.png" 
-                  alt="AI generated wizard character for headcanon creation"
-                  width={500}
-                  height={350}
-                  className="w-full object-cover"
-                />
-              </div>
-              <div className="text-center">
-                <Button asChild className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5">
-                  <a href="https://characterheadcanon.pro" target="_blank" rel="noopener noreferrer">Create Characters <ArrowRight className="w-4 h-4 ml-2" /></a>
-                </Button>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="text-2xl font-bold text-amber-600 mb-4 flex items-center">
-                <TreePine className="w-6 h-6 mr-2" />
-                Elf Name Generator
-              </h3>
-              <p className="text-gray-700 mb-6">
-                Generate authentic elf names for D&D campaigns, fantasy stories, and RPG characters
-                with cultural accuracy and creative flair. Enhance your worldbuilding and character development
-                with fantasy names.
-              </p>
-              <div className="mb-6 rounded-xl overflow-hidden shadow-md max-w-sm mx-auto">
-                <Image 
-                  src="/seo-images/Wood Elf Ranger.png" 
-                  alt="Wood elf ranger character design for fantasy name generation"
-                  width={500}
-                  height={350}
-                  className="w-full object-cover"
-                />
-              </div>
-              <div className="text-center">
-                <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2.5">
-                  <a href="https://elfname.pro" target="_blank" rel="noopener noreferrer">Generate Names <ArrowRight className="w-4 h-4 ml-2" /></a>
-                </Button>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -353,26 +283,16 @@ function HomeContent() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Unified Creative AI Ecosystem
+              AI Image Creation Tools
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              From generating images to crafting stories and creating authentic names - your complete AI-powered creative solution
+              Professional AI-powered tools for creating, editing, and transforming images with ease
             </p>
           </div>
           
-          <div className="relative">
-            {/* 横向滚动箭头 - 使用客户端组件 */}
-            <LeftScrollButton containerId="tools-scroll-container" />
-            <RightScrollButton containerId="tools-scroll-container" />
-            
-            {/* 横向滚动容器 */}
-            <div 
-              id="tools-scroll-container" 
-              className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide"
-              style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}
-            >
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Text-to-Image Tool */}
-              <div className="min-w-[300px] w-[300px] snap-start">
+              <div>
                 <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-blue-200 h-full flex flex-col">
                   <CardHeader className="text-center">
                     <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
@@ -392,7 +312,7 @@ function HomeContent() {
                     </div>
                     <div className="mt-auto">
                       <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                        <a href="/images/ai-image-generator">
+                        <a href="/generate">
                           Try Now
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </a>
@@ -403,7 +323,7 @@ function HomeContent() {
               </div>
 
               {/* Image Editor Tool */}
-              <div className="min-w-[300px] w-[300px] snap-start">
+              <div>
                 <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-purple-200 h-full flex flex-col">
                   <CardHeader className="text-center">
                     <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-200 transition-colors">
@@ -423,7 +343,7 @@ function HomeContent() {
                     </div>
                     <div className="mt-auto">
                       <Button asChild className="w-full bg-purple-600 hover:bg-purple-700 text-white">
-                        <a href="/images/ai-image-editor">
+                        <a href="/edit">
                           Edit Photos
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </a>
@@ -434,7 +354,7 @@ function HomeContent() {
               </div>
 
               {/* Pixar Style Converter Tool */}
-              <div className="min-w-[300px] w-[300px] snap-start">
+              <div>
                 <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-orange-200 h-full flex flex-col">
                   <CardHeader className="text-center">
                     <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 transition-colors">
@@ -465,7 +385,7 @@ function HomeContent() {
               </div>
 
               {/* Studio Ghibli Style Converter Tool */}
-              <div className="min-w-[300px] w-[300px] snap-start">
+              <div>
                 <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-cyan-200 h-full flex flex-col">
                   <CardHeader className="text-center">
                     <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-cyan-200 transition-colors">
@@ -495,79 +415,7 @@ function HomeContent() {
                 </Card>
               </div>
 
-              {/* Character Headcanon Tool */}
-              <div className="min-w-[300px] w-[300px] snap-start">
-                <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-green-200 h-full flex flex-col">
-                  <CardHeader className="text-center">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
-                      <Book className="w-8 h-8 text-green-600" />
-                    </div>
-                    <CardTitle className="text-xl">Character Headcanon Creator</CardTitle>
-                    <CardDescription>Generate detailed character stories</CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-center flex-1 flex flex-col">
-                    <p className="text-sm text-gray-600 mb-4">
-                      Create detailed character headcanons and backstories for any fandom, perfect for writers and role-players.
-                    </p>
-                    <div className="flex flex-wrap gap-1 justify-center mb-4">
-                      <Badge variant="secondary" className="text-xs">Character Stories</Badge>
-                      <Badge variant="secondary" className="text-xs">Fan Fiction</Badge>
-                      <Badge variant="secondary" className="text-xs">FREE</Badge>
-                    </div>
-                    <div className="mt-auto">
-                      <Button asChild className="w-full bg-green-600 hover:bg-green-700 text-white">
-                        <a href="https://characterheadcanon.pro" target="_blank" rel="noopener noreferrer">
-                          Create Characters
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </a>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Elf Name Generator Tool */}
-              <div className="min-w-[300px] w-[300px] snap-start">
-                <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-amber-200 h-full flex flex-col">
-                  <CardHeader className="text-center">
-                    <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition-colors">
-                      <TreePine className="w-8 h-8 text-amber-600" />
-                    </div>
-                    <CardTitle className="text-xl">Fantasy Names</CardTitle>
-                    <CardDescription>Generate authentic fantasy names</CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-center flex-1 flex flex-col">
-                    <p className="text-sm text-gray-600 mb-4">
-                      Generate authentic elf names for D&D campaigns, fantasy stories, and RPG characters with cultural accuracy.
-                    </p>
-                    <div className="flex flex-wrap gap-1 justify-center mb-4">
-                      <Badge variant="secondary" className="text-xs">Elf Names</Badge>
-                      <Badge variant="secondary" className="text-xs">D&D RPG</Badge>
-                      <Badge variant="secondary" className="text-xs">FREE</Badge>
-                    </div>
-                    <div className="mt-auto">
-                      <Button asChild className="w-full bg-amber-600 hover:bg-amber-700 text-white">
-                        <a href="https://elfname.pro" target="_blank" rel="noopener noreferrer">
-                          Generate Names
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </a>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
             </div>
-            
-            {/* 滚动指示器 */}
-            <div className="flex justify-center mt-6 gap-2">
-              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-              <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -637,7 +485,7 @@ function HomeContent() {
           
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Button size="lg" asChild className="bg-white text-blue-700 hover:bg-blue-50 hover:text-blue-800">
-              <a href="/images/ai-image-generator">
+              <a href="/generate">
                 <Wand2 className="w-5 h-5 mr-2" />
                 Start Creating for Free
               </a>
