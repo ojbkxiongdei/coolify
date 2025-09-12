@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, Suspense, useEffect } from 'react'
+import Head from 'next/head'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -83,7 +84,26 @@ function HomeContent() {
   }, [searchParams])
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <Head>
+        <title>DreamfinityX - Professional AI Image Generator & Creative Platform</title>
+        <meta name="description" content="Create stunning AI images from text in seconds with DreamfinityX. Professional AI image generation, editing, and style conversion tools. Start creating for free today." />
+        <meta name="keywords" content="AI image generator, text to image, AI art generator, image generation, AI creative tools, artificial intelligence, digital art, AIGC" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://dreamfinityx.com/" />
+        
+        <meta property="og:title" content="DreamfinityX - Professional AI Image Generator" />
+        <meta property="og:description" content="Create stunning AI images from text in seconds with DreamfinityX. Professional AI image generation, editing, and style conversion tools." />
+        <meta property="og:url" content="https://dreamfinityx.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="DreamfinityX - Professional AI Image Generator" />
+        <meta name="twitter:description" content="Create stunning AI images from text in seconds with DreamfinityX. Professional AI image generation, editing, and style conversion tools." />
+      </Head>
+      
+      <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
       <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="max-w-6xl mx-auto">
@@ -571,6 +591,7 @@ function HomeContent() {
         }}
       />
     </div>
+    </>
   )
 }
 
