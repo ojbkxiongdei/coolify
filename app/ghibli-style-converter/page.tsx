@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ghibli Style Converter | Transform Photos to Studio Ghibli Art",
     description: "Turn your photos into beautiful Studio Ghibli style artwork with our AI style converter. Free online tool to create Miyazaki-inspired images.",
-    url: "https://dreamfinityx.com/images/ghibli-style-converter",
+    url: "https://dreamfinityx.com/ghibli-style-converter",
     type: "website",
     images: [
       {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     description: "Convert your photos into Studio Ghibli-style animations with our AI converter. Transform landscapes and portraits into magical Ghibli-inspired watercolor art.",
   },
   alternates: {
-    canonical: "https://dreamfinityx.com/images/ghibli-style-converter",
+    canonical: "https://dreamfinityx.com/ghibli-style-converter",
   },
 }
 

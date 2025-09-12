@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pixar Style Converter | Transform Photos to 3D Animation",
     description: "Turn your photos into Pixar-style 3D animation with our AI style converter. Free online tool to create beautiful Pixar-inspired images.",
-    url: "https://dreamfinityx.com/images/pixar-style-converter",
+    url: "https://dreamfinityx.com/pixar-style-converter",
     type: "website",
     images: [
       {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     description: "Convert your photos into Pixar-style animations with our AI converter. Transform portraits into beautiful Pixar-inspired cartoon characters.",
   },
   alternates: {
-    canonical: "https://dreamfinityx.com/images/pixar-style-converter",
+    canonical: "https://dreamfinityx.com/pixar-style-converter",
   },
 }
 

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Image Editor - Professional Photo Editing Tool | DreamfinityX",
     description: "Edit and enhance your images with our AI-powered image editor. Professional photo editing and artistic effects with artificial intelligence.",
-    url: "https://dreamfinityx.com/images/ai-image-editor",
+    url: "https://dreamfinityx.com/edit",
     type: "website",
     locale: "en_US",
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: "Edit and enhance your images with our AI-powered image editor. Professional photo editing and artistic effects with AI.",
   },
   alternates: {
-    canonical: "https://dreamfinityx.com/images/ai-image-editor",
+    canonical: "https://dreamfinityx.com/edit",
   },
 }
 
