@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      aspectRatio: {
+        '2/3': '2 / 3',   // Portrait 1024x1536
+        '3/2': '3 / 2',   // Landscape 1536x1024
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

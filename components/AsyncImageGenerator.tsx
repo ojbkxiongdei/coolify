@@ -41,6 +41,7 @@ export default function AsyncImageGenerator() {
   
   const [userCredits, setUserCredits] = useState<UserCredits | null>(null)
   const [recentImages, setRecentImages] = useState<string[]>([])
+  const [imageSizes, setImageSizes] = useState<Record<string, string>>({}) // 存储图片尺寸信息
   const [isLoadingImages, setIsLoadingImages] = useState(false)
   const [imageLoadingTasks, setImageLoadingTasks] = useState<Set<string>>(new Set())
   // 追踪已处理图片的任务ID，避免重复处理
@@ -154,6 +155,18 @@ export default function AsyncImageGenerator() {
                 const newImages = [...imageData.images, ...prevImages.filter(img => !imageData.images.includes(img))]
                 return newImages.slice(0, 12) // 保持最多12张图片
               })
+              
+              // 更新图片尺寸信息
+              if (task.settings?.size) {
+                setImageSizes(prevSizes => {
+                  const newSizes = { ...prevSizes }
+                  imageData.images.forEach((imageUrl: string) => {
+                    newSizes[imageUrl] = task.settings.size
+                  })
+                  return newSizes
+                })
+              }
+              
               console.log('🔄 Immediately updated local state to show base64 images')
               
               // 在后台异步上传，不阻塞UI
@@ -249,6 +262,14 @@ export default function AsyncImageGenerator() {
       if (response.ok) {
         const data = await response.json()
         setRecentImages(data.images || [])
+        
+        // 如果 API 返回了尺寸信息，更新 imageSizes 状态
+        if (data.imageSizes) {
+          setImageSizes(prevSizes => ({
+            ...prevSizes,
+            ...data.imageSizes
+          }))
+        }
       }
     } catch (error) {
       console.error('Failed to fetch recent images:', error)
@@ -573,6 +594,7 @@ export default function AsyncImageGenerator() {
         <ImageResults
           images={recentImages}
           title="Recent Generated Images"
+          imageSizes={imageSizes}
         />
       </div>
     </div>
