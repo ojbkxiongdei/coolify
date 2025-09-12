@@ -13,53 +13,33 @@ export async function GET() {
       priority: 1.0,
     },
     
-    // 图像工具页面
+    // 图像工具页面 - 移除重定向的/images页面
     {
-      url: `${baseUrl}/images`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/images/ai-image-generator`,
+      url: `${baseUrl}/generate`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/images/ai-image-editor`,
+      url: `${baseUrl}/edit`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/images/ghibli-style-converter`,
+      url: `${baseUrl}/ghibli-style-converter`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/images/pixar-style-converter`,
+      url: `${baseUrl}/pixar-style-converter`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     
-    // 名字生成工具
-    {
-      url: `${baseUrl}/names`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    
-    // 故事工具 
-    {
-      url: `${baseUrl}/stories`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
+    // 移除重定向的/names和/stories页面
     
     {
       url: `${baseUrl}/pricing`,

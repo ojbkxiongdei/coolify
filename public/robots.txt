@@ -5,10 +5,10 @@ Allow: /
 Sitemap: https://dreamfinityx.com/sitemap.xml
 
 # Optimize crawling for important pages - Updated for new URL structure
-Allow: /images/ai-image-generator
-Allow: /images/ai-image-editor
-Allow: /images/ghibli-style-converter
-Allow: /images/pixar-style-converter
+Allow: /generate
+Allow: /edit
+Allow: /ghibli-style-converter
+Allow: /pixar-style-converter
 Allow: /pricing
 Allow: /privacy
 Allow: /terms
