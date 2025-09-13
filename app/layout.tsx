@@ -62,45 +62,12 @@ export default function RootLayout({
           `}
         </Script>
         
-        {/* 处理URL参数的规范链接标签脚本 */}
-        <Script id="canonical-control" strategy="beforeInteractive">
-          {`
-            // 检测URL是否包含参数，如果有就确保规范链接指向无参数版本
-            (function() {
-              if (window.location.search) {
-                var canonicalURL = window.location.origin + window.location.pathname;
-                
-                // 等待DOM加载完成
-                document.addEventListener('DOMContentLoaded', function() {
-                  var links = document.querySelectorAll('link[rel="canonical"]');
-                  
-                  if (links.length > 0) {
-                    // 更新已存在的规范链接
-                    links[0].href = canonicalURL;
-                  } else {
-                    // 如果没有规范链接，创建一个
-                    var link = document.createElement('link');
-                    link.rel = 'canonical';
-                    link.href = canonicalURL;
-                    document.head.appendChild(link);
-                  }
-                  
-                  // 同时更新og:url元标记
-                  var ogUrl = document.querySelector('meta[property="og:url"]');
-                  if (ogUrl) {
-                    ogUrl.content = canonicalURL;
-                  }
-                });
-              }
-            })();
-          `}
-        </Script>
+        {/* Removed dynamic canonical script; use Next metadata per page */}
         
         {/* Structured Data */}
         <StructuredData type="website" />
         <StructuredData type="software" />
         <StructuredData type="service" />
-        <StructuredData type="faq" />
       </head>
       <body className={inter.className}>
         <ErrorBoundary>

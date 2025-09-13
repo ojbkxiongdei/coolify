@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import React, { useState, Suspense, useEffect } from 'react'
 import Head from 'next/head'
@@ -67,21 +67,7 @@ function HomeContent() {
     }
   }, [])
 
-  // 动态更新canonical链接，解决带有参数的URL重复内容问题
-  useEffect(() => {
-    // 查找现有的canonical标签
-    let canonicalTag = document.querySelector('link[rel="canonical"]')
-    
-    // 如果没有找到标签，创建一个新的
-    if (!canonicalTag) {
-      canonicalTag = document.createElement('link')
-      canonicalTag.setAttribute('rel', 'canonical')
-      document.head.appendChild(canonicalTag)
-    }
-    
-    // 始终指向不带参数的基本URL作为规范URL
-    canonicalTag.setAttribute('href', canonicalUrl)
-  }, [searchParams])
+  // Canonical handled by Next/head below; no client-side override
 
   return (
     <>
@@ -91,16 +77,20 @@ function HomeContent() {
         <meta name="keywords" content="AI image generator, text to image, AI art generator, image generation, AI creative tools, artificial intelligence, digital art, AIGC" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://dreamfinityx.com/" />
-        
+
         <meta property="og:title" content="DreamfinityX - Professional AI Image Generator" />
         <meta property="og:description" content="Create stunning AI images from text in seconds with DreamfinityX. Professional AI image generation, editing, and style conversion tools." />
         <meta property="og:url" content="https://dreamfinityx.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
-        
+        <meta property="og:image" content="https://dreamfinityx.com/seo-images/hero-creative-workspace.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="DreamfinityX - Professional AI Image Generator" />
         <meta name="twitter:description" content="Create stunning AI images from text in seconds with DreamfinityX. Professional AI image generation, editing, and style conversion tools." />
+        <meta name="twitter:image" content="https://dreamfinityx.com/seo-images/hero-creative-workspace.png" />
       </Head>
       
       <div className="min-h-screen bg-gray-50">
@@ -590,6 +580,8 @@ function HomeContent() {
           }
         }}
       />
+      {/* Add FAQ structured data to match on-page FAQ content */}
+      <StructuredData type="faq" />
     </div>
     </>
   )

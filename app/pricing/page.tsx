@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Head from 'next/head'
+// Remove next/head usage; rely on metadata in layout/pricing layout
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -213,21 +213,6 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-16">
-      <Head>
-        <title>Pricing Plans - DreamfinityX AI Image Generator | Affordable AI Art Plans</title>
-        <meta name="description" content="Choose from flexible pricing plans for DreamfinityX AI image generator. Monthly subscriptions and credit packages available. Start creating stunning AI art today." />
-        <meta name="keywords" content="AI image generator pricing, AI art subscription, image generation plans, AI creative tools pricing, monthly AI credits, affordable AI art" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://dreamfinityx.com/pricing" />
-        <meta property="og:title" content="Pricing Plans - DreamfinityX AI Image Generator" />
-        <meta property="og:description" content="Choose from flexible pricing plans for DreamfinityX AI image generator. Monthly subscriptions and credit packages available." />
-        <meta property="og:url" content="https://dreamfinityx.com/pricing" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="en_US" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pricing Plans - DreamfinityX AI Image Generator" />
-        <meta name="twitter:description" content="Choose from flexible pricing plans for DreamfinityX AI image generator. Monthly subscriptions and credit packages available." />
-      </Head>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
 

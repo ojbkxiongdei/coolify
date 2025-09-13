@@ -20,7 +20,6 @@ Disallow: /auth/
 Disallow: /success/
 Disallow: /history/
 
-# Block URL parameters to prevent duplicate content
+# Block specific URL parameters to prevent duplicate content
 Disallow: /*?*search=
 Disallow: /*?*tab=
-Disallow: /*?* 

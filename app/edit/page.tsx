@@ -19,20 +19,34 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Image Editor - Professional Photo Editing Tool | DreamfinityX",
+    description: "Edit and enhance your images with our AI-powered image editor. Professional photo editing and artistic effects with AI.",
+    images: [
+      {
+        url: "https://dreamfinityx.com/seo-images/Photo Enhancement.png",
+        alt: "AI photo enhancement preview",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://dreamfinityx.com/edit",
+  },
   openGraph: {
     title: "AI Image Editor - Professional Photo Editing Tool | DreamfinityX",
     description: "Edit and enhance your images with our AI-powered image editor. Professional photo editing and artistic effects with artificial intelligence.",
     url: "https://dreamfinityx.com/edit",
     type: "website",
     locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "AI Image Editor - Professional Photo Editing Tool | DreamfinityX",
-    description: "Edit and enhance your images with our AI-powered image editor. Professional photo editing and artistic effects with AI.",
-  },
-  alternates: {
-    canonical: "https://dreamfinityx.com/edit",
+    images: [
+      {
+        url: "https://dreamfinityx.com/seo-images/Photo Enhancement.png",
+        width: 1200,
+        height: 630,
+        alt: "AI photo enhancement preview",
+      },
+    ],
   },
 }
 
@@ -43,7 +57,7 @@ export default function ImageEditorPage() {
       <nav className="container mx-auto px-4 text-sm py-4 text-gray-500">
         <ol className="flex flex-wrap">
           <li className="flex items-center">
-            <Link href="/images" className="hover:text-blue-600">Image Tools</Link>
+            <Link href="/" className="hover:text-blue-600">Home</Link>
             <span className="mx-2">/</span>
           </li>
           <li className="text-gray-700 font-medium">AI Image Editor</li>
@@ -82,20 +96,15 @@ export default function ImageEditorPage() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://dreamfinityx.com"
+                "item": "https://dreamfinityx.com/"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Image Tools",
-                "item": "https://dreamfinityx.com/images"
+                "name": "Edit",
+                "item": "https://dreamfinityx.com/edit"
               },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "AI Image Editor",
-                "item": "https://dreamfinityx.com/images/ai-image-editor"
-              }
+              
             ]
           }
         }}

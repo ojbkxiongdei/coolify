@@ -37,12 +37,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock"
           },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "bestRating": "5",
-            "ratingCount": "1024"
-          }
+          // Remove default aggregateRating to avoid unverifiable data
         }
       
       case 'service':
@@ -125,7 +120,8 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
     }
   }
 
-  const structuredData = getStructuredData()
+  // If custom data provided, prefer it; otherwise use defaults by type
+  const structuredData = data ?? getStructuredData()
 
   if (!structuredData) return null
 
@@ -138,4 +134,4 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
       }}
     />
   )
-} 
+}

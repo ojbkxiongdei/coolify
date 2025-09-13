@@ -587,7 +587,7 @@ const TextToImageSEO = () => {
               Transform your ideas into stunning visuals with our AI text-to-image generator. No design skills required – just describe what you want to create and watch our AI bring it to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/images/ai-image-generator" className="px-8 py-3 rounded-lg font-semibold bg-blue-600 text-white hover:bg-blue-700">
+              <Link href="/generate" className="px-8 py-3 rounded-lg font-semibold bg-blue-600 text-white hover:bg-blue-700">
                 Try Image Generator
               </Link>
               <Link
@@ -611,7 +611,7 @@ const TextToImageSEO = () => {
             "@type": "WebApplication",
             "name": "AI Text to Image Generator",
             "description": "Transform text into stunning visuals with AI. Generate professional artwork, illustrations, and graphics from text descriptions using advanced AI technology.",
-            "url": "https://dreamfinityx.com/images/ai-image-generator",
+            "url": "https://dreamfinityx.com/generate",
             "applicationCategory": "DesignApplication",
             "operatingSystem": "Any",
             "offers": {
