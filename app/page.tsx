@@ -102,10 +102,10 @@ function HomeContent() {
               <div className="mb-8">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-wide">
                   <span className="block">Create Stunning</span>
-                  <span className="block mt-3 md:mt-4">
+                  <span className="block mt-2 md:mt-3">
                     <span className="text-blue-600">AI Images</span>
                   </span>
-                  <span className="block mt-3 md:mt-4">in Seconds</span>
+                  <span className="block mt-2 md:mt-3">in Seconds</span>
                 </h1>
                 <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto md:mx-0">
                   Transform your ideas into professional visuals with our AI-powered image generation, editing, and style transfer tools.
