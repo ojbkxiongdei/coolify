@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Docker 部署优化
+  output: 'standalone',
+
   // 优化chunk加载
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     // 生产环境优化
